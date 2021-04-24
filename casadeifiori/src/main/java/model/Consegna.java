@@ -9,7 +9,7 @@ public class Consegna {
 	private Date dataConsegna;
 	private Date dataInizioSpedizione;
 	private Date dataPresuntaConsegna;
-	private Stato stato;
+	private StatoConsegna stato;
 	private int indirizzo;
 	private int ordine;
 	
