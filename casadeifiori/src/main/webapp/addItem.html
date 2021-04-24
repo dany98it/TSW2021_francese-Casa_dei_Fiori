@@ -5,7 +5,7 @@
 		<title>Casa dei fiori</title>
 	</head>
 	<body>
-		<form action=""> 
+		<form action="AggiungiItem" > 
 		
 			<label for="name">Nome:</label><br> 
 			<input name="name" type="text" maxlength="20" required placeholder="inserire nome"><br> 
@@ -22,6 +22,14 @@
 			<label for="sconto">Sconto:</label><br> 
 			<input name="sconto" type="number" min="0" value="0" required><br>
 			
+			<label for="tipo">Tipo:</label><br> 
+			<select name="tipo" id="tipo">
+				<option value="piante"> piante </option>
+				<option value="fioriVeri"> fiori veri </option>
+				<option value="fioriFinti"> fiori finti </option>
+				<option value="oggettistica"> oggettistica </option>
+			</select>
+			<br>
 			<label for="quantity">Quantità:</label><br> 
 			<input name="quantity" type="number" min="1" value="1" required><br>
 
