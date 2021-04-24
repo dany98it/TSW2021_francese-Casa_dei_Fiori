@@ -1,5 +1,5 @@
 package model;
 
-public class Tipo_Pagamento {
+public enum Tipo_Pagamento {
 
 }
