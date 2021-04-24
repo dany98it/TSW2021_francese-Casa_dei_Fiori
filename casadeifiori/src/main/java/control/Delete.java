@@ -8,6 +8,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;*/
 import java.sql.SQLException;
 
+import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
@@ -36,14 +37,13 @@ public class Delete extends HttpServlet {
 		// TODO Auto-generated method stub
 		ItemDAO itemDao = new ItemDAO();
 		try {
-			if (itemDao.doDelete(Integer.parseInt(request.getParameter("id")))) {
-				response.getWriter().append("deledet  ").append(request.getContextPath());
-			}
+			itemDao.doDelete(Integer.parseInt(request.getParameter("id")));
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
+		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/listaItem.jsp");
+		dispatcher.forward(request, response);
 	}
 
 	/**

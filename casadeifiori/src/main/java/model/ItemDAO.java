@@ -71,7 +71,7 @@ public class ItemDAO implements DaoInterfacce<Item,Integer>{
 		Connection connection = null;
 		PreparedStatement preparedStatement = null;
 
-		long result = 0;
+		boolean result ;
 
 		String deleteSQL = "DELETE FROM " + ItemDAO.TABLE_NAME + " WHERE id = ?";
 
@@ -81,8 +81,9 @@ public class ItemDAO implements DaoInterfacce<Item,Integer>{
 			preparedStatement = connection.prepareStatement(deleteSQL);
 			preparedStatement.setInt(1, code);
 
-			result = preparedStatement.executeLargeUpdate();
-
+			result = preparedStatement.execute();
+			
+			connection.commit();
 		} finally {
 			try {
 				if (preparedStatement != null)
@@ -92,7 +93,7 @@ public class ItemDAO implements DaoInterfacce<Item,Integer>{
 					connection.close();
 			}
 		}
-		return (result != 0);
+		return result;
 	}
 
 	@Override
@@ -111,7 +112,7 @@ public class ItemDAO implements DaoInterfacce<Item,Integer>{
 			preparedStatement.setInt(1, code);
 
 			ResultSet rs = preparedStatement.executeQuery();
-
+			connection.commit();
 			while (rs.next()) {
 				bean.setId(rs.getInt("id"));
 				bean.setIva(rs.getInt("iva"));
@@ -152,9 +153,9 @@ public class ItemDAO implements DaoInterfacce<Item,Integer>{
 			connection = ds.getConnection();
 			connection.setAutoCommit(false);
 			preparedStatement = connection.prepareStatement(selectSQL);
-
+			
 			ResultSet rs = preparedStatement.executeQuery();
-
+			connection.commit();
 			while (rs.next()) {
 				Item bean = new Item();
 				bean.setId(rs.getInt("id"));
