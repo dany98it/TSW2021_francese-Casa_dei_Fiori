@@ -4,59 +4,60 @@ import java.sql.Date;
 
 public class Ordine {
 	private int id;
-	private TipoOrdine tipo_ordine;
-	private TipoPagamento tipo_pagamento;
-	private double prezzo_totale;
-	private Date data_ordine;
+	private TipoOrdine tipoOrdine;
+	private TipoPagamento tipoPagamento;
+	private double prezzoTotale;
+	private Date dataOrdine;
 	private String user;
 	
 	public Ordine() {
 		super();
 	}
-	
-	public Ordine(int id, TipoOrdine tipo_ordine, TipoPagamento tipo_pagamento, double prezzo_totale,
-			Date data_ordine, String user) {
-		super();
-		this.id = id;
-		this.tipo_ordine = tipo_ordine;
-		this.tipo_pagamento = tipo_pagamento;
-		this.prezzo_totale = prezzo_totale;
-		this.data_ordine = data_ordine;
-		this.user = user;
-	}
+
 	public int getId() {
 		return id;
 	}
+
 	public void setId(int id) {
 		this.id = id;
 	}
-	public TipoOrdine getTipo_ordine() {
-		return tipo_ordine;
+
+	public TipoOrdine getTipoOrdine() {
+		return tipoOrdine;
 	}
-	public void setTipo_ordine(TipoOrdine tipo_ordine) {
-		this.tipo_ordine = tipo_ordine;
+
+	public void setTipoOrdine(TipoOrdine tipoOrdine) {
+		this.tipoOrdine = tipoOrdine;
 	}
-	public TipoPagamento getTipo_pagamento() {
-		return tipo_pagamento;
+
+	public TipoPagamento getTipoPagamento() {
+		return tipoPagamento;
 	}
-	public void setTipo_pagamento(TipoPagamento tipo_pagamento) {
-		this.tipo_pagamento = tipo_pagamento;
+
+	public void setTipoPagamento(TipoPagamento tipoPagamento) {
+		this.tipoPagamento = tipoPagamento;
 	}
-	public double getPrezzo_totale() {
-		return prezzo_totale;
+
+	public double getPrezzoTotale() {
+		return prezzoTotale;
 	}
-	public void setPrezzo_totale(double prezzo_totale) {
-		this.prezzo_totale = prezzo_totale;
+
+	public void setPrezzoTotale(double prezzoTotale) {
+		this.prezzoTotale = prezzoTotale;
 	}
-	public Date getData_ordine() {
-		return data_ordine;
+
+	public Date getDataOrdine() {
+		return dataOrdine;
 	}
-	public void setData_ordine(Date data_ordine) {
-		this.data_ordine = data_ordine;
+
+	public void setDataOrdine(Date dataOrdine) {
+		this.dataOrdine = dataOrdine;
 	}
+
 	public String getUser() {
 		return user;
 	}
+
 	public void setUser(String user) {
 		this.user = user;
 	}

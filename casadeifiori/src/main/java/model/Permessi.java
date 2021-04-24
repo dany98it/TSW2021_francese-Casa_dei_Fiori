@@ -1,5 +1,6 @@
 package model;
 
-public class Permessi {
-
+public enum Permessi {
+	admin,
+	user
 }
