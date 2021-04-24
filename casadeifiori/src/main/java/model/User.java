@@ -15,13 +15,13 @@ public class User {
 		super();
 	}
 	
-	public User(String email, String nome, String cognome, Date data_di_nascita, String telefono, Permessi permessi,
+	public User(String email, String nome, String cognome, Date dataNascita, String telefono, Permessi permessi,
 			String password) {
 		super();
 		this.email = email;
 		this.nome = nome;
 		this.cognome = cognome;
-		this.data_di_nascita = data_di_nascita;
+		this.dataNascita = dataNascita;
 		this.telefono = telefono;
 		this.permessi = permessi;
 		this.password = password;
@@ -45,11 +45,11 @@ public class User {
 	public void setCognome(String cognome) {
 		this.cognome = cognome;
 	}
-	public Date getData_di_nascita() {
-		return data_di_nascita;
+	public Date getdataNascita() {
+		return dataNascita;
 	}
-	public void setData_di_nascita(Date data_di_nascita) {
-		this.data_di_nascita = data_di_nascita;
+	public void setdataNascita(Date dataNascita) {
+		this.dataNascita = dataNascita;
 	}
 	public String getTelefono() {
 		return telefono;
