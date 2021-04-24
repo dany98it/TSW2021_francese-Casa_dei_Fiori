@@ -37,7 +37,7 @@ public class ItemDAO implements DaoInterfacce<Item,Integer>{
 		PreparedStatement preparedStatement = null;
 
 		String insertSQL = "INSERT INTO " + ItemDAO.TABLE_NAME
-				+ " (iva, prezzo, descrizione, nome, tipo, sconto) VALUES (?, ?, ?, ?, ?, ?)";
+				+ " (iva, prezzo, descrizione, nome, tipo, sconto, quantita) VALUES (?, ?, ?, ?, ?, ?, ?)";
 
 		try {
 			connection = ds.getConnection();
@@ -48,6 +48,7 @@ public class ItemDAO implements DaoInterfacce<Item,Integer>{
 			preparedStatement.setString(4, t.getNome());
 			preparedStatement.setString(5, t.getTipo().toString());
 			preparedStatement.setInt(6, t.getSconto());
+			preparedStatement.setInt(7, t.getQuantita());
 
 			preparedStatement.executeUpdate();
 
@@ -116,6 +117,7 @@ public class ItemDAO implements DaoInterfacce<Item,Integer>{
 				bean.setNome(rs.getString("nome"));
 				bean.setTipo(TipoItem.valueOf(rs.getString("tipo")));
 				bean.setSconto(rs.getInt("sconto"));
+				bean.setQuantita(rs.getInt("quantita"));
 			}
 
 		} finally {
@@ -158,6 +160,7 @@ public class ItemDAO implements DaoInterfacce<Item,Integer>{
 				bean.setNome(rs.getString("nome"));
 				bean.setTipo(TipoItem.valueOf(rs.getString("tipo")));
 				bean.setSconto(rs.getInt("sconto"));
+				bean.setQuantita(rs.getInt("quantita"));
 			}
 
 		} finally {
