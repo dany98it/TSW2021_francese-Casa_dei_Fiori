@@ -10,5 +10,5 @@ public interface DaoInterfacce<T,E> {
 
 	public T doRetrieveByKey(E code) throws SQLException;
 	
-	public Collection<T> doRetrieveAll() throws SQLException;
+	public Collection<T> doRetrieveAll(String order) throws SQLException;
 }
