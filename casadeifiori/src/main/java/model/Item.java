@@ -6,14 +6,14 @@ public class Item {
 	private double prezzo;
 	private String descrizione;
 	private String nome;
-	private Tipo tipo;
+	private TipoItem tipo;
 	private int sconto;
 	
 	public Item() {
 		super();
 	}
 	
-	public Item(int id, int iva, double prezzo, String descrizione, String nome, Tipo tipo, int sconto) {
+	public Item(int id, int iva, double prezzo, String descrizione, String nome, TipoItem tipo, int sconto) {
 		super();
 		this.id = id;
 		this.iva = iva;
@@ -53,10 +53,10 @@ public class Item {
 	public void setNome(String nome) {
 		this.nome = nome;
 	}
-	public Tipo getTipo() {
+	public TipoItem getTipo() {
 		return tipo;
 	}
-	public void setTipo(Tipo tipo) {
+	public void setTipo(TipoItem tipo) {
 		this.tipo = tipo;
 	}
 	public int getSconto() {
