@@ -7,14 +7,14 @@ public class Indirizzo {
     private String cap;
     private String via;
     private String interno;
-    private int numero_civico;
+    private int numeroCivico;
      
     public Indirizzo() {
     	super();
     }
 
 	public Indirizzo(String id, String provincia, String città, String cap, String via, String interno,
-			int numero_civico) {
+			int numeroCivico) {
 		super();
 		this.id = id;
 		this.provincia = provincia;
@@ -22,7 +22,7 @@ public class Indirizzo {
 		this.cap = cap;
 		this.via = via;
 		this.interno = interno;
-		this.numero_civico = numero_civico;
+		this.numeroCivico = numeroCivico;
 	}
 
 	public String getId() {
@@ -74,11 +74,11 @@ public class Indirizzo {
 	}
 
 	public int getNumero_civico() {
-		return numero_civico;
+		return numeroCivico;
 	}
 
-	public void setNumero_civico(int numero_civico) {
-		this.numero_civico = numero_civico;
+	public void setNumero_civico(int numeroCivico) {
+		this.numeroCivico = numeroCivico;
 	}
     
     
