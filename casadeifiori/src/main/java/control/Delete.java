@@ -36,12 +36,14 @@ public class Delete extends HttpServlet {
 		// TODO Auto-generated method stub
 		ItemDAO itemDao = new ItemDAO();
 		try {
-			itemDao.doDelete(Integer.parseInt(request.getParameter("id")));
+			if (itemDao.doDelete(Integer.parseInt(request.getParameter("id")))) {
+				response.getWriter().append("deledet  ").append(request.getContextPath());
+			}
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		response.getWriter().append("deledet  ").append(request.getContextPath());
+		
 	}
 
 	/**
