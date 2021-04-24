@@ -6,7 +6,7 @@ public class User {
 	private String email;
 	private String nome;
 	private String cognome;
-	private Date data_di_nascita;
+	private Date dataNascita;
 	private String telefono;
 	private Permessi permessi;
 	private String password;

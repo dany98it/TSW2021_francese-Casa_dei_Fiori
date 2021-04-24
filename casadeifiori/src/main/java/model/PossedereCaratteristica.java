@@ -1,15 +1,15 @@
 package model;
 
-public class Possedere_Caratteristica {
+public class PossedereCaratteristica {
 	private int item;
 	private int caratteristica;
 	private String valore;
 		
-	public Possedere_Caratteristica() {
+	public PossedereCaratteristica() {
 		super();
 	}
 
-	public Possedere_Caratteristica(int item, int caratteristica, String valore) {
+	public PossedereCaratteristica(int item, int caratteristica, String valore) {
 		super();
 		this.item = item;
 		this.caratteristica = caratteristica;
