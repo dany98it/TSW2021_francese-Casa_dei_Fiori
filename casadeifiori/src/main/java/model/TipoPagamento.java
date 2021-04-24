@@ -1,6 +1,6 @@
 package model;
 
-public enum Tipo_Pagamento {
+public enum TipoPagamento {
 	paypal,
 	cardaCredito;
 }

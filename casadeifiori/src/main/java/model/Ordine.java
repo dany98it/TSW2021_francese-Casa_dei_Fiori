@@ -4,8 +4,8 @@ import java.sql.Date;
 
 public class Ordine {
 	private int id;
-	private Tipo_Ordine tipo_ordine;
-	private Tipo_Pagamento tipo_pagamento;
+	private TipoOrdine tipo_ordine;
+	private TipoPagamento tipo_pagamento;
 	private double prezzo_totale;
 	private Date data_ordine;
 	private String user;
@@ -14,7 +14,7 @@ public class Ordine {
 		super();
 	}
 	
-	public Ordine(int id, Tipo_Ordine tipo_ordine, Tipo_Pagamento tipo_pagamento, double prezzo_totale,
+	public Ordine(int id, TipoOrdine tipo_ordine, TipoPagamento tipo_pagamento, double prezzo_totale,
 			Date data_ordine, String user) {
 		super();
 		this.id = id;
@@ -30,16 +30,16 @@ public class Ordine {
 	public void setId(int id) {
 		this.id = id;
 	}
-	public Tipo_Ordine getTipo_ordine() {
+	public TipoOrdine getTipo_ordine() {
 		return tipo_ordine;
 	}
-	public void setTipo_ordine(Tipo_Ordine tipo_ordine) {
+	public void setTipo_ordine(TipoOrdine tipo_ordine) {
 		this.tipo_ordine = tipo_ordine;
 	}
-	public Tipo_Pagamento getTipo_pagamento() {
+	public TipoPagamento getTipo_pagamento() {
 		return tipo_pagamento;
 	}
-	public void setTipo_pagamento(Tipo_Pagamento tipo_pagamento) {
+	public void setTipo_pagamento(TipoPagamento tipo_pagamento) {
 		this.tipo_pagamento = tipo_pagamento;
 	}
 	public double getPrezzo_totale() {
