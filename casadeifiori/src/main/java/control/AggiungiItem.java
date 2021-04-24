@@ -50,10 +50,10 @@ public class AggiungiItem extends HttpServlet {
 		itemDAO.doSave(item);
 	} catch (SQLException e) {
 		// TODO Auto-generated catch block
-		e.printStackTrace();
+		e.printStackTrace(response.getWriter());
 	}
 		
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+		response.getWriter().append("done").append(request.getContextPath());
 	}
 
 	/**

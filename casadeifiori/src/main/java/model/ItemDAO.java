@@ -21,7 +21,7 @@ public class ItemDAO implements DaoInterfacce<Item,Integer>{
 			Context initCtx = new InitialContext();
 			Context envCtx = (Context) initCtx.lookup("java:comp/env");
 
-			ds = (DataSource) envCtx.lookup("jdbc/casa");
+			ds = (DataSource) envCtx.lookup("jdbc/database");
 
 		} catch (NamingException e) {
 			System.out.println("Error:" + e.getMessage());
@@ -35,12 +35,13 @@ public class ItemDAO implements DaoInterfacce<Item,Integer>{
 		// TODO Auto-generated method stub
 		Connection connection = null;
 		PreparedStatement preparedStatement = null;
-
 		String insertSQL = "INSERT INTO " + ItemDAO.TABLE_NAME
 				+ " (iva, prezzo, descrizione, nome, tipo, sconto, quantita) VALUES (?, ?, ?, ?, ?, ?, ?)";
 
 		try {
+			
 			connection = ds.getConnection();
+			connection.setAutoCommit(false);
 			preparedStatement = connection.prepareStatement(insertSQL);
 			preparedStatement.setInt(1, t.getIva());
 			preparedStatement.setDouble(2, t.getPrezzo());
@@ -76,6 +77,7 @@ public class ItemDAO implements DaoInterfacce<Item,Integer>{
 
 		try {
 			connection = ds.getConnection();
+			connection.setAutoCommit(false);
 			preparedStatement = connection.prepareStatement(deleteSQL);
 			preparedStatement.setInt(1, code);
 
@@ -104,6 +106,7 @@ public class ItemDAO implements DaoInterfacce<Item,Integer>{
 
 		try {
 			connection = ds.getConnection();
+			connection.setAutoCommit(false);
 			preparedStatement = connection.prepareStatement(selectSQL);
 			preparedStatement.setInt(1, code);
 
@@ -147,6 +150,7 @@ public class ItemDAO implements DaoInterfacce<Item,Integer>{
 
 		try {
 			connection = ds.getConnection();
+			connection.setAutoCommit(false);
 			preparedStatement = connection.prepareStatement(selectSQL);
 
 			ResultSet rs = preparedStatement.executeQuery();

@@ -3,7 +3,7 @@
 	<Resource name="jdbc/database"
         auth="Container"
         driverClassName="com.mysql.cj.jdbc.Driver"
-        type="jakarta.sql.DataSource"
+        type="javax.sql.DataSource"
         username="sidaclic_casadeifiori"
         password="SdSsDr00."
         url="jdbc:mysql://139.162.166.31:3306/sidaclic_casadeifiori?useUnicode=true&amp;useJDBCCompliantTimezosneShift=true&amp;useLegacyDatetimeCode=false&amp;serverTimezone=UTC"/>
