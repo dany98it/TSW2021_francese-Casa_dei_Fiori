@@ -6,5 +6,5 @@
         type="javax.sql.DataSource"
         username="sidaclic_casadeifiori"
         password="SdSsDr00."
-        url="jdbc:mysql://139.162.166.31:3306/sidaclic_casadeifiori?useUnicode=true&amp;useJDBCCompliantTimezosneShift=true&amp;useLegacyDatetimeCode=false&amp;serverTimezone=UTC"/>
+        url="jdbc:mysql://139.162.166.31:3306/sidaclic_casadeifiori?useUnicode=true&amp;useJDBCCompliantTimezosneShift=true&amp;useLegacyDatetimeCode=false&amp;serverTimezone=UTC&amp;useSSL=FALSE"/>
 </Context>

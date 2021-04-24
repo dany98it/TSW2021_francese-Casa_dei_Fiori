@@ -71,7 +71,7 @@ public class ItemDAO implements DaoInterfacce<Item,Integer>{
 		Connection connection = null;
 		PreparedStatement preparedStatement = null;
 
-		int result = 0;
+		long result = 0;
 
 		String deleteSQL = "DELETE FROM " + ItemDAO.TABLE_NAME + " WHERE id = ?";
 
@@ -81,7 +81,7 @@ public class ItemDAO implements DaoInterfacce<Item,Integer>{
 			preparedStatement = connection.prepareStatement(deleteSQL);
 			preparedStatement.setInt(1, code);
 
-			result = preparedStatement.executeUpdate();
+			result = preparedStatement.executeLargeUpdate();
 
 		} finally {
 			try {
@@ -165,6 +165,7 @@ public class ItemDAO implements DaoInterfacce<Item,Integer>{
 				bean.setTipo(TipoItem.valueOf(rs.getString("tipo")));
 				bean.setSconto(rs.getInt("sconto"));
 				bean.setQuantita(rs.getInt("quantita"));
+				products.add(bean);
 			}
 
 		} finally {

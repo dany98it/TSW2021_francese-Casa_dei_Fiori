@@ -1,35 +1,31 @@
 package control;
 
 import java.io.IOException;
-import java.sql.SQLException;
-import java.util.Collection;
-
-import jakarta.servlet.RequestDispatcher;
 /*import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;*/
+import java.sql.SQLException;
+
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import model.Item;
 import model.ItemDAO;
 
-
 /**
- * Servlet implementation class MostraItem
+ * Servlet implementation class Delete
  */
-@WebServlet("/MostraItem")
-public class MostraItem extends HttpServlet {
+@WebServlet(name = "delete", urlPatterns = { "/delete" })
+public class Delete extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
     /**
      * Default constructor. 
      */
-    public MostraItem() {
+    public Delete() {
         // TODO Auto-generated constructor stub
     }
 
@@ -40,14 +36,12 @@ public class MostraItem extends HttpServlet {
 		// TODO Auto-generated method stub
 		ItemDAO itemDao = new ItemDAO();
 		try {
-			Collection<Item> itemsCollection = itemDao.doRetrieveAll(null);
-			request.setAttribute("itemsCollection", itemsCollection);
+			itemDao.doDelete(Integer.parseInt(request.getParameter("id")));
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/listaItem.jsp");
-		dispatcher.forward(request, response);
+		response.getWriter().append("deledet  ").append(request.getContextPath());
 	}
 
 	/**
