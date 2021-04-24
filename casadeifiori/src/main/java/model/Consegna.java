@@ -17,7 +17,7 @@ public class Consegna {
 		super();
 	}
 	public Consegna(int id, TipoConsegna tipo, String corriere, Date dataConsegna, Date dataInizioSpedizione,
-			Date dataPresuntaConsegna, Stato stato, int indirizzo, int ordine) {
+			Date dataPresuntaConsegna, StatoConsegna stato, int indirizzo, int ordine) {
 		super();
 		this.id = id;
 		this.tipo = tipo;
@@ -65,10 +65,10 @@ public class Consegna {
 	public void setDataPresuntaConsegna(Date dataPresuntaConsegna) {
 		this.dataPresuntaConsegna = dataPresuntaConsegna;
 	}
-	public Stato getStato() {
+	public StatoConsegna getStato() {
 		return stato;
 	}
-	public void setStato(Stato stato) {
+	public void setStato(StatoConsegna stato) {
 		this.stato = stato;
 	}
 	public int getIndirizzo() {
