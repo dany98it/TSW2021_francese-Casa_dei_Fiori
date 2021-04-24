@@ -8,12 +8,13 @@ public class Item {
 	private String nome;
 	private TipoItem tipo;
 	private int sconto;
+	private int quantita;
 	
 	public Item() {
 		super();
 	}
 	
-	public Item(int id, int iva, double prezzo, String descrizione, String nome, TipoItem tipo, int sconto) {
+	public Item(int id, int iva, double prezzo, String descrizione, String nome, TipoItem tipo, int sconto, int quantita) {
 		super();
 		this.id = id;
 		this.iva = iva;
@@ -22,7 +23,17 @@ public class Item {
 		this.nome = nome;
 		this.tipo = tipo;
 		this.sconto = sconto;
+		this.quantita = quantita;
 	}
+	
+	public int getQuantita() {
+		return quantita;
+	}
+
+	public void setQuantita(int quantita) {
+		this.quantita = quantita;
+	}
+
 	public int getId() {
 		return id;
 	}
