@@ -1,4 +1,5 @@
-<%@page import="java.util.ArrayList"%>
+<%@page import="model.ItemCarrello"%>
+<%@page import="java.util.*"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
   <%
@@ -27,22 +28,25 @@
 			if (products != null && products.size() != 0) {
 				Iterator<?> it = products.iterator();
 				while (it.hasNext()) {
-					Item bean = (Item) it.next();
+					ItemCarrello bean = (ItemCarrello) it.next();
 		%>
 		<tr>
-			<td><%= bean.getId() %></td>
-			<td><%= bean.getNome() %></td>
-			<td><%= bean.getDescrizione() %></td>
-			<td><a href="delete?itemID=<%=bean.getId()%>">Elimina da db</a> <br>
-				<a href="product?itemID=<%=bean.getId()%>">Mostra dettagli</a> <br> 
-				<a href="addCart?itemID=<%=bean.getId()%>"> Aggiungi ala Carrello </a> </td> 
+			<td><%= bean.getItem().getId() %></td>
+			<td><%= bean.getItem().getNome() %></td>
+			<td><%= bean.getItem().getDescrizione() %></td>
+			<td><%= bean.getQuantita() %></td>
+			<td><%= bean.getItem().getPrezzo()%></td>
+			
+		</tr>
+		<tr>
+			<td colspan="6">Prezzo Totale: <%= bean.getCostoTotale()%></td>
 		</tr>
 		<%
 				}
 			} else {
 		%>
 		<tr>
-			<td colspan="6">No products available</td>
+			<td colspan="6">Il Carrello è vuoto</td>
 		</tr>
 		<%
 			}
