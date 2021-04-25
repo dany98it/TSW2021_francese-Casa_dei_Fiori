@@ -1,9 +1,11 @@
-<%@page import="model.ItemCarrello"%>
+<%@page import="model.*"%>
 <%@page import="java.util.*"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
   <%
-  	ArrayList<?> products = (ArrayList<?>) session.getAttribute("carrello");
+  	
+  	Carrello cart = (Carrello) request.getSession().getAttribute("carrello");
+  	Collection<?> products = (Collection<?>) cart.getItemsOrdinati();
 	if(products == null) {
 		response.sendRedirect("./MostraItem");	
 		return;
