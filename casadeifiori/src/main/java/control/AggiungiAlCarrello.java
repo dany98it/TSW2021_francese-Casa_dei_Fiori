@@ -47,7 +47,7 @@ public class AggiungiAlCarrello extends HttpServlet {
 		      }
 		
 		String stringItemID = request.getParameter("itemID");
-		int itemID = Integer.getInteger(stringItemID);
+		int itemID = Integer.parseInt(stringItemID);
 		if (stringItemID==null) {
 	        String numItemsString =
 	          request.getParameter("numItems");
