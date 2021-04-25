@@ -42,13 +42,13 @@ public class AggiungiAlCarrello extends HttpServlet {
 		      // I nuovi visitatori ottengono un nuovo carrello
 		      // I vistatori che hanno già un carrello lo mantengono
 		      if (cart == null) {
-		        cart = new Carrello();;
+		        cart = new Carrello();
 		        sessione.setAttribute("carrello", cart);
 		      }
 		
 		String stringItemID = request.getParameter("itemID");
 		int itemID = Integer.parseInt(stringItemID);
-		if (stringItemID==null) {
+		if (stringItemID!=null) {
 	        String numItemsString =
 	          request.getParameter("numItems");
 	        if (numItemsString == null) {
@@ -70,11 +70,16 @@ public class AggiungiAlCarrello extends HttpServlet {
 	          }
 	          cart.setNumOrdered(itemID, numItems);
 	        }
+	        sessione.setAttribute("carrello", cart);
+			response.getWriter().append("done");
+	      }else {
+	    	response.getWriter().append("fail");
 	      }
+			
 	    }
-		sessione.setAttribute("carrello", cart);
 		
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+		
+		
 	}
 
 	/**
