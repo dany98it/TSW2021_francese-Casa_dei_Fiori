@@ -37,8 +37,9 @@
 			<td><%= bean.getId() %></td>
 			<td><%= bean.getNome() %></td>
 			<td><%= bean.getDescrizione() %></td>
-			<td><a href="delete?id=<%=bean.getId()%>">Elimina da db</a><br>
-				<a href="product?id=<%=bean.getId()%>">Mostra dettagli</a></td>
+			<td><a href="delete?id=<%=bean.getId()%>">Elimina da db</a> <br>
+				<a href="product?id=<%=bean.getId()%>">Mostra dettagli</a> <br> 
+				<a href="addCart?id=<%=bean.getId()%>"> Aggiungi ala Carrello </a> </td> 
 		</tr>
 		<%
 				}
