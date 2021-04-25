@@ -35,7 +35,7 @@ public class AggiungiAlCarrello extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		
-		HttpSession sessione = request.getSession();
+		HttpSession sessione = request.getSession(true);
 		Carrello cart;
 		synchronized(sessione) {
 		      cart = (Carrello)sessione.getAttribute("carrello");
