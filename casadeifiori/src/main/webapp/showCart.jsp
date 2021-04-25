@@ -3,8 +3,16 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
   <%
-  	
-  	Carrello cart = (Carrello) request.getSession().getAttribute("carrello");
+  	HttpSession sessione = request.getSession(true);
+  Carrello cart;
+  	if(sessione.isNew()){
+  		cart = new Carrello();
+     	request.getSession().setAttribute("carrello", cart);
+  	}
+  	else{
+  		cart = (Carrello) request.getSession(true).getAttribute("carrello");
+  	}
+
   	Collection<?> products = (Collection<?>) cart.getItemsOrdinati();
 	if(products == null) {
 		response.sendRedirect("./MostraItem");	
@@ -24,7 +32,7 @@
 			<th>ID</th>
 			<th>Nome</th>
 			<th>Descrizione</th>
-			<th>Quantita</th>
+			<th>Quantità</th>
 		</tr>
 		<%
 			if (products != null && products.size() != 0) {

@@ -20,7 +20,7 @@ public class Carrello {
 	public synchronized void addItem(int itemID) {
 	    ItemCarrello order;
 	    for(int i=0; i<itemsOrdinati.size(); i++) {
-	      order = (ItemCarrello )itemsOrdinati.get(i);
+	      order = (ItemCarrello)itemsOrdinati.get(i);
 	      if (order.getItem().getId()==itemID) {
 	        order.incrementaQuantita();
 	        return;

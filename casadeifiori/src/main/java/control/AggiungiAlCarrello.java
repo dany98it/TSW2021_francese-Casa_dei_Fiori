@@ -72,6 +72,7 @@ public class AggiungiAlCarrello extends HttpServlet {
 	        }
 	      }
 	    }
+		sessione.setAttribute("carrello", cart);
 		
 		response.getWriter().append("Served at: ").append(request.getContextPath());
 	}
