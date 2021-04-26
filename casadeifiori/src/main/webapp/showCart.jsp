@@ -49,10 +49,15 @@
 			
 		</tr>
 		<tr>
-			<td colspan="6">Prezzo Totale: <%= bean.getCostoTotale()%></td>
+			<td colspan="6">Prezzo parziale: <%= bean.getCostoTotale()%></td>
 		</tr>
 		<%
 				}
+		%>
+			<tr>
+				<td colspan="6">Prezzo totale : <%= cart.getCostoTotale()%></td>
+			</tr>
+		<%
 			} else {
 		%>
 		<tr>

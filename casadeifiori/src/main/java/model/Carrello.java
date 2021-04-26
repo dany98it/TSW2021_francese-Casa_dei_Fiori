@@ -63,5 +63,13 @@ public class Carrello {
 					e.printStackTrace();
 				}
 				itemsOrdinati.add(newOrder);
-	}	
+	}
+	
+	public synchronized double getCostoTotale() {
+		double costoTotale = 0.0;
+		for (ItemCarrello itemCarrello : itemsOrdinati) {
+			costoTotale += itemCarrello.getCostoTotale();
+		}
+		return costoTotale;
+	}
 }
