@@ -47,7 +47,7 @@
 			%>
 			<td><%= String.format("%.2f", costo) %></td>
 			<td><a href="delete?itemID=<%=bean.getId()%>">Elimina da db</a> <br>
-				<a href="product?itemID=<%=bean.getId()%>">Mostra dettagli</a> <br> 
+				<a href="MostraDettagli?itemID=<%=bean.getId()%>">Mostra dettagli</a> <br> 
 				<a href="addCart?itemID=<%=bean.getId()%>">Aggiungi al Carrello</a> </td> 
 		</tr>
 		<%
