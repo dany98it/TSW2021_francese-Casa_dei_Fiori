@@ -1,3 +1,5 @@
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
 <html>
 	<head>
@@ -5,10 +7,11 @@
 		<title>Casa dei fiori</title>
 	</head>
 	
+	<header>
+		<%@ include file="index.html"%>
+	</header>
+	
 	<body>
-		<a href="listaItem.jsp"><button type="button" >lista prodotti </button></a> 
-		<a href="showCart.jsp"><button type="button" >carrello </button></a> 
-		<a href="addItem.html"><button type="button" >aggiungi prodotto </button></a>
 		<form action="AggiungiItem" > 
 
 			<label for="name">Nome:</label><br> 
