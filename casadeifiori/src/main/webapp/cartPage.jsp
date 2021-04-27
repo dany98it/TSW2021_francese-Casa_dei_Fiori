@@ -13,6 +13,6 @@
 		<%@ include file="index.html"%>
 	</header>
 <body>
-	<%@ include file="showCart.jsp"%>
+		<%@ include file="showCart.jsp"%>
 </body>
 </html>
