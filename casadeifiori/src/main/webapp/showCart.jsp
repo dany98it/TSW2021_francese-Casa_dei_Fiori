@@ -32,7 +32,7 @@
 			<th>ID</th>
 			<th>Nome</th>
 			<th>Descrizione</th>
-			<th>Quantità</th>
+			<th>Quantitï¿½</th>
 			<th>Prezzo</th>
 		</tr>
 		<%
@@ -45,7 +45,8 @@
 			<td><%= bean.getItem().getId() %></td>
 			<td><%= bean.getItem().getNome() %></td>
 			<td><%= bean.getItem().getDescrizione() %></td>
-			<td><input name="quantity" id="quantity" type="number" min="1" value= "<%= bean.getQuantita() %>" required onchange='window.location.href ="addCart?itemID=<%=bean.getItem().getId()%>&numItems="+document.getElementById("quantity").value ;'>
+			<td><input name="quantity" id="quantity" type="number" min="1" value= "<%= bean.getQuantita() %>" 
+			required onchange='window.location.href ="addCart?itemID=<%=bean.getItem().getId()%>&ItemNum="+document.getElementById("quantity").value ;'>
 			<td><%= bean.getItem().getPrezzo()%></td>
 			
 		</tr>
@@ -62,7 +63,7 @@
 			} else {
 		%>
 		<tr>
-			<td colspan="6">Il Carrello è vuoto</td>
+			<td colspan="6">Il Carrello ï¿½ vuoto</td>
 		</tr>
 		<%
 			}
