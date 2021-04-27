@@ -32,7 +32,7 @@
 			<th>ID</th>
 			<th>Nome</th>
 			<th>Descrizione</th>
-			<th>Quantitï¿½</th>
+			<th>Quantità</th>
 			<th>Prezzo</th>
 		</tr>
 		<%
