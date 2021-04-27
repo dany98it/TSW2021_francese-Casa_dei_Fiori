@@ -45,7 +45,7 @@
 			<td><%= bean.getItem().getId() %></td>
 			<td><%= bean.getItem().getNome() %></td>
 			<td><%= bean.getItem().getDescrizione() %></td>
-			<td><input name="quantity" id="quantity" type="number" min="1" value= "<%= bean.getQuantita() %>" required onchange='window.location.href ="addCart?itemID=<%=bean.getItem().getId()%>&ItemNum="+document.getElementById("quantity").value ;'>
+			<td><input name="quantity" id="quantity" type="number" min="1" value= "<%= bean.getQuantita() %>" required onchange='window.location.href ="addCart?itemID=<%=bean.getItem().getId()%>&numItems="+document.getElementById("quantity").value ;'>
 			<td><%= bean.getItem().getPrezzo()%></td>
 			
 		</tr>

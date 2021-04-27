@@ -47,7 +47,7 @@ public class AggiungiAlCarrello extends HttpServlet {
 		        cart = new Carrello();
 		        sessione.setAttribute("carrello", cart);
 		      }
-		
+
 		String stringItemID = request.getParameter("itemID");
 		int itemID = Integer.parseInt(stringItemID);
 		if (stringItemID!=null) {
@@ -71,6 +71,10 @@ public class AggiungiAlCarrello extends HttpServlet {
 	            numItems = 1;
 	          }
 	          cart.setNumOrdered(itemID, numItems);
+	          sessione.setAttribute("carrello", cart);
+	          sessione.setAttribute("carrello", cart);
+		        RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/showCart.jsp");
+				dispatcher.forward(request, response);
 	        }
 	        sessione.setAttribute("carrello", cart);
 	        RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/listaItem.jsp");
