@@ -4,7 +4,7 @@
     pageEncoding="ISO-8859-1"%>
   <%
   	HttpSession sessione = request.getSession(true);
-  Carrello cart;
+  	Carrello cart;
   	if(sessione.isNew()){
   		cart = new Carrello();
      	request.getSession().setAttribute("carrello", cart);
@@ -50,13 +50,13 @@
 			
 		</tr>
 		<tr>
-			<td colspan="10">Prezzo parziale: <%= bean.getCostoTotale()%></td>
+			<td colspan="6">Prezzo parziale: <%= bean.getCostoTotale()%></td>
 		</tr>
 		<%
 				}
 		%>
 			<tr>
-				<td colspan="10">Prezzo totale : <%= cart.getCostoTotale()%></td>
+				<td colspan="6">Prezzo totale : <%= cart.getCostoTotale()%></td>
 			</tr>
 		<%
 			} else {
