@@ -12,12 +12,12 @@
   	else{
   		cart = (Carrello) request.getSession(true).getAttribute("carrello");
   	}
-
-  	Collection<?> products = (Collection<?>) cart.getItemsOrdinati();
-	if(products == null) {
-		response.sendRedirect("./MostraItem");	
-		return;
-	}
+  	Collection<?> products;
+  	try{
+  		products = (Collection<?>) cart.getItemsOrdinati();
+  	}catch(Exception e){
+  		products= (Collection<?>) cart.getItemsOrdinati();
+  	}
 %>
 <!DOCTYPE html>
 <html>
