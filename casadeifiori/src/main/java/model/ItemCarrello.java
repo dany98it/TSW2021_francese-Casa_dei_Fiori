@@ -33,6 +33,6 @@ public class ItemCarrello {
 	}
 	
 	public double getCostoTotale() {
-		return(this.item.getPrezzo()*quantita);
+		return(this.item.calcolaPrezzo()*quantita);
 	}
 }

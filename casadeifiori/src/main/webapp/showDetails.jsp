@@ -27,6 +27,7 @@
 			<th>Tipo</th>
 			<th>Sconto %</th>
 			<th>Quantità Disponibile</th>
+			<th>Prezzo finale</th>
 		</tr>
 		<tr>
 			<td><%= i.getId() %></td>
@@ -37,6 +38,7 @@
 			<td><%= i.getTipo() %></td>
 			<td><%= i.getSconto() %></td>
 			<td><%= i.getQuantita() %></td>
+			<th><%= i.calcolaPrezzo() %></th>
 		</tr>
 	</table>
 </body>

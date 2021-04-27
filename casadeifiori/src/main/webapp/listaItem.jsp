@@ -45,7 +45,7 @@
 			<td><%= bean.getNome() %></td>
 			<td><%= bean.getDescrizione() %></td>
 			<td><%= bean.getTipo().toString() %></td>
-			<td><%= bean.getPrezzo() %></td>
+			<td><%= bean.calcolaPrezzo() %></td>
 			<td><a href="delete?itemID=<%=bean.getId()%>">Elimina da db</a> <br>
 				<a href="MostraDettagli?itemID=<%=bean.getId()%>">Mostra dettagli</a> <br> 
 				<a href="addCart?itemID=<%=bean.getId()%>" onclick="alertAddCart()">Aggiungi al Carrello </a> </td> 
