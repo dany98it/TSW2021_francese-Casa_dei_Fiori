@@ -24,6 +24,7 @@
 </head>
 
 <body>
+<%@include file="index.html" %>
 	<h2>Products</h2>
 	<table border="1">
 		<tr>

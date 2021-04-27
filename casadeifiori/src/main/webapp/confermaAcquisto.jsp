@@ -7,6 +7,7 @@
 <title>Conferma Acquisto</title>
 </head>
 <body>
+	<%@include file="index.html" %>
 	<h1>Acquisto avvenuto con successo</h1>
 </body>
 </html>

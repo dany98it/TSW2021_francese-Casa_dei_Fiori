@@ -16,6 +16,7 @@
 <title>Dettagli Item</title>
 </head>
 <body>
+<%@include file="index.html" %>
 	<h2>Dattagli Item</h2>
 	<table border="1">
 		<tr>
