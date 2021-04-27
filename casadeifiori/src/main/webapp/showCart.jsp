@@ -63,7 +63,7 @@
 			} else {
 		%>
 		<tr>
-			<td colspan="6">Il Carrello ï¿½ vuoto</td>
+			<td colspan="6">Il Carrello è vuoto</td>
 		</tr>
 		<%
 			}
