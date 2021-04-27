@@ -69,7 +69,7 @@
 			}
 		%>
 	</table>
-	
-	<button type="button" onclick="">Acquista</button>
+
+	<a href="effettuaCheckOut"><button type="button" >Acquista </button></a>
 </body>
 </html>
