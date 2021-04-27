@@ -70,6 +70,6 @@
 		%>
 	</table>
 	
-	<button type="button" >Acquista</button>
+	<button type="button" onclick="">Acquista</button>
 </body>
 </html>

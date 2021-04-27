@@ -1,6 +1,7 @@
 package control;
 
 import java.io.IOException;
+import java.sql.SQLException;
 /*import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -18,6 +19,7 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
 import model.Carrello;
+import model.Item;
 import model.ItemCarrello;
 import model.ItemDAO;
 
@@ -46,7 +48,18 @@ public class EffettuaCheckOut extends HttpServlet {
 		ArrayList<ItemCarrello> itemToBuy = cart.getItemsOrdinati();
 		ItemDAO iDao = new ItemDAO();
 		for (ItemCarrello item : itemToBuy) {
-			
+			Item itemToUpdate = item.getItem();
+			int nuovaQuantita = itemToUpdate.getQuantita() - item.getQuantita();
+			if(nuovaQuantita < 0) {
+				//lanciare Errore impossibile effettuare acquisto di questo Item
+			}
+			itemToUpdate.setQuantita(nuovaQuantita);
+			try {
+				iDao.doUpdate(itemToUpdate);
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 			
 		}
 		

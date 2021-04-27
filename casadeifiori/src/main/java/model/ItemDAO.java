@@ -182,22 +182,37 @@ public class ItemDAO implements DaoInterfacce<Item,Integer>{
 	}
 
 	@Override
-	public int doUpdate(Integer code, Item t) throws SQLException {
+	public int doUpdate(Item t) throws SQLException {
 		// TODO Auto-generated method stub
 				Connection connection = null;
 				PreparedStatement preparedStatement = null;
 
 				int result ;
 
-				String deleteSQL = "DELETE FROM " + ItemDAO.TABLE_NAME + " WHERE id = ?";
+				String updateSQL = "UPDATE " + ItemDAO.TABLE_NAME + " SET  "
+						+ "iva =  ? ,"+ t.getIva() 
+						+ "prezzo = ? ," + t.getPrezzo() 
+						+ "descrizione = ? ," + t.getDescrizione() 
+						+ "nome = ? ," + t.getNome() 
+						+ "tipo = ? ," + t.getTipo() 
+						+ "sconto = ? ," + t.getSconto() 
+						+ "quantita = ? " + t.getQuantita()
+						+ " "+ "WHERE id = ? ";
 
 				try {
 					connection = ds.getConnection();
 					connection.setAutoCommit(false);
-					preparedStatement = connection.prepareStatement(deleteSQL);
-					preparedStatement.setInt(1, code);
+					preparedStatement = connection.prepareStatement(updateSQL);
+					preparedStatement.setInt(1, t.getIva());
+					preparedStatement.setDouble(2, t.getPrezzo());
+					preparedStatement.setString(3, t.getDescrizione());
+					preparedStatement.setString(4, t.getNome());
+					preparedStatement.setString(5, t.getTipo().toString());
+					preparedStatement.setInt(6, t.getSconto());
+					preparedStatement.setInt(7, t.getQuantita());
+					preparedStatement.setInt(8, t.getId());
 
-					result = preparedStatement.execute();
+					result = preparedStatement.executeUpdate();
 					
 					connection.commit();
 				} finally {
