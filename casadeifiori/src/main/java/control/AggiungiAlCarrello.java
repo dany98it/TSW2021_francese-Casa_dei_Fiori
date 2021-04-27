@@ -69,6 +69,9 @@ public class AggiungiAlCarrello extends HttpServlet {
 	    				cart.addItem(itemID);
 					}
 	    		}
+	    		sessione.setAttribute("carrello", cart);
+		        RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/listaItem.jsp");
+				dispatcher.forward(request, response);
 	        } 
 	        else {
 	          // Se la richiesta specifica un id e un numero di ITEMS allora
@@ -88,9 +91,6 @@ public class AggiungiAlCarrello extends HttpServlet {
 				dispatcher.forward(request, response);
 				
 	        }
-	        sessione.setAttribute("carrello", cart);
-	        RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/listaItem.jsp");
-			dispatcher.forward(request, response);
 	      }else {
 	    	response.getWriter().append("fail");
 	      }
