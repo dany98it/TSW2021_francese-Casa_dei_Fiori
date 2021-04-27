@@ -1,5 +1,7 @@
 package model;
 
+import java.util.Locale;
+
 public class Item {
 	private int id;
 	private int iva;
@@ -79,6 +81,6 @@ public class Item {
 	public double calcolaPrezzo() {
 		double costo=prezzo+(prezzo*iva/100);
 		costo=costo-(costo*sconto/100);
-		return Double.parseDouble(String.format("%.2f", costo));
+		return Double.parseDouble(String.format(Locale.ENGLISH,"%.2f", costo));
 	}
 }
