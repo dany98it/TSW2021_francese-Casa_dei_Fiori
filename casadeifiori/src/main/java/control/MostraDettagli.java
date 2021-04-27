@@ -42,7 +42,8 @@ public class MostraDettagli extends HttpServlet {
 			try {
 				Item item = new Item();
 				item = iDao.doRetrieveByKey(Integer.parseInt(itemID));
-				System.out.println(item.getId());
+				
+
 				sessione.setAttribute("item", item);
 				response.sendRedirect(request.getContextPath() + "/showDetails.jsp");
 			} catch (NumberFormatException e) {
