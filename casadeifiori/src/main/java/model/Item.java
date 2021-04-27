@@ -76,6 +76,9 @@ public class Item {
 	public void setSconto(int sconto) {
 		this.sconto = sconto;
 	}
-	
-	
+	public double calcolaPrezzo() {
+		double costo=prezzo+(prezzo*iva/100);
+		costo=costo-(costo*sconto/100);
+		return Double.parseDouble(String.format("%.2f", costo));
+	}
 }
