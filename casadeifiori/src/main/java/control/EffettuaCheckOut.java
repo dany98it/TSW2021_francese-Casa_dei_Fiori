@@ -61,8 +61,9 @@ public class EffettuaCheckOut extends HttpServlet {
 				e.printStackTrace();
 			}
 			
+			
 		}
-		
+		sessione.setAttribute("carrello", new Carrello());
 		response.getWriter().append("Served at: ").append(request.getContextPath());
 	}
 
