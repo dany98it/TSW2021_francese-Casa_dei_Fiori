@@ -1,6 +1,7 @@
 package control;
 
 import java.io.IOException;
+import java.util.Iterator;
 
 import jakarta.servlet.RequestDispatcher;
 /*import javax.servlet.ServletException;
@@ -57,7 +58,17 @@ public class AggiungiAlCarrello extends HttpServlet {
 	          // se la richiesta specifica un ID e non il numero di item ,
 	          // allora il cliente è arrivato qui tramite il bottone "Aggiungi al carrello"
 	          // nella pagine del catalogo
-	          cart.addItem(itemID);
+	        	String stringItemAdd = request.getParameter("addItem");
+	    		
+	    		if(stringItemAdd==null){
+	    			
+	    			cart.addItem(itemID);
+	    		}else {
+	    			int itemAdd = Integer.parseInt(stringItemAdd);
+	    			for (int i=0; i<itemAdd; i++) {
+	    				cart.addItem(itemID);
+					}
+	    		}
 	        } else {
 	          // Se la richiesta specifica un id e un numero di ITEMS allora
 	          // il cliente è arrivato qui tramita aggiorna ordine 

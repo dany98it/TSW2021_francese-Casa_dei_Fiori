@@ -28,6 +28,7 @@
 			<th>Sconto %</th>
 			<th>Quantità Disponibile</th>
 			<th>Prezzo finale</th>
+			<th>Quantità da comprare</th>
 		</tr>
 		<tr>
 			<td><%= i.getId() %></td>
@@ -38,7 +39,9 @@
 			<td><%= i.getTipo() %></td>
 			<td><%= i.getSconto() %></td>
 			<td><%= i.getQuantita() %></td>
-			<th><%= i.calcolaPrezzo() %></th>
+			<td><%= i.calcolaPrezzo() %></td>
+			<td><input name="quantity" id="quantity" type="number" min="0" value= "0" 
+			required onchange='window.location.href ="addCart?itemID=<%=i.getId()%>&addItem="+document.getElementById("quantity").value ;'>
 		</tr>
 	</table>
 </body>
