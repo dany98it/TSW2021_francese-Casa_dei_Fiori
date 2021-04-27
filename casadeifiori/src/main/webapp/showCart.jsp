@@ -11,6 +11,9 @@
   	}
   	else{
   		cart = (Carrello) request.getSession(true).getAttribute("carrello");
+  		if(cart==null){
+  			cart=new Carrello();
+  		}
   	}
   	Collection<?> products;
   	try{
@@ -70,6 +73,9 @@
 		%>
 	</table>
 
-	<a href="effettuaCheckOut"><button type="button" >Acquista </button></a>
+	<%  if(cart!=null){
+		%>
+		<a href="effettuaCheckOut"><button type="button" >Acquista </button></a>
+	<% }%>
 </body>
 </html>
