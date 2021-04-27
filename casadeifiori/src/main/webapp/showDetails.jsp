@@ -15,8 +15,10 @@
 <meta charset="ISO-8859-1">
 <title>Dettagli Item</title>
 </head>
+	<header>
+		<%@ include file="index.html"%>
+	</header>
 <body>
-<%@include file="index.html" %>
 	<h2>Dattagli Item</h2>
 	<table border="1">
 		<tr>

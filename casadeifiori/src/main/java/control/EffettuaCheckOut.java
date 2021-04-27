@@ -10,8 +10,6 @@ import javax.servlet.http.HttpServletResponse;
 */
 import java.util.ArrayList;
 
-import org.apache.jasper.tagplugins.jstl.core.ForEach;
-
 import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;

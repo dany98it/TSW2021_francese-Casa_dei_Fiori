@@ -1,15 +1,18 @@
+<%@page import="model.*"%>
+<%@page import="java.util.*"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Conferma Acquisto</title>
+	<title>Carrello</title>
 </head>
-<header>
+	<header>
 		<%@ include file="index.html"%>
 	</header>
 <body>
-	<h1>Acquisto avvenuto con successo</h1>
+	<%@ include file="showCart.jsp"%>
 </body>
 </html>

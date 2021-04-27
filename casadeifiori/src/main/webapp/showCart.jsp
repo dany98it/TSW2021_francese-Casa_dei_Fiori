@@ -29,7 +29,7 @@
 	<title>Carrello</title>
 </head>
 <body>
-<%@include file="index.html" %>
+
 	<h2>Carrello</h2>
 	<table border="1">
 		<tr>

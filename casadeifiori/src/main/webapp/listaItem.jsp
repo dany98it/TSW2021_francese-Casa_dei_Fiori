@@ -63,5 +63,6 @@
 		%>
 	</table>
 	<a href="showCart.jsp"><button type="button" >mostra carrello </button></a>
+	<jsp:include page="showCart.jsp"/>
 </body>
 </html>
