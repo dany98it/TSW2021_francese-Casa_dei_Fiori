@@ -33,6 +33,7 @@
 			<th>Nome</th>
 			<th>Descrizione</th>
 			<th>Quantità</th>
+			<th>Prezzo</th>
 		</tr>
 		<%
 			if (products != null && products.size() != 0) {
@@ -44,18 +45,18 @@
 			<td><%= bean.getItem().getId() %></td>
 			<td><%= bean.getItem().getNome() %></td>
 			<td><%= bean.getItem().getDescrizione() %></td>
-			<td><%= bean.getQuantita() %></td>
+			<td><input name="quantity" type="number" min="1" value= "<%= bean.getQuantita() %>" required></td>
 			<td><%= bean.getItem().getPrezzo()%></td>
 			
 		</tr>
 		<tr>
-			<td colspan="6">Prezzo parziale: <%= bean.getCostoTotale()%></td>
+			<td colspan="10">Prezzo parziale: <%= bean.getCostoTotale()%></td>
 		</tr>
 		<%
 				}
 		%>
 			<tr>
-				<td colspan="6">Prezzo totale : <%= cart.getCostoTotale()%></td>
+				<td colspan="10">Prezzo totale : <%= cart.getCostoTotale()%></td>
 			</tr>
 		<%
 			} else {
