@@ -25,8 +25,8 @@
 			<th>ID</th>
 			<th>Nome</th>
 			<th>Descrizione</th>
-			<th>categoria</th>
-			<th>prezzo</th>
+			<th>Categoria</th>
+			<th>Prezzo</th>
 			<th>Azioni</th>
 		</tr>
 		<%
@@ -40,12 +40,7 @@
 			<td><%= bean.getNome() %></td>
 			<td><%= bean.getDescrizione() %></td>
 			<td><%= bean.getTipo().toString() %></td>
-			<%
-				double costo=bean.getPrezzo();
-				costo=costo+((costo*bean.getIva())/100);
-				costo=costo-((costo*bean.getSconto())/100);
-			%>
-			<td><%= String.format("%.2f", costo) %></td>
+			<td><%= bean.getPrezzo() %></td>
 			<td><a href="delete?itemID=<%=bean.getId()%>">Elimina da db</a> <br>
 				<a href="MostraDettagli?itemID=<%=bean.getId()%>">Mostra dettagli</a> <br> 
 				<a href="addCart?itemID=<%=bean.getId()%>">Aggiungi al Carrello</a> </td> 

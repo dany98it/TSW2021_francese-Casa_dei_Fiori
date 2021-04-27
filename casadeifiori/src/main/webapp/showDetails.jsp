@@ -2,7 +2,8 @@
     pageEncoding="ISO-8859-1"%>
     <%@page import="model.*"%>
     <%
-    	Item i = (Item) request.getAttribute("item");
+    	
+    	Item i = (Item) request.getSession().getAttribute("item");
     	if(i==null){
     		response.sendRedirect("./MostraItem");	
     		return;
@@ -16,7 +17,7 @@
 <title>Dettagli Item</title>
 </head>
 <body>
-	<h2>Carrello</h2>
+	<h2>Maggiori Dettagli</h2>
 	<table border="1">
 		<tr>
 			<th>ID</th>
@@ -33,9 +34,9 @@
 			<td><%= i.getNome() %></td>
 			<td><%= i.getDescrizione() %></td>
 			<td><%= i.getPrezzo() %></td>
-			<td><%= i.getIva() %></td>
+			<td><%= i.getIva() %> %</td>
 			<td><%= i.getTipo() %></td>
-			<td><%= i.getSconto() %></td>
+			<td><%= i.getSconto() %> %</td>
 			<td><%= i.getQuantita() %></td>
 		</tr>
 	</table>
