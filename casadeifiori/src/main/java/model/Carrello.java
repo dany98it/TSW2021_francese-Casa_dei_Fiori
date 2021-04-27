@@ -57,7 +57,7 @@ public class Carrello {
 				
 				ItemCarrello newOrder = null;
 				try {
-					newOrder = new ItemCarrello(iDao.doRetrieveByKey(itemID),1);
+					newOrder = new ItemCarrello(iDao.doRetrieveByKey(itemID),numOrdered);
 				} catch (SQLException e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
