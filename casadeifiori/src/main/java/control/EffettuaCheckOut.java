@@ -12,6 +12,7 @@ import java.util.ArrayList;
 
 import org.apache.jasper.tagplugins.jstl.core.ForEach;
 
+import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
@@ -64,7 +65,8 @@ public class EffettuaCheckOut extends HttpServlet {
 			
 		}
 		sessione.setAttribute("carrello", new Carrello());
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/confermaAcquisto.jsp");
+		dispatcher.forward(request, response);
 	}
 
 	/**

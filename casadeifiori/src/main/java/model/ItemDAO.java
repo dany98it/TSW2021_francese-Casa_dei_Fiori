@@ -190,13 +190,13 @@ public class ItemDAO implements DaoInterfacce<Item,Integer>{
 				int result ;
 
 				String updateSQL = "UPDATE " + ItemDAO.TABLE_NAME + " SET  "
-						+ "iva =  ? ,"+ t.getIva() 
-						+ "prezzo = ? ," + t.getPrezzo() 
-						+ "descrizione = ? ," + t.getDescrizione() 
-						+ "nome = ? ," + t.getNome() 
-						+ "tipo = ? ," + t.getTipo() 
-						+ "sconto = ? ," + t.getSconto() 
-						+ "quantita = ? " + t.getQuantita()
+						+ "iva =  ? ,"
+						+ "prezzo = ? ,"
+						+ "descrizione = ? ," 
+						+ "nome = ? ,"
+						+ "tipo = ? ,"
+						+ "sconto = ? ," 
+						+ "quantita = ? "
 						+ " "+ "WHERE id = ? ";
 
 				try {
