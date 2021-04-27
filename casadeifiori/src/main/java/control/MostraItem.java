@@ -41,11 +41,6 @@ public class MostraItem extends HttpServlet {
 		ItemDAO itemDao = new ItemDAO();
 		try {
 			Collection<Item> itemsCollection = itemDao.doRetrieveAll(null);
-			for (Item item : itemsCollection) {
-				if(item.getQuantita() <= 0) {
-					itemsCollection.remove(item);
-				}
-			}
 			request.setAttribute("itemsCollection", itemsCollection);
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
