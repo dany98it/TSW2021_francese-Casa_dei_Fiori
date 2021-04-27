@@ -72,7 +72,6 @@ public class AggiungiAlCarrello extends HttpServlet {
 	          }
 	          cart.setNumOrdered(itemID, numItems);
 	          sessione.setAttribute("carrello", cart);
-	          sessione.setAttribute("carrello", cart);
 		        RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/showCart.jsp");
 				dispatcher.forward(request, response);
 	        }
