@@ -33,6 +33,7 @@
 			<th>Descrizione</th>
 			<th>Categoria</th>
 			<th>Prezzo</th>
+			<th>Quantità Disponibile</th>
 			<th>Azioni</th>
 		</tr>
 		<%
@@ -47,6 +48,7 @@
 			<td><%= bean.getDescrizione() %></td>
 			<td><%= bean.getTipo().toString() %></td>
 			<td><%= bean.calcolaPrezzo() %></td>
+			<td><%= bean.getQuantita() %></td>
 			<td><a href="delete?itemID=<%=bean.getId()%>"><button type="button" >Elimina da db </button></a> <br>
 				<a href="MostraDettagli?itemID=<%=bean.getId()%>"><button type="button" >Mostra dettagli </button></a> <br> 
 				<a href="addCart?itemID=<%=bean.getId()%>" onclick="alertAddCart()"><button type="button" >Aggiungi al Carrello </button> </a> </td> 
