@@ -16,7 +16,7 @@
   	try{
   		products = (Collection<?>) cart.getItemsOrdinati();
   	}catch(Exception e){
-  		products=null;
+  		products= (Collection<?>) cart.getItemsOrdinati();
   	}
 %>
 <!DOCTYPE html>
