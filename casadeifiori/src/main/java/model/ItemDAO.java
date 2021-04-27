@@ -180,4 +180,35 @@ public class ItemDAO implements DaoInterfacce<Item,Integer>{
 		}
 		return products;
 	}
+
+	@Override
+	public int doUpdate(Integer code, Item t) throws SQLException {
+		// TODO Auto-generated method stub
+				Connection connection = null;
+				PreparedStatement preparedStatement = null;
+
+				int result ;
+
+				String deleteSQL = "DELETE FROM " + ItemDAO.TABLE_NAME + " WHERE id = ?";
+
+				try {
+					connection = ds.getConnection();
+					connection.setAutoCommit(false);
+					preparedStatement = connection.prepareStatement(deleteSQL);
+					preparedStatement.setInt(1, code);
+
+					result = preparedStatement.execute();
+					
+					connection.commit();
+				} finally {
+					try {
+						if (preparedStatement != null)
+							preparedStatement.close();
+					} finally {
+						if (connection != null)
+							connection.close();
+					}
+				}
+				return result;
+	}
 }

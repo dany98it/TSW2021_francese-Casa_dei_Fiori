@@ -69,5 +69,7 @@
 			}
 		%>
 	</table>
+	
+	<button type="button" >Acquista</button>
 </body>
 </html>
