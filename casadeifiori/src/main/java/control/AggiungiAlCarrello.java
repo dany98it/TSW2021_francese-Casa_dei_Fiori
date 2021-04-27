@@ -2,6 +2,7 @@ package control;
 
 import java.io.IOException;
 
+import jakarta.servlet.RequestDispatcher;
 /*import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -72,6 +73,8 @@ public class AggiungiAlCarrello extends HttpServlet {
 	          cart.setNumOrdered(itemID, numItems);
 	        }
 	        sessione.setAttribute("carrello", cart);
+	        RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/listaItem.jsp");
+			dispatcher.forward(request, response);
 	      }else {
 	    	response.getWriter().append("fail");
 	      }
