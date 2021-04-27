@@ -45,7 +45,9 @@
 			<td><%= bean.getItem().getId() %></td>
 			<td><%= bean.getItem().getNome() %></td>
 			<td><%= bean.getItem().getDescrizione() %></td>
-			<td><input name="quantity" type="number" min="1" value= "<%= bean.getQuantita() %>" required></td>
+			<td><input name="quantity" type="number" min="1" value= "<%= bean.getQuantita() %>" required onchange="<% 
+				bean.setQuantita(3);
+			%>"></td>
 			<td><%= bean.getItem().getPrezzo()%></td>
 			
 		</tr>
