@@ -56,3 +56,6 @@
 			}
 		%>
 	</table>
+	<a href="showCart.jsp">mostra carrello</a>
+</body>
+</html>
