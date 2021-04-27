@@ -18,7 +18,7 @@
 	<title>Casa dei Fiori</title>
 	<script>
 		function alertAddCart() {
-			alert(Item Aggiunto al carrello)"
+			alert(Item Aggiunto al carrello);
 		}
 	</script>
 </head>

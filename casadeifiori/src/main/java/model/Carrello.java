@@ -13,6 +13,11 @@ public class Carrello {
 	}
 
 	public ArrayList<ItemCarrello> getItemsOrdinati() {
+		for (ItemCarrello itemCarrello : itemsOrdinati) {
+			if(itemCarrello.getQuantita() <= 0) {
+				itemsOrdinati.remove(itemCarrello);
+			}
+		}
 		return itemsOrdinati;
 	}
 	
