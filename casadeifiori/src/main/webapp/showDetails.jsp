@@ -16,16 +16,16 @@
 <title>Dettagli Item</title>
 </head>
 <body>
-	<h2>Carrello</h2>
+	<h2>Dattagli Item</h2>
 	<table border="1">
 		<tr>
 			<th>ID</th>
 			<th>Nome</th>
 			<th>Descrizione</th>
 			<th>Prezzo</th>
-			<th>Iva</th>
+			<th>Iva %</th>
 			<th>Tipo</th>
-			<th>Sconto</th>
+			<th>Sconto %</th>
 			<th>Quantità Disponibile</th>
 		</tr>
 		<tr>
