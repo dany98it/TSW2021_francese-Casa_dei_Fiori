@@ -58,7 +58,7 @@
 			<td><input name="quantity" id="<%="quantity"+bean.getItem().getId() %>" type="number" min="0" max="<%= bean.getItem().getQuantita() %>" value= "<%= bean.getQuantita() %>" 
 			required onchange="addShop(<%=bean.getItem().getId() %>,<%= bean.getItem().getQuantita() %>);">
 			<td><%= bean.getItem().calcolaPrezzo()%></td>
-			<td id="errorQ">quantità invalita</td>
+			<td id="errorQ">quantità invalita max <%= bean.getItem().getQuantita() %></td>
 			
 		</tr>
 		<tr>
