@@ -49,8 +49,8 @@
 			<td><%= bean.getItem().getId() %></td>
 			<td><%= bean.getItem().getNome() %></td>
 			<td><%= bean.getItem().getDescrizione() %></td>
-			<td><input name="quantity" id="quantity" type="number" min="0" value= "<%= bean.getQuantita() %>" 
-			required onchange='window.location.href ="addCart?itemID=<%=bean.getItem().getId()%>&numItems="+document.getElementById("quantity").value ;'>
+			<td><input name="quantity" id="<%="quantity"+bean.getItem().getId() %>" type="number" min="0" value= "<%= bean.getQuantita() %>" 
+			required onchange="addShop(<%=bean.getItem().getId() %>);">
 			<td><%= bean.getItem().calcolaPrezzo()%></td>
 			
 		</tr>
@@ -78,5 +78,13 @@
 		%>
 		<a href="effettuaCheckOut"><button type="button" >Acquista </button></a>
 	<% }%>
+	
+	<script type="text/javascript">
+	function addShop(id) {
+		var quantity=document.getElementById("quantity"+id).value
+		window.location.href ="addCart?itemID="+id+"&numItems="+quantity;
+	}
+		
+	</script>
 </body>
 </html>
