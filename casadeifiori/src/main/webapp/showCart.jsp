@@ -83,7 +83,7 @@
 
 	<%  if(cart!=null && products != null && products.size() != 0){
 		%>
-		<a href="effettuaCheckOut"><button type="button" >Acquista </button></a>
+		<a href="effettuaCheckOut" id="acquista"><button type="button" >Acquista </button></a>
 	<% }%>
 	
 	<script type="text/javascript">
@@ -94,10 +94,10 @@
 			window.location.href ="addCart?itemID="+id+"&numItems="+quantity+"&page="+page;
 		}else{
 			document.getElementById("errorQ").style.display="block";
+			document.getElementById("acquista").style.display="none";
 		}
 		
 	}
-		
 	</script>
 </body>
 </html>
