@@ -24,7 +24,7 @@
 </head>
 
 <body>
-<%@include file="index.html" %>
+<%@include file="header.jsp" %>
 	<h2>Products</h2>
 	<table border="1">
 		<tr>

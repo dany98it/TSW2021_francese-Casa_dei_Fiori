@@ -16,7 +16,7 @@
 <title>Dettagli Item</title>
 </head>
 	<header>
-		<%@ include file="index.html"%>
+		<%@ include file="header.jsp"%>
 	</header>
 <body>
 	<h2>Dattagli Item</h2>
