@@ -13,6 +13,7 @@
 		<%@ include file="header.jsp"%>
 	</header>
 <body>
+	<input type="text" class="notShow" id="page" value="cartPage.jsp">
 		<%@ include file="showCart.jsp"%>
 </body>
 </html>

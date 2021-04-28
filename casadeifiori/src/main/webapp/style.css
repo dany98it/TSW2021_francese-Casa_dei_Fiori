@@ -40,3 +40,8 @@ button:hover{
 .cart:hover .show{
 	display: block;
 }
+
+.notShow {
+	display: none;
+}
+

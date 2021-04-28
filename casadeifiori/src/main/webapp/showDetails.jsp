@@ -31,7 +31,10 @@
 			<th>Sconto %</th>
 			<th>Quantità Disponibile</th>
 			<th>Prezzo finale</th>
-			<th>Quantità da comprare</th>
+			<% if(i.getQuantita()>0) 
+					{%>
+				<th>Quantità da comprare</th>
+				<%} %>
 		</tr>
 		<tr>
 			<td><%= i.getId() %></td>
@@ -43,8 +46,12 @@
 			<td><%= i.getSconto() %></td>
 			<td><%= i.getQuantita() %></td>
 			<td><%= i.calcolaPrezzo() %></td>
-			<td><input name="quantity" id="quantity" type="number" min="0" value= "0" 
-			required onchange='window.location.href ="addCart?itemID=<%=i.getId()%>&addItem="+document.getElementById("quantity").value ;'>
+			<% if(i.getQuantita()>0) 
+					{%>
+				<td><input name="quantity" id="quantity" type="number" min="0" value= "0" 
+			required onchange='window.location.href ="addCart?itemID=<%=i.getId()%>&addItem="+document.getElementById("quantity").value ;'></td>
+				<%} %>
+
 		</tr>
 	</table>
 </body>

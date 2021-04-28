@@ -27,6 +27,12 @@
 <head>
 <meta charset="ISO-8859-1">
 	<title>Carrello</title>
+	<style type="text/css">
+		#errorQ{
+			color: red;
+			display: none;
+		}
+	</style>
 </head>
 <body>
 
@@ -49,9 +55,10 @@
 			<td><%= bean.getItem().getId() %></td>
 			<td><%= bean.getItem().getNome() %></td>
 			<td><%= bean.getItem().getDescrizione() %></td>
-			<td><input name="quantity" id="<%="quantity"+bean.getItem().getId() %>" type="number" min="0" value= "<%= bean.getQuantita() %>" 
-			required onchange="addShop(<%=bean.getItem().getId() %>);">
+			<td><input name="quantity" id="<%="quantity"+bean.getItem().getId() %>" type="number" min="0" max="<%= bean.getItem().getQuantita() %>" value= "<%= bean.getQuantita() %>" 
+			required onchange="addShop(<%=bean.getItem().getId() %>,<%= bean.getItem().getQuantita() %>);">
 			<td><%= bean.getItem().calcolaPrezzo()%></td>
+			<td id="errorQ">quantità invalita</td>
 			
 		</tr>
 		<tr>
@@ -80,9 +87,15 @@
 	<% }%>
 	
 	<script type="text/javascript">
-	function addShop(id) {
+	function addShop(id,quantitymax) {
 		var quantity=document.getElementById("quantity"+id).value
-		window.location.href ="addCart?itemID="+id+"&numItems="+quantity;
+		var page=document.getElementById("page").value
+		if(quantity<=quantitymax){
+			window.location.href ="addCart?itemID="+id+"&numItems="+quantity+"&page="+page;
+		}else{
+			document.getElementById("errorQ").style.display="block";
+		}
+		
 	}
 		
 	</script>
