@@ -1,17 +1,42 @@
 @charset "ISO-8859-1";
 
 #header{
-	background-color: green;
-	font-family: cursive;
+	background-color: #17ff7f;
+	
+}
+#afterhomebtn{
+	position: relative;
+	margin-left: 40%;
+}
+.headerBtn{
+	background-color: #17ff7f;
+	font-size: large;
+	font-family : cursive;
+	border-bottom: none;
 }
 
-.headerBtn{
-	background-color: green;
-	font-size: large;
-	text-align: center;
-	font-family: cursive;
-}
 #homeButton{
-	background-color: green;
-	text-align: left;
+	background-color: #17ff7f;
+	font-size: x-large;
+	border-bottom: none;
+}
+
+button:hover{
+	cursor: pointer;
+}
+
+.headerBtn:hover {
+	background-color: #008000;
+}
+
+#homeButton:hover {
+	background-color: #008000;
+}
+
+.show{
+	display: none;
+}
+
+.cart:hover .show{
+	display: block;
 }

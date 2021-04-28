@@ -64,7 +64,14 @@
 			}
 		%>
 	</table>
-	<a href="showCart.jsp"><button type="button" >mostra carrello </button></a>
-	<jsp:include page="showCart.jsp"/>
+	<br>
+	<br>
+	<br>
+	<div class="cart">
+		<i>mosta carrello </i>
+		<div class="show">
+			<jsp:include page="showCart.jsp"/>
+		</div>
+	</div>
 </body>
 </html>

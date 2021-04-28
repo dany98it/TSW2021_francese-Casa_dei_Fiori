@@ -74,7 +74,7 @@
 		%>
 	</table>
 
-	<%  if(cart!=null){
+	<%  if(cart!=null && products != null && products.size() != 0){
 		%>
 		<a href="effettuaCheckOut"><button type="button" >Acquista </button></a>
 	<% }%>
