@@ -2,7 +2,16 @@
 
 #header{
 	background-color: green;
+	font-family: cursive;
+}
+
+.headerBtn{
+	background-color: green;
 	font-size: large;
 	text-align: center;
 	font-family: cursive;
+}
+#homeButton{
+	background-color: green;
+	text-align: left;
 }
