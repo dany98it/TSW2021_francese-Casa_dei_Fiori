@@ -8,6 +8,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;*/
 import java.sql.SQLException;
 
+import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
@@ -53,7 +54,8 @@ public class AggiungiItem extends HttpServlet {
 		e.printStackTrace(response.getWriter());
 	}
 		
-		response.getWriter().append("done").append(request.getContextPath());
+		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/addItem.jsp");
+		dispatcher.forward(request, response);
 	}
 
 	/**
