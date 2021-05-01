@@ -15,5 +15,8 @@
 <body>
 	<input type="text" class="notShow" id="page" value="cartPage.jsp">
 		<%@ include file="showCart.jsp"%>
+	<footer>
+			<%@ include file="footer.jsp" %>
+		</footer>
 </body>
 </html>

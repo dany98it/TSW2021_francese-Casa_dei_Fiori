@@ -78,5 +78,8 @@
 			<jsp:include page="showCart.jsp"/>
 		</div>
 	</div>
+	<footer>
+			<%@ include file="footer.jsp" %>
+		</footer>
 </body>
 </html>

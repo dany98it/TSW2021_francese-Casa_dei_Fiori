@@ -17,5 +17,8 @@
 			<a href="addItem.jsp"><button type="button" >aggiungi prodotto </button></a> 
 		</p>
 	</body>
+	<footer>
+			<%@ include file="footer.jsp" %>
+		</footer>
 </body>
 </html>
