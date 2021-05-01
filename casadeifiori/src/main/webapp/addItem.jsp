@@ -42,5 +42,8 @@
 
 			<input type="submit" value="Add"><input type="reset" value="Reset">
 		</form>
+		<footer>
+			<%@ include file="footer.jsp" %>
+		</footer>
 	</body>
 </html>
