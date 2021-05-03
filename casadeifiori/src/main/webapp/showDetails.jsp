@@ -55,7 +55,7 @@
 		</tr>
 	</table>
 	<footer>
-			<%@ include file="footer.jsp" %>
-		</footer>
+		<%@ include file="footer.jsp" %>
+	</footer>
 </body>
 </html>

@@ -48,4 +48,7 @@ button:hover{
 	background-color:#3CB371;
 	color:white;
 }
-
+.footer #test{
+	display: inline-block;
+	list-style-type: none;
+}

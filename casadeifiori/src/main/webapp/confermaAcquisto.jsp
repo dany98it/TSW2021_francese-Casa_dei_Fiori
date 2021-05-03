@@ -12,7 +12,7 @@
 <body>
 	<h1>Acquisto avvenuto con successo</h1>
 	<footer>
-			<%@ include file="footer.jsp" %>
-		</footer>
+		<%@ include file="footer.jsp" %>
+	</footer>
 </body>
 </html>
