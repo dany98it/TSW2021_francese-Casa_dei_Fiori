@@ -1,7 +1,7 @@
 @charset "ISO-8859-1";
 
 #header{
-	background-color: #17ff7f;
+	background-color: #67F0BB;
 	
 }
 #afterhomebtn{
@@ -9,16 +9,16 @@
 	margin-left: 40%;
 }
 .headerBtn{
-	background-color: #17ff7f;
+	background-color: #67F0BB;
 	font-size: large;
 	font-family : cursive;
-	border-bottom: none;
+	border: none;
 }
 
 #homeButton{
-	background-color: #17ff7f;
+	background-color: #67F0BB;
 	font-size: x-large;
-	border-bottom: none;
+	border: none;
 }
 
 button:hover{
@@ -26,11 +26,11 @@ button:hover{
 }
 
 .headerBtn:hover {
-	background-color: #008000;
+	background-color: #B1F2D9;
 }
 
 #homeButton:hover {
-	background-color: #008000;
+	background-color: #B1F2D9;
 }
 
 .show{
@@ -45,7 +45,7 @@ button:hover{
 	display: none;
 }
 .footer{
-	background-color:#3CB371;
+	background-color: #307058;
 	color:white;
 }
 .footer #test{
