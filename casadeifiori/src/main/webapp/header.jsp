@@ -13,8 +13,5 @@
 			<a href="cartPage.jsp"><button type="button" class="headerBtn">carrello </button></a> 
 			<a href="addItem.jsp"><button type="button" class="headerBtn">aggiungi prodotto </button></a> 
 		</div>
-		<footer>
-			<%@ include file="footer.jsp" %>
-		</footer>
 	</body>
 </html>
