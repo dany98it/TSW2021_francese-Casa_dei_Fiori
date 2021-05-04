@@ -10,8 +10,8 @@
 	<nav>
 		<div class="navBar">
 			<div class="dropDown">
-				<button type="button" class="menuMobile headerBtn" onclick="menuMobile()"><i class="fas fa-bars" id="barMenu"></i><i class="fas fa-times" id="barmenuopen"></i> </button>
-				<div class="menuDrop" id="menuDrop">
+				<button type="button" class="menuMobile headerBtn" onclick="menuMobile()"><i class="fas fa-bars" id="barMenu"></i><i class="fas fa-times" id="barMenuOpen"></i> </button>
+				<div class="menuDrop" id="menuDropBar">
 					<ul class="ulMenu">
 						<li> <a href="index.jsp"><button type="button" id="homeButton">Home </button></a></li>
 						<li> <a href="listaItem.jsp" id="afterHomeBtn"><button type="button" class="headerBtn" >lista prodotti </button></a></li> 
@@ -41,8 +41,7 @@
 	</nav>
 	<script type="text/javascript">
 		function menuMobile() {
-			var bar = document.getElementById("menubarid");
-			var bar = document.getElementById("nemuDrop");
+			var bar = document.getElementById("menuDropBar");
 			var icon = document.getElementById("barMenu");
 			var icon1 = document.getElementById("barMenuOpen");
 			if (bar.style.display == "none") {
