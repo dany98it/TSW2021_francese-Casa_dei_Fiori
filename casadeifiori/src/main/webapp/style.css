@@ -2,14 +2,17 @@
 
 nav{
 	background-color: #67F0BB;
+	color: #023838;
 }
 nav ul{
 	background-color: #67F0BB;
 	list-style-type: none;
+	color: #023838;
 }
 
 nav ul li{
 	display: inline;
+	color: #023838;
 }
 
 #afterhomebtn{
@@ -21,12 +24,14 @@ nav ul li{
 	font-size: large;
 	font-family : cursive;
 	border: none;
+	color: #023838;
 }
 
 #homeButton{
 	background-color: #67F0BB;
 	font-size: x-large;
 	border: none;
+	color: #023838;
 }
 
 button:hover{
@@ -82,7 +87,7 @@ a:link{
 }
 a:visited{
 	text-decoration: none;
-    color:red;
+    color:#67F0BB;
 }
 a:hover{
 	text-decoration: underline;
