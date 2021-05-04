@@ -86,7 +86,7 @@ button:hover{
 	background-color: #023838;
 	color:white;
 	text-align: center;
-	line-height: 50px;
+	line-height: 20px;
 }
 .navFooterBlock{
 	padding: 1% 1% 0% 1%;
@@ -163,5 +163,12 @@ a:hover{
 	}
 	.ulmenu li{
 		display: list-item !important;
+	}
+	.navFooterBlock {
+		display: list-item;
+		text-align: center;
+	}
+	.navFooterList{
+		text-align: center;
 	}
 }
