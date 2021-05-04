@@ -52,20 +52,43 @@ button:hover{
 .notShow {
 	display: none;
 }
-.footer{
+.navFooter{
 	background-color: #307058;
 	color:white;
+	text-align: center;
 }
-.footer #test{
+.navFooterList{
+	padding: 1% 1% 0% 1%;
+	vertical-align: top;
 	display: inline-block;
+	text-align: left;
+}
+
+.navFooter ul{
+	padding: 0% 0% 0% 0%;
+	text-align:left;
 	list-style-type: none;
 }
+
+.navFooterTitleList{
+	font-size:120%;
+	vertical-align: inherit;
+	text-align: inherit;
+}
+
 a:link{
+	text-decoration: none;
     color:#67F0BB;
 }
 a:visited{
+	text-decoration: none;
     color:red;
 }
 a:hover{
+	text-decoration: underline;
     color:#B1F2D9;
+}
+
+.belowNavFooter{
+	text-align: center;
 }
