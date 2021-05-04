@@ -53,18 +53,18 @@ button:hover{
 	display: none;
 }
 .navFooter{
-	background-color: #307058;
+	background-color: #023838;
 	color:white;
 	text-align: center;
 }
-.navFooterList{
+.navFooterBlock{
 	padding: 1% 1% 0% 1%;
 	vertical-align: top;
 	display: inline-block;
 	text-align: left;
 }
 
-.navFooter ul{
+.navFooterList{
 	padding: 0% 0% 0% 0%;
 	text-align:left;
 	list-style-type: none;
@@ -88,7 +88,31 @@ a:hover{
 	text-decoration: underline;
     color:#B1F2D9;
 }
+#socialIcons{
+	align-content: right;
+}
+#socialIconsList{
 
+	padding: 1% 1% 1% 1%;
+	align-items: right;
+	width: auto;
+	text-align: right;
+	list-style-type: none;
+}
+
+#socialIconsList li{
+	display: inline;
+}
+
+#facebookIcon{
+	color: white;
+	font-size: 175%;
+}
+
+#instagramIcon{
+	color: white;
+	font-size: 175%;
+}
 .belowNavFooter{
 	text-align: center;
 }
