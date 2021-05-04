@@ -1,5 +1,8 @@
 @charset "ISO-8859-1";
 
+* {
+  box-sizing: border-box;
+}
 nav{
 	background-color: #67F0BB;
 	color: #023838;
@@ -10,15 +13,37 @@ nav ul{
 	color: #023838;
 }
 
-nav ul li{
-	display: inline;
+.ulmenu li{
+	display: inline !important;
 	color: #023838;
 }
-
+.navbar{
+	height: 30px;
+}
+.menumobile{
+	float: left;
+	display: none;
+}
+.logo{
+	left: 50%;
+	display: inline-block;
+	position: relative;
+}
+.user{
+	float: right;
+}
+.searchtab{
+	display: inline !important;
+}
+.searchbutton{
+	display: none !important;
+}
 #afterhomebtn{
 	position: relative;
 }
-
+.nemubar{
+		display: block;
+}
 .headerBtn{
 	background-color: #67F0BB;
 	font-size: large;
@@ -121,4 +146,22 @@ a:hover{
 }
 .belowNavFooter{
 	text-align: center;
+}
+
+@media screen and (max-width: 992px){
+	.menumobile{
+		display: inline-block;
+	}
+	.searchtab{
+		display: none !important;
+	}
+	.searchbutton{
+		display: inline-block !important;
+	}
+	.nemubar{
+		display: none;
+	}
+	.ulmenu li{
+		display: list-item !important;
+	}
 }
