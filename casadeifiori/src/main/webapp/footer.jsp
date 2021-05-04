@@ -22,10 +22,10 @@
 		<li><a href="tel:+393402294222">+393402294222</a></li>
 		<li><a href="tel:0825441420">0825441420</a></li>
 	</ol>
-	<iframe width="325" height="150" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://www.openstreetmap.org/export/embed.html?bbox=15.050432682037355%2C41.067129953077696%2C15.064594745635988%2C41.074522794719456&amp;layer=mapnik" style="border: 1px solid black"></iframe>
-	<a href="https://www.facebook.com/profile.php?id=100008184453570"><img src="https://blend.b-cdn.net/wp-content/uploads/2015/05/Blend-footer-social-icon-Facebook-300x300.png" width="35" height="30" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></a>
+	<iframe width="325" height="150" src="https://www.openstreetmap.org/export/embed.html?bbox=15.050432682037355%2C41.067129953077696%2C15.064594745635988%2C41.074522794719456&amp;layer=mapnik" style="border: 1px solid black"></iframe>
+	<a href="https://www.facebook.com/profile.php?id=100008184453570"><img src="https://blend.b-cdn.net/wp-content/uploads/2015/05/Blend-footer-social-icon-Facebook-300x300.png" width="35" height="30" ></a>
 	<hr size="1" width="100%" align="left" color="white">
-		<p>Copyright © 2021 | CasadeiFioridiTerrazzanoCeleste.</p>
+		<p>Copyright &#169; 2021 | CasadeiFioridiTerrazzanoCeleste.</p>
 	</div>
 </body>
 </html>
