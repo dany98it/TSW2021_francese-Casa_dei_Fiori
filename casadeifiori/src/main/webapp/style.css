@@ -2,12 +2,20 @@
 
 nav{
 	background-color: #67F0BB;
-	
 }
+nav ul{
+	background-color: #67F0BB;
+	list-style-type: none;
+}
+
+nav ul li{
+	display: inline;
+}
+
 #afterhomebtn{
 	position: relative;
-	margin-left: 40%;
 }
+
 .headerBtn{
 	background-color: #67F0BB;
 	font-size: large;

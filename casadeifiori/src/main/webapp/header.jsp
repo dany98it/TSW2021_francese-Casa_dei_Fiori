@@ -6,10 +6,14 @@
 		
 		<link rel=StyleSheet HREF="style.css" TYPE="text/css">
 	</head>
+	
 	<nav>
-			<a href="index.jsp"><button type="button" id="homeButton">Home </button></a>
-			<a href="listaItem.jsp" id="afterhomebtn"><button type="button" class="headerBtn" >lista prodotti </button></a>
-			<a href="cartPage.jsp"><button type="button" class="headerBtn">carrello </button></a> 
-			<a href="addItem.jsp"><button type="button" class="headerBtn">aggiungi prodotto </button></a> 
+		<ul>
+			<li> <a href="index.jsp"><button type="button" id="homeButton">Home </button></a></li>
+			<li> <a href="listaItem.jsp" id="afterhomebtn"><button type="button" class="headerBtn" >lista prodotti </button></a></li> 
+			<li> <a href="cartPage.jsp"><button type="button" class="headerBtn">carrello </button></a> </li> 
+			<li> <a href="addItem.jsp"><button type="button" class="headerBtn">aggiungi prodotto </button></a> </li>
+		
+		</ul>
 	</nav>
 </html>
