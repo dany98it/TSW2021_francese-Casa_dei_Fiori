@@ -52,3 +52,12 @@ button:hover{
 	display: inline-block;
 	list-style-type: none;
 }
+a:link{
+    color:#67F0BB;
+}
+a:visited{
+    color:red;
+}
+a:hover{
+    color:#B1F2D9;
+}
