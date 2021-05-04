@@ -9,8 +9,16 @@
 	
 	<nav>
 		<div class="navBar">
-			<div >
-				<button type="button" class="menuMobile headerBtn" onclick="menuMobile()"><i class="fas fa-bars" id="barMenu"></i> </button>
+			<div class="dropDown">
+				<button type="button" class="menuMobile headerBtn" onclick="menuMobile()"><i class="fas fa-bars" id="barMenu"></i><i class="fas fa-times" id="barmenuopen"></i> </button>
+				<div class="menuDrop" id="menuDrop">
+					<ul class="ulMenu">
+						<li> <a href="index.jsp"><button type="button" id="homeButton">Home </button></a></li>
+						<li> <a href="listaItem.jsp" id="afterHomeBtn"><button type="button" class="headerBtn" >lista prodotti </button></a></li> 
+						<li> <a href="cartPage.jsp"><button type="button" class="headerBtn">carrello </button></a> </li> 
+						<li> <a href="addItem.jsp"><button type="button" class="headerBtn">aggiungi prodotto </button></a> </li>
+					</ul>
+				</div>
 			</div>
 			<div class="logo">
 				<img alt="logo" src="">
@@ -21,7 +29,7 @@
 				<button type="button" class="headerBtn"><i class="fas fa-user"></i></button>
 			</div>
 		</div>
-		<div class="menuBar" id="menuBarId">
+		<div class="menuBar">
 			<ul class="ulMenu">
 				<li> <a href="index.jsp"><button type="button" id="homeButton">Home </button></a></li>
 				<li> <a href="listaItem.jsp" id="afterHomeBtn"><button type="button" class="headerBtn" >lista prodotti </button></a></li> 
@@ -29,14 +37,22 @@
 				<li> <a href="addItem.jsp"><button type="button" class="headerBtn">aggiungi prodotto </button></a> </li>
 			</ul>
 		</div>
+
 	</nav>
 	<script type="text/javascript">
 		function menuMobile() {
 			var bar = document.getElementById("menubarid");
+			var bar = document.getElementById("nemuDrop");
+			var icon = document.getElementById("barMenu");
+			var icon1 = document.getElementById("barMenuOpen");
 			if (bar.style.display == "none") {
 				bar.style.display = "block";
+				icon.style.display = "none";
+				icon1.style.display = "inline-block";
 			}else{
 				bar.style.display = "none";
+				icon.style.display = "inline-block";
+				icon1.style.display = "none";
 			}
 		}
 	</script>

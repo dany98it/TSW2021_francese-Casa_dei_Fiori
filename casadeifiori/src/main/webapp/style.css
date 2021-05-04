@@ -26,6 +26,18 @@ nav ul{
 	float: left;
 	display: none;
 }
+.dropDown {
+  	position: relative;
+  	display: inline-block;
+}
+.menuDrop {
+	background-color: #67F0BB;
+  	display: none;
+  	position: absolute;
+  	min-width: 160px;
+  	box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  	z-index: 1;
+}
 .logo{
 	left: 50%;
 	display: inline-block;
@@ -171,5 +183,8 @@ a:hover{
 	}
 	.navFooterList{
 		text-align: center;
+	}
+	#barMenuOpen{
+		display: none ;
 	}
 }
