@@ -2,10 +2,12 @@
 
 * {
   box-sizing: border-box;
+  font-family: Palatino,Palatino Linotype,Palatino LT STD,Book Antiqua,Georgia,serif; 
 }
 nav{
 	background-color: #67F0BB;
 	color: #023838;
+
 }
 nav ul{
 	background-color: #67F0BB;
@@ -13,14 +15,14 @@ nav ul{
 	color: #023838;
 }
 
-.ulmenu li{
+.ulMenu li{
 	display: inline !important;
 	color: #023838;
 }
-.navbar{
+.navBar{
 	height: 30px;
 }
-.menumobile{
+.menuMobile{
 	float: left;
 	display: none;
 }
@@ -32,22 +34,21 @@ nav ul{
 .user{
 	float: right;
 }
-.searchtab{
+.searchTab{
 	display: inline !important;
 }
-.searchbutton{
+.searchBtn{
 	display: none !important;
 }
-#afterhomebtn{
+#afterHomeBtn{
 	position: relative;
 }
-.nemubar{
+.menuBar{
 		display: block;
 }
 .headerBtn{
 	background-color: #67F0BB;
 	font-size: large;
-	font-family : cursive;
 	border: none;
 	color: #023838;
 }
@@ -149,19 +150,19 @@ a:hover{
 }
 
 @media screen and (max-width: 992px){
-	.menumobile{
+	.menuMobile{
 		display: inline-block;
 	}
-	.searchtab{
+	.searchTab{
 		display: none !important;
 	}
-	.searchbutton{
+	.searchBtn{
 		display: inline-block !important;
 	}
-	.nemubar{
+	.menuBar{
 		display: none;
 	}
-	.ulmenu li{
+	.ulMenu li{
 		display: list-item !important;
 	}
 	.navFooterBlock {

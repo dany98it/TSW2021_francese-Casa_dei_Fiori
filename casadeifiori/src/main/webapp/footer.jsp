@@ -1,6 +1,8 @@
+<%@page import="java.util.Calendar"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
+<% int year = Calendar.getInstance().get(Calendar.YEAR); %>
 <html>
 <head>
 	<link rel="stylesheet" href="style.css">
@@ -43,7 +45,7 @@
 		</aside>
 		<aside class="belowNavFooter">
 			<hr size="1" width="100%" align="left" color="white">
-			<p>Copyright &#169; 2021 | CasadeiFioridiTerrazzanoCeleste.</p>
+			<p>Copyright &#169; <%=year %>| CasadeiFioridiTerrazzanoCeleste.</p>
 		</aside>
 	</div>
 </body>
