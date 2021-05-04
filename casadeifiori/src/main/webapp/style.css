@@ -61,6 +61,7 @@ button:hover{
 	background-color: #023838;
 	color:white;
 	text-align: center;
+	line-height: 50px;
 }
 .navFooterBlock{
 	padding: 1% 1% 0% 1%;
