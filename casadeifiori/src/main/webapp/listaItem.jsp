@@ -16,11 +16,7 @@
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	<title>Casa dei Fiori</title>
-	<script>
-		function alertAddCart() {
-			alert(Item Aggiunto al carrello);
-		}
-	</script>
+
 </head>
 
 <body>

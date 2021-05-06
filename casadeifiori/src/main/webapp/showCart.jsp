@@ -46,6 +46,7 @@
 			<th>Prezzo</th>
 		</tr>
 		<%
+			
 			if (products != null && products.size() != 0) {
 				Iterator<?> it = products.iterator();
 				while (it.hasNext()) {
