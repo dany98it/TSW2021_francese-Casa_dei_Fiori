@@ -21,7 +21,7 @@
 				</div>
 			</div>
 			<div class="logo">
-				<img alt="logo" src="">
+				<img alt="logo" src="img/logosenzascritta.png"  alt="Image" height="95" width="152">
 			</div>
 			<div class="user">
 				<p class="searchTab">barra di ricerca</p>
