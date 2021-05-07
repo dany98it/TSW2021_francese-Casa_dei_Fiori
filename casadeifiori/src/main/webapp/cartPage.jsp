@@ -10,13 +10,16 @@
 	<title>Carrello</title>
 </head>
 	<header>
-		<%@ include file="header.jsp"%>
+		<%@ include file="main/header.jsp"%>
 	</header>
+	<nav>
+		<%@ include file="main/navigationBar.jsp"%>
+	</nav>
 <body>
 	<input type="text" class="notShow" id="page" value="cartPage.jsp">
 		<%@ include file="showCart.jsp"%>
 	<footer>
-		<%@ include file="footer.jsp" %>
+		<%@ include file="main/footer.jsp" %>
 	</footer>
 </body>
 </html>

@@ -16,8 +16,11 @@
 <title>Dettagli Item</title>
 </head>
 	<header>
-		<%@ include file="header.jsp"%>
+		<%@ include file="main/header.jsp"%>
 	</header>
+	<nav>
+		<%@ include file="main/navigationBar.jsp"%>
+	</nav>
 <body>
 	<h2>Dattagli Item</h2>
 	<table border="1">
@@ -55,7 +58,7 @@
 		</tr>
 	</table>
 	<footer>
-		<%@ include file="footer.jsp" %>
+		<%@ include file="main/footer.jsp" %>
 	</footer>
 </body>
 </html>

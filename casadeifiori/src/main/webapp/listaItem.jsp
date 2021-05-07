@@ -18,9 +18,14 @@
 	<title>Casa dei Fiori</title>
 
 </head>
-
+	<header>
+		<%@include file="main/header.jsp" %>
+	</header>
+	<nav>
+		<%@ include file="main/navigationBar.jsp"%>
+	</nav>
 <body>
-<%@include file="header.jsp" %>
+
 	<h2>Products</h2>
 	<table border="1">
 		<tr>
@@ -75,7 +80,7 @@
 		</div>
 	</div>
 	<footer>
-		<%@ include file="footer.jsp" %>
+		<%@ include file="main/footer.jsp" %>
 	</footer>
 </body>
 </html>

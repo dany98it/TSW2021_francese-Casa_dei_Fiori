@@ -8,7 +8,7 @@
 	</head>
 	
 	<header>
-		<%@ include file="header.jsp"%>
+		<%@ include file="main/header.jsp"%>
 	</header>
 	
 	<body>
@@ -43,7 +43,7 @@
 			<input type="submit" value="Add"><input type="reset" value="Reset">
 		</form>
 		<footer>
-			<%@ include file="footer.jsp" %>
+			<%@ include file="main/footer.jsp" %>
 		</footer>
 	</body>
 </html>

@@ -46,10 +46,13 @@
 	<div class="logofooter">
 		<img alt="logo" src="img/casa dei fiori.png"  alt="Image" height="95" width="152">
 	</div>
-		<aside class="belowNavFooter">
-			<hr size="1" width="100%" align="left" color="white">
-			<p>Copyright &#169; <%=year %>| CasadeiFioridiTerrazzanoCeleste.</p>
-		</aside>
+	<hr size="1" width="100%" align="left" color="white">
+	<div class="belowNavFooter">
+		<section>
+			Copyright &#169; <%=year %>| CasadeiFioridiTerrazzanoCeleste.
+		</section>
+	</div>
+		
 	</div>
 </body>
 </html>

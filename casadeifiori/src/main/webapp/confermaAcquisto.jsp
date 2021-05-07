@@ -6,13 +6,16 @@
 <meta charset="ISO-8859-1">
 <title>Conferma Acquisto</title>
 </head>
-<header>
-		<%@ include file="header.jsp"%>
+	<header>
+		<%@ include file="main/header.jsp"%>
 	</header>
+	<nav>
+		<%@ include file="main/navigationBar.jsp"%>
+	</nav>
 <body>
 	<h1>Acquisto avvenuto con successo</h1>
 	<footer>
-		<%@ include file="footer.jsp" %>
+		<%@ include file="main/footer.jsp" %>
 	</footer>
 </body>
 </html>
