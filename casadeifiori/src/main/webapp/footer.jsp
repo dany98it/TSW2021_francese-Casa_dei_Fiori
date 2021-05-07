@@ -43,6 +43,9 @@
 				<li><a href="https://www.instagram.com/casadeifiori.ideecreazioni/" target="_blank"><i class="fab fa-instagram" id="instagramIcon"></i></a></li>
 			</ul>
 		</aside>
+	<div class="logofooter">
+		<img alt="logo" src="img/casa dei fiori.png"  alt="Image" height="95" width="152">
+	</div>
 		<aside class="belowNavFooter">
 			<hr size="1" width="100%" align="left" color="white">
 			<p>Copyright &#169; <%=year %>| CasadeiFioridiTerrazzanoCeleste.</p>
