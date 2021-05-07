@@ -7,7 +7,6 @@
 nav{
 	background-color: #67F0BB;
 	color: #023838;
-
 }
 nav ul{
 	background-color: #67F0BB;
@@ -19,7 +18,9 @@ nav ul{
 	color: #023838;
 }
 .navBar{
-	height: 30px;
+	height: 50px;
+	display: grid;
+  	grid-template-columns: 25% 50% 25%;
 }
 .menuMobile{
 	display: none;
@@ -37,12 +38,11 @@ nav ul{
   	z-index: 1;
 }
 .logo{
-	left: 50%;
 	display: inline-block;
-	position: relative;
+	text-align: center;
 }
 .user{
-	float: right;
+	text-align: right;
 }
 .searchTab{
 	display: inline !important;
@@ -143,7 +143,7 @@ a:hover{
 }
 
 #socialIconsList li{
-	display: inline;
+	display: inline-block;
 }
 
 #facebookIcon{
@@ -184,5 +184,9 @@ a:hover{
 	}
 	#barMenuOpen{
 		display: none ;
+	}
+	#socialIconsList{
+		text-align: center;
+		font-size: 200%;
 	}
 }

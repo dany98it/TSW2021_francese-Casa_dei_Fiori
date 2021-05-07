@@ -13,7 +13,6 @@
 				<button type="button" class="menuMobile headerBtn" onclick="menuMobile()"><i class="fas fa-bars" id="barMenu"></i><i class="fas fa-times" id="barMenuOpen"></i> </button>
 				<div class="menuDrop" id="menuDropBar">
 					<ul class="ulMenu">
-						<li> <a href="index.jsp"><button type="button" id="homeButton">Home </button></a></li>
 						<li> <a href="listaItem.jsp" id="afterHomeBtn"><button type="button" class="headerBtn" >lista prodotti </button></a></li> 
 						<li> <a href="cartPage.jsp"><button type="button" class="headerBtn">carrello </button></a> </li> 
 						<li> <a href="addItem.jsp"><button type="button" class="headerBtn">aggiungi prodotto </button></a> </li>
@@ -21,7 +20,7 @@
 				</div>
 			</div>
 			<div class="logo">
-				<img alt="logo" src="img/logosenzascritta.png"  alt="Image" height="95" width="152">
+				<a href="index.jsp"><img alt="logo" src="img/logosenzascritta.png"  alt="Image" height="50px"></a>
 			</div>
 			<div class="user">
 				<p class="searchTab">barra di ricerca</p>
@@ -31,7 +30,6 @@
 		</div>
 		<div class="menuBar">
 			<ul class="ulMenu">
-				<li> <a href="index.jsp"><button type="button" id="homeButton">Home </button></a></li>
 				<li> <a href="listaItem.jsp" id="afterHomeBtn"><button type="button" class="headerBtn" >lista prodotti </button></a></li> 
 				<li> <a href="cartPage.jsp"><button type="button" class="headerBtn">carrello </button></a> </li> 
 				<li> <a href="addItem.jsp"><button type="button" class="headerBtn">aggiungi prodotto </button></a> </li>
