@@ -47,14 +47,8 @@ public class LogIn extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		HttpSession sessione = request.getSession(true);
-		User loggedUser;
-		synchronized(sessione) {
-		      
-			loggedUser = (User)sessione.getAttribute("loggedUser");
-			if(loggedUser==null) {
-					response.sendRedirect("singInPage.jsp");
-				}
-			}
+		User loggedUser = new User();
+		
 		UserDAO userdao = new UserDAO();
 		String username=request.getParameter("username");
 		if (username.contains("@")) {
@@ -73,6 +67,9 @@ public class LogIn extends HttpServlet {
 			}
 		}
 		if(loggedUser.getPassword().equals(request.getParameter("password"))) {
+			synchronized(sessione) {
+			loggedUser = (User)sessione.getAttribute("loggedUser");
+			}
 			response.sendRedirect("index.jsp");
 		}else {
 			response.sendRedirect("logInPage.jsp");
