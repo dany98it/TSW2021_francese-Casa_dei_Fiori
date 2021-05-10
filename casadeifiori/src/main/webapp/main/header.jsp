@@ -28,7 +28,11 @@
 					<a href="index.jsp"><img alt="logo" src="img/Logo.png"  alt="Image" height="80em" ></a>
 			</section>
 			<section class="user">
-					
+					<form action="search" class="headerBtn" >
+						<input type="search" class="searchBarItem">
+						<input type="submit" class="searchBarItem" value="Cerca">
+					</form>
+					<button type="button" class="searchBtn headerBtn"><i class="fas fa-search" id="searchIcon"></i></button>
 					<div class="dropDown">
 					<button type="button" class="headerBtn"onclick="menuMobile2()"><i class="fas fa-user" id="userIcon"></i></button>
 					<section class="menuDrop2" id="menuDropBar2">
@@ -46,12 +50,6 @@
 					</section>
 					
 					</div>
-					<form action="search" class="headerBtn" >
-						<input type="search" class="searchBarItem">
-						<input type="submit" class="searchBarItem" value="Cerca">
-						
-					</form>
-					<button type="button" class="searchBtn headerBtn"><i class="fas fa-search" id="searchIcon"></i></button>
 			</section>
 		</div>
 	</body>
