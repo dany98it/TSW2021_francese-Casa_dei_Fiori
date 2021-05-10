@@ -39,7 +39,7 @@ public class AggiungiAlCarrello extends HttpServlet {
 		
 		HttpSession sessione = request.getSession(true);
 		Carrello cart;
-		synchronized(sessione) {
+			synchronized(sessione) {
 		      cart = (Carrello)sessione.getAttribute("carrello");
 		      // I nuovi visitatori ottengono un nuovo carrello
 		      // I vistatori che hanno già un carrello lo mantengono
