@@ -84,7 +84,11 @@
 
 	<%  if(cart!=null && products != null && products.size() != 0){
 		%>
-		<a href="effettuaCheckOut" id="acquista"><button type="button" >Acquista </button></a>
+		<% if(sessione.getAttribute("loggedUser")!=null){ %>
+			<a href="effettuaCheckOut" id="acquista"><button type="button" >Acquista </button></a>
+		<% }else{%>
+			<a href="logInPage.jsp" id="acquista"><button type="button" >Acquista </button></a>
+		<% } %>
 	<% }%>
 	
 	<script type="text/javascript">
