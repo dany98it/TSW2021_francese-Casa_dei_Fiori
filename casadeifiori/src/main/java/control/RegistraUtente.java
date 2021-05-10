@@ -9,11 +9,15 @@ import javax.servlet.http.HttpServletResponse;*/
 import java.sql.Date;
 import java.sql.SQLException;
 
+import com.mysql.cj.Session;
+
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
+import model.Carrello;
 import model.Permessi;
 import model.User;
 import model.UserDAO;
@@ -44,21 +48,32 @@ public class RegistraUtente extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		User user = new User();
-		user.setEmail(request.getParameter("email"));
-		user.setPassword(request.getParameter("password"));
-		user.setNome(request.getParameter("nome"));
-		user.setCognome(request.getParameter("cognome"));
-		user.setdataNascita(Date.valueOf(request.getParameter("dataNascita")));
-		user.setPermessi(Permessi.user);
-		user.setTelefono(request.getParameter("telefono"));
-		UserDAO userdao=new UserDAO();
-		try {
-			userdao.doSave(user);
-		} catch (SQLException e) {
-			response.sendRedirect("singInPage.jsp");
-		}
-		response.sendRedirect("loginPage.jsp");
+		HttpSession sessione = request.getSession(true);
+		User loggedUser;
+			synchronized(sessione) {
+		      
+				loggedUser = (User)sessione.getAttribute("loggedUser");
+				if(loggedUser==null) {
+					User user = new User();
+					user.setEmail(request.getParameter("email"));
+					user.setPassword(request.getParameter("password"));
+					user.setNome(request.getParameter("nome"));
+					user.setCognome(request.getParameter("cognome"));
+					user.setdataNascita(Date.valueOf(request.getParameter("dataNascita")));
+					user.setPermessi(Permessi.user);
+					user.setTelefono(request.getParameter("telefono"));
+					UserDAO userdao=new UserDAO();
+					try {
+						userdao.doSave(user);
+					} catch (SQLException e) {
+						response.sendRedirect("singInPage.jsp");
+					}
+					sessione.setAttribute("loggedUser", loggedUser);
+					response.sendRedirect("loginPage.jsp");
+				}
+		      }
+		
+		
 	}
 
 }
