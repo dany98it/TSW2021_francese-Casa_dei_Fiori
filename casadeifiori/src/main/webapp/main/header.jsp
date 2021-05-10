@@ -28,19 +28,23 @@
 					<a href="index.jsp"><img alt="logo" src="img/Logo.png"  alt="Image" height="80em" ></a>
 			</section>
 			<section class="user">
-					<form action="search" class="headerBtn" >
-						<input type="search" class="searchBarItem">
-						<input type="submit" class="searchBarItem" value="Cerca">
-					</form>
-					<button type="button" class="searchBtn headerBtn"><i class="fas fa-search" id="searchIcon"></i></button>
+					<input type="search" class="searchBarItem">
+					<input type="submit" class="searchBarItem" value="Cerca">
+					<div class="dropDown">
+						<button type="button" class="searchBtn headerBtn"onclick="menuMobile3()"><i class="fas fa-search" id="searchIcon"></i></button>
+						<section class="menuDrop3" id="menuDropBar3">
+							<input type="search" >
+							<input type="submit" class="searchBarItemDown" value="Cerca">
+						</section>
+					</div>
 					<div class="dropDown">
 					<button type="button" class="headerBtn"onclick="menuMobile2()"><i class="fas fa-user" id="userIcon"></i></button>
 					<section class="menuDrop2" id="menuDropBar2">
 						<ul class="ulMenu2">
 							<% if(sessione.getAttribute("loggedUser")!=null){ %>
-								<li> <a href="listaItem.jsp" id="afterHomeBtn"><button type="button" class="headerBtn" >profilo</button></a></li> 
-								<li> <a href="cartPage.jsp"><button type="button" class="headerBtn">ordini</button></a> </li> 
-								<li> <a href="addItem.jsp"><button type="button" class="headerBtn">logout</button></a> </li>
+								<li> <a href="#" id="afterHomeBtn"><button type="button" class="headerBtn" >profilo</button></a></li> 
+								<li> <a href="MostraOrdiniEffettuati"><button type="button" class="headerBtn">ordini</button></a> </li> 
+								<li> <a href="#"><button type="button" class="headerBtn">logout</button></a> </li>
 							<% }else{%>
 								<li> <a href="logInPage.jsp" id="afterHomeBtn"><button type="button" class="headerBtn" >login</button></a></li> 
 								<li> <a href="signInPage.jsp"><button type="button" class="headerBtn">singin</button></a> </li> 
@@ -70,6 +74,14 @@
 		}
 		function menuMobile2() {
 			var bar = document.getElementById("menuDropBar2");
+			if (bar.style.display == "none") {
+				bar.style.display = "block";
+			}else{
+				bar.style.display = "none";
+			}
+		}
+		function menuMobile3() {
+			var bar = document.getElementById("menuDropBar3");
 			if (bar.style.display == "none") {
 				bar.style.display = "block";
 			}else{
