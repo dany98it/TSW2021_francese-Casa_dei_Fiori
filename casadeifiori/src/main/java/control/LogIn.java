@@ -68,7 +68,7 @@ public class LogIn extends HttpServlet {
 		}
 		if(loggedUser.getPassword().equals(request.getParameter("password"))) {
 			synchronized(sessione) {
-			loggedUser = (User)sessione.getAttribute("loggedUser");
+				sessione.setAttribute("loggedUser", loggedUser);
 			}
 			response.sendRedirect("index.jsp");
 		}else {
