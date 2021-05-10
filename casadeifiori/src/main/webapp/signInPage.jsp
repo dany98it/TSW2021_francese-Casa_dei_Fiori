@@ -51,4 +51,7 @@
 		<input type="submit" name="signIn" class="signInInput" /> <br>
 	</form>
 </body>
+	<footer>
+		<%@ include file="main/footer.jsp" %>
+	</footer>
 </html>
