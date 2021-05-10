@@ -1,6 +1,7 @@
 package control;
 
 import java.io.IOException;
+import java.sql.Date;
 /*import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -15,6 +16,8 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
+import model.Permessi;
 import model.User;
 import model.UserDAO;
 
@@ -43,25 +46,33 @@ public class LogIn extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		User user = null;
+		HttpSession sessione = request.getSession(true);
+		User loggedUser;
+		synchronized(sessione) {
+		      
+			loggedUser = (User)sessione.getAttribute("loggedUser");
+			if(loggedUser==null) {
+					response.sendRedirect("singInPage.jsp");
+				}
+			}
 		UserDAO userdao = new UserDAO();
 		String username=request.getParameter("username");
 		if (username.contains("@")) {
 			try {
-				user=userdao.doRetrieveBy("email", username);
+				loggedUser=userdao.doRetrieveBy("email", username);
 			} catch (SQLException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 		}else {
 			try {
-				user=userdao.doRetrieveBy("telefono", username);
+				loggedUser=userdao.doRetrieveBy("telefono", username);
 			} catch (SQLException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 		}
-		if(user.getPassword().equals(request.getParameter("password"))) {
+		if(loggedUser.getPassword().equals(request.getParameter("password"))) {
 			response.sendRedirect("index.jsp");
 		}else {
 			response.sendRedirect("logInPage.jsp");
