@@ -14,7 +14,7 @@
 	</nav>
 <body>
 	<h1>Sign in</h1>
-	<form action="RegistaUtente" method="post">
+	<form action="RegistraUtente" method="post">
 		<fieldset>
 		<legend>Dati Anagrafici</legend>
 			<label for="nome" class="signInLbl">Nome</label> <br>
