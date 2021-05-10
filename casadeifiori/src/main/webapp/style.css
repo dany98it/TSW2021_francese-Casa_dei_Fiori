@@ -31,9 +31,6 @@ nav ul{
 	display: inline !important;
 	color: #023838;
 }
-.ulMenu2{
-	padding: 0 0 0 0;
-}
 .ulMenu2 li{
 	list-style-type: none;
 	display: list-item !important;
@@ -60,12 +57,13 @@ nav ul{
 .menuDrop2 {
 	list-style-type: none;
 	background-color: #67F0BB;
-  	display: none;
+  	display: block;
   	position: absolute;
   	text-align: left;
   	min-width: 10em;
   	box-shadow: 0 0.5em 1em 0 rgba(0,0,0,0.2);
   	z-index: 1;
+  	right: 0;
 }
 .logo{
 	display: inline-block;
