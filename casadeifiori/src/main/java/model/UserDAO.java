@@ -225,5 +225,44 @@ public class UserDAO implements DaoInterfacce<User, Integer> {
 		}
 		return users;
 	}
+	
+	public User doRetrieveBy(String where, String code) throws SQLException {
+		Connection connection = null;
+		PreparedStatement preparedStatement = null;
+
+		User bean = new User();
+
+		String selectSQL = "SELECT * FROM " + UserDAO.TABLE_NAME + " WHERE " +where+" = ?";
+
+		try {
+			connection = ds.getConnection();
+			connection.setAutoCommit(false);
+			preparedStatement = connection.prepareStatement(selectSQL);
+			preparedStatement.setString(1, code);
+
+			ResultSet rs = preparedStatement.executeQuery();
+			connection.commit();
+			while (rs.next()) {
+				bean.setId(rs.getInt("id"));
+				bean.setEmail(rs.getString("email"));
+				bean.setNome(rs.getString("nome"));
+				bean.setCognome(rs.getString("cognome"));
+				bean.setdataNascita(rs.getDate("data_di_nascita"));
+				bean.setTelefono(rs.getString("telefono"));
+				bean.setPermessi(Permessi.valueOf(rs.getString("permessi")));
+				bean.setPassword(rs.getString("password"));
+			}
+
+		} finally {
+			try {
+				if (preparedStatement != null)
+					preparedStatement.close();
+			} finally {
+				if (connection != null)
+					connection.close();
+			}
+		}
+		return bean;
+	}
 
 }
