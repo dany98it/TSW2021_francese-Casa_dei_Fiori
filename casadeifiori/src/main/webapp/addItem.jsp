@@ -10,6 +10,9 @@
 	<header>
 		<%@ include file="main/header.jsp"%>
 	</header>
+	<nav>
+		<%@ include file="main/navigationBar.jsp"%>
+	</nav>
 	
 	<body>
 		<form action="AggiungiItem" > 
