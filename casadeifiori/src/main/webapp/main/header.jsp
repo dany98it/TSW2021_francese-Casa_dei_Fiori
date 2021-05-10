@@ -23,7 +23,10 @@
 					<a href="index.jsp"><img alt="logo" src="img/Logo.png"  alt="Image" height="80em" ></a>
 			</section>
 			<section class="user">
-					<p class="searchTab">barra di ricerca</p>
+					<form action="search" id="searchBar" class="headerBtn" >
+						<input type="search">
+						<input type="submit" value="Cerca">
+					</form>
 					<button type="button" class="searchBtn headerBtn"><i class="fas fa-search" id="searchIcon"></i></button>
 					<button type="button" class="headerBtn"><i class="fas fa-user" id="userIcon"></i></button>
 			</section>
