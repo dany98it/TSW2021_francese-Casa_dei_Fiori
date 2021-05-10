@@ -181,11 +181,8 @@ a:hover{
   	justify-content: center;
 }
 
-#searchBar{
-	padding-right: 0;
-	text-align: right;
-	justify-content: flex-end;
-	display: flex;
+.searchBarItem{
+		display: none !important;
 }
 
 @media screen and (max-width: 992px){
@@ -232,7 +229,7 @@ a:hover{
 	#searchIcon{
 		font-size: 200%;
 	}
-	#searchBar{
-		display: none;
+	.searchBarItem{
+		display: none !important;
 	}
 }
