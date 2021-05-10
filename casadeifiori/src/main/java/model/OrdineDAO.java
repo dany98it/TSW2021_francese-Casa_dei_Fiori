@@ -211,5 +211,43 @@ public class OrdineDAO implements DaoInterfacce<Ordine, Integer> {
 		}
 		return ordini;
 	}
+	
+	public Collection<Ordine> doRetrieveByUser(int user) throws SQLException {
+		Connection connection = null;
+		PreparedStatement preparedStatement = null;
+
+		Collection<Ordine> ordini = new LinkedList<Ordine>();
+
+		String selectSQL = "SELECT * FROM " + OrdineDAO.TABLE_NAME + "WHERE" + user;
+
+
+		try {
+			connection = ds.getConnection();
+			connection.setAutoCommit(false);
+			preparedStatement = connection.prepareStatement(selectSQL);
+			
+			ResultSet rs = preparedStatement.executeQuery();
+			connection.commit();
+			while (rs.next()) {
+				Ordine bean = new Ordine();
+				bean.setTipoOrdine(TipoOrdine.valueOf(rs.getString("tipo")));
+				bean.setTipoPagamento(TipoPagamento.valueOf(rs.getString("tipo_di_pagamento")));
+				bean.setPrezzoTotale(rs.getDouble("prezzo_totale"));
+				bean.setDataOrdine(rs.getDate("data"));
+				bean.setUser(rs.getString("user"));
+				ordini.add(bean);
+			}
+
+		} finally {
+			try {
+				if (preparedStatement != null)
+					preparedStatement.close();
+			} finally {
+				if (connection != null)
+					connection.close();
+			}
+		}
+		return ordini;
+	}
 
 }
