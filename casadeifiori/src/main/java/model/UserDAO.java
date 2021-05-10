@@ -12,7 +12,7 @@ import javax.naming.InitialContext;
 import javax.naming.NamingException;
 import javax.sql.DataSource;
 
-public class UserDAO implements DaoInterfacce<User, String> {
+public class UserDAO implements DaoInterfacce<User, Integer> {
 	private static DataSource ds;
 	
 	static {
@@ -65,19 +65,19 @@ public class UserDAO implements DaoInterfacce<User, String> {
 	}
 
 	@Override
-	public boolean doDelete(String code) throws SQLException {
+	public boolean doDelete(Integer code) throws SQLException {
 		Connection connection = null;
 		PreparedStatement preparedStatement = null;
 
 		boolean result ;
 
-		String deleteSQL = "DELETE FROM " + UserDAO.TABLE_NAME + " WHERE email = ?";
+		String deleteSQL = "DELETE FROM " + UserDAO.TABLE_NAME + " WHERE id = ?";
 
 		try {
 			connection = ds.getConnection();
 			connection.setAutoCommit(false);
 			preparedStatement = connection.prepareStatement(deleteSQL);
-			preparedStatement.setString(1, code);
+			preparedStatement.setInt(1, code);
 
 			result = preparedStatement.execute();
 			
@@ -102,25 +102,29 @@ public class UserDAO implements DaoInterfacce<User, String> {
 		int result ;
 
 		String updateSQL = "UPDATE " + UserDAO.TABLE_NAME + " SET  "
+				+ "email = ? ,"
 				+ "nome =  ? ,"
 				+ "cognome = ? ,"
 				+ "data_di_nascita = ? ," 
 				+ "telefono = ? ,"
 				+ "permessi = ? ,"
 				+ "password = ? ," 
-				+ " "+ "WHERE email = ? ";
+				+ " "+ "id = ? ";
 
 		try {
 			connection = ds.getConnection();
 			connection.setAutoCommit(false);
 			preparedStatement = connection.prepareStatement(updateSQL);
-			preparedStatement.setString(1, t.getNome());
-			preparedStatement.setString(2, t.getCognome());
-			preparedStatement.setDate(3, t.getdataNascita());
-			preparedStatement.setString(4, t.getTelefono());
-			preparedStatement.setString(5, t.getPermessi().toString());
-			preparedStatement.setString(6, t.getPassword());
-			preparedStatement.setString(7, t.getEmail());
+			preparedStatement.setString(1, t.getEmail());
+			preparedStatement.setString(2, t.getNome());
+			preparedStatement.setString(3, t.getNome());
+			preparedStatement.setString(4, t.getCognome());
+			preparedStatement.setDate(5, t.getdataNascita());
+			preparedStatement.setString(6, t.getTelefono());
+			preparedStatement.setString(7, t.getPermessi().toString());
+			preparedStatement.setString(8, t.getPassword());
+			preparedStatement.setInt(8, t.getId());
+			
 
 			result = preparedStatement.executeUpdate();
 			
@@ -138,23 +142,24 @@ public class UserDAO implements DaoInterfacce<User, String> {
 	}
 
 	@Override
-	public User doRetrieveByKey(String code) throws SQLException {
+	public User doRetrieveByKey(Integer code) throws SQLException {
 		Connection connection = null;
 		PreparedStatement preparedStatement = null;
 
 		User bean = new User();
 
-		String selectSQL = "SELECT * FROM " + UserDAO.TABLE_NAME + " WHERE email = ?";
+		String selectSQL = "SELECT * FROM " + UserDAO.TABLE_NAME + " WHERE id = ?";
 
 		try {
 			connection = ds.getConnection();
 			connection.setAutoCommit(false);
 			preparedStatement = connection.prepareStatement(selectSQL);
-			preparedStatement.setString(1, code);
+			preparedStatement.setInt(1, code);
 
 			ResultSet rs = preparedStatement.executeQuery();
 			connection.commit();
 			while (rs.next()) {
+				bean.setId(rs.getInt("id"));
 				bean.setEmail(rs.getString("email"));
 				bean.setNome(rs.getString("nome"));
 				bean.setCognome(rs.getString("cognome"));
@@ -198,6 +203,7 @@ public class UserDAO implements DaoInterfacce<User, String> {
 			connection.commit();
 			while (rs.next()) {
 				User bean = new User();
+				bean.setId(rs.getInt("id"));
 				bean.setEmail(rs.getString("email"));
 				bean.setNome(rs.getString("nome"));
 				bean.setCognome(rs.getString("cognome"));

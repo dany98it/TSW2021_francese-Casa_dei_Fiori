@@ -3,6 +3,7 @@ package model;
 import java.sql.Date;
 
 public class User {
+	private int id;
 	private String email;
 	private String nome;
 	private String cognome;
@@ -27,6 +28,13 @@ public class User {
 		this.password = password;
 	}
 	
+	public int getId() {
+		return id;
+	}
+	public void setId(int id) {
+		this.id = id;
+	}
+
 	public String getEmail() {
 		return email;
 	}
