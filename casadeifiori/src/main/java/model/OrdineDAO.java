@@ -218,13 +218,14 @@ public class OrdineDAO implements DaoInterfacce<Ordine, Integer> {
 
 		Collection<Ordine> ordini = new LinkedList<Ordine>();
 
-		String selectSQL = "SELECT * FROM " + OrdineDAO.TABLE_NAME + "WHERE" + user;
+		String selectSQL = "SELECT * FROM " + OrdineDAO.TABLE_NAME + " WHERE user = ?";
 
 
 		try {
 			connection = ds.getConnection();
 			connection.setAutoCommit(false);
 			preparedStatement = connection.prepareStatement(selectSQL);
+			preparedStatement.setInt(1, user);
 			
 			ResultSet rs = preparedStatement.executeQuery();
 			connection.commit();
