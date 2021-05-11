@@ -9,7 +9,6 @@ import javax.servlet.http.HttpServletResponse;*/
 import java.sql.Date;
 import java.sql.SQLException;
 
-import com.mysql.cj.Session;
 
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
@@ -17,7 +16,6 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
-import model.Carrello;
 import model.Permessi;
 import model.User;
 import model.UserDAO;
@@ -69,7 +67,7 @@ public class RegistraUtente extends HttpServlet {
 						response.sendRedirect("singInPage.jsp");
 					}
 					sessione.setAttribute("loggedUser", loggedUser);
-					response.sendRedirect("loginPage.jsp");
+					response.sendRedirect("logInPage.jsp");
 				}
 		      }
 		
