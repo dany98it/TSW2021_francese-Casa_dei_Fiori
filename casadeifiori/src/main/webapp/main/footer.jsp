@@ -15,7 +15,7 @@
 </footer>
 <body>
 	<div class="navFooter">
-		<aside class="navFooterBlock">
+		<section class="navFooterBlock">
 			<h4 class="navFooterTitleList">Informazioni legali</h4>
 			<ul class="navFooterList">
 				<li>Termini e condizioni</li>
@@ -23,8 +23,8 @@
 				<li>Politica sui coockie</li>
 				<li>Avviso legale</li>	
 			</ul>
-		</aside>
-		<aside class="navFooterBlock">
+		</section>
+		<section class="navFooterBlock">
 			<h4 class="navFooterTitleList">Contatti</h4>
 			<ul class="navFooterList">
 				<li>Corso Vittorio Veneto, 148 <br>
@@ -33,7 +33,7 @@
 				<li><a href="tel:+393402294222">+393402294222</a></li>
 				<li><a href="tel:0825441420">0825441420</a></li>
 			</ul>
-		</aside>
+		</section>
 		<aside class="navFooterBlock">
 			<iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d12032.035692056526!2d15.0576405!3d41.0687976!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xe86a46e6ad4bfd19!2sCasa%20Dei%20Fiori%20Di%20Terrazzano%20Celeste!5e0!3m2!1sit!2sit!4v1620127805341!5m2!1sit!2sit" width="400" height="225" style="border:0;"></iframe>
 		</aside>

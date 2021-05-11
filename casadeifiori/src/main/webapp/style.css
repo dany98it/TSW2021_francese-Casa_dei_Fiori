@@ -29,8 +29,8 @@ nav ul{
 	color: #023838;
 }
 
-.ulMenu2 {
-	padding: 0 !important;
+.headerUserList {
+	padding: 0% 0% 0% 0% !important;
 }
 
 .ulMenu li{
@@ -39,11 +39,12 @@ nav ul{
 	color: #023838;
 }
 
-.ulMenu{
-	padding: 0 !important;
+.ulMenu ul{
+	padding: 0% 0% 0% 0%;
 }
 
 .ulMenu2 li{
+	padding: 0% 0% 0% 0% ;
 	list-style-type: none;
 	display: list-item !important;
 	color: #023838;
@@ -108,6 +109,7 @@ nav ul{
 }
 
 #userIcon{
+	justify-content: center;
 	font-size: 200%;
 }
 
