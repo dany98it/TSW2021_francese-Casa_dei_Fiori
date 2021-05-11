@@ -45,7 +45,7 @@ public class OrdineDAO implements DaoInterfacce<Ordine, Integer> {
 			preparedStatement.setString(2, t.getTipoOrdine().toString());
 			preparedStatement.setString(3, t.getTipoPagamento().toString());
 			preparedStatement.setDouble(4, t.getPrezzoTotale());
-			preparedStatement.setDate(5, t.getDataOrdine());
+			preparedStatement.setTimestamp(5, t.getDataOrdine());
 			preparedStatement.setString(6, t.getUser());
 
 			preparedStatement.executeUpdate();
@@ -113,7 +113,7 @@ public class OrdineDAO implements DaoInterfacce<Ordine, Integer> {
 			preparedStatement = connection.prepareStatement(updateSQL);
 			preparedStatement.setString(1, t.getTipoOrdine().toString());
 			preparedStatement.setString(2, t.getTipoPagamento().toString());
-			preparedStatement.setDate(3, t.getDataOrdine());
+			preparedStatement.setTimestamp(3, t.getDataOrdine());
 			preparedStatement.setDouble(4, t.getPrezzoTotale());
 			preparedStatement.setString(5, t.getUser());
 			preparedStatement.setInt(6, t.getId());
@@ -154,7 +154,7 @@ public class OrdineDAO implements DaoInterfacce<Ordine, Integer> {
 				bean.setTipoOrdine(TipoOrdine.valueOf(rs.getString("tipo")));
 				bean.setTipoPagamento(TipoPagamento.valueOf(rs.getString("tipo_di_pagamento")));
 				bean.setPrezzoTotale(rs.getDouble("prezzo_totale"));
-				bean.setDataOrdine(rs.getDate("data"));
+				bean.setDataOrdine(rs.getTimestamp("data"));
 				bean.setUser(rs.getString("user"));
 			}
 
@@ -195,7 +195,7 @@ public class OrdineDAO implements DaoInterfacce<Ordine, Integer> {
 				bean.setTipoOrdine(TipoOrdine.valueOf(rs.getString("tipo")));
 				bean.setTipoPagamento(TipoPagamento.valueOf(rs.getString("tipo_di_pagamento")));
 				bean.setPrezzoTotale(rs.getDouble("prezzo_totale"));
-				bean.setDataOrdine(rs.getDate("data"));
+				bean.setDataOrdine(rs.getTimestamp("data"));
 				bean.setUser(rs.getString("user"));
 				ordini.add(bean);
 			}
@@ -234,7 +234,7 @@ public class OrdineDAO implements DaoInterfacce<Ordine, Integer> {
 				bean.setTipoOrdine(TipoOrdine.valueOf(rs.getString("tipo")));
 				bean.setTipoPagamento(TipoPagamento.valueOf(rs.getString("tipo_di_pagamento")));
 				bean.setPrezzoTotale(rs.getDouble("prezzo_totale"));
-				bean.setDataOrdine(rs.getDate("data"));
+				bean.setDataOrdine(rs.getTimestamp("data"));
 				bean.setUser(rs.getString("user"));
 				ordini.add(bean);
 			}
@@ -250,5 +250,39 @@ public class OrdineDAO implements DaoInterfacce<Ordine, Integer> {
 		}
 		return ordini;
 	}
+	
+	public int doGetMaxOrderId() throws SQLException {
+		Connection connection = null;
+		PreparedStatement preparedStatement = null;
 
+		int maxID = 0;
+
+		String selectSQL = "SELECT MAX(id) FROM " + OrdineDAO.TABLE_NAME ;
+
+
+		try {
+			connection = ds.getConnection();
+			connection.setAutoCommit(false);
+			preparedStatement = connection.prepareStatement(selectSQL);
+			
+			ResultSet rs = preparedStatement.executeQuery();
+			connection.commit();
+		
+			if (rs.next()) {
+
+				maxID = rs.getInt(1);
+			}
+
+		} finally {
+			try {
+				if (preparedStatement != null)
+					preparedStatement.close();
+			} finally {
+				if (connection != null)
+					connection.close();
+			}
+		}
+		return maxID;
+		
+	}
 }

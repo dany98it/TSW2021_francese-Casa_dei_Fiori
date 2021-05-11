@@ -1,13 +1,13 @@
 package model;
 
-import java.sql.Date;
+import java.sql.Timestamp;
 
 public class Ordine {
 	private int id;
 	private TipoOrdine tipoOrdine;
 	private TipoPagamento tipoPagamento;
 	private double prezzoTotale;
-	private Date dataOrdine;
+	private Timestamp dataOrdine;
 	private String user;
 	
 	public Ordine() {
@@ -46,11 +46,11 @@ public class Ordine {
 		this.prezzoTotale = prezzoTotale;
 	}
 
-	public Date getDataOrdine() {
+	public Timestamp getDataOrdine() {
 		return dataOrdine;
 	}
 
-	public void setDataOrdine(Date dataOrdine) {
+	public void setDataOrdine(Timestamp dataOrdine) {
 		this.dataOrdine = dataOrdine;
 	}
 
