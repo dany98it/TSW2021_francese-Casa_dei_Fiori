@@ -20,14 +20,14 @@ import model.ItemDAO;
 /**
  * Servlet implementation class mostraDettagli
  */
-@WebServlet("/MostraDettagli")
-public class MostraDettagli extends HttpServlet {
+@WebServlet("/MostraDettagliItem")
+public class MostraDettagliItem extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
     /**
      * Default constructor. 
      */
-    public MostraDettagli() {
+    public MostraDettagliItem() {
         // TODO Auto-generated constructor stub
     }
 
@@ -42,7 +42,7 @@ public class MostraDettagli extends HttpServlet {
 				Item i = new Item();
 				i = iDao.doRetrieveByKey(Integer.parseInt(itemID));
 				request.setAttribute("item", i);
-				RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/showDetails.jsp");
+				RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/itemDetailsPage.jsp");
 				dispatcher.forward(request, response);
 			} catch (NumberFormatException e) {
 				// TODO Auto-generated catch block

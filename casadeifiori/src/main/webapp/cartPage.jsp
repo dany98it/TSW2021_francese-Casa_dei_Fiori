@@ -15,7 +15,7 @@
 	<nav>
 		<%@ include file="main/navigationBar.jsp"%>
 	</nav>
-<%
+	<%
   	Carrello cart;
   	if(sessione.isNew()){
   		cart = new Carrello();
@@ -32,6 +32,8 @@
   		products = (Collection<?>) cart.getItemsOrdinati();
   	}catch(Exception e){
   		products= (Collection<?>) cart.getItemsOrdinati();
+  		e.printStackTrace();
+  		
   	}
 %>
 <body>

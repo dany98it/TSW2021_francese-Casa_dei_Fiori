@@ -67,7 +67,7 @@ public class ItemDAO implements DaoInterfacce<Item,Integer>{
 
 	@Override
 	public synchronized boolean doDelete(Integer code) throws SQLException {
-		// TODO Auto-generated method stub
+
 		Connection connection = null;
 		PreparedStatement preparedStatement = null;
 

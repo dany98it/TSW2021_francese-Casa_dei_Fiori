@@ -1,22 +1,22 @@
 package model;
 
-public class Contenuto {
+public class ContenutoOrdine {
 	private int ordine;
 	private int item;
 	private int quantita;
-	private int ivaVenditita;
+	private int ivaVendita;
 	private double prezzoVendita;
 	
-	public Contenuto() {
+	public ContenutoOrdine() {
 		super();
 	}
 
-	public Contenuto(int ordine, int item, int quantita, int ivaVenditita, double prezzoVendita) {
+	public ContenutoOrdine(int ordine, int item, int quantita, int ivaVenditita, double prezzoVendita) {
 		super();
 		this.ordine = ordine;
 		this.item = item;
 		this.quantita = quantita;
-		this.ivaVenditita = ivaVenditita;
+		this.ivaVendita = ivaVenditita;
 		this.prezzoVendita = prezzoVendita;
 	}
 
@@ -44,12 +44,12 @@ public class Contenuto {
 		this.quantita = quantita;
 	}
 
-	public int getIvaVenditita() {
-		return ivaVenditita;
+	public int getIvaVendita() {
+		return ivaVendita;
 	}
 
-	public void setIvaVenditita(int ivaVenditita) {
-		this.ivaVenditita = ivaVenditita;
+	public void setIvaVendita(int ivaVenditita) {
+		this.ivaVendita = ivaVenditita;
 	}
 
 	public double getPrezzoVendita() {
