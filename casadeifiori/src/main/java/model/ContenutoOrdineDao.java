@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.LinkedList;
 
@@ -187,23 +188,19 @@ public class ContenutoOrdineDao implements DaoInterfacce<ContenutoOrdine,Integer
 	}
 
 	
-	public Collection<ContenutoOrdine> doRetrieveByOrder(String order) throws SQLException {
+	public Collection<ContenutoOrdine> doRetrieveByOrder(Integer order) throws SQLException {
 		Connection connection = null;
 		PreparedStatement preparedStatement = null;
 
-		Collection<ContenutoOrdine> products = new LinkedList<ContenutoOrdine>();
+		Collection<ContenutoOrdine> products = new ArrayList<ContenutoOrdine>();
 
 		String selectSQL = "SELECT * FROM " + TABLE_NAME + " WHERE ordine = ? ";
-
-		if (order != null && !order.equals("")) {
-			selectSQL += " ORDER BY " + order;
-		}
 
 		try {
 			connection = ds.getConnection();
 			connection.setAutoCommit(false);
 			preparedStatement = connection.prepareStatement(selectSQL);
-			
+			preparedStatement.setInt(1, order);
 			ResultSet rs = preparedStatement.executeQuery();
 			connection.commit();
 			while (rs.next()) {
@@ -213,6 +210,7 @@ public class ContenutoOrdineDao implements DaoInterfacce<ContenutoOrdine,Integer
 				bean.setQuantita(rs.getInt("quantita"));
 				bean.setIvaVendita(rs.getInt("iva_vendita"));
 				bean.setPrezzoVendita(rs.getDouble("prezzo_vendita"));
+				products.add(bean);
 			}
 
 		} finally {

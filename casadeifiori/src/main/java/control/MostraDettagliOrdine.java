@@ -50,7 +50,7 @@ public class MostraDettagliOrdine extends HttpServlet {
 		ContenutoOrdineDao coDao = new ContenutoOrdineDao();
 		Collection<ContenutoOrdine> contOrd = null;
 		try {
-			contOrd = coDao.doRetrieveByOrder(orderID);
+			contOrd = coDao.doRetrieveByOrder(Integer.parseInt(orderID));
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

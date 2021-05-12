@@ -1,3 +1,6 @@
+<%@page import="java.util.Collection"%>
+<%@page import="java.util.Iterator"%>
+<%@page import="model.*"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
@@ -13,12 +16,12 @@
 		<%@ include file="main/navigationBar.jsp"%>
 	</nav>
 <%
-	Ordine ordine = (Ordine) request.getSession().getAttribute("ordine");
+	Ordine ordine = (Ordine) request.getAttribute("ordine");
 	Collection<?> products;
 	try{
-		products = (Collection<?>) request.getSession().getAttribute("contenutoOrdine");
+		products = (Collection<?>) request.getAttribute("contenutoOrdine");
 	}catch(Exception e){
-		products = (Collection<?>) request.getSession().getAttribute("contenutoOrdine");
+		products = (Collection<?>) request.getAttribute("contenutoOrdine");
 		e.printStackTrace();
 	}
 %>
