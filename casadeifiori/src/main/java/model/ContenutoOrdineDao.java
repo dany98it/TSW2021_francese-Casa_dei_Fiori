@@ -28,7 +28,7 @@ public class ContenutoOrdineDao implements DaoInterfacce<ContenutoOrdine,Integer
 		}
 	}
 	
-	private static final String TABLE_NAME = "contenunto";
+	private static final String TABLE_NAME = "contenuto";
 	
 	@Override
 	public void doSave(ContenutoOrdine t) throws SQLException {

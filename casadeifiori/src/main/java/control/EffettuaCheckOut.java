@@ -27,6 +27,8 @@ import model.ItemCarrello;
 import model.ItemDAO;
 import model.Ordine;
 import model.OrdineDAO;
+import model.TipoOrdine;
+import model.TipoPagamento;
 import model.User;
 
 
@@ -61,17 +63,29 @@ public class EffettuaCheckOut extends HttpServlet {
 				dispatcher.forward(request, response);
 			}
 		}
-
+		OrdineDAO oDao = new OrdineDAO();
+		int maxId = 0;
+		try {
+			maxId = oDao.doGetMaxOrderId()+1;
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		double costoTotale = 0;
-		
+		ArrayList<ContenutoOrdine> cos=new ArrayList<ContenutoOrdine>();
 		for (ItemCarrello item : itemToBuy) {
 			Item itemToUpdate = item.getItem();
-			ContenutoOrdineDao coDao = new ContenutoOrdineDao();
 			ContenutoOrdine co= new ContenutoOrdine();
 			int nuovaQuantita = itemToUpdate.getQuantita() - item.getQuantita();
 			if(nuovaQuantita < 0) {
 				//lanciare Errore impossibile effettuare acquisto di questo Item
 			}
+			co.setItem(itemToUpdate.getId());
+			co.setIvaVendita(itemToUpdate.getIva());
+			co.setPrezzoVendita(itemToUpdate.getPrezzo());
+			co.setOrdine(maxId);
+			co.setQuantita(item.getQuantita());
+			cos.add(co);
 			costoTotale += item.getCostoTotale();
 			itemToUpdate.setQuantita(nuovaQuantita);
 			try {
@@ -81,25 +95,32 @@ public class EffettuaCheckOut extends HttpServlet {
 				e.printStackTrace();
 			}
 		}
-		OrdineDAO oDao = new OrdineDAO();
-		int maxId = 0;
-		try {
-			maxId = oDao.doGetMaxOrderId();
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		
-		System.out.println(maxId);
-			
+
 		Ordine o = new Ordine();
 		o.setId(maxId);
-		o.setUser(String.valueOf(user.getId()));
+		o.setUser(user.getId());
 		o.setPrezzoTotale(costoTotale);
-		//o.setTipoPagamento();
-		//o.setTipoOrdine();
+		o.setTipoPagamento(TipoPagamento.cardaCredito);
+		o.setTipoOrdine(TipoOrdine.ritiro);
 		o.setDataOrdine(new Timestamp(System.currentTimeMillis()));
-			
+		try {
+			oDao.doSave(o);
+		} catch (SQLException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
+		
+		for (ContenutoOrdine contenutoOrdine : cos) {
+			ContenutoOrdineDao coDao = new ContenutoOrdineDao();
+			try {
+				coDao.doSave(contenutoOrdine);
+			} catch (SQLException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}
+		}
+		
+		
 		
 		sessione.setAttribute("carrello", new Carrello());
 		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/confermaAcquisto.jsp");

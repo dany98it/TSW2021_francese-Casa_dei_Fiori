@@ -8,7 +8,7 @@ public class Ordine {
 	private TipoPagamento tipoPagamento;
 	private double prezzoTotale;
 	private Timestamp dataOrdine;
-	private String user;
+	private int user;
 	
 	public Ordine() {
 		super();
@@ -54,11 +54,11 @@ public class Ordine {
 		this.dataOrdine = dataOrdine;
 	}
 
-	public String getUser() {
+	public int getUser() {
 		return user;
 	}
 
-	public void setUser(String user) {
+	public void setUser(int user) {
 		this.user = user;
 	}
 	

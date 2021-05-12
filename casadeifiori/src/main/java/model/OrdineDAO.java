@@ -46,7 +46,7 @@ public class OrdineDAO implements DaoInterfacce<Ordine, Integer> {
 			preparedStatement.setString(3, t.getTipoPagamento().toString());
 			preparedStatement.setDouble(4, t.getPrezzoTotale());
 			preparedStatement.setTimestamp(5, t.getDataOrdine());
-			preparedStatement.setString(6, t.getUser());
+			preparedStatement.setInt(6, t.getUser());
 
 			preparedStatement.executeUpdate();
 
@@ -115,7 +115,7 @@ public class OrdineDAO implements DaoInterfacce<Ordine, Integer> {
 			preparedStatement.setString(2, t.getTipoPagamento().toString());
 			preparedStatement.setTimestamp(3, t.getDataOrdine());
 			preparedStatement.setDouble(4, t.getPrezzoTotale());
-			preparedStatement.setString(5, t.getUser());
+			preparedStatement.setInt(5, t.getUser());
 			preparedStatement.setInt(6, t.getId());
 
 			result = preparedStatement.executeUpdate();
@@ -155,7 +155,7 @@ public class OrdineDAO implements DaoInterfacce<Ordine, Integer> {
 				bean.setTipoPagamento(TipoPagamento.valueOf(rs.getString("tipo_di_pagamento")));
 				bean.setPrezzoTotale(rs.getDouble("prezzo_totale"));
 				bean.setDataOrdine(rs.getTimestamp("data"));
-				bean.setUser(rs.getString("user"));
+				bean.setUser(rs.getInt("user"));
 			}
 
 		} finally {
@@ -192,11 +192,12 @@ public class OrdineDAO implements DaoInterfacce<Ordine, Integer> {
 			connection.commit();
 			while (rs.next()) {
 				Ordine bean = new Ordine();
+				bean.setId(rs.getInt("id"));
 				bean.setTipoOrdine(TipoOrdine.valueOf(rs.getString("tipo")));
 				bean.setTipoPagamento(TipoPagamento.valueOf(rs.getString("tipo_di_pagamento")));
 				bean.setPrezzoTotale(rs.getDouble("prezzo_totale"));
 				bean.setDataOrdine(rs.getTimestamp("data"));
-				bean.setUser(rs.getString("user"));
+				bean.setUser(rs.getInt("user"));
 				ordini.add(bean);
 			}
 
@@ -231,11 +232,12 @@ public class OrdineDAO implements DaoInterfacce<Ordine, Integer> {
 			connection.commit();
 			while (rs.next()) {
 				Ordine bean = new Ordine();
+				bean.setId(rs.getInt("id"));
 				bean.setTipoOrdine(TipoOrdine.valueOf(rs.getString("tipo")));
 				bean.setTipoPagamento(TipoPagamento.valueOf(rs.getString("tipo_di_pagamento")));
 				bean.setPrezzoTotale(rs.getDouble("prezzo_totale"));
 				bean.setDataOrdine(rs.getTimestamp("data"));
-				bean.setUser(rs.getString("user"));
+				bean.setUser(rs.getInt("user"));
 				ordini.add(bean);
 			}
 
