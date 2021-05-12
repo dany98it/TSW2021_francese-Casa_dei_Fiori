@@ -22,6 +22,7 @@
 			<input type="password" name="password" class="logInInput" placeholder="Inserisci password" required="required"/> <br>
 			
 			<input type="submit" value="log In" class="logInInput">
+			<a href="signInPage.jsp"><button type="button" >Sing-in</button></a>
 	</form>
 </body>
 	<footer>
