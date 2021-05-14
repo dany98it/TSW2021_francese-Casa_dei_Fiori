@@ -258,10 +258,13 @@ a:hover{
 }
 
 .searchBarItem{
-		display: inline-block;
-		height: 2em;
+	display: inline-block;
+	height: 2em;
 }
-
+#errorQ{
+	color: red;
+	display: none;
+}
 @media screen and (max-width: 992px){
 	.menu{
 		display: block;

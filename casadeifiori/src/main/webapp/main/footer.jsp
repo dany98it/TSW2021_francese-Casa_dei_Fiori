@@ -1,19 +1,8 @@
 <%@page import="java.util.Calendar"%>
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
 <% int year = Calendar.getInstance().get(Calendar.YEAR); %>
 <html>
-<head>
-	<link rel="stylesheet" href="style.css">
-	<meta charset="ISO-8859-1">
-	<script src="https://kit.fontawesome.com/46a2d5ed1b.js" ></script>
-</head>
-
-<footer>
-
-</footer>
-<body>
 	<div class="navFooter">
 		<section class="navFooterBlock">
 			<h4 class="navFooterTitleList">Informazioni legali</h4>
@@ -43,16 +32,14 @@
 				<li><a href="https://www.instagram.com/casadeifiori.ideecreazioni/" target="_blank"><i class="fab fa-instagram" id="instagramIcon"></i></a></li>
 			</ul>
 		</aside>
-	<div class="logofooter">
-		<img alt="logo" src="img/casa dei fiori.png"  alt="Image" height="95" width="152">
-	</div>
-	<hr size="1" width="100%" align="left" color="white">
-	<div class="belowNavFooter">
+		<div class="logofooter">
+			<img alt="logo" src="img/casa dei fiori.png"  alt="Image" height="95" width="152">
+		</div>
+		<hr size="1" width="100%" align="left" color="white">
+		<div class="belowNavFooter">
 		<section>
 			Copyright &#169; <%=year %>| CasadeiFioridiTerrazzanoCeleste.
 		</section>
+		</div>
 	</div>
-		
-	</div>
-</body>
 </html>
