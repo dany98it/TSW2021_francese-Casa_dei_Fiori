@@ -32,6 +32,7 @@
 			<th> Quantità </th>
 			<th> Iva Vendita </th>
 			<th> Prezzo Vendita </th>
+			<th> Dettagli </th> 
 		</tr>
 		<%
 			if (products != null && products.size() != 0) {
@@ -44,6 +45,7 @@
 			<td><%= bean.getQuantita() %></td>
 			<td><%= bean.getIvaVendita() %></td>
 			<td><%= bean.getPrezzoVendita() %></td>
+			<td><a href="MostraDettagliItem?itemID=<%=bean.getItem()%>"><button type="button" >Mostra dettagli </button> </a> <br></td> 
 		</tr>
 		<%
 				}

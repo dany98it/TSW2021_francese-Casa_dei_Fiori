@@ -46,7 +46,7 @@
 							<% if(sessione.getAttribute("loggedUser")!=null){ %>
 								<li> <a href="#" id="afterHomeBtn"><button type="button" class="headerBtn" >Il mio profilo</button></a></li> 
 								<li> <a href="MostraOrdiniEffettuati"><button type="button" class="headerBtn">I miei ordini</button></a> </li> 
-								<li> <a href="#"><button type="button" class="headerBtn">log-out</button></a> </li>
+								<li> <a href="EffettuaLogOut"><button type="button" class="headerBtn">Log-out</button></a> </li>
 							<% }else{%>
 								<li> <a href="logInPage.jsp" id="afterHomeBtn"><button type="button" class="headerBtn" >Log-in</button></a></li> 
 								<li> <a href="signInPage.jsp"><button type="button" class="headerBtn">Sing-in</button></a> </li> 

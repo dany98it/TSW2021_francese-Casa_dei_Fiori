@@ -35,7 +35,7 @@ import model.User;
 /**
  * Servlet implementation class effettuaCheckOut
  */
-@WebServlet("/effettuaCheckOut")
+@WebServlet("/EffettuaCheckOut")
 public class EffettuaCheckOut extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
