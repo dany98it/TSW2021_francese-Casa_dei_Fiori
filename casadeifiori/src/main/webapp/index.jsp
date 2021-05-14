@@ -3,8 +3,10 @@
 <!DOCTYPE html>
 <html>
 <head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <meta charset="ISO-8859-1">
 <title>Home</title>
+<link rel=StyleSheet href="style.css" type="text/css">
 </head>
 	<header>
 		<%@ include file="main/header.jsp"%>
