@@ -66,11 +66,12 @@
 			<input type="text" class="notShow" id="page" value="listaItem.jsp">
 			<i>mosta carrello </i>
 			<div class="show">
-				<jsp:include page="showCart.jsp"/>
+				<jsp:include page="main/showCart.jsp"/>
 			</div>
 		</div>
 		<footer>
 			<%@ include file="main/footer.jsp" %>
 		</footer>
+		<script src="code.js" ></script>
 	</body>
 </html>

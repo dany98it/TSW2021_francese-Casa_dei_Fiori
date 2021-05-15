@@ -24,5 +24,6 @@
 		<footer>
 			<%@ include file="main/footer.jsp" %>
 		</footer>
+		<script src="code.js" ></script>
 	</body>
 </html>

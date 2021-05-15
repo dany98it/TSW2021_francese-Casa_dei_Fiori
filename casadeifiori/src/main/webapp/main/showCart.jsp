@@ -65,16 +65,4 @@
 			<a href="logInPage.jsp" id="acquista"><button type="button" >Acquista </button></a>
 		<% } %>
 	<% } %>
-	<script type="text/javascript">
-		function addShop(id,quantitymax) {
-			var quantity=document.getElementById("quantity"+id).value
-			var page=document.getElementById("page").value
-			if(quantity<=quantitymax){
-				window.location.href ="addCart?itemID="+id+"&numItems="+quantity+"&page="+page;
-			}else{
-				document.getElementById("errorQ").style.display="block";
-				document.getElementById("acquista").style.display="none";
-			}
-		}
-	</script>
 </html>
