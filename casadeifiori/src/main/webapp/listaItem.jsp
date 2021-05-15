@@ -12,7 +12,7 @@
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 		<title>Casa dei Fiori</title>
 		<script src="https://kit.fontawesome.com/46a2d5ed1b.js" ></script>
-		<link rel=StyleSheet href="style.css" type="text/css">
+		<link rel=StyleSheet href="style.css?ts=<?=time()?>&quot" type="text/css">
 	</head>
 	<body>
 		<header>

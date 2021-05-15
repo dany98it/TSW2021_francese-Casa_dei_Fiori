@@ -301,6 +301,12 @@ a:hover{
 	display: none;
 }
 @media screen and (max-width: 992px){
+	.cerca:focus {
+		z-index: 1;
+		width: 50%;
+		right: 0;
+		position: absolute;
+	}
 	.menu{
 		display: block;
 	}
@@ -337,7 +343,6 @@ a:hover{
 	}
 
 	#userIcon{
-		
 		font-size: 200%;
 	}
 
@@ -348,13 +353,19 @@ a:hover{
 		display: none !important;
 	}
 }
-@media screen and (max-height: 450px) {
+@media screen and (max-width: 480px) {
 	.cerca:focus {
 		z-index: 1;
 		width: 100%;
 		right: 0;
 		position: absolute;
 	}
-  .menuDrop {padding-top: 15px;}
-  .menuDrop a {font-size: 18px;}
+}
+@media screen and (max-height: 450px) {
+  	.menuDrop {
+  		padding-top: 15px;
+  	}
+  	.menuDrop a {
+  		font-size: 18px;
+  	}
 }

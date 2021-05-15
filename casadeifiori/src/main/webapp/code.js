@@ -6,7 +6,7 @@ function closeNav() {
 
 function openNav() {
 	var menubar=document.getElementById("menuDropBar");
-	menubar.style.width = "100%"
+	menubar.style.width = "50%"
 	menubar.className ="menuDrop border";
 }
 

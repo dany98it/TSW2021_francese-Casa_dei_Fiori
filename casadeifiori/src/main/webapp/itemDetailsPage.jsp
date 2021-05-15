@@ -12,7 +12,7 @@
 		<meta charset="ISO-8859-1">
 		<title>Dettagli Item</title>
 		<script src="https://kit.fontawesome.com/46a2d5ed1b.js" ></script>
-		<link rel=StyleSheet href="style.css" type="text/css">
+		<link rel=StyleSheet href="style.css?ts=<?=time()?>&quot" type="text/css">
 	</head>
 	<body>
 		<header>
