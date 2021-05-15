@@ -1,7 +1,10 @@
+/*funzionanti*/
 * {
   font-family: Palatino,Palatino Linotype,Palatino LT STD,Book Antiqua,Georgia,serif; 
 }
-
+body{
+	margin: 0;
+}
 .menuDrop {
 	height: 100%;
 	width: 0;
@@ -36,12 +39,37 @@
   	font-size: 36px;
   	margin-left: 50px;
 }
+
 .menu{
 	font-size: 30px;
 	cursor: pointer;
 	display: none;
 }
 
+.cerca {
+  	box-sizing: border-box;
+  	border: 2px solid #FA8F6C;
+  	border-radius: 4px;
+  	font-size: 16px;
+  	background-color: #F1F2B4;
+  	background-image: url('img/search.svg');
+ 	background-position: right; 
+  	background-repeat: no-repeat;
+  	padding: 12px 20px 12px 40px;
+  	-webkit-transition: width 0.4s ease-in-out;
+  	transition: width 0.4s ease-in-out;
+	width: 50%;
+	position: relative;
+	text-align: center;	
+}
+
+.cerca:focus {
+	z-index: 1;
+	width: 100%;
+	right: 0;
+	position: absolute;
+}
+/*da modificare*/
 ul { padding:0 !important} 
 header{
 	background-color: #67F0BB;
