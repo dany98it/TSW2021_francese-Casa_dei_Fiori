@@ -5,6 +5,11 @@
 body{
 	margin: 0;
 }
+.border{
+	box-sizing: border-box;
+  	border: 5px solid white;
+  	border-radius: 4px;
+}
 .menuDrop {
 	height: 100%;
 	width: 0;
@@ -12,11 +17,12 @@ body{
 	z-index: 1;
 	top: 0;
 	left: 0;
-	background-color: #F1F2B4;
+	background-color: #FA8F6C;
 	overflow-x: hidden;
 	transition: 0.5s;
 	padding-top: 60px;
-	text-align: center;	
+	text-align: center;
+  	color: white;	
 }
 
 .menuDrop a{
@@ -48,10 +54,10 @@ body{
 
 .cerca {
   	box-sizing: border-box;
-  	border: 2px solid #FA8F6C;
+  	border: 5px solid white;
   	border-radius: 4px;
   	font-size: 16px;
-  	background-color: #F1F2B4;
+  	background-color: #FA8F6C;
   	background-image: url('img/search.svg');
  	background-position: right; 
   	background-repeat: no-repeat;
@@ -60,12 +66,13 @@ body{
   	transition: width 0.4s ease-in-out;
 	width: 50%;
 	position: relative;
-	text-align: center;	
+	text-align: center;
+	color: white;	
 }
 
 .cerca:focus {
 	z-index: 1;
-	width: 100%;
+	width: 25%;
 	right: 0;
 	position: absolute;
 }
@@ -342,6 +349,12 @@ a:hover{
 	}
 }
 @media screen and (max-height: 450px) {
+	.cerca:focus {
+		z-index: 1;
+		width: 100%;
+		right: 0;
+		position: absolute;
+	}
   .menuDrop {padding-top: 15px;}
   .menuDrop a {font-size: 18px;}
 }

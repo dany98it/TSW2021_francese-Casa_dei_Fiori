@@ -1,11 +1,13 @@
 function closeNav() {
-	document.getElementById("menuDropBar").style.width = "0%";
-	console.log("close");
+	var menubar=document.getElementById("menuDropBar");
+	menubar.style.width = "0%"
+	menubar.className ="menuDrop";
 }
 
 function openNav() {
-	document.getElementById("menuDropBar").style.width = "100%";
-	console.log("open");
+	var menubar=document.getElementById("menuDropBar");
+	menubar.style.width = "100%"
+	menubar.className ="menuDrop border";
 }
 
 function menuMobile2() {
