@@ -14,9 +14,9 @@
 		<div class="dropDown">
 			<span onclick="openNav()" class="menu">&#9776;</span>
 		</div>
-		<section class="logo">
-			<a href="index.jsp"><img alt="logo" src="img/Logo.png"  alt="Image" height="80em" ></a>
-		</section>
+		<div class="logo">
+			<img alt="logo" src="img/Logo.png" height="80em" onclick="redirect('index.jsp')">
+		</div>
 		<section class="user">
 			<form>
   				<input type="search" name="cerca" placeholder="cerca..." class="cerca" autocomplete="off">

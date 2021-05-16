@@ -62,8 +62,6 @@ body{
  	background-position: right; 
   	background-repeat: no-repeat;
   	padding: 12px 20px 12px 40px;
-  	-webkit-transition: width 0.4s ease-in-out;
-  	transition: width 0.4s ease-in-out;
 	width: 50%;
 	position: relative;
 	text-align: center;
@@ -75,6 +73,15 @@ body{
 	width: 25%;
 	right: 0;
 	position: absolute;
+}
+
+.logo{
+	display: inline-block;
+	text-align: center;
+}
+
+.logo img {
+	cursor: pointer;
 }
 /*da modificare*/
 ul { padding:0 !important} 
@@ -158,10 +165,7 @@ nav ul{
   	z-index: 1;
   	right: 0;
 }
-.logo{
-	display: inline-block;
-	text-align: center;
-}
+
 .user{
 	padding-right: 0;
 	text-align: right;

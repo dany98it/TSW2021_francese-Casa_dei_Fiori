@@ -10,6 +10,10 @@ function openNav() {
 	menubar.className ="menuDrop border";
 }
 
+function redirect(dove) {
+	window.location.href = dove;
+}
+
 function menuMobile2() {
 	var bar = document.getElementById("menuDropBar2");
 	bar.style.display = "block";
