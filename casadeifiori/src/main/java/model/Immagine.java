@@ -1,8 +1,8 @@
 package model;
 
-public class Immagine {
+public class Immagine<T> {
 	private int id;
-	private String imgBase64;
+	private T img;
 	private String descrizione;
 	
 	
@@ -10,10 +10,10 @@ public class Immagine {
 		super();
 	}
 
-	public Immagine(int id, String imgBase64, String descrizione) {
+	public Immagine(int id, T img, String descrizione) {
 		super();
 		this.id = id;
-		this.imgBase64 = imgBase64;
+		this.img = img;
 		this.descrizione = descrizione;
 	}
 
@@ -25,12 +25,12 @@ public class Immagine {
 		this.id = id;
 	}
 
-	public String getImgBase64() {
-		return imgBase64;
+	public T getImg() {
+		return img;
 	}
 
-	public void setImgBase64(String imgBase64) {
-		this.imgBase64 = imgBase64;
+	public void setImg(T img) {
+		this.img = img;
 	}
 
 	public String getDescrizione() {
