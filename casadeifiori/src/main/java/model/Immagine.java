@@ -2,7 +2,7 @@ package model;
 
 public class Immagine {
 	private int id;
-	private String url;
+	private String imgBase64;
 	private String descrizione;
 	
 	
@@ -10,10 +10,10 @@ public class Immagine {
 		super();
 	}
 
-	public Immagine(int id, String url, String descrizione) {
+	public Immagine(int id, String imgBase64, String descrizione) {
 		super();
 		this.id = id;
-		this.url = url;
+		this.imgBase64 = imgBase64;
 		this.descrizione = descrizione;
 	}
 
@@ -25,12 +25,12 @@ public class Immagine {
 		this.id = id;
 	}
 
-	public String getUrl() {
-		return url;
+	public String getImgBase64() {
+		return imgBase64;
 	}
 
-	public void setUrl(String url) {
-		this.url = url;
+	public void setImgBase64(String imgBase64) {
+		this.imgBase64 = imgBase64;
 	}
 
 	public String getDescrizione() {
