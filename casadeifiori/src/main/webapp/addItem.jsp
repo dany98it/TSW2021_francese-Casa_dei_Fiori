@@ -20,7 +20,7 @@
 		<nav>
 			<%@ include file="main/navigationBar.jsp" %>
 		</nav>
-		<form action="AggiungiItem" > 
+		<form action="AggiungiItem"> 
 			<label for="name">Nome:</label><br> 
 			<input name="name" type="text" maxlength="20" required placeholder="inserire nome"><br> 
 			<label for="description">Descrizione:</label><br>

@@ -85,22 +85,20 @@ body{
 }
 /*da modificare*/
 ul { padding:0 !important} 
-header{
-	background-color: #67F0BB;
-	margin-bottom: 0;
-}
 
 #headerContainer{
 	display: grid;
   	grid-template-columns: 25% 50% 25%;
+  	background-color: #67F0BB;
+	margin-bottom: 0;
 }	
 
-nav{
+.menuBar {
 	margin-top: 0;
 	background-color: #67F0BB;
 	color: #023838;
 }
-nav ul{
+.ulMenu {
 	margin-top: 0;
 	background-color: #67F0BB;
 	list-style-type: none;
@@ -251,15 +249,15 @@ button:hover{
 	text-align: inherit;
 }
 
-a:link{
+.navFooter a:link{
 	text-decoration: none;
     color:#67F0BB;
 }
-a:visited{
+.navFooter a:visited{
 	text-decoration: none;
     color:#67F0BB;
 }
-a:hover{
+.navFooter a:hover{
 	text-decoration: underline;
     color:#B1F2D9;
 }
