@@ -117,12 +117,11 @@ public class UserDAO implements DaoInterfacce<User, Integer> {
 			preparedStatement = connection.prepareStatement(updateSQL);
 			preparedStatement.setString(1, t.getEmail());
 			preparedStatement.setString(2, t.getNome());
-			preparedStatement.setString(3, t.getNome());
-			preparedStatement.setString(4, t.getCognome());
-			preparedStatement.setDate(5, t.getdataNascita());
-			preparedStatement.setString(6, t.getTelefono());
-			preparedStatement.setString(7, t.getPermessi().toString());
-			preparedStatement.setString(8, t.getPassword());
+			preparedStatement.setString(3, t.getCognome());
+			preparedStatement.setDate(4, t.getdataNascita());
+			preparedStatement.setString(5, t.getTelefono());
+			preparedStatement.setString(6, t.getPermessi().toString());
+			preparedStatement.setString(7, t.getPassword());
 			preparedStatement.setInt(8, t.getId());
 			
 

@@ -12,7 +12,7 @@ import javax.naming.InitialContext;
 import javax.naming.NamingException;
 import javax.sql.DataSource;
 
-public class CaratteristicaDAO implements DaoInterfacce<Caratteristica, Integer> {
+public class ConsegnaDAO implements DaoInterfacce<Consegna, Integer> {
 	private static DataSource ds;
 	
 	static {
@@ -27,22 +27,27 @@ public class CaratteristicaDAO implements DaoInterfacce<Caratteristica, Integer>
 		}
 	}
 	
-	private static final String TABLE_NAME = "caratteristica";
+	private static final String TABLE_NAME = "consegna";
 	@Override
-	public void doSave(Caratteristica t) throws SQLException {
+	public void doSave(Consegna t) throws SQLException {
 		Connection connection = null;
 		PreparedStatement preparedStatement = null;
-		String insertSQL = "INSERT INTO " + CaratteristicaDAO.TABLE_NAME
-				+ " (`nome`, `descrizione`) VALUES (?, ?)";
+		String insertSQL = "INSERT INTO " + ConsegnaDAO.TABLE_NAME
+				+ " (`tipo`, `corriere`, `data_consegna`, `data_inizio_spedizione`, `data_presunta_consegna`, `stato`, `indirizzo`, `ordine`) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
 
 		try {
 			
 			connection = ds.getConnection();
 			connection.setAutoCommit(false);
 			preparedStatement = connection.prepareStatement(insertSQL);
-			preparedStatement.setString(1, t.getNome());
-			preparedStatement.setString(2, t.getDescrizione());
-
+			preparedStatement.setString(1, t.getTipo().toString());
+			preparedStatement.setString(2, t.getCorriere());
+			preparedStatement.setDate(3, t.getDataConsegna());
+			preparedStatement.setDate(4, t.getDataInizioSpedizione());
+			preparedStatement.setDate(5, t.getDataPresuntaConsegna());
+			preparedStatement.setString(6, t.getStato().toString());
+			preparedStatement.setInt(7, t.getIndirizzo());
+			preparedStatement.setInt(8, t.getOrdine());
 			preparedStatement.executeUpdate();
 
 			connection.commit();
@@ -55,7 +60,6 @@ public class CaratteristicaDAO implements DaoInterfacce<Caratteristica, Integer>
 					connection.close();
 			}
 		}
-		
 	}
 
 	@Override
@@ -65,7 +69,7 @@ public class CaratteristicaDAO implements DaoInterfacce<Caratteristica, Integer>
 
 		boolean result ;
 
-		String deleteSQL = "DELETE FROM " + CaratteristicaDAO.TABLE_NAME + " WHERE id = ?";
+		String deleteSQL = "DELETE FROM " + ConsegnaDAO.TABLE_NAME + " WHERE id = ?";
 
 		try {
 			connection = ds.getConnection();
@@ -89,24 +93,36 @@ public class CaratteristicaDAO implements DaoInterfacce<Caratteristica, Integer>
 	}
 
 	@Override
-	public int doUpdate(Caratteristica t) throws SQLException {
+	public int doUpdate(Consegna t) throws SQLException {
 		Connection connection = null;
 		PreparedStatement preparedStatement = null;
 
 		int result ;
 
-		String updateSQL = "UPDATE " + CaratteristicaDAO.TABLE_NAME + " SET  "
-				+ "nome =  ? ,"
-				+ "descrizione = ? ,"
+		String updateSQL = "UPDATE " + ConsegnaDAO.TABLE_NAME + " SET  "
+				+ "tipo = ? ,"
+				+ "corriere =  ? ,"
+				+ "data_consegna = ? ,"
+				+ "data_inizio_spedizione = ? ," 
+				+ "data_presunta_consegna = ? ,"
+				+ "stato = ? ,"
+				+ "indirizzo = ? ," 
+				+ "ordine = ? ," 
 				+ " "+ "id = ? ";
 
 		try {
 			connection = ds.getConnection();
 			connection.setAutoCommit(false);
 			preparedStatement = connection.prepareStatement(updateSQL);
-			preparedStatement.setString(1, t.getNome());
-			preparedStatement.setString(2, t.getDescrizione());
-			preparedStatement.setInt(3, t.getId());
+			preparedStatement.setString(1, t.getTipo().toString());
+			preparedStatement.setString(2, t.getCorriere());
+			preparedStatement.setDate(3, t.getDataConsegna());
+			preparedStatement.setDate(4, t.getDataInizioSpedizione());
+			preparedStatement.setDate(5, t.getDataPresuntaConsegna());
+			preparedStatement.setString(6, t.getStato().toString());
+			preparedStatement.setInt(7, t.getIndirizzo());
+			preparedStatement.setInt(8, t.getOrdine());
+			preparedStatement.setInt(9, t.getId());
 			
 
 			result = preparedStatement.executeUpdate();
@@ -125,13 +141,13 @@ public class CaratteristicaDAO implements DaoInterfacce<Caratteristica, Integer>
 	}
 
 	@Override
-	public Caratteristica doRetrieveByKey(Integer code) throws SQLException {
+	public Consegna doRetrieveByKey(Integer code) throws SQLException {
 		Connection connection = null;
 		PreparedStatement preparedStatement = null;
 
-		Caratteristica bean = new Caratteristica();
+		Consegna bean = new Consegna();
 
-		String selectSQL = "SELECT * FROM " + CaratteristicaDAO.TABLE_NAME + " WHERE id = ?";
+		String selectSQL = "SELECT * FROM " + ConsegnaDAO.TABLE_NAME + " WHERE id = ?";
 
 		try {
 			connection = ds.getConnection();
@@ -143,8 +159,14 @@ public class CaratteristicaDAO implements DaoInterfacce<Caratteristica, Integer>
 			connection.commit();
 			while (rs.next()) {
 				bean.setId(rs.getInt("id"));
-				bean.setNome(rs.getString("nome"));
-				bean.setDescrizione(rs.getString("descrizione"));
+				bean.setTipo(TipoConsegna.valueOf(rs.getString("tipo")));
+				bean.setCorriere(rs.getString("corriere"));
+				bean.setDataConsegna(rs.getDate("data_consegna"));
+				bean.setDataInizioSpedizione(rs.getDate("data_inizio_spedizione"));
+				bean.setDataPresuntaConsegna(rs.getDate("data_presunta_consegna"));
+				bean.setStato(StatoConsegna.valueOf(rs.getString("stato")));
+				bean.setIndirizzo(rs.getInt("indirizzo"));
+				bean.setOrdine(rs.getInt("ordine"));
 			}
 
 		} finally {
@@ -160,13 +182,13 @@ public class CaratteristicaDAO implements DaoInterfacce<Caratteristica, Integer>
 	}
 
 	@Override
-	public Collection<Caratteristica> doRetrieveAll(String order) throws SQLException {
+	public Collection<Consegna> doRetrieveAll(String order) throws SQLException {
 		Connection connection = null;
 		PreparedStatement preparedStatement = null;
 
-		Collection<Caratteristica> caratteristica = new LinkedList<Caratteristica>();
+		Collection<Consegna> consegna = new LinkedList<Consegna>();
 
-		String selectSQL = "SELECT * FROM " + CaratteristicaDAO.TABLE_NAME;
+		String selectSQL = "SELECT * FROM " + ConsegnaDAO.TABLE_NAME;
 
 		if (order != null && !order.equals("")) {
 			selectSQL += " ORDER BY " + order;
@@ -180,11 +202,17 @@ public class CaratteristicaDAO implements DaoInterfacce<Caratteristica, Integer>
 			ResultSet rs = preparedStatement.executeQuery();
 			connection.commit();
 			while (rs.next()) {
-				Caratteristica bean = new Caratteristica();
+				Consegna bean = new Consegna();
 				bean.setId(rs.getInt("id"));
-				bean.setNome(rs.getString("nome"));
-				bean.setDescrizione(rs.getString("descrizione"));
-				caratteristica.add(bean);
+				bean.setTipo(TipoConsegna.valueOf(rs.getString("tipo")));
+				bean.setCorriere(rs.getString("corriere"));
+				bean.setDataConsegna(rs.getDate("data_consegna"));
+				bean.setDataInizioSpedizione(rs.getDate("data_inizio_spedizione"));
+				bean.setDataPresuntaConsegna(rs.getDate("data_presunta_consegna"));
+				bean.setStato(StatoConsegna.valueOf(rs.getString("stato")));
+				bean.setIndirizzo(rs.getInt("indirizzo"));
+				bean.setOrdine(rs.getInt("ordine"));
+				consegna.add(bean);
 			}
 
 		} finally {
@@ -196,7 +224,7 @@ public class CaratteristicaDAO implements DaoInterfacce<Caratteristica, Integer>
 					connection.close();
 			}
 		}
-		return caratteristica;
+		return consegna;
 	}
 
 }
