@@ -2,16 +2,18 @@ package model;
 
 public class Caratteristica {
 	private int id;
-	private int nome;
+	private String nome;
+	private String cognome;
 	
 	public Caratteristica() {
 		super();
 	}
 
-	public Caratteristica(int id, int nome) {
+	public Caratteristica(int id, String nome, String cognome) {
 		super();
 		this.id = id;
 		this.nome = nome;
+		this.cognome = cognome;
 	}
 
 	public int getId() {
@@ -22,13 +24,21 @@ public class Caratteristica {
 		this.id = id;
 	}
 
-	public int getNome() {
+	public String getNome() {
 		return nome;
 	}
 
-	public void setNome(int nome) {
+	public void setNome(String nome) {
 		this.nome = nome;
 	}
-	
+
+	public String getCognome() {
+		return cognome;
+	}
+
+	public void setCognome(String cognome) {
+		this.cognome = cognome;
+	}
+
 	
 }
