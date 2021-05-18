@@ -83,8 +83,6 @@ body{
 .logo img {
 	cursor: pointer;
 }
-/*da modificare*/
-ul { padding:0 !important} 
 
 #headerContainer{
 	display: grid;
@@ -92,6 +90,8 @@ ul { padding:0 !important}
   	background-color: #67F0BB;
 	margin-bottom: 0;
 }	
+/*da modificare*/
+ul { padding:0 !important} 
 
 .menuBar {
 	margin-top: 0;
