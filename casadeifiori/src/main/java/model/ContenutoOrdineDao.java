@@ -183,8 +183,39 @@ public class ContenutoOrdineDao implements DaoInterfacce<ContenutoOrdine,Integer
 
 	@Override
 	public ContenutoOrdine doRetrieveByKey(Integer code) throws SQLException {
-		// TODO Auto-generated method stub
-		return null;
+		Connection connection = null;
+		PreparedStatement preparedStatement = null;
+
+		ContenutoOrdine bean = new ContenutoOrdine();
+
+		String selectSQL = "SELECT * FROM " + ContenutoOrdineDao.TABLE_NAME + " WHERE id = ?";
+
+		try {
+			connection = ds.getConnection();
+			connection.setAutoCommit(false);
+			preparedStatement = connection.prepareStatement(selectSQL);
+			preparedStatement.setInt(1, code);
+
+			ResultSet rs = preparedStatement.executeQuery();
+			connection.commit();
+			while (rs.next()) {
+				bean.setOrdine(rs.getInt("ordine"));
+				bean.setItem(rs.getInt("item"));
+				bean.setQuantita(rs.getInt("quantita"));
+				bean.setIvaVendita(rs.getInt("iva_vendita"));
+				bean.setPrezzoVendita(rs.getDouble("prezzo_vendita"));
+			}
+
+		} finally {
+			try {
+				if (preparedStatement != null)
+					preparedStatement.close();
+			} finally {
+				if (connection != null)
+					connection.close();
+			}
+		}
+		return bean;
 	}
 
 	
