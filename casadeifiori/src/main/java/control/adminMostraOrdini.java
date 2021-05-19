@@ -55,10 +55,7 @@ public class adminMostraOrdini extends HttpServlet {
 		String customer = request.getParameter("customerName");
 		String date1=request.getParameter("startDate");
 		String date2=request.getParameter("endDate");
-		if(date1=="") {
-			System.out.println(date1);
-			System.out.println(date2);
-		}
+	
 		Timestamp startDate = null,endDate = null;
 
 		if(date1!=null && date1!="") {
@@ -79,7 +76,6 @@ public class adminMostraOrdini extends HttpServlet {
 				request.setAttribute("ordiniEffettuati", ordini);
 			}
 			else if(customer!=null && (date1==null || date1=="") && (date2==null || date2=="")) {
-				System.out.println(customer);
 				ordini = orderDao.doRetrieveByUsername(customer);
 				request.setAttribute("ordiniEffettuati", ordini);
 			}

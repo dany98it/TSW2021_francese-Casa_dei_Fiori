@@ -378,6 +378,48 @@ public class OrdineDAO implements DaoInterfacce<Ordine, Integer> {
 		return ordini;
 	}
 	
+	public Collection<Ordine> doRetrieveByDateAndUserID(int user,Timestamp date1,Timestamp date2) throws SQLException {
+		Connection connection = null;
+		PreparedStatement preparedStatement = null;
+
+		Collection<Ordine> ordini = new LinkedList<Ordine>();
+
+		String selectSQL = "SELECT * FROM " + OrdineDAO.TABLE_NAME + "WHERE user = ? "
+				+ " AND data BETWEEN ? AND ? ";
+
+
+		try {
+			connection = ds.getConnection();
+			connection.setAutoCommit(false);
+			preparedStatement = connection.prepareStatement(selectSQL);
+			preparedStatement.setInt(1, user);
+			preparedStatement.setTimestamp(2, date1);
+			preparedStatement.setTimestamp(3, date2);
+			ResultSet rs = preparedStatement.executeQuery();
+			connection.commit();
+			while (rs.next()) {
+				Ordine bean = new Ordine();
+				bean.setId(rs.getInt("id"));
+				bean.setTipoOrdine(TipoOrdine.valueOf(rs.getString("tipo")));
+				bean.setTipoPagamento(TipoPagamento.valueOf(rs.getString("tipo_di_pagamento")));
+				bean.setPrezzoTotale(rs.getDouble("prezzo_totale"));
+				bean.setDataOrdine(rs.getTimestamp("data"));
+				bean.setUser(rs.getInt("user"));
+				ordini.add(bean);
+			}
+
+		} finally {
+			try {
+				if (preparedStatement != null)
+					preparedStatement.close();
+			} finally {
+				if (connection != null)
+					connection.close();
+			}
+		}
+		return ordini;
+	}
+	
 	public int doGetMaxOrderId() throws SQLException {
 		Connection connection = null;
 		PreparedStatement preparedStatement = null;

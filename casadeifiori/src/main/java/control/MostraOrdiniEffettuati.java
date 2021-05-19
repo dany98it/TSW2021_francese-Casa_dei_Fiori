@@ -1,7 +1,9 @@
 package control;
 
 import java.io.IOException;
+import java.sql.Date;
 import java.sql.SQLException;
+import java.sql.Timestamp;
 /*import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -48,10 +50,31 @@ public class MostraOrdiniEffettuati extends HttpServlet {
 				response.sendRedirect("logInPage.jsp"); //logged-in page   
 			}   
 		};
+		String date1=request.getParameter("startDate");
+		String date2=request.getParameter("endDate");
+	
+		Timestamp startDate = null,endDate = null;
+
+		if(date1!=null && date1!="") {
+			startDate = new Timestamp(Date.valueOf(date1).getTime());
+			System.out.println(startDate.toString());
+		}
+		if(date2!=null && date2!="") {
+			endDate = new Timestamp(Date.valueOf(date2).getTime());
+			System.out.println(endDate.toString());
+		}
+		
 		OrdineDAO orderDao = new OrdineDAO();
 		try {
-			ordini = orderDao.doRetrieveByUser(loggedUser.getId());
-			request.setAttribute("ordiniEffettuati", ordini);
+			if((date1==null || date1=="") || (date2==null || date2=="")) {
+				ordini = orderDao.doRetrieveByUser(loggedUser.getId());
+				request.setAttribute("ordiniEffettuati", ordini);
+			}
+			else {
+				ordini = orderDao.doRetrieveByDateAndUserID(loggedUser.getId(),startDate,endDate);
+				request.setAttribute("ordiniEffettuati", ordini);
+			}
+			
 			RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/ordersPage.jsp");
 			dispatcher.forward(request, response);
 		} catch (SQLException e) {

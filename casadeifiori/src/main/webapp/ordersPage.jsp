@@ -19,6 +19,16 @@
 			<%@ include file="main/navigationBar.jsp"%>
 		</nav>
 		<h1> Ordini effettuati</h1>
+		<form action="adminMostraOrdini" method="post"> 
+
+			<label for="startDate">Da: </label>
+			<input type="date" name="startDate">
+			
+			<label for="endDate"> A : </label>
+			<input type="date" name="endDate">
+			
+			<input type="submit" value="Filtra">
+		</form>
 		<table border="1">
 			<tr>
 				<th>ID</th>
