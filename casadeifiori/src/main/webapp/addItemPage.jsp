@@ -20,12 +20,16 @@
 		<nav>
 			<%@ include file="main/navigationBar.jsp" %>
 		</nav>
-			<% 
-				User user=(User) sessione.getAttribute("loggedUser");
-				if(user==null||user.getPermessi()!=Permessi.admin){ %>
-					<%@ include file="main/nonPermessi.jsp" %>
+			<%	boolean isAdmin;
+				if(sessione.getAttribute("isAdmin")!=null){
+					isAdmin=(boolean) sessione.getAttribute("isAdmin"); 
+				} else{
+					isAdmin=false;
+				}
+				if(isAdmin){ %>
+					<%@ include file="main/addItem.jsp" %>
 			<% } else { %>
-				<%@ include file="main/addItem.jsp" %>
+				<%@ include file="main/nonPermessi.jsp" %>
 			<% } %>
 		<footer>
 			<%@ include file="main/footer.jsp" %>

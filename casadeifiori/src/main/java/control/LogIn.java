@@ -67,6 +67,7 @@ public class LogIn extends HttpServlet {
 		if(loggedUser.getPassword().equals(request.getParameter("password"))) {
 			synchronized(sessione) {
 				sessione.setAttribute("loggedUser", loggedUser);
+				sessione.setAttribute("isAdmin", loggedUser.isAdmin());
 			}
 			response.sendRedirect("index.jsp");
 		}else {
