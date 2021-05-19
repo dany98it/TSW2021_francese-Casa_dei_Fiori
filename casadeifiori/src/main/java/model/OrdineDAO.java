@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Timestamp;
 import java.util.Collection;
 import java.util.LinkedList;
 
@@ -228,6 +229,130 @@ public class OrdineDAO implements DaoInterfacce<Ordine, Integer> {
 			preparedStatement = connection.prepareStatement(selectSQL);
 			preparedStatement.setInt(1, user);
 			
+			ResultSet rs = preparedStatement.executeQuery();
+			connection.commit();
+			while (rs.next()) {
+				Ordine bean = new Ordine();
+				bean.setId(rs.getInt("id"));
+				bean.setTipoOrdine(TipoOrdine.valueOf(rs.getString("tipo")));
+				bean.setTipoPagamento(TipoPagamento.valueOf(rs.getString("tipo_di_pagamento")));
+				bean.setPrezzoTotale(rs.getDouble("prezzo_totale"));
+				bean.setDataOrdine(rs.getTimestamp("data"));
+				bean.setUser(rs.getInt("user"));
+				ordini.add(bean);
+			}
+
+		} finally {
+			try {
+				if (preparedStatement != null)
+					preparedStatement.close();
+			} finally {
+				if (connection != null)
+					connection.close();
+			}
+		}
+		return ordini;
+	}
+	
+	public Collection<Ordine> doRetrieveByUsername(String user) throws SQLException {
+		Connection connection = null;
+		PreparedStatement preparedStatement = null;
+
+		Collection<Ordine> ordini = new LinkedList<Ordine>();
+
+		String selectSQL = "SELECT * FROM " + OrdineDAO.TABLE_NAME + " WHERE user IN("
+				+ "select id FROM user WHERE nome LIKE ?) ";
+
+
+		try {
+			connection = ds.getConnection();
+			connection.setAutoCommit(false);
+			preparedStatement = connection.prepareStatement(selectSQL);
+			preparedStatement.setString(1, "%"+user+"%");
+			
+			ResultSet rs = preparedStatement.executeQuery();
+			connection.commit();
+			while (rs.next()) {
+				Ordine bean = new Ordine();
+				bean.setId(rs.getInt("id"));
+				bean.setTipoOrdine(TipoOrdine.valueOf(rs.getString("tipo")));
+				bean.setTipoPagamento(TipoPagamento.valueOf(rs.getString("tipo_di_pagamento")));
+				bean.setPrezzoTotale(rs.getDouble("prezzo_totale"));
+				bean.setDataOrdine(rs.getTimestamp("data"));
+				bean.setUser(rs.getInt("user"));
+				ordini.add(bean);
+			}
+
+		} finally {
+			try {
+				if (preparedStatement != null)
+					preparedStatement.close();
+			} finally {
+				if (connection != null)
+					connection.close();
+			}
+		}
+		return ordini;
+	}
+	
+	public Collection<Ordine> doRetrieveByDate(Timestamp date1,Timestamp date2) throws SQLException {
+		Connection connection = null;
+		PreparedStatement preparedStatement = null;
+
+		Collection<Ordine> ordini = new LinkedList<Ordine>();
+
+		String selectSQL = "SELECT * FROM " + OrdineDAO.TABLE_NAME + " WHERE data BETWEEN ? AND ? ";
+
+
+		try {
+			connection = ds.getConnection();
+			connection.setAutoCommit(false);
+			preparedStatement = connection.prepareStatement(selectSQL);
+			preparedStatement.setTimestamp(1, date1);
+			preparedStatement.setTimestamp(2, date2);
+			ResultSet rs = preparedStatement.executeQuery();
+			connection.commit();
+			while (rs.next()) {
+				Ordine bean = new Ordine();
+				bean.setId(rs.getInt("id"));
+				bean.setTipoOrdine(TipoOrdine.valueOf(rs.getString("tipo")));
+				bean.setTipoPagamento(TipoPagamento.valueOf(rs.getString("tipo_di_pagamento")));
+				bean.setPrezzoTotale(rs.getDouble("prezzo_totale"));
+				bean.setDataOrdine(rs.getTimestamp("data"));
+				bean.setUser(rs.getInt("user"));
+				ordini.add(bean);
+			}
+
+		} finally {
+			try {
+				if (preparedStatement != null)
+					preparedStatement.close();
+			} finally {
+				if (connection != null)
+					connection.close();
+			}
+		}
+		return ordini;
+	}
+	
+	public Collection<Ordine> doRetrieveByDateAndUsername(String user,Timestamp date1,Timestamp date2) throws SQLException {
+		Connection connection = null;
+		PreparedStatement preparedStatement = null;
+
+		Collection<Ordine> ordini = new LinkedList<Ordine>();
+
+		String selectSQL = "SELECT * FROM " + OrdineDAO.TABLE_NAME + "WHERE user IN("
+				+ "select id FROM user WHERE nome LIKE ?) "
+				+ " AND data BETWEEN ? AND ? ";
+
+
+		try {
+			connection = ds.getConnection();
+			connection.setAutoCommit(false);
+			preparedStatement = connection.prepareStatement(selectSQL);
+			preparedStatement.setString(1, user);
+			preparedStatement.setTimestamp(2, date1);
+			preparedStatement.setTimestamp(3, date2);
 			ResultSet rs = preparedStatement.executeQuery();
 			connection.commit();
 			while (rs.next()) {

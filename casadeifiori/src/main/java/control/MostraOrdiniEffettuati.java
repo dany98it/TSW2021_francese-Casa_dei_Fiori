@@ -45,7 +45,7 @@ public class MostraOrdiniEffettuati extends HttpServlet {
 		synchronized (sessione) {
 			loggedUser = (User) sessione.getAttribute("loggedUser");
 			if(loggedUser==null) {
-				response.sendRedirect("lofInPage.jsp"); //logged-in page   
+				response.sendRedirect("logInPage.jsp"); //logged-in page   
 			}   
 		};
 		OrdineDAO orderDao = new OrdineDAO();
