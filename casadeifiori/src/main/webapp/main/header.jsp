@@ -11,7 +11,7 @@
 		<a href="addItemPage.jsp">aggiungi prodotto</a>
 	</div>
 	<div id="headerContainer">
-		<div class="dropDown">
+		<div class="dropDown" id="headerMenuIconDiv">
 			<span onclick="openNav()" class="menu">&#9776;</span>
 		</div>
 		<div class="logo">
