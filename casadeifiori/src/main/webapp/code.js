@@ -33,3 +33,19 @@ function addShop(id,quantitymax) {
 		document.getElementById("acquista").style.display="none";
 	}
 }
+
+function showPassword(){
+	var bar = document.getElementById("logInPassword");
+	bar.setAttribute("type","text");
+	var icon1 = documet.getElementById("openEyePassword");
+	var icon2 = documet.getElementById("closedEyePassword");
+	icon1.style.visibility="hidden";
+	icon2.style.visibility="visibile";
+}
+
+function hidePassword(){
+	var bar = document.getElementById("logInPassword");
+	bar.setAttribute("type","password");
+	documet.getElementById("openEyePassword").style.display="none";
+	documet.getElementById("closedEyePassword").style.display="none";
+}

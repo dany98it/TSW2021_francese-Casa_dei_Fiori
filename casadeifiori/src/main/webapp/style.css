@@ -52,6 +52,9 @@ body{
 	display: none;
 }
 
+#openEyePassword{
+	display: none;
+}
 .cerca {
   	box-sizing: border-box;
   	border: 5px solid white;
@@ -261,6 +264,8 @@ button:hover{
 	text-decoration: underline;
     color:#B1F2D9;
 }
+
+
 #socialIcons{
 	align-content: right;
 }
