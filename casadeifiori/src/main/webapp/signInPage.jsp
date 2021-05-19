@@ -35,9 +35,11 @@
 			<fieldset>
 				<legend>Sicurezza</legend>
 				<label for="password" class="signInLbl">Password</label> <br>
-				<input type="password" name="password" class="signInInput" placeholder="Inserisci password" required="required"/> <br>
+				<input id="psw" type="password" name="password" class="signInInput" placeholder="Inserisci password" required="required"/>
+				<i id="closedEyePassword" class="fas fa-eye-slash" onclick="showPassword('psw','closedEyePassword','openEyePassword')"> </i> <i id="openEyePassword" class="far fa-eye" onclick="hidePassword('psw','openEyePassword','closedEyePassword')"></i> <br>
 				<label for="confermaPassword" class="signInLbl">Conferma Password</label> <br>
-				<input type="password" name="confermaPassword" class="signInInput" placeholder="Conferma password" disabled="disabled"/> <br>
+				<input id="cpsw" type="password" name="confermaPassword" class="signInInput" placeholder="Conferma password" disabled="disabled"/>
+				<i id="closedEyePassword2" class="fas fa-eye-slash" onclick="showPassword('cpsw','closedEyePassword2','openEyePassword2')"> </i> <i id="openEyePassword2" class="far fa-eye" onclick="hidePassword('cpsw','openEyePassword2','closedEyePassword2')"></i> <br>
 			</fieldset>
 			<input type="submit" name="signIn" class="signInInput" /> <br>
 		</form>

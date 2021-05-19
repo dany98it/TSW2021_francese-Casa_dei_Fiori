@@ -35,18 +35,18 @@ function addShop(id,quantitymax) {
 }
 
 
-function showPassword(){
-	var bar = document.getElementById("logInPassword");
+function showPassword(inpsw,none,inline){
+	var bar = document.getElementById(inpsw);
 	bar.setAttribute("type","text");
-	var icon1 = documet.getElementById("openEyePassword");
-	var icon2 = documet.getElementById("closedEyePassword");
-	icon1.style.visibility="hidden";
-	icon2.style.visibility="visibile";
+	var icon1 = document.getElementById(inline);
+	var icon2 = document.getElementById(none);
+	icon1.style.display="inline";
+	icon2.style.display="none";
 }
 
-function hidePassword(){
-	var bar = document.getElementById("logInPassword");
+function hidePassword(inpsw,none,inline){
+	var bar = document.getElementById(inpsw);
 	bar.setAttribute("type","password");
-	documet.getElementById("openEyePassword").style.display="none";
-	documet.getElementById("closedEyePassword").style.display="none";
+	document.getElementById(none).style.display="none";
+	document.getElementById(inline).style.display="inline";
 }

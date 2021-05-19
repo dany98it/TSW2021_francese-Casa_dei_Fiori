@@ -50,6 +50,9 @@ body{
 #openEyePassword{
 	display: none;
 }
+#openEyePassword2{
+	display: none;
+}
 .cerca {
   	border: none;
   	font-size: 30px;
