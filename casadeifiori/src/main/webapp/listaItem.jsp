@@ -16,7 +16,7 @@
 	</head>
 	<body>
 		<%@ include file="main/menuMobile.jsp" %>
-		<div class="main">
+		<div id="main">
 			<header>
 				<%@include file="main/header.jsp" %>
 			</header>
