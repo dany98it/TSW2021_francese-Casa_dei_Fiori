@@ -19,7 +19,7 @@
 		<p>
 			<a href="listaItem.jsp"><button type="button" >lista prodotti </button></a> <br>
 			<a href="cartPage.jsp"><button type="button" >carrello </button></a> <br>
-			<a href="addItem.jsp"><button type="button" >aggiungi prodotto </button></a> 
+			<a href="addItemPage.jsp"><button type="button" >aggiungi prodotto </button></a> 
 		</p>
 		<footer>
 			<%@ include file="main/footer.jsp" %>

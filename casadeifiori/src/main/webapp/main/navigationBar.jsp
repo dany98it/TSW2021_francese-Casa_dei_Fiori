@@ -9,7 +9,7 @@
 		<ul class="ulMenu">
 			<li> <a href="listaItem.jsp" id="afterHomeBtn"><button type="button" class="headerBtn" >Lista prodotti </button></a></li> 
 			<li> <a href="cartPage.jsp"><button type="button" class="headerBtn">Carrello </button></a> </li> 
-			<li> <a href="addItem.jsp"><button type="button" class="headerBtn">Aggiungi prodotto </button></a> </li>
+			<li> <a href="addItemPage.jsps"><button type="button" class="headerBtn">Aggiungi prodotto </button></a> </li>
 		</ul>
 	</div>
 </html>

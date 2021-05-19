@@ -8,7 +8,7 @@
 		<a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
 		<a href="listaItem.jsp">lista prodotti</a>
 		<a href="cartPage.jsp">carrello</a>
-		<a href="addItem.jsp">aggiungi prodotto</a>
+		<a href="addItemPage.jsp">aggiungi prodotto</a>
 	</div>
 	<div id="headerContainer">
 		<div class="dropDown">
