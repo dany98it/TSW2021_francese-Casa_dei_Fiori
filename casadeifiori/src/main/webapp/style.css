@@ -314,6 +314,12 @@ button:hover{
 	display: none;
 }
 @media screen and (max-width: 992px){
+	.dropDown{
+		padding-left: 3%;
+		justify-content: flex-start;
+		display: inline-flex;
+		align-items: center;
+	}
 	.menu{
 		display: block;
 	}
