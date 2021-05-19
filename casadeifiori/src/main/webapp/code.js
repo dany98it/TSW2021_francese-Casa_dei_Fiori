@@ -1,3 +1,9 @@
+tinymce.init({
+	selector: '#editortesto',
+	plugins: 'autolink autosave charmap emoticons hr link lists advlist paste quickbars table searchreplace wordcount',
+	paste_data_images: false,
+});
+
 function closeNav() {
 	var menubar=document.getElementById("menuDropBar");
 	menubar.style.width = "0%"
