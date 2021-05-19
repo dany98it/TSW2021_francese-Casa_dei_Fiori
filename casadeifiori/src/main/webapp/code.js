@@ -34,6 +34,7 @@ function addShop(id,quantitymax) {
 	}
 }
 
+
 function showPassword(){
 	var bar = document.getElementById("logInPassword");
 	bar.setAttribute("type","text");

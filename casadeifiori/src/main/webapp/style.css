@@ -5,11 +5,6 @@
 body{
 	margin: 0;
 }
-.border{
-	box-sizing: border-box;
-  	border: 5px solid white;
-  	border-radius: 4px;
-}
 .menuDrop {
 	height: 100%;
 	width: 0;
@@ -17,19 +12,19 @@ body{
 	z-index: 1;
 	top: 0;
 	left: 0;
-	background-color: #FA8F6C;
+	background-color: #023838;
 	overflow-x: hidden;
 	transition: 0.5s;
 	padding-top: 60px;
 	text-align: center;
-  	color: white;	
+  	color: #67F0BB;	
 }
 
 .menuDrop a{
 	padding: 8px 8px 8px 32px;
 	text-decoration: none;
 	font-size: 25px;
-	color: black;
+	color: #67F0BB;
 	display: block;
 	transition: 0.3;
 }
@@ -56,26 +51,32 @@ body{
 	display: none;
 }
 .cerca {
-  	box-sizing: border-box;
-  	border: 5px solid white;
-  	border-radius: 4px;
-  	font-size: 16px;
-  	background-color: #FA8F6C;
+  	border: none;
+  	font-size: 30px;
+  	background-color: transparent;
   	background-image: url('img/search.svg');
  	background-position: right; 
   	background-repeat: no-repeat;
-  	padding: 12px 20px 12px 40px;
-	width: 50%;
+  	background-size: 30px;
+  	padding: 0 0 0 0;
+	width: 30px;
 	position: relative;
 	text-align: center;
-	color: white;	
+	color: black;
+	cursor: pointer;
+	-webkit-transition: all .5s;
+	-moz-transition: all .5s;
+	transition: all .5s;	
 }
 
 .cerca:focus {
 	z-index: 1;
-	width: 25%;
-	right: 0;
-	position: absolute;
+	box-sizing: border-box;
+  	border: 2px solid black;
+  	border-radius: 100px;
+	width: 100%;
+	position: static;
+	outline: none;
 }
 
 .logo{
@@ -308,12 +309,6 @@ button:hover{
 	display: none;
 }
 @media screen and (max-width: 992px){
-	.cerca:focus {
-		z-index: 1;
-		width: 50%;
-		right: 0;
-		position: absolute;
-	}
 	.menu{
 		display: block;
 	}
@@ -361,12 +356,7 @@ button:hover{
 	}
 }
 @media screen and (max-width: 480px) {
-	.cerca:focus {
-		z-index: 1;
-		width: 100%;
-		right: 0;
-		position: absolute;
-	}
+
 }
 @media screen and (max-height: 450px) {
   	.menuDrop {

@@ -5,7 +5,7 @@
 		<meta charset="ISO-8859-1">
 		<title>Casa dei fiori</title>
 		<script src="https://kit.fontawesome.com/46a2d5ed1b.js" ></script>
-		<link rel=StyleSheet href="style.css?ts=<?=time()?>&quot" type="text/css">
+		<link rel=StyleSheet href="style.css" type="text/css">
 		<script src="https://cdn.tiny.cloud/1/g2c80f7e3j2a84roh0japxama71ob4iv5qwvfyc01h1zyx7f/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
 		<script>
     		tinymce.init({

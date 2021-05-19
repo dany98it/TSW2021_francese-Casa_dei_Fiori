@@ -6,7 +6,7 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<meta charset="ISO-8859-1">
 		<title>Home</title>
-		<link rel=StyleSheet href="style.css?ts=<?=time()?>&quot" type="text/css">
+		<link rel=StyleSheet href="style.css" type="text/css">
 		<script src="https://kit.fontawesome.com/46a2d5ed1b.js" ></script>
 	</head>
 	<body>

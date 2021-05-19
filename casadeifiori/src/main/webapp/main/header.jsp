@@ -19,7 +19,7 @@
 		</div>
 		<section class="user">
 			<form>
-  				<input type="search" name="cerca" placeholder="cerca..." class="cerca" autocomplete="off">
+  				<input type="search" name="cerca" class="cerca" autocomplete="off">
 			</form>
 			<div class="dropDown">
 				<button type="button" class="headerBtn" onmouseenter="menuMobile2()" onmouseleave="closeMenuMobile2()"><i class="fas fa-user" id="userIcon"></i></button>
