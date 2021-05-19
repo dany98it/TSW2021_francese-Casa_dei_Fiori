@@ -1,6 +1,6 @@
 tinymce.init({
 	selector: '#editortesto',
-	plugins: 'autolink autosave charmap emoticons hr link lists advlist paste quickbars table searchreplace wordcount',
+	plugins: 'autolink autosave charmap emoticons hr link lists advlist paste table searchreplace wordcount',
 	paste_data_images: false,
 });
 
