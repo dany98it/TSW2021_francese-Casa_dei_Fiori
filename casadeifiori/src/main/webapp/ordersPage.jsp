@@ -19,7 +19,7 @@
 			<%@ include file="main/navigationBar.jsp"%>
 		</nav>
 		<h1> Ordini effettuati</h1>
-		<form action="adminMostraOrdini" method="post"> 
+		<form action="MostraOrdiniEffettuati" method="post"> 
 
 			<label for="startDate">Da: </label>
 			<input type="date" name="startDate">

@@ -384,8 +384,7 @@ public class OrdineDAO implements DaoInterfacce<Ordine, Integer> {
 
 		Collection<Ordine> ordini = new LinkedList<Ordine>();
 
-		String selectSQL = "SELECT * FROM " + OrdineDAO.TABLE_NAME + "WHERE user = ? "
-				+ " AND data BETWEEN ? AND ? ";
+		String selectSQL = "SELECT * FROM " + OrdineDAO.TABLE_NAME + " WHERE user = ? AND data BETWEEN ? AND ? ";
 
 
 		try {

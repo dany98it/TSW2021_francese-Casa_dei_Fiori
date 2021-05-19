@@ -48,6 +48,7 @@ public class MostraOrdiniEffettuati extends HttpServlet {
 			loggedUser = (User) sessione.getAttribute("loggedUser");
 			if(loggedUser==null) {
 				response.sendRedirect("logInPage.jsp"); //logged-in page   
+				return;
 			}   
 		};
 		String date1=request.getParameter("startDate");
@@ -57,11 +58,10 @@ public class MostraOrdiniEffettuati extends HttpServlet {
 
 		if(date1!=null && date1!="") {
 			startDate = new Timestamp(Date.valueOf(date1).getTime());
-			System.out.println(startDate.toString());
+
 		}
 		if(date2!=null && date2!="") {
 			endDate = new Timestamp(Date.valueOf(date2).getTime());
-			System.out.println(endDate.toString());
 		}
 		
 		OrdineDAO orderDao = new OrdineDAO();
