@@ -175,7 +175,9 @@ ul { padding:0 !important}
 	padding-right: 0;
 	text-align: right;
 	justify-content: flex-end;
+	align-items: center;
 	display: flex;
+
 }
 
 #userIcon{
@@ -345,6 +347,7 @@ button:hover{
 		text-align: right;
 		justify-content: flex-end;
 		display: inline-flex;
+		align-items: center;
 	}
 
 	#userIcon{
