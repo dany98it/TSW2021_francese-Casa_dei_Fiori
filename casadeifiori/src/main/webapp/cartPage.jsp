@@ -10,17 +10,20 @@
 		<link rel=StyleSheet href="style.css" type="text/css">
 	</head>
 	<body>
-		<header>
-			<%@ include file="main/header.jsp"%>
-		</header>	
-		<nav>
-			<%@ include file="main/navigationBar.jsp"%>
-		</nav>
-		<input type="text" class="notShow" id="page" value="cartPage.jsp">
-		<jsp:include page="main/showCart.jsp"/>
-		<footer>
-		<%@ include file="main/footer.jsp" %>
-		</footer>
+		<%@ include file="main/menuMobile.jsp" %>
+		<div class="main">
+			<header>
+				<%@ include file="main/header.jsp"%>
+			</header>	
+			<nav>
+				<%@ include file="main/navigationBar.jsp"%>
+			</nav>
+			<input type="text" class="notShow" id="page" value="cartPage.jsp">
+			<jsp:include page="main/showCart.jsp"/>
+			<footer>
+				<%@ include file="main/footer.jsp" %>
+			</footer>
+		</div>
 		<script src="code.js" ></script>
 	</body>	
 </html>

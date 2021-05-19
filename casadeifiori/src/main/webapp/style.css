@@ -5,6 +5,9 @@
 body{
 	margin: 0;
 }
+#main{
+	transition: margin-left .5s;
+}
 .menuDrop {
 	height: 100%;
 	width: 0;

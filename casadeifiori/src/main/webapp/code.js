@@ -8,12 +8,14 @@ function closeNav() {
 	var menubar=document.getElementById("menuDropBar");
 	menubar.style.width = "0%"
 	menubar.className ="menuDrop";
+	document.getElementById("main").style.marginLeft = "0%";
 }
 
 function openNav() {
 	var menubar=document.getElementById("menuDropBar");
 	menubar.style.width = "50%"
 	menubar.className ="menuDrop border";
+	document.getElementById("main").style.marginLeft = "50%";
 }
 
 function redirect(dove) {

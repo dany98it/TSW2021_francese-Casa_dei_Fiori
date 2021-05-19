@@ -10,20 +10,23 @@
 		<script src="https://kit.fontawesome.com/46a2d5ed1b.js" ></script>
 	</head>
 	<body>
-		<header>
-			<%@ include file="main/header.jsp"%>
-		</header>
-		<nav>
-			<%@ include file="main/navigationBar.jsp"%>
-		</nav>
-		<p>
-			<a href="listaItem.jsp"><button type="button" >lista prodotti </button></a> <br>
-			<a href="cartPage.jsp"><button type="button" >carrello </button></a> <br>
-			<a href="addItemPage.jsp"><button type="button" >aggiungi prodotto </button></a> 
-		</p>
-		<footer>
-			<%@ include file="main/footer.jsp" %>
-		</footer>
+		<%@ include file="main/menuMobile.jsp" %>
+		<div class="main">
+			<header>
+				<%@ include file="main/header.jsp"%>
+			</header>
+			<nav>
+				<%@ include file="main/navigationBar.jsp"%>
+			</nav>
+			<p>
+				<a href="listaItem.jsp"><button type="button" >lista prodotti </button></a> <br>
+				<a href="cartPage.jsp"><button type="button" >carrello </button></a> <br>
+				<a href="addItemPage.jsp"><button type="button" >aggiungi prodotto </button></a> 
+			</p>
+			<footer>
+				<%@ include file="main/footer.jsp" %>
+			</footer>
+		</div>
 		<script src="code.js" ></script>
 	</body>
 </html>

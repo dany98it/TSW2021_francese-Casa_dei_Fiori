@@ -8,16 +8,19 @@
 		<link rel=StyleSheet href="style.css" type="text/css">
 	</head>
 	<body>
-		<header>
-			<%@ include file="main/header.jsp"%>
-		</header>
-		<nav>
-			<%@ include file="main/navigationBar.jsp"%>
-		</nav>
-		<h1>Acquisto avvenuto con successo</h1>
-		<footer>
-			<%@ include file="main/footer.jsp" %>
-		</footer>
+		<%@ include file="main/menuMobile.jsp" %>
+		<div class="main">
+			<header>
+				<%@ include file="main/header.jsp"%>
+			</header>
+			<nav>
+				<%@ include file="main/navigationBar.jsp"%>
+			</nav>
+			<h1>Acquisto avvenuto con successo</h1>
+			<footer>
+				<%@ include file="main/footer.jsp" %>
+			</footer>
+		</div>
 		<script src="code.js" ></script>
 	</body>
 </html>
