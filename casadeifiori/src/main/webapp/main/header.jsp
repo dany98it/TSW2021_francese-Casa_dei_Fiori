@@ -9,12 +9,15 @@
 			<span onclick="openNav()" class="menu">&#9776;</span>
 		</div>
 		<div class="logo">
-			<img alt="logo" src="img/Logo.png" height="80em" onclick="redirect('index.jsp')">
+			<img alt="logo" src="img/CasalogoSVGmodificato1.svg" height="80em" onclick="redirect('index.jsp')">
 		</div>
 		<section class="user">
 			<form>
   				<input type="text" name="cerca" class="cerca" autocomplete="off">
 			</form>
+			<div id="cartIconDiv" >
+				<a href="cartPage.jsp"><button type="button" class="headerBtn"><i class="fas fa-shopping-cart" id="cartIcon"></i> </button></a>
+			</div>
 			<div class="dropDown">
 				<button type="button" class="headerBtn" onmouseenter="menuMobile2()" onmouseleave="closeMenuMobile2()"><i class="fas fa-user" id="userIcon"></i></button>
 				<section class="menuDrop2" id="menuDropBar2" onmouseenter="menuMobile2()" onmouseleave="closeMenuMobile2()">
