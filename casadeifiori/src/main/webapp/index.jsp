@@ -18,11 +18,24 @@
 			<nav>
 				<%@ include file="main/navigationBar.jsp"%>
 			</nav>
-			<p>
-				<a href="listaItem.jsp"><button type="button" >lista prodotti </button></a> <br>
-				<a href="cartPage.jsp"><button type="button" >carrello </button></a> <br>
-				<a href="addItemPage.jsp"><button type="button" >aggiungi prodotto </button></a> 
-			</p>
+			<div class="slideShowConteiner">
+				<div class="slide fade">
+					 <img src="img/Logo.png" style="width:100%">
+				</div>
+				<div class="slide fade">
+					 <img src="img/logosenzascritta.png" style="width:100%">
+				</div>
+				<div class="slide fade">
+					 <img src="img/logonew.png" style="width:100%">
+				</div>	
+				<a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+  				<a class="next" onclick="plusSlides(1)">&#10095;</a>
+  				<div style="text-align:center">
+  					<span class="dot" onclick="currentSlide(1)"></span>
+  					<span class="dot" onclick="currentSlide(2)"></span>
+  					<span class="dot" onclick="currentSlide(3)"></span>
+				</div>
+			</div>
 			<footer>
 				<%@ include file="main/footer.jsp" %>
 			</footer>
