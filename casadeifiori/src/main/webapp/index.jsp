@@ -36,6 +36,7 @@
   					<span class="dot" onclick="currentSlide(3)"></span>
 				</div>
 			</div>
+			
 			<footer>
 				<%@ include file="main/footer.jsp" %>
 			</footer>

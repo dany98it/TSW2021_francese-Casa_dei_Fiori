@@ -9,7 +9,7 @@
 			<span onclick="openNav()" class="menu">&#9776;</span>
 		</div>
 		<div class="logo">
-			<img alt="logo" src="img/Logo.png" height="80em" onclick="redirect('index.jsp')">
+			<img alt="logo" src="img/CasalogoSVGmodificato1.svg" height="80em" onclick="redirect('index.jsp')">
 		</div>
 		<section class="user">
 			<form>
