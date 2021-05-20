@@ -428,6 +428,19 @@ button:hover{
   	background-color: rgba(0,0,0,0.8);
 }
 
+.info{
+	display: grid;
+  	grid-template-columns: 33% 33% 33%;
+  	background: linear-gradient(rgba(250,143,108,1),rgba(250,143,108,0.4));
+	padding-left: 10%;
+	padding-right: 10%;
+}
+
+.infodiv{
+	margin: 1%;
+	text-align: center;
+}
+
 @media screen and (max-width: 992px){
 	#headerMenuIconDiv{
 		padding-left: 3%;
@@ -435,7 +448,6 @@ button:hover{
 		display: inline-flex;
 		align-items: center;
 	}
-	
 	.menu{
 		display: block;
 	}
@@ -488,7 +500,9 @@ button:hover{
 	}
 }
 @media screen and (max-width: 480px) {
-
+	.info{
+		display: block;
+	}
 }
 @media screen and (max-height: 450px) {
   	.menuDrop {
