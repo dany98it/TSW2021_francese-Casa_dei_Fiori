@@ -50,6 +50,10 @@ body{
 	display: none;
 }
 
+#cartIcon{
+	font-size: 190%;
+}
+	
 #openEyePassword{
 	display: none;
 }
@@ -86,6 +90,11 @@ body{
 	outline: none;
 }
 
+.dropDownNav{
+	float: left;
+  	overflow: hidden;
+}
+
 .logo{
 	display: inline-block;
 	text-align: center;
@@ -105,11 +114,17 @@ body{
 ul { padding:0 !important} 
 
 .menuBar {
+	display: flex;
+  	justify-content: center;
+  	align-items: center;
 	margin-top: 0;
 	background-color: #67F0BB;
 	color: #023838;
 }
 .ulMenu {
+	display: flex;
+  	justify-content: center;
+ 	align-items: center;
 	margin-top: 0;
 	background-color: #67F0BB;
 	list-style-type: none;
@@ -139,6 +154,7 @@ ul { padding:0 !important}
 .menuMobile{
 	display: none;
 }
+
 .dropDown {
   	position: relative;
   	list-style-type: none;
@@ -147,6 +163,29 @@ ul { padding:0 !important}
 
 .dropDown ul{
 	padding: 0 !important; 
+}
+
+.dropDownNavContent{
+	font-weight: bolder;
+	display: none;
+ 	position: absolute;
+ 	background-color: #67F0BB;
+  	min-width: 10em;
+ 	box-shadow: 0 0,5em 1em 0 rgba(0,0,0,0.1);
+  	z-index: 1;
+}
+
+.dropDownNav a{
+	
+	float: none;
+  	padding: 3% 5%;
+  	text-decoration: none;
+ 	display: block;
+ 	text-align: center;
+}
+
+.dropDownNav:hover .dropDownNavContent {
+  display: block;
 }
 .menuDrop2 {
 	list-style-type: none;
@@ -211,6 +250,8 @@ ul { padding:0 !important}
 	font-size: large;
 	border: none;
 	color: #023838;
+	font-family: inherit;
+  	margin: 0;
 }
 button:hover{
 	cursor: pointer;
@@ -431,7 +472,11 @@ button:hover{
 	#userIcon{
 		font-size: 200%;
 	}
-
+	
+	#cartIcon{
+		font-size: 190%;
+	}
+	
 	#searchIcon{
 		font-size: 200%;
 	}

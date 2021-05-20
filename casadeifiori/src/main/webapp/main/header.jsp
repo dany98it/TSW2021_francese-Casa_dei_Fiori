@@ -15,6 +15,9 @@
 			<form>
   				<input type="text" name="cerca" class="cerca" autocomplete="off">
 			</form>
+			<div id="cartIconDiv" >
+				<a href="cartPage.jsp"><button type="button" class="headerBtn"><i class="fas fa-shopping-cart" id="cartIcon"></i> </button></a>
+			</div>
 			<div class="dropDown">
 				<button type="button" class="headerBtn" onmouseenter="menuMobile2()" onmouseleave="closeMenuMobile2()"><i class="fas fa-user" id="userIcon"></i></button>
 				<section class="menuDrop2" id="menuDropBar2" onmouseenter="menuMobile2()" onmouseleave="closeMenuMobile2()">
