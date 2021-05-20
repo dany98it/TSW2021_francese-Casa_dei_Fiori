@@ -323,24 +323,27 @@ button:hover{
 #socialIconsList{
 
 	padding: 1% 1% 1% 1%;
-	align-items: right;
+	display: flex;
+	align-items: center;
+	justify-content: center;
 	width: auto;
 	text-align: right;
 	list-style-type: none;
 }
 
 #socialIconsList li{
+	padding: 1% 0.4% 1% 0.4%;
 	display: inline-block;
 }
 
 #facebookIcon{
 	color: white;
-	font-size: 175%;
+	font-size: 250%;
 }
 
 #instagramIcon{
 	color: white;
-	font-size: 175%;
+	font-size: 250%;
 }
 .belowNavFooter{
 	height: 1.9em;
