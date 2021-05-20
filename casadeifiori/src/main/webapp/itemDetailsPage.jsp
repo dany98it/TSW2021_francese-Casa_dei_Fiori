@@ -23,38 +23,28 @@
 			<nav>
 				<%@ include file="main/navigationBar.jsp"%>
 			</nav>
-			<h2>Dattagli Item</h2>
-			<table border="1">
-				<tr>
-					<th>ID</th>
-					<th>Nome</th>
-					<th>Descrizione</th>
-					<th>Prezzo</th>
-					<th>Iva %</th>
-					<th>Tipo</th>
-					<th>Sconto %</th>
-					<th>Quantità Disponibile</th>
-					<th>Prezzo finale</th>
-					<% if(i.getQuantita()>0) {%>
-						<th>Quantità da comprare</th>
-					<%} %>
-				</tr>
-				<tr>
-					<td><%= i.getId() %></td>
-					<td><%= i.getNome() %></td>
-					<td><%= i.getDescrizione() %></td>
-					<td><%= i.getPrezzo() %></td>
-					<td><%= i.getIva() %></td>
-					<td><%= i.getTipo() %></td>
-					<td><%= i.getSconto() %></td>
-					<td><%= i.getQuantita() %></td>
-					<td><%= i.calcolaPrezzo() %></td>
-					<% if(i.getQuantita()>0) {%>
-						<td><input name="quantity" id="quantity" type="number" min="0" value= "0" 
-							required onchange='window.location.href ="addCart?itemID=<%=i.getId()%>&addItem="+document.getElementById("quantity").value ;'></td>
-					<%} %>
-				</tr>
-			</table>
+			<h1 class="titoloItem"><%= i.getNome() %></h1>
+			<div class="contenerSuperiore">
+				<div>
+					<div class="galleria"></div>
+					<div class="caratterisiche"></div>
+					<div class="tag"></div>
+					<div class="descrizione"><%= i.getDescrizione() %></div>
+				</div>
+				<div>
+					<div class="infoItem">
+						<div class="prezzo"><%= i.calcolaPrezzo() %> &euro;</div>
+						<label for="quantity">Quantit&agrave; </label>
+						<select class="quantity" name="quantity" id="quantity">
+							<%
+								for(int x=1; x<=i.getQuantita(); x++){ %>
+									<option value="<%=x%>"><%=x%></option>
+								<% } %>
+						</select> <br>
+						<button onclick='window.location.href ="addCart?itemID=<%=i.getId()%>&addItem="+document.getElementById("quantity").value ;'>Aggiungi al carrello</button>		
+					</div>
+				</div>
+			</div>
 			<footer>
 				<%@ include file="main/footer.jsp" %>
 			</footer>

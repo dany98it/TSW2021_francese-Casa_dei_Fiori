@@ -473,7 +473,15 @@ button:hover{
 	margin: 1%;
 	text-align: center;
 }
-
+.contenerSuperiore{
+	display: grid;
+  	grid-template-columns: 70% 30%;
+  	padding-left: 10%;
+	padding-right: 10%
+}
+.titoloItem{
+	text-align: center;
+}
 @media screen and (max-width: 992px){
 	#headerMenuIconDiv{
 		padding-left: 3%;
