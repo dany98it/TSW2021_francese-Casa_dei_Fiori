@@ -18,7 +18,7 @@
 			</nav>
 			<script src="https://kit.fontawesome.com/46a2d5ed1b.js" ></script>
 			<script src="code.js" ></script>
-			<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+			<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 		
 			<h1>Sign in</h1>
 			
@@ -36,18 +36,20 @@
 				<fieldset>
 					<legend>Dati Di Contatto</legend>
 					<label for="telefono" class="signInLbl">Numero di cellulare</label> <br>
-					<input type="tel" name="telefono" id="telefonoaInput" class="signInInput" placeholder="Inserisci numero di telefono" required="required"/> <br>
+					<input type="tel" name="telefono" id="telefonoInput" class="signInInput" placeholder="Inserisci numero di telefono" required="required"/> <br>
 					<label for="email" class="signInLbl">E-mail</label> <br>
 					<input type="email" name="email" id="emailInput" class="signInInput" placeholder="Inserisci email" required="required"/> <br>
 				</fieldset>
 				<fieldset>
 					<legend>Sicurezza</legend>
 					<label for="password" class="signInLbl">Password</label> <br>
-					<input id="psw" type="password" name="password" class="signInInput" placeholder="Inserisci password" required="required"/>
-					<i id="closedEyePassword" class="fas fa-eye-slash" onclick="showPassword('psw','closedEyePassword','openEyePassword')"> </i> <i id="openEyePassword" class="far fa-eye" onclick="hidePassword('psw','openEyePassword','closedEyePassword')"></i> <br>
+					<input id="passwordInput" type="password" name="password" class="signInInput" placeholder="Inserisci password" required="required"/>
+					<i id="closedEyePassword" class="fas fa-eye-slash" onclick="showPassword('passwordInput','closedEyePassword','openEyePassword')"> </i> 
+					<i id="openEyePassword" class="far fa-eye" onclick="hidePassword('passwordInput','openEyePassword','closedEyePassword')"></i> <br>
 					<label for="confermaPassword" class="signInLbl">Conferma Password</label> <br>
-					<input id="cpsw" type="password" name="confermaPassword" class="signInInput" placeholder="Conferma password" disabled="disabled"/>
-					<i id="closedEyePassword2" class="fas fa-eye-slash" onclick="showPassword('cpsw','closedEyePassword2','openEyePassword2')"> </i> <i id="openEyePassword2" class="far fa-eye" onclick="hidePassword('cpsw','openEyePassword2','closedEyePassword2')"></i> <br>
+					<input id="confermaPasswordInput" type="password" name="confermaPassword" class="signInInput" placeholder="Conferma password"/>
+					<i id="closedEyePassword2" class="fas fa-eye-slash" onclick="showPassword('confermaPasswordInput','closedEyePassword2','openEyePassword2')"> </i> 
+					<i id="openEyePassword2" class="far fa-eye" onclick="hidePassword('confermaPasswordInput','openEyePassword2','closedEyePassword2')"></i> <br>
 				</fieldset>
 				<input type="submit" name="signIn" class="signInInput" /> <br>
 			</form>

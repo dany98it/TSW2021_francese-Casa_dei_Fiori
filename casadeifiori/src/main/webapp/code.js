@@ -110,11 +110,26 @@ function validateEmail(input){
 }
 
 function validateNumeroTelefono(input){
-	var tel = /^\d{10}$/;
+	var tel = /^\d{10,15}$/;
 	if(input.match(tel)){
 		return true
 	}
 	return false
+}
+
+function validatePassword(input){
+	var pass = /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[^\w\s]).{8,32}$/;
+	if(input.match(pass)){
+		return true;
+	}
+	return false;
+}
+
+function validateConfermaPassword(password,conferma){
+	if(password===conferma){
+		return true;
+	}
+	return false;
 }
 
 function validateSignIn(form){
@@ -122,36 +137,40 @@ function validateSignIn(form){
 	
 	var nome = $("#nomeInput").val();
 	if(!validateNomeCognome(nome)){
-		console.log(nome);
 		valid=false;
-		 $("#nomeInput").append("errore");
-	}
-	else{
-		consol.log(nome);
-		valid=false;
-		 $("#nomeInput").append("errore");
+		 $("#nomeInput").before("Il nome non deve contenere numeri o simboli speciali <br>");
 	}
 	
 	
-	var cognome = $("#cognomeInput").text();
+	var cognome = $("#cognomeInput").val();
 	if(!validateNomeCognome(cognome)){
 		valid=false;
-	}
-	else{
+		$("#cognomeInput").before("Il cognome non deve contenere numeri o simboli speciali <br>");
 	}
 	
-	var email = $("#emailInput").text();
+	var email = $("#emailInput").val();
 	if(!validateEmail(email)){
 		valid=false;
+		$("#emailInput").before("Inserire una mail valida <br>");
 	}
-	else{
-	}
+
 	
-	var numero = $("#nomeInput").text();
+	var numero = $("#telefonoInput").val();
 	if(!validateNumeroTelefono(numero)){
 		valid=false;
+		$("#telefonoInput").before("Inserire un numero di telefono valido <br>");
 	}
-	else{
+	
+	var password = $("#passwordInput").val();
+	if(!validatePassword(password)){
+		valid=false;
+		$("#passwordInput").before("La password non rispetta i parametri necessari <br>");
+	}
+	
+	var confermaPassword = $("#confermaPasswordInput").val();
+	if(!validateConfermaPassword(password,confermaPassword)){
+		valid=false;
+		$("#confermaPasswordInput").before(" Le Password non combaciano <br>");
 	}
 	
 	if(valid){
