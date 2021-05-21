@@ -92,3 +92,75 @@ function startShowSlides() {
   	dots[0].className += " active";
 	slideIndex=1;
 }
+
+function validateNomeCognome(input){
+	var name = /^[A-Za-z]+$/;
+	if(input.value.match(name)){
+		return true
+	}
+	return false
+}
+
+function validateEmail(input){
+	var email = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+	if(input.value.match(email)){
+		return true
+	}
+	return false
+}
+
+function validateNumeroTelefono(input){
+	var tel = /^([0-9]{10, 15}]))$/;
+	if(input.value.match(tel)){
+		return true
+	}
+	return false
+}
+
+function validateSignIn(form){
+	var valid=true;
+	
+	var nome = $("#nomeInput");
+	if(!validateNomeCognome(nome.text())){
+		consol.log(nome.text());
+		valid=false;
+		nome.style.backgroundColor = "red";
+		nome.ClassList.add("errore");
+	}
+	else{
+		consol.log(nome.text());
+		nome.ClassList.remove("errore");
+	}
+	
+	
+	var cognome = $("#cognomeInput").text();
+	if(!validateNomeCognome(cognome)){
+		valid=false;
+		cognome.ClassList.add("errore");
+	}
+	else{
+		cognome.ClassList.remove("errore");
+	}
+	
+	var email = $("#emailInput").text();
+	if(!validate(email)){
+		valid=false;
+		email.ClassList.add("errore");
+	}
+	else{
+		email.ClassList.remove("errore");
+	}
+	
+	var numero = $("#nomeInput").text();
+	if(!validateNumeroTelefono(numero)){
+		valid=false;
+		numero.ClassList.add("errore");
+	}
+	else{
+		numero.ClassList.remove("errore");
+	}
+	
+	if(valid){
+		form.submit();
+	}
+}
