@@ -158,7 +158,7 @@ body{
 
 #headerContainer{
 	display: grid;
-	grid-template-columns: auto auto auto; 
+	grid-template-columns: 25% 50% 25%; 
   	background-color: #67F0BB;
 	margin-bottom: 0;
 }	
@@ -503,7 +503,7 @@ button:hover{
 .titoloItem{
 	text-align: center;
 }
-<<<<<<< Updated upstream
+
  .bootstrap-tagsinput{
 	width: 100%;
 }
@@ -521,11 +521,10 @@ button:hover{
     vertical-align: baseline;
     border-radius: .25rem;
     transition: color .15s ease-in-out,background-color .15s ease-in-out, border-color .15s ease-in-out,box-shadow .15s ease-in-out;
-=======
+}
 #headerMenuIconDiv{
 		grid-column-start: 1;
   		grid-column-end: 2;
->>>>>>> Stashed changes
 }
 @media screen and (max-width: 992px){
 	#headerMenuIconDiv{
