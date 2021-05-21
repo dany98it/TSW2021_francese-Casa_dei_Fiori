@@ -64,10 +64,12 @@ public class RegistraUtente extends HttpServlet {
 					try {
 						userdao.doSave(user);
 					} catch (SQLException e) {
-						response.sendRedirect("singInPage.jsp");
+						response.sendRedirect("signInPage.jsp");
+						return;
 					}
 					sessione.setAttribute("loggedUser", loggedUser);
 					response.sendRedirect("logInPage.jsp");
+					return;
 				}
 		      }
 		
