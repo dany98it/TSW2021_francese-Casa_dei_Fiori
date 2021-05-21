@@ -17,7 +17,7 @@
 				<%@ include file="main/navigationBar.jsp"%>
 			</nav>
 			<h1>Sign in</h1>
-			<form action="RegistraUtente" method="post" onsubmit="event.preventDefault(); validateSignIn(this);">
+			<form action="RegistraUtente" method="post" onsubmit="event.preventDefault(); return validateSignIn(this);">
 			 <!--Previene che il form venga sottomesso senza verifica -->
 				<fieldset>
 					<legend>Dati Anagrafici</legend>
@@ -52,5 +52,6 @@
 		</div>
 		<script src="https://kit.fontawesome.com/46a2d5ed1b.js" ></script>
 		<script src="code.js" ></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 	</body>
 </html>

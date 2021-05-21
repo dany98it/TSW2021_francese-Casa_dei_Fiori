@@ -117,19 +117,19 @@ function validateNumeroTelefono(input){
 	return false
 }
 
-function validateSignIn(form){
+$(function validateSignIn(form){
 	var valid=true;
 	
-	var nome = $("#nomeInput");
-	if(!validateNomeCognome(nome.text())){
-		consol.log(nome.text());
+	var nome = $("#nomeInput").val();
+	if(!validateNomeCognome(nome)){
+		consol.log(nome);
 		valid=false;
-		nome.style.backgroundColor = "red";
-		nome.ClassList.add("errore");
+		 $("#nomeInput").append("errore");
 	}
 	else{
-		consol.log(nome.text());
-		nome.ClassList.remove("errore");
+		consol.log(nome);
+		valid=false;
+		 $("#nomeInput").append("errore");
 	}
 	
 	
@@ -163,4 +163,4 @@ function validateSignIn(form){
 	if(valid){
 		form.submit();
 	}
-}
+});
