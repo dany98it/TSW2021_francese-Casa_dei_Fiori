@@ -6,7 +6,7 @@ import java.security.NoSuchAlgorithmException;
 
 public class Password {
 	
-	private static final String ALGORITHM = "SHA-1";
+	private static final String ALGORITHM = "SHA-256";
 	
 	public static String criptaPassword(String password) 
 	{
@@ -23,7 +23,10 @@ public class Password {
 	}
  
 	public static boolean isCorrect ( String password, String hash ) {
-		return hash.equals( criptaPassword( password ) );
+		if (hash!=null) {
+			return hash.equals( criptaPassword( password ) );
+		}
+		return false;
 	}
 
 	private static String toHex(byte[] data)  {
