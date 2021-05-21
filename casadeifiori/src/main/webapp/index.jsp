@@ -7,19 +7,19 @@
 		<meta charset="ISO-8859-1">
 		<title>Home</title>
 		<link rel=StyleSheet href="style.css" type="text/css">
-		<script src="https://kit.fontawesome.com/46a2d5ed1b.js" ></script>
+
 	</head>
-	<body onload="startShowSlides()">
+	<body >
 		<%@ include file="main/menuMobile.jsp" %>
-		<div id="main">
-			<header>
+		<div id="main" >
+			<header >
 				<%@ include file="main/header.jsp"%>
 			</header>
 			<nav>
 				<%@ include file="main/navigationBar.jsp"%>
 			</nav>
-			<div class="slideShowConteiner">
-				<div class="slide fade">
+			<div class="slideShowConteiner" >
+				<div class="slide fade" >
 					 <img src="img/Logo.png" style="width:100%">
 				</div>
 				<div class="slide fade">
@@ -72,6 +72,8 @@
 				<%@ include file="main/footer.jsp" %>
 			</footer>
 		</div>
+		<script src="https://kit.fontawesome.com/46a2d5ed1b.js" ></script>
 		<script src="code.js" ></script>
+		<script> startShowSlides(); </script>
 	</body>
 </html>

@@ -10,10 +10,10 @@
 <html>
 	<head>
 		<meta charset="ISO-8859-1">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<title>Casa dei fiori</title>
-		<script src="https://kit.fontawesome.com/46a2d5ed1b.js" ></script>
 		<link rel=StyleSheet href="style.css" type="text/css">
-		<script src="https://cdn.tiny.cloud/1/g2c80f7e3j2a84roh0japxama71ob4iv5qwvfyc01h1zyx7f/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
+		
 	</head>
 	<body>
 		<%@ include file="main/menuMobile.jsp" %>
@@ -60,6 +60,8 @@
 				<%@ include file="main/footer.jsp" %>
 			</footer>
 		</div>
+		<script src="https://kit.fontawesome.com/46a2d5ed1b.js" ></script>
+		<script src="https://cdn.tiny.cloud/1/g2c80f7e3j2a84roh0japxama71ob4iv5qwvfyc01h1zyx7f/tinymce/5/tinymce.min.js" ></script>
 		<script src="code.js"></script>
 		<script type="text/javascript">
 			document.getElementById("tipo").value="<%= i.getTipo() %>";
