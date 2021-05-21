@@ -95,7 +95,7 @@ function startShowSlides() {
 
 function validateNomeCognome(input){
 	var name = /^[A-Za-z]+$/;
-	if(input.value.match(name)){
+	if(input.match(name)){
 		return true
 	}
 	return false
@@ -103,26 +103,26 @@ function validateNomeCognome(input){
 
 function validateEmail(input){
 	var email = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
-	if(input.value.match(email)){
+	if(input.match(email)){
 		return true
 	}
 	return false
 }
 
 function validateNumeroTelefono(input){
-	var tel = /^([0-9]{10, 15}]))$/;
-	if(input.value.match(tel)){
+	var tel = /^\d{10}$/;
+	if(input.match(tel)){
 		return true
 	}
 	return false
 }
 
-$(function validateSignIn(form){
+function validateSignIn(form){
 	var valid=true;
 	
 	var nome = $("#nomeInput").val();
 	if(!validateNomeCognome(nome)){
-		consol.log(nome);
+		console.log(nome);
 		valid=false;
 		 $("#nomeInput").append("errore");
 	}
@@ -136,31 +136,25 @@ $(function validateSignIn(form){
 	var cognome = $("#cognomeInput").text();
 	if(!validateNomeCognome(cognome)){
 		valid=false;
-		cognome.ClassList.add("errore");
 	}
 	else{
-		cognome.ClassList.remove("errore");
 	}
 	
 	var email = $("#emailInput").text();
-	if(!validate(email)){
+	if(!validateEmail(email)){
 		valid=false;
-		email.ClassList.add("errore");
 	}
 	else{
-		email.ClassList.remove("errore");
 	}
 	
 	var numero = $("#nomeInput").text();
 	if(!validateNumeroTelefono(numero)){
 		valid=false;
-		numero.ClassList.add("errore");
 	}
 	else{
-		numero.ClassList.remove("errore");
 	}
 	
 	if(valid){
 		form.submit();
 	}
-});
+}
