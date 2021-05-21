@@ -5,13 +5,13 @@
 <!DOCTYPE html>
 <html>
 	<div id="headerContainer">
-		<div class="dropDown" id="headerMenuIconDiv">
-			<span onclick="openNav()" class="menu">&#9776;</span>
-		</div>
 		<div class="logo">
 			<img alt="logo" src="img/CasalogoSVGmodificato1.png" height="80em" onclick="redirect('index.jsp')">
 		</div>
-		<section class="user">
+		<div class="dropDown" id="headerMenuIconDiv">
+			<span onclick="openNav()" class="menu">&#9776;</span>
+		</div>
+		<div class="user">
 			<form>
   				<input type="text" name="cerca" class="cerca" autocomplete="off">
 			</form>
@@ -34,6 +34,6 @@
 					</ul>
 				</section>
 			</div>
-		</section>
+		</div>
 	</div>
 </html>
