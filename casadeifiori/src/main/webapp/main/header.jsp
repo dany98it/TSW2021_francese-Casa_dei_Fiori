@@ -4,6 +4,7 @@
 <% HttpSession sessione = request.getSession(true); %>
 <!DOCTYPE html>
 <html>
+<div id="main" >
 	<div id="headerContainer">
 		<div class="logo">
 			<img alt="logo" src="img/CasalogoSVGmodificato1.png" height="80em" onclick="redirect('index.jsp')">
@@ -36,4 +37,5 @@
 			</div>
 		</div>
 	</div>
+</div>
 </html>

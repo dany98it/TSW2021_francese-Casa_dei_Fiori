@@ -6,42 +6,8 @@ body{
 	margin: 0;
 }
 #main{
-	transition: margin-left .5s;
-}
-.menuDrop {
-	height: 100%;
-	width: 0;
-	position: fixed;
-	z-index: 1;
-	top: 0;
-	left: 0;
-	background-color: #023838;
-	overflow-x: hidden;
-	transition: 0.5s;
-	padding-top: 60px;
-	text-align: center;
-  	color: #67F0BB;	
-}
-
-.menuDrop a{
-	padding: 8px 8px 8px 32px;
-	text-decoration: none;
-	font-size: 25px;
-	color: #67F0BB;
-	display: block;
-	transition: 0.3;
-}
-
-.menuDrop a:hover{
-	color: white;
-}
-
-.menuDrop .closebtn{
-  	position: absolute;
-  	top: 0;
-  	right: 25px;
-  	font-size: 36px;
-  	margin-left: 50px;
+	transition: margin-left 0.3s;
+	padding: 0;
 }
 
 .menu{
@@ -526,7 +492,48 @@ button:hover{
 		grid-column-start: 1;
   		grid-column-end: 2;
 }
+
+	.menuDrop{
+		display: none;
+	}
 @media screen and (max-width: 992px){
+	.menuDrop {
+	display: block;
+	height: 100%;
+	width: 0;
+	position: fixed;
+	z-index: 1;
+	top: 0;
+	left: 0;
+	background-color: #023838;
+	overflow-x: hidden;
+	transition: 0.5s;
+	padding-top: 60px;
+	text-align: center;
+  	color: #67F0BB;	
+}
+
+.menuDrop a{
+	padding: 8px 8px 8px 32px;
+	text-decoration: none;
+	font-size: 25px;
+	color: #67F0BB;
+	display: block;
+	transition: 0.3;
+}
+
+.menuDrop a:hover{
+	color: white;
+}
+
+.menuDrop .closebtn{
+  	position: absolute;
+  	top: 0;
+  	right: 25px;
+  	font-size: 36px;
+  	margin-left: 50px;
+}
+
 	#headerMenuIconDiv{
 		grid-column-start: 1;
   		grid-column-end: 2;
@@ -627,9 +634,9 @@ button:hover{
  		align-items: stratch;
 	}
   	.menuDrop {
-  		padding-top: 15px;
+  		padding-top: 0.2em;
   	}
   	.menuDrop a {
-  		font-size: 18px;
+  		font-size: 0.2em;
   	}
 }
