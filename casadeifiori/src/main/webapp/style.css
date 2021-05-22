@@ -493,9 +493,43 @@ button:hover{
   		grid-column-end: 2;
 }
 
-	.menuDrop{
-		display: none;
-	}
+.menuDrop{
+	display: none;
+}
+
+.twitter-typeahead { 
+	display:initial !important; 
+}
+
+.tt-hint {
+	display: none;
+}
+
+.tt-input{
+	vertical-align:baseline !important;
+}
+
+.typeahead {
+	border: 1px solid #CCCCCC;
+	border-radius: 4px;
+	padding: 8px 12px;
+	width: 300px;
+	font-size:1.5em;
+}
+
+.tt-menu { 
+	width:300px; 
+}
+
+span.twitter-typeahead .tt-suggestion {
+	padding: 10px 20px; 
+	background-color: white;
+	cursor:pointer;
+}
+
+span.twitter-typeahead .tt-suggestion:last-child { 
+	border-bottom:0px; 
+}
 @media screen and (max-width: 992px){
 	.menuDrop {
 	display: block;
