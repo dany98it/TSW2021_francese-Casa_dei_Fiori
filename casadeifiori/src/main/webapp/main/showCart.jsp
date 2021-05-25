@@ -60,7 +60,7 @@
 	</table>
 	<%  if(cart!=null && products != null && products.size() != 0){
 			if(sessione.getAttribute("loggedUser")!=null){ %>
-				<a href="effettuaCheckOut" id="acquista"><button type="button" >Acquista </button></a>
+				<a href="EffettuaCheckOut" id="acquista"><button type="button" >Acquista </button></a>
 			<% }else{ %>
 			<a href="logInPage.jsp" id="acquista"><button type="button" >Acquista </button></a>
 		<% } %>
