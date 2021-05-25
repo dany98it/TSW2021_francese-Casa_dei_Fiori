@@ -1,17 +1,17 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
-<html>
+<html lang="it">
 	<head>
 		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<meta charset="ISO-8859-1">
+		<meta charset="utf-8">
 		<title>Home</title>
 		<link rel=StyleSheet href="style.css" type="text/css">
 
 	</head>
 	<body >
 		<%@ include file="main/menuMobile.jsp" %>
-		<div id="main" >
+		<div class="main" >
 			<header >
 				<%@ include file="main/header.jsp"%>
 			</header>

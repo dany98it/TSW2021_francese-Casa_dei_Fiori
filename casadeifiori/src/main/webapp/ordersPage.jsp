@@ -4,10 +4,10 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
 <% Collection<?> ordini = (Collection<?>) request.getAttribute("ordiniEffettuati"); %>
-<html>
+<html lang="it">
 	<head>
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<meta charset="ISO-8859-1">
+		<meta charset="utf-8">
 		<title>I miei ordini</title>
 		<link rel=StyleSheet href="style.css" type="text/css">
 	</head>

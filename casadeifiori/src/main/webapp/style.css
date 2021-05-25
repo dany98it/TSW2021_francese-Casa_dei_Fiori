@@ -5,7 +5,7 @@
 body{
 	margin: 0;
 }
-#main{
+.main{
 	transition: margin-left 0.3s;
 	padding: 0;
 }
@@ -258,9 +258,7 @@ ul { padding:0 !important}
 .searchBtn{
 	display: none !important;
 }
-#afterHomeBtn{
-	position: relative;
-}
+
 .menuBar{
 		margin-top: 0;
 		display: block;
@@ -338,7 +336,7 @@ button:hover{
 
 
 #socialIcons{
-	align-content: right;
+	align-content: center;
 }
 #socialIconsList{
 
@@ -347,7 +345,6 @@ button:hover{
 	align-items: center;
 	justify-content: center;
 	width: auto;
-	text-align: right;
 	list-style-type: none;
 }
 
@@ -553,7 +550,6 @@ span.twitter-typeahead .tt-suggestion:last-child {
 	font-size: 25px;
 	color: #67F0BB;
 	display: block;
-	transition: 0.3;
 }
 
 .menuDrop a:hover{
@@ -641,7 +637,7 @@ span.twitter-typeahead .tt-suggestion:last-child {
 	}
 	.itemListing{
  		grid-template-columns: auto auto;
- 		align-items: stratch;
+ 		align-items: stretch;
 	}
 
 	.itemCard{
@@ -655,7 +651,7 @@ span.twitter-typeahead .tt-suggestion:last-child {
 @media screen and (max-width: 480px) {
 	.itemListing{
  		grid-template-columns: auto ;
- 		align-items: stratch;
+ 		align-items: stretch;
 	}
 	
 	.info{
@@ -665,7 +661,7 @@ span.twitter-typeahead .tt-suggestion:last-child {
 @media screen and (max-height: 450px) {
 	.itemListing{
  		grid-template-columns: auto ;
- 		align-items: stratch;
+ 		align-items: stretch;
 	}
   	.menuDrop {
   		padding-top: 0.2em;

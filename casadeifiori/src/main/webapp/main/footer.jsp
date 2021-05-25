@@ -1,8 +1,7 @@
 <%@page import="java.util.Calendar"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
-<!DOCTYPE html>
 <% int year = Calendar.getInstance().get(Calendar.YEAR); %>
-<html>
+
 	<div class="navFooter">
 		<section class="navFooterBlock">
 			<h4 class="navFooterTitleList">Informazioni legali</h4>
@@ -24,7 +23,7 @@
 			</ul>
 		</section>
 		<aside class="navFooterBlock">
-			<iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d12032.035692056526!2d15.0576405!3d41.0687976!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xe86a46e6ad4bfd19!2sCasa%20Dei%20Fiori%20Di%20Terrazzano%20Celeste!5e0!3m2!1sit!2sit!4v1620127805341!5m2!1sit!2sit" width="400" height="225" style="max-width: 100%" style="border:0;"></iframe>
+			<iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d12032.035692056526!2d15.0576405!3d41.0687976!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xe86a46e6ad4bfd19!2sCasa%20Dei%20Fiori%20Di%20Terrazzano%20Celeste!5e0!3m2!1sit!2sit!4v1620127805341!5m2!1sit!2sit" width="400" height="225" style="border:0 ; max-width: 100%"></iframe>
 		</aside>
 		<aside id="socialIcons">
 			<ul id="socialIconsList">
@@ -33,13 +32,12 @@
 			</ul>
 		</aside>
 		<div class="logofooter">
-			<img alt="logo" src="img/casa dei fiori.png"  alt="Image" height="95" width="152">
+			<img alt="logo" src="img/casaDeiFioriFooter.png" height="95" width="152">
 		</div>
-		<hr size="1" width="100%" align="left" color="white">
+		<hr>
 		<div class="belowNavFooter">
-		<section>
+		<div>
 			Copyright &#169; <%=year %>| CasadeiFioridiTerrazzanoCeleste.
-		</section>
+		</div>
 		</div>
 	</div>
-</html>

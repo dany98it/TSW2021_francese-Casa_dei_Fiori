@@ -2,12 +2,10 @@
 <%@ page import="java.util.*" %>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1" %>
 <% HttpSession sessione = request.getSession(true); %>
-<!DOCTYPE html>
-<html>
-<div id="main" >
+<div class="main" >
 	<div id="headerContainer">
 		<div class="logo">
-			<img alt="logo" src="img/CasalogoSVGmodificato1.png" height="80em" onclick="redirect('index.jsp')">
+			<img alt="logo" src="img/CasalogoSVGmodificato1.png" height="80" onclick="redirect('index.jsp')">
 		</div>
 		<div class="dropDown" id="headerMenuIconDiv">
 			<span onclick="openNav()" class="menu">&#9776;</span>
@@ -21,7 +19,7 @@
 			</div>
 			<div class="dropDown">
 				<button type="button" class="headerBtn" onmouseenter="menuMobile2()" onmouseleave="closeMenuMobile2()"><i class="fas fa-user" id="userIcon"></i></button>
-				<section class="menuDrop2" id="menuDropBar2" onmouseenter="menuMobile2()" onmouseleave="closeMenuMobile2()">
+				<div class="menuDrop2" id="menuDropBar2" onmouseenter="menuMobile2()" onmouseleave="closeMenuMobile2()">
 					<ul class="ulMenu2">
 						<% if(sessione.getAttribute("loggedUser")!=null){ %>
 							<li> <a href="#" id="afterHomeBtn"><button type="button" class="headerBtn" >Il mio profilo</button></a></li> 
@@ -29,13 +27,12 @@
 							<li> <a href="adminMostraOrdini"><button type="button" class="headerBtn">Amministrazione Ordini</button></a> </li> 
 							<li> <a href="EffettuaLogOut"><button type="button" class="headerBtn">Log-out</button></a> </li>
 						<% }else{%>
-							<li> <a href="logInPage.jsp" id="afterHomeBtn"><button type="button" class="headerBtn" >Log-in</button></a></li> 
+							<li> <a href="logInPage.jsp" ><button type="button" class="headerBtn" >Log-in</button></a></li> 
 							<li> <a href="signInPage.jsp"><button type="button" class="headerBtn">Sing-in</button></a> </li> 
 						<% } %>		
 					</ul>
-				</section>
+				</div>
 			</div>
 		</div>
 	</div>
 </div>
-</html>

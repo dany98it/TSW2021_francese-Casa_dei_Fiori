@@ -20,8 +20,7 @@
   	}catch(Exception e){
   		products= (Collection<?>) cart.getItemsOrdinati();
   	} %>
-<!DOCTYPE html>
-<html>
+  	
 	<h2>Carrello</h2>
 	<table border="1">
 		<tr>
@@ -65,4 +64,3 @@
 			<a href="logInPage.jsp" id="acquista"><button type="button" >Acquista </button></a>
 		<% } %>
 	<% } %>
-</html>
