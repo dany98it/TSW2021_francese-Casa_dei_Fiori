@@ -2,6 +2,11 @@ tinymce.init({
 	selector: '#editortesto',
 	plugins: 'autolink autosave charmap emoticons hr link lists advlist paste table searchreplace wordcount',
 	paste_data_images: false,
+	setup:function(ed) {
+       ed.on('change', function(e) {
+           $("#descrizioneItem").html( ed.getContent());
+       });
+   }
 });
 
 function closeNav() {
@@ -204,6 +209,7 @@ var substringMatcher = function(strs) {
 		cb(matches);
 	};
 };
+
 function InstagramImg(element){
 	var token= "ea60d9c604a23e0ae8550e0d02a4607e";
 	var username= "casadeifiori.ideecreazioni";
@@ -223,10 +229,15 @@ function InstagramImg(element){
 					for(x in data2.data){
 						$("#InstagramImg").append("<li><img src= '"+ data2.data[x].images.thumbnail.url + "'></li>");
 					}
-					}
 				}
-			
+			})
 		}
 	})
-	
 }
+
+
+function prewiev(input,output){
+	$("#"+output).text($("#"+input).val())
+}
+
+

@@ -31,19 +31,19 @@
 						<div>
 							<form method="post" action="AggiungiItem"> 
 								<label for="name">Nome:</label><br> 
-								<input id="name" name="name" type="text" maxlength="20" required placeholder="inserire nome"><br> 
+								<input id="name" name="name" type="text" maxlength="20" required placeholder="inserire nome" onchange="prewiev('name','titoloItem')"><br> 
 								<label for="img">immagini:</label><br>
-								<input type="file" id="img" name="img" accept="image/*" multiple="multiple" required="required"> <br>
+								<input type="file" id="img" name="img" accept="image/*" multiple="multiple" required="required" > <br>
 								<label for="description">Descrizione:</label><br>
 								<textarea id="editortesto" name="description" placeholder="inserire descrizione"></textarea><br>
 								<label for="tag">tag:</label><br> 
-								<input id="tag" name="tag" type="text" data-role="tagsinput">
+								<input id="tag" name="tag" type="text" data-role="tagsinput" onEditorChange="prewiev('tag','tagItem')">
 								<label for="price">Prezzo:</label><br> 
-								<input id="price" name="price" type="text" pattern="[0-9]{1,}.[0-9]{2}" required><br>	
+								<input id="price" name="price" type="text" pattern="[0-9]{1,}.[0-9]{2}" required ><br>	
 								<label for="iva">Iva:</label><br> 
-								<input id="iva" name="iva" type="number" min="0" value="22" required><br>
+								<input id="iva" name="iva" type="number" min="0" value="22" required ><br>
 								<label for="sconto">Sconto:</label><br> 
-								<input id="sconto" name="sconto" type="number" min="0" value="0" required><br>
+								<input id="sconto" name="sconto" type="number" min="0" value="0" required ><br>
 								<label for="tipo">Tipo:</label><br> 
 								<select name="tipo" id="tipo">
 									<option value="piante"> piante </option>
@@ -57,17 +57,17 @@
 							</form>
 						</div>
 						<div>
-							<h1 class="titoloItem"></h1>
-							<div class="contenerSuperiore">
+							<h1 id="titoloItem" class="titoloItem"></h1>
+							<div id="titoloItem" class="contenerSuperiore">
 								<div>
-									<div class="galleria"></div>
-									<div class="caratterisiche"></div>
-									<div class="tag"></div>
-									<div class="descrizione"></div>
+									<div id="titoloItem" class="galleria"></div>
+									<div id="titoloItem" class="caratterisiche"></div>
+									<div id="tagItem" class="tag"></div>
+									<div id="descrizioneItem" class="descrizione"></div>
 								</div>
 								<div>
-									<div class="infoItem">
-										<div class="prezzo"> &euro;</div>
+									<div id="titoloItem" class="infoItem">
+										<div class="prezzo"> <p id="prezzo"></p> &euro;</div>
 										<label for="quantity">Quantit&agrave; </label>
 										<select class="quantity" name="quantity" id="quantity">
 										</select> <br>
