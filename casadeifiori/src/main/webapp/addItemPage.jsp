@@ -28,6 +28,7 @@
 						isAdmin=false;
 					}
 					if(isAdmin){ %>
+						<div class="insertItem">
 						<div>
 							<form method="post" action="AggiungiItem"> 
 								<label for="name">Nome:</label><br> 
@@ -37,13 +38,13 @@
 								<label for="description">Descrizione:</label><br>
 								<textarea id="editortesto" name="description" placeholder="inserire descrizione"></textarea><br>
 								<label for="tag">tag:</label><br> 
-								<input id="tag" name="tag" type="text" data-role="tagsinput" onEditorChange="prewiev('tag','tagItem')">
+								<input id="tag" name="tag" type="text" data-role="tagsinput" onchange="prewievTag('tag','tagItem')">
 								<label for="price">Prezzo:</label><br> 
-								<input id="price" name="price" type="text" pattern="[0-9]{1,}.[0-9]{2}" required ><br>	
+								<input id="price" name="price" type="text" pattern="[0-9]{1,}.[0-9]{2}" required onchange="prewievPrezzo('prezzoItem')"><br>	
 								<label for="iva">Iva:</label><br> 
-								<input id="iva" name="iva" type="number" min="0" value="22" required ><br>
+								<input id="iva" name="iva" type="number" min="0" value="22" required onchange="prewievPrezzo('prezzoItem')"><br>
 								<label for="sconto">Sconto:</label><br> 
-								<input id="sconto" name="sconto" type="number" min="0" value="0" required ><br>
+								<input id="sconto" name="sconto" type="number" min="0" value="0" required onchange="prewievPrezzo('prezzoItem')"><br>
 								<label for="tipo">Tipo:</label><br> 
 								<select name="tipo" id="tipo">
 									<option value="piante"> piante </option>
@@ -67,7 +68,7 @@
 								</div>
 								<div>
 									<div id="titoloItem" class="infoItem">
-										<div class="prezzo"> <p id="prezzo"></p> &euro;</div>
+										<div id="prezzoItem" class="prezzo">0 &euro;</div>
 										<label for="quantity">Quantit&agrave; </label>
 										<select class="quantity" name="quantity" id="quantity">
 										</select> <br>
@@ -76,6 +77,7 @@
 								</div>
 							</div>
 						</div>
+					</div>
 				<% } else { %>
 					<%@ include file="main/nonPermessi.jsp" %>
 				<% } %>

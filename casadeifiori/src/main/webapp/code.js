@@ -3,7 +3,7 @@ tinymce.init({
 	plugins: 'autolink autosave charmap emoticons hr link lists advlist paste table searchreplace wordcount',
 	paste_data_images: false,
 	setup:function(ed) {
-       ed.on('change', function(e) {
+       ed.on('change', function() {
            $("#descrizioneItem").html( ed.getContent());
        });
    }
@@ -235,9 +235,17 @@ function InstagramImg(element){
 	})
 }
 
-
 function prewiev(input,output){
 	$("#"+output).text($("#"+input).val())
 }
 
+function prewievTag(input,output){
+	$("#"+output).text($("#"+input).val().replace(/,/g," "))
+}
 
+function prewievPrezzo(output){
+	var prezzo=Number($("#price").val());
+	prezzo=prezzo+(prezzo*Number($("#iva").val()))/100;
+	prezzo=prezzo-(prezzo*Number($("#sconto").val()))/100
+	$("#"+output).html(prezzo.toFixed(2)+" &euro;");
+}

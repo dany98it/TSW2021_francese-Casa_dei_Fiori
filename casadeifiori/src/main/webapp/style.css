@@ -69,7 +69,10 @@ body{
   	grid-gap: 0.5em;
   	padding : 0.7em;
 }
-
+.insertItem{
+	display: grid;
+ 	grid-template-columns: 40% 60%;
+}
 .itemCard{
 
   	text-align: center;
@@ -646,6 +649,9 @@ span.twitter-typeahead .tt-suggestion:last-child {
 	.info{
 		display: block;
 	}
+	.insertItem{
+		display: block;
+	}
 }
 @media screen and (max-width: 480px) {
 	.itemListing{
@@ -656,6 +662,7 @@ span.twitter-typeahead .tt-suggestion:last-child {
 	.info{
 		display: block;
 	}
+	
 }
 @media screen and (max-height: 450px) {
 	.itemListing{
