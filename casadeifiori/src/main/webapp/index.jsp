@@ -68,12 +68,15 @@
 					</div>
 				</div>
 			</div>
+			<div class="FotoInsta">
+				<ul class="FotoInstaul" id="InstagramImg"></ul>
+			</div>
 			<footer>
 				<%@ include file="main/footer.jsp" %>
 			</footer>
 		</div>
 		<script src="https://kit.fontawesome.com/46a2d5ed1b.js" ></script>
 		<script src="code.js" ></script>
-		<script> startShowSlides(); </script>
+		<script> startShowSlides(); InstagramImg(); </script>
 	</body>
 </html>

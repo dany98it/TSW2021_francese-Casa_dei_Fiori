@@ -204,3 +204,29 @@ var substringMatcher = function(strs) {
 		cb(matches);
 	};
 };
+function InstagramImg(element){
+	var token= "ea60d9c604a23e0ae8550e0d02a4607e";
+	var username= "casadeifiori.ideecreazioni";
+	var numfoto= 6;
+	$.ajax({
+		url:"https://api.instagram.com/v1/users/search",
+		dataType: "jsonp",
+		type: "GET",
+		data: {access_token: token, q:username},
+		success: function(data){
+			$.ajax({
+				url:"https://api.instagram.com/v1/users/"+ data.data[0].id+ "/media/recent",
+				dataType: "jsonp",
+				type: "GET",
+				data: {access_token: token, count: numfoto},
+				success: function(data2){
+					for(x in data2.data){
+						$("#InstagramImg").append("<li><img src= '"+ data2.data[x].images.thumbnail.url + "'></li>");
+					}
+					}
+				}
+			
+		}
+	})
+	
+}
