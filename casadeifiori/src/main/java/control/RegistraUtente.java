@@ -16,7 +16,7 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
-import model.Password;
+import model.PasswordUser;
 import model.Permessi;
 import model.User;
 import model.UserDAO;
@@ -55,7 +55,7 @@ public class RegistraUtente extends HttpServlet {
 				if(loggedUser==null) {
 					User user = new User();
 					user.setEmail(request.getParameter("email"));
-					user.setPassword(Password.criptaPassword(request.getParameter("password")));
+					user.setPassword(PasswordUser.criptaPassword(request.getParameter("password")));
 					user.setNome(request.getParameter("nome"));
 					user.setCognome(request.getParameter("cognome"));
 					user.setdataNascita(Date.valueOf(request.getParameter("dataNascita")));
