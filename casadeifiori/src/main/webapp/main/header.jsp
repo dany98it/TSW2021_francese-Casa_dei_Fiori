@@ -2,7 +2,10 @@
 <%@ page import="java.util.*" %>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1" %>
 <% HttpSession sessione = request.getSession(true); %>
+<%@ include file="../logInPage.jsp" %>
 <div class="main" >
+	<script src="code.js" ></script>
+	<script> closeLogInOutside(); </script>
 	<div id="headerContainer">
 		<div class="logo">
 			<img alt="logo" src="img/CasalogoSVGmodificato1.png" height="80" onclick="redirect('index.jsp')">
@@ -27,7 +30,7 @@
 							<li> <a href="adminMostraOrdini"><button type="button" class="headerBtn">Amministrazione Ordini</button></a> </li> 
 							<li> <a href="EffettuaLogOut"><button type="button" class="headerBtn">Log-out</button></a> </li>
 						<% }else{%>
-							<li> <a href="logInPage.jsp" ><button type="button" class="headerBtn" >Log-in</button></a></li> 
+							<li> <button type="button" class="headerBtn" onclick="openLogIn()">Log-in</button></li> 
 							<li> <a href="signInPage.jsp"><button type="button" class="headerBtn">Sing-in</button></a> </li> 
 						<% } %>		
 					</ul>

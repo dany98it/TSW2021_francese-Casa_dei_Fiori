@@ -249,3 +249,23 @@ function prewievPrezzo(output){
 	prezzo=prezzo-(prezzo*Number($("#sconto").val()))/100
 	$("#"+output).html(prezzo.toFixed(2)+" &euro;");
 }
+
+function openLogIn(){
+	document.getElementById('divLogIn').style.display='block'
+}
+
+function closeLogIn(){
+	document.getElementById('divLogIn').style.display='none';
+}
+
+function closeLogInOutside(){
+	// Get the modal
+	var modal = document.getElementById('divLogIn');
+
+	// When the user clicks anywhere outside of the modal, close it
+	window.onclick = function(event) {
+ 	 if (event.target == modal) {
+   	 	modal.style.display = "none";
+  }
+}
+}
