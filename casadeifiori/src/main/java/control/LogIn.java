@@ -1,7 +1,6 @@
 package control;
 
 import java.io.IOException;
-
 /*import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -9,16 +8,13 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;*/
 import java.sql.SQLException;
 
-
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
-import model.Password;
-import model.User;
-import model.UserDAO;
+import model.*;
 
 /**
  * Servlet implementation class logIn
@@ -50,7 +46,7 @@ public class LogIn extends HttpServlet {
 		
 		UserDAO userdao = new UserDAO();
 		String username=request.getParameter("username");
-		if (username.contains("@")) {
+		if (username.contains("@")&&username.contains(".")) {
 			try {
 				loggedUser=userdao.doRetrieveBy("email", username);
 			} catch (SQLException e) {
@@ -65,7 +61,7 @@ public class LogIn extends HttpServlet {
 				e.printStackTrace();
 			}
 		}
-		if(Password.isCorrect(request.getParameter("password"), loggedUser.getPassword())) {
+		if(PasswordUser.isCorrect(request.getParameter("password"), loggedUser.getPassword())) {
 			synchronized(sessione) {
 				sessione.setAttribute("loggedUser", loggedUser);
 				sessione.setAttribute("isAdmin", loggedUser.isAdmin());
