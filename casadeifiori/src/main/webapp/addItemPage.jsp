@@ -34,7 +34,8 @@
 								<label for="name">Nome:</label><br> 
 								<input id="name" name="name" type="text" maxlength="20" required placeholder="inserire nome" onchange="prewiev('name','titoloItem')"><br> 
 								<label for="img">immagini:</label><br>
-								<input type="file" id="img" name="img" accept="image/*" multiple="multiple" required="required" > <br>
+								<input type="file" id="img" name="img" accept="image/*" multiple="multiple" required="required"> <br>
+								<div id="selectedFiles"></div> 
 								<label for="description">Descrizione:</label><br>
 								<textarea id="editortesto" name="description" placeholder="inserire descrizione"></textarea><br>
 								<label for="tag">tag:</label><br> 
@@ -61,7 +62,7 @@
 							<h1 id="titoloItem" class="titoloItem"></h1>
 							<div id="titoloItem" class="contenerSuperiore">
 								<div>
-									<div id="titoloItem" class="galleria"></div>
+									<div id="galleriaItem" class="galleria"></div>
 									<div id="titoloItem" class="caratterisiche"></div>
 									<div id="tagItem" class="tag"></div>
 									<div id="descrizioneItem" class="descrizione"></div>
@@ -87,10 +88,10 @@
 		</div>
 		<script src="https://kit.fontawesome.com/46a2d5ed1b.js" ></script>
 		<script src="code.js" ></script>
-		
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha256-OFRAJNoaD8L3Br5lglV7VyLRf0itmoBzWUoM+Sji4/8=" crossorigin="anonymous"></script>
     	<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-tagsinput/0.8.0/bootstrap-tagsinput.js" integrity="sha512-VvWznBcyBJK71YKEKDMpZ0pCVxjNuKwApp4zLF3ul+CiflQi6aIJR+aZCP/qWsoFBA28avL5T5HA+RE+zrGQYg==" crossorigin="anonymous"></script>
 		<script src="https://twitter.github.io/typeahead.js/releases/latest/typeahead.bundle.js"></script>
+		<script type="text/javascript"> initFileSelect();</script>
 	</body>
 </html>

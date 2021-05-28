@@ -249,3 +249,24 @@ function prewievPrezzo(output){
 	prezzo=prezzo-(prezzo*Number($("#sconto").val()))/100
 	$("#"+output).html(prezzo.toFixed(2)+" &euro;");
 }
+
+function initFileSelect(){
+	var selDiv=$("#selectedFiles")
+	$("#img").change(function(e){
+		if(!e.target.files) return;
+		var files = e.target.files;
+		var filesArr = Array.prototype.slice.call(files);
+		filesArr.forEach(function(f) {
+			if(!f.type.match("image.*")) {
+				return;
+			}
+			selDiv.append(f.name + "<br/>");
+			var reader = new FileReader();
+			reader.onload = function (e) {
+				var html = "<img src=\"" + e.target.result + "\">";
+				$("#galleriaItem").append(html);		
+			}
+			reader.readAsDataURL(f);
+		});
+	});
+}
