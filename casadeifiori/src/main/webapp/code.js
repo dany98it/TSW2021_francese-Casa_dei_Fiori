@@ -288,4 +288,5 @@ function closeLogInOutside(){
    	 		modal.style.display = "none";
   		}
 	}
+	
 }
