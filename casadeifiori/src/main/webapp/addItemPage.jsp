@@ -62,7 +62,10 @@
 							<h1 id="titoloItem" class="titoloItem"></h1>
 							<div id="titoloItem" class="contenerSuperiore">
 								<div>
-									<div id="galleriaItem" class="galleria"></div>
+									<div id="galleriaItem" class="galleria">
+										<img id="imgactive" src="">
+										<div id="selectimg"><ul id="listimg"></ul></div>
+									</div>
 									<div id="titoloItem" class="caratterisiche"></div>
 									<div id="tagItem" class="tag"></div>
 									<div id="descrizioneItem" class="descrizione"></div>

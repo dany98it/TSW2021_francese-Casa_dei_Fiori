@@ -252,7 +252,10 @@ function prewievPrezzo(output){
 
 function initFileSelect(){
 	var selDiv=$("#selectedFiles")
+	var listImg=$("#listimg")
 	$("#img").change(function(e){
+		selDiv.html("");
+		listImg.html("");
 		if(!e.target.files) return;
 		var files = e.target.files;
 		var filesArr = Array.prototype.slice.call(files);
@@ -263,8 +266,8 @@ function initFileSelect(){
 			selDiv.append(f.name + "<br/>");
 			var reader = new FileReader();
 			reader.onload = function (e) {
-				var html = "<img src=\"" + e.target.result + "\">";
-				$("#galleriaItem").append(html);		
+				var html = "<li class='image-item'><img src=\"" + e.target.result + "\"></li>";
+				listImg.append(html);
 			}
 			reader.readAsDataURL(f);
 		});
