@@ -14,6 +14,8 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import model.Immagine;
+import model.ImmagineDAO;
 import model.Item;
 import model.ItemDAO;
 import model.TipoItem;
@@ -43,7 +45,15 @@ public class AggiungiItem extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		Item item = new Item(-1,
+		ItemDAO itemDAO= new ItemDAO();
+		int x=0;
+		try {
+			x = itemDAO.doGetMaxItemId()+1;
+		} catch (SQLException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
+		Item item = new Item(x,
 				Integer.parseInt(request.getParameter("iva")),
 				Double.parseDouble(request.getParameter("price")),
 				request.getParameter("description"),
@@ -52,13 +62,16 @@ public class AggiungiItem extends HttpServlet {
 				Integer.parseInt(request.getParameter("sconto")),
 				Integer.parseInt(request.getParameter("quantity")));
 		
-	ItemDAO itemDAO= new ItemDAO();
-	try {
-		itemDAO.doSave(item);
-	} catch (SQLException e) {
-		// TODO Auto-generated catch block
-		e.printStackTrace(response.getWriter());
-	}
+	
+		try {
+			itemDAO.doSave(item);
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace(response.getWriter());
+		}
+		
+		ImmagineDAO imgDAO=new ImmagineDAO();
+		Immagine img= new Immagine();
 		
 		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/addItemPage.jsp");
 		dispatcher.forward(request, response);

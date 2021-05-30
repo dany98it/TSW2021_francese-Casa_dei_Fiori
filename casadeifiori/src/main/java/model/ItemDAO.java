@@ -36,20 +36,21 @@ public class ItemDAO implements DaoInterfacce<Item,Integer>{
 		Connection connection = null;
 		PreparedStatement preparedStatement = null;
 		String insertSQL = "INSERT INTO " + ItemDAO.TABLE_NAME
-				+ " (iva, prezzo, descrizione, nome, tipo, sconto, quantita) VALUES (?, ?, ?, ?, ?, ?, ?)";
+				+ " (id, iva, prezzo, descrizione, nome, tipo, sconto, quantita) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
 
 		try {
 			
 			connection = ds.getConnection();
 			connection.setAutoCommit(false);
 			preparedStatement = connection.prepareStatement(insertSQL);
-			preparedStatement.setInt(1, t.getIva());
-			preparedStatement.setDouble(2, t.getPrezzo());
-			preparedStatement.setString(3, t.getDescrizione());
-			preparedStatement.setString(4, t.getNome());
-			preparedStatement.setString(5, t.getTipo().toString());
-			preparedStatement.setInt(6, t.getSconto());
-			preparedStatement.setInt(7, t.getQuantita());
+			preparedStatement.setInt(1, t.getId());
+			preparedStatement.setInt(2, t.getIva());
+			preparedStatement.setDouble(3, t.getPrezzo());
+			preparedStatement.setString(4, t.getDescrizione());
+			preparedStatement.setString(5, t.getNome());
+			preparedStatement.setString(6, t.getTipo().toString());
+			preparedStatement.setInt(7, t.getSconto());
+			preparedStatement.setInt(8, t.getQuantita());
 
 			preparedStatement.executeUpdate();
 
@@ -225,5 +226,39 @@ public class ItemDAO implements DaoInterfacce<Item,Integer>{
 					}
 				}
 				return result;
+	}
+	public int doGetMaxItemId() throws SQLException {
+		Connection connection = null;
+		PreparedStatement preparedStatement = null;
+
+		int maxID = 0;
+
+		String selectSQL = "SELECT MAX(id) FROM " + ItemDAO.TABLE_NAME ;
+
+
+		try {
+			connection = ds.getConnection();
+			connection.setAutoCommit(false);
+			preparedStatement = connection.prepareStatement(selectSQL);
+			
+			ResultSet rs = preparedStatement.executeQuery();
+			connection.commit();
+		
+			if (rs.next()) {
+
+				maxID = rs.getInt(1);
+			}
+
+		} finally {
+			try {
+				if (preparedStatement != null)
+					preparedStatement.close();
+			} finally {
+				if (connection != null)
+					connection.close();
+			}
+		}
+		return maxID;
+		
 	}
 }
