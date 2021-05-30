@@ -23,25 +23,33 @@
 			<nav>
 				<%@ include file="main/navigationBar.jsp"%>
 			</nav>
-			<h1 class="titoloItem"><%= i.getNome() %></h1>
+			<h1 id="titoloItem" class="titoloItem"><%= i.getNome() %></h1>
 			<div class="contenerSuperiore">
 				<div>
-					<div class="galleria"></div>
-					<div class="caratterisiche"></div>
-					<div class="tag"></div>
-					<div class="descrizione"><%= i.getDescrizione() %></div>
+					<div id="galleriaItem" class="galleria">
+						<div id="imgXL"class="w3-content" style="max-width:1200px">
+    						<div id="listimg" class="w3-row-padding w3-section">
+							</div>
+						</div>
+					</div>
+					<h6>caratterisiche</h6>
+					<div id="caratterisicheItem" class="caratterisiche"></div>
+					<h6>tag</h6>
+					<div id="tagItem" class="tag"></div>
+					<h6>descrizione</h6>
+					<div id="descrizioneItem" class="descrizione"><%= i.getDescrizione() %></div>
 				</div>
 				<div>
 					<div class="infoItem">
-						<div class="prezzo"><%= i.calcolaPrezzo() %> &euro;</div>
+						<h6>prezzo</h6>
+						<div id="prezzoItem" class="prezzo"><%= i.calcolaPrezzo() %> &euro;</div>
 						<label for="quantity">Quantit&agrave; </label>
-						<select class="quantity" name="quantity" id="quantity">
-							<%
-								for(int x=1; x<=i.getQuantita(); x++){ %>
-									<option value="<%=x%>"><%=x%></option>
-								<% } %>
+						<select class="quantity" name="quantity" id="quantityItem">
+							<% for(int x=1;x<=i.getQuantita();x++){ %>
+								<option value="<%= x %>"> <%= x %> </option>
+							<%} %>
 						</select> <br>
-						<button onclick='window.location.href ="addCart?itemID=<%=i.getId()%>&addItem="+document.getElementById("quantity").value ;'>Aggiungi al carrello</button>		
+						<button>Aggiungi al carrello</button>		
 					</div>
 				</div>
 			</div>
