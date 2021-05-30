@@ -321,3 +321,12 @@ function showDivs(n) {
   x[slideIndex-1].style.display = "block";
   dots[slideIndex-1].className += " w3-opacity-off";
 }
+
+function addQuantita(input,output){
+	var q=Number($("#"+input).val());
+	var out=$("#"+output);
+	out.html("")
+	for(i=1;i<=q;i++){
+		out.append("<option value=\""+i+"\"> "+i+" </option>");
+	}
+}

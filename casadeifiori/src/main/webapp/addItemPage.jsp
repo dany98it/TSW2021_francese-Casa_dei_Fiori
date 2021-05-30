@@ -39,7 +39,9 @@
 								<label for="description">Descrizione:</label><br>
 								<textarea id="editortesto" name="description" placeholder="inserire descrizione"></textarea><br>
 								<label for="tag">tag:</label><br> 
-								<input id="tag" name="tag" type="text" data-role="tagsinput" onchange="prewievTag('tag','tagItem')">
+								<input id="tag" name="tag" type="text" data-role="tagsinput"placeholder="tag,..." onchange="prewievTag('tag','tagItem')">
+								<label for="caratterisiche">caratterisiche:</label><br> 
+								<input id="caratterisiche" name="caratterisiche" type="text" data-role="tagsinput" placeholder="caratterisica:valore,..." onchange="prewievTag('caratterisiche','caratterisicheItem')">
 								<label for="price">Prezzo:</label><br> 
 								<input id="price" name="price" type="text" pattern="[0-9]{1,}.[0-9]{2}" required onchange="prewievPrezzo('prezzoItem')"><br>	
 								<label for="iva">Iva:</label><br> 
@@ -54,13 +56,13 @@
 									<option value="oggettistica"> oggettistica </option>
 								</select><br>
 								<label for="quantity">Quantità:</label><br> 
-								<input id="quantity" name="quantity" type="number" min="1" value="1" required><br>
+								<input id="quantity" name="quantity" type="number" min="1" value="1" required onchange="addQuantita('quantity','quantityItem')"><br>
 								<input type="submit" value="Add"><input type="reset" value="Reset">
 							</form>
 						</div>
 						<div>
 							<h1 id="titoloItem" class="titoloItem"></h1>
-							<div id="titoloItem" class="contenerSuperiore">
+							<div class="contenerSuperiore">
 								<div>
 									<div id="galleriaItem" class="galleria">
 										<div id="imgXL"class="w3-content" style="max-width:1200px">
@@ -68,15 +70,16 @@
 											</div>
 										</div>
 									</div>
-									<div id="titoloItem" class="caratterisiche"></div>
+									<div id="caratterisicheItem" class="caratterisiche"></div>
 									<div id="tagItem" class="tag"></div>
 									<div id="descrizioneItem" class="descrizione"></div>
 								</div>
 								<div>
-									<div id="titoloItem" class="infoItem">
+									<div class="infoItem">
 										<div id="prezzoItem" class="prezzo">0 &euro;</div>
 										<label for="quantity">Quantit&agrave; </label>
-										<select class="quantity" name="quantity" id="quantity">
+										<select class="quantity" name="quantity" id="quantityItem">
+											<option value="1"> 1 </option>
 										</select> <br>
 										<button>Aggiungi al carrello</button>		
 									</div>
