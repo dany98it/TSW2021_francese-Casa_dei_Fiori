@@ -70,12 +70,16 @@
 											</div>
 										</div>
 									</div>
+									<h6>caratterisiche</h6>
 									<div id="caratterisicheItem" class="caratterisiche"></div>
+									<h6>tag</h6>
 									<div id="tagItem" class="tag"></div>
+									<h6>descrizione</h6>
 									<div id="descrizioneItem" class="descrizione"></div>
 								</div>
 								<div>
 									<div class="infoItem">
+										<h6>prezzo</h6>
 										<div id="prezzoItem" class="prezzo">0 &euro;</div>
 										<label for="quantity">Quantit&agrave; </label>
 										<select class="quantity" name="quantity" id="quantityItem">
