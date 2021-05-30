@@ -5,7 +5,7 @@
 		<meta charset="utf-8">
 		<title>Casa dei fiori</title>
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		
+		<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 		<link rel=StyleSheet href="style.css" type="text/css">
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha256-aAr2Zpq8MZ+YA/D6JtRD3xtrwpEz2IqOS+pWD/7XKIw=" crossorigin="anonymous" />
     	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-tagsinput/0.8.0/bootstrap-tagsinput.css" integrity="sha512-xmGTNt20S0t62wHLmQec2DauG9T+owP9e6VU8GigI0anN7OXLip9i7IwEhelasml2osdxX71XcYm6BQunTQeQg==" crossorigin="anonymous" />
@@ -63,8 +63,10 @@
 							<div id="titoloItem" class="contenerSuperiore">
 								<div>
 									<div id="galleriaItem" class="galleria">
-										<img id="imgactive" src="">
-										<div id="selectimg"><ul id="listimg"></ul></div>
+										<div id="imgXL"class="w3-content" style="max-width:1200px">
+    										<div id="listimg" class="w3-row-padding w3-section">
+											</div>
+										</div>
 									</div>
 									<div id="titoloItem" class="caratterisiche"></div>
 									<div id="tagItem" class="tag"></div>

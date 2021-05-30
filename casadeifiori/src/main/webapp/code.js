@@ -252,7 +252,9 @@ function prewievPrezzo(output){
 
 function initFileSelect(){
 	var selDiv=$("#selectedFiles")
+	var imgXL=$("#imgXL")
 	var listImg=$("#listimg")
+	var i=0;
 	$("#img").change(function(e){
 		selDiv.html("");
 		listImg.html("");
@@ -260,13 +262,19 @@ function initFileSelect(){
 		var files = e.target.files;
 		var filesArr = Array.prototype.slice.call(files);
 		filesArr.forEach(function(f) {
+			i++;
+			var x=i;
 			if(!f.type.match("image.*")) {
 				return;
 			}
 			selDiv.append(f.name + "<br/>");
 			var reader = new FileReader();
 			reader.onload = function (e) {
-				var html = "<li class='image-item'><img src=\"" + e.target.result + "\"></li>";
+				var html1="<img class=\"mySlides\" src=\""+e.target.result+"\" style=\"width:100%;display:none\">"
+				var html = "<div class=\"w3-col s4\"> "
+				+"<img class=\"demo w3-opacity w3-hover-opacity-off\" src=\""+e.target.result+"\" style=\"width:100%;cursor:pointer\" onclick=\"currentDiv("+x+")\">"
+				+"</div>"
+				imgXL.append(html1);
 				listImg.append(html);
 			}
 			reader.readAsDataURL(f);
@@ -292,4 +300,24 @@ function closeLogInOutside(){
   		}
 	}
 	
+}
+
+function currentDiv(n) {
+  showDivs(slideIndex = n);
+}
+
+function showDivs(n) {
+  var i;
+  var x = document.getElementsByClassName("mySlides");
+  var dots = document.getElementsByClassName("demo");
+  if (n > x.length) {slideIndex = 1}
+  if (n < 1) {slideIndex = x.length}
+  for (i = 0; i < x.length; i++) {
+    x[i].style.display = "none";
+  }
+  for (i = 0; i < dots.length; i++) {
+    dots[i].className = dots[i].className.replace(" w3-opacity-off", "");
+  }
+  x[slideIndex-1].style.display = "block";
+  dots[slideIndex-1].className += " w3-opacity-off";
 }
