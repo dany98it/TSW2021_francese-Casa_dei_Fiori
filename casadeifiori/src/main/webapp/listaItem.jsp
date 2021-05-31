@@ -13,6 +13,7 @@
 		<meta http-equiv="Content-Type" content="text/html; utf-8">
 		<title>Casa dei Fiori</title>
 		<link rel=StyleSheet href="style.css" type="text/css">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha256-aAr2Zpq8MZ+YA/D6JtRD3xtrwpEz2IqOS+pWD/7XKIw=" crossorigin="anonymous" />
 	</head>
 	<body>
 		<%@ include file="main/menuMobile.jsp" %>
@@ -44,7 +45,7 @@
 						<% } %>
 						<li><a href="MostraDettagliItem?itemID=<%=bean.getId()%>"><button type="button" class="itemCardBtn">Mostra dettagli </button></a> </li> 
 						<% if(bean.getQuantita()>0) { %>
-							<li><a href="addCart?itemID=<%=bean.getId()%>" ><button type="button" class="itemCardBtn">Aggiungi al Carrello </button> </a> </li>
+							<li><a href="javascript:addCart(<%=bean.getId()%>)" ><button type="button" class="itemCardBtn">Aggiungi al Carrello </button> </a> </li>
 						<% } %>
 				</ul>
 			</div>
@@ -57,6 +58,8 @@
 				<%@ include file="main/footer.jsp" %>
 			</footer>
 		</div>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha256-OFRAJNoaD8L3Br5lglV7VyLRf0itmoBzWUoM+Sji4/8=" crossorigin="anonymous"></script>
 		<script src="https://kit.fontawesome.com/46a2d5ed1b.js" ></script>
 		<script src="code.js" ></script>
 	</body>

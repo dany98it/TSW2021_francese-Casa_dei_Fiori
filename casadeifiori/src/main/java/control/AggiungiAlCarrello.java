@@ -88,8 +88,10 @@ public class AggiungiAlCarrello extends HttpServlet {
 	          cart.setNumOrdered(itemID, numItems);
 	          sessione.setAttribute("carrello", cart);
 	          String page = request.getParameter("page");
-		        RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/"+page);
-				dispatcher.forward(request, response);
+		      if (page!=null&&page!="") {
+		    	  RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/"+page);
+		    	  dispatcher.forward(request, response);
+			}
 				
 	        }
 	      }else {

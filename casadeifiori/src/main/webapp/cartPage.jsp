@@ -18,7 +18,6 @@
 			<nav>
 				<%@ include file="main/navigationBar.jsp"%>
 			</nav>
-			<input type="text" class="notShow" id="page" value="cartPage.jsp">
 			<jsp:include page="main/showCart.jsp"/>
 			<footer>
 				<%@ include file="main/footer.jsp" %>
