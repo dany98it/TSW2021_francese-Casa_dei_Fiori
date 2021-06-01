@@ -367,3 +367,37 @@ function cerca(){
         }
     });
 }
+
+
+/*function modCart(id,quantity){
+	$(".alert").alert('close');
+	$.ajax({
+		"type":"GET",
+		"url":"addCart",
+		"data":"itemID="+id+"&addItem="+quantity+"&return=true",
+		"success":function(data){
+			var html="<div class=\"alert alert-success alert-dismissible\" role=\"alert\">"
+			+"<strong>Success!</strong> l'articolo &egrave; stato aggiunto al carrello."
+			+"<button type=\"button\" class=\"close\" data-dismiss=\"alert\" aria-label=\"Close\">"
+			+"<span aria-hidden=\"true\">&times;</span></button></div>"
+			$("body").prepend(html);
+			var table="<tr><th>ID</th><th>Nome</th><th>Descrizione</th>"
+			+"<th>Quantità</th><th>Prezzo</th></tr>"
+			if(data==null){
+				table=table+"<tr><td colspan=\"6\">Il Carrello è vuoto</td></tr>"
+			}else{
+				
+			}
+		},
+		"error":function(){
+			var html="<div class=\"alert alert-danger alert-dismissible\" role=\"alert\">"
+			+"<strong>Success!</strong> l'articolo &egrave; stato aggiunto al carrello."
+			+"<button type=\"button\" class=\"close\" data-dismiss=\"alert\" aria-label=\"Close\">"
+			+"<span aria-hidden=\"true\">&times;</span></button></div>"
+			$("body").prepend(html);
+			var table="<tr><th>ID</th><th>Nome</th><th>Descrizione</th>"
+			+"<th>Quantità</th><th>Prezzo</th></tr>"
+			+"<tr><td colspan=\"6\">Il Carrello è vuoto</td></tr>"
+		}
+	})
+}*/
