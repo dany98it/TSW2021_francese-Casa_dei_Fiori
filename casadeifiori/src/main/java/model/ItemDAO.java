@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.LinkedList;
 
@@ -260,5 +261,36 @@ public class ItemDAO implements DaoInterfacce<Item,Integer>{
 		}
 		return maxID;
 		
+	}
+	public synchronized Object[] doRetrieveByName(String code) throws SQLException {
+		Connection connection = null;
+		PreparedStatement preparedStatement = null;
+
+		ArrayList<String> item=new ArrayList<String>();
+
+		String selectSQL = "SELECT nome FROM " + ItemDAO.TABLE_NAME + " WHERE nome LIKE ?";
+
+		try {
+			connection = ds.getConnection();
+			connection.setAutoCommit(false);
+			preparedStatement = connection.prepareStatement(selectSQL);
+			preparedStatement.setString(1, "%"+code+"%");
+
+			ResultSet rs = preparedStatement.executeQuery();
+			connection.commit();
+			while (rs.next()) {
+				item.add(rs.getString("nome"));
+			}
+
+		} finally {
+			try {
+				if (preparedStatement != null)
+					preparedStatement.close();
+			} finally {
+				if (connection != null)
+					connection.close();
+			}
+		}
+		return item.toArray();
 	}
 }

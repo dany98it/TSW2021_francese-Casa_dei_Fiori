@@ -353,3 +353,23 @@ function addCart(id,quantity){
 		}
 	})
 }
+
+function cerca(){
+	$(".ajax-typeahead").typeahead({
+  		highlight: true,
+		hint: true,
+		minLength: 1
+	},
+	{
+		name: 'cerca',
+  		source: function (query,process){
+			return $.getJSON(
+                'itemSearch?q='+query,
+                function (data) {
+                    console.log(data)
+                    return process(data);
+				}
+			)
+        }
+    });
+}
