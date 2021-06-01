@@ -7,7 +7,7 @@
 		<meta charset="utf-8">
 		<title>Home</title>
 		<link rel=StyleSheet href="style.css" type="text/css">
-
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.css" integrity="sha512-aOG0c6nPNzGk+5zjwyJaoRUgCdOrfSDhmMID2u4+OIslr0GjpLKo7Xm0Ao3xmpM4T8AmIouRkqwj1nrdVsLKEQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 	</head>
 	<body >
 		<%@ include file="main/menuMobile.jsp" %>
@@ -78,6 +78,7 @@
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 		<script src="https://kit.fontawesome.com/46a2d5ed1b.js" ></script>
 		<script src="code.js" ></script>
-		<script> startShowSlides(); InstagramImg(); </script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js" integrity="sha512-uto9mlQzrs59VwILcLiRYeLKPPbS/bT71da/OEBYEwcdNUk8jYIy+D176RYoop1Da+f9mvkYrmj5MCLZWEtQuA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+		<script> startShowSlides(); InstagramImg(); cerca(); </script>
 	</body>
 </html>

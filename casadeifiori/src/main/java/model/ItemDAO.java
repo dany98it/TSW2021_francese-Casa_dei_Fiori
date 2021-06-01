@@ -274,7 +274,7 @@ public class ItemDAO implements DaoInterfacce<Item,Integer>{
 			connection = ds.getConnection();
 			connection.setAutoCommit(false);
 			preparedStatement = connection.prepareStatement(selectSQL);
-			preparedStatement.setString(1, "%"+code+"%");
+			preparedStatement.setString(1, code+"%");
 
 			ResultSet rs = preparedStatement.executeQuery();
 			connection.commit();

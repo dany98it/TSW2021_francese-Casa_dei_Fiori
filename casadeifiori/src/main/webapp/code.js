@@ -355,16 +355,10 @@ function addCart(id,quantity){
 }
 
 function cerca(){
-	$(".ajax-typeahead").typeahead({
-  		highlight: true,
-		hint: true,
-		minLength: 1
-	},
-	{
-		name: 'cerca',
+	$(".ajax-typeahead").autocomplete({
   		source: function (query,process){
 			return $.getJSON(
-                'itemSearch?q='+query,
+                'itemSearch?q='+query.term,
                 function (data) {
                     console.log(data)
                     return process(data);

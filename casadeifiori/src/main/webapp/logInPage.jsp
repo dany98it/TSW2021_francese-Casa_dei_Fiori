@@ -27,4 +27,3 @@
 				Altrimenti Iscriviti<a href="signInPage.jsp">Sing-in</a>
 			</form>
 		</div>
-<script src="https://kit.fontawesome.com/46a2d5ed1b.js" ></script>
