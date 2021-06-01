@@ -14,7 +14,9 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
-import model.*;
+import model.Password;
+import model.User;
+import model.UserDAO;
 
 /**
  * Servlet implementation class logIn
@@ -61,7 +63,7 @@ public class LogIn extends HttpServlet {
 				e.printStackTrace();
 			}
 		}
-		if(PasswordUser.isCorrect(request.getParameter("password"), loggedUser.getPassword())) {
+		if(Password.isCorrect(request.getParameter("password"), loggedUser.getPassword())) {
 			synchronized(sessione) {
 				sessione.setAttribute("loggedUser", loggedUser);
 				sessione.setAttribute("isAdmin", loggedUser.isAdmin());

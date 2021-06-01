@@ -4,7 +4,7 @@ import java.io.UnsupportedEncodingException;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 
-public class PasswordUser {
+public class Password {
 	
 	private static final String ALGORITHM = "SHA-256";
 	
