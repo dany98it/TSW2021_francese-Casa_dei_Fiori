@@ -45,7 +45,7 @@
 						<% } %>
 						<li><a href="MostraDettagliItem?itemID=<%=bean.getId()%>"><button type="button" class="itemCardBtn">Mostra dettagli </button></a> </li> 
 						<% if(bean.getQuantita()>0) { %>
-							<li><a href="javascript:addCart(<%=bean.getId()%>)" ><button type="button" class="itemCardBtn">Aggiungi al Carrello </button> </a> </li>
+							<li><a href="javascript:addCart(<%=bean.getId()%>,1)" ><button type="button" class="itemCardBtn">Aggiungi al Carrello </button> </a> </li>
 						<% } %>
 				</ul>
 			</div>

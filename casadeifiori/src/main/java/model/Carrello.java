@@ -27,7 +27,9 @@ public class Carrello {
 	    for(int i=0; i<itemsOrdinati.size(); i++) {
 	      order = (ItemCarrello)itemsOrdinati.get(i);
 	      if (order.getItem().getId()==itemID) {
-	        order.incrementaQuantita();
+	        if (order.getQuantita()<order.getItem().getQuantita()) {
+	        	order.incrementaQuantita();
+			}
 	        return;
 	      }
 	    }

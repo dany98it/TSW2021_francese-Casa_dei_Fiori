@@ -51,8 +51,7 @@ public class AggiungiAlCarrello extends HttpServlet {
 		String stringItemID = request.getParameter("itemID");
 		int itemID = Integer.parseInt(stringItemID);
 		if (stringItemID!=null) {
-	        String numItemsString =
-	          request.getParameter("numItems");
+	        String numItemsString = request.getParameter("numItems");
 	        if (numItemsString == null) {
 	          // se la richiesta specifica un ID e non il numero di item ,
 	          // allora il cliente è arrivato qui tramite il bottone "Aggiungi al carrello"
@@ -70,8 +69,6 @@ public class AggiungiAlCarrello extends HttpServlet {
 					}
 	    		}
 	    		sessione.setAttribute("carrello", cart);
-		        RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/listaItem.jsp");
-				dispatcher.forward(request, response);
 	        } 
 	        else {
 	          // Se la richiesta specifica un id e un numero di ITEMS allora

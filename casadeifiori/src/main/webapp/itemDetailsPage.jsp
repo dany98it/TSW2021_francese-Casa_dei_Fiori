@@ -50,7 +50,7 @@
 								<option value="<%= x %>"> <%= x %> </option>
 							<%} %>
 						</select> <br>
-						<button onclick="addCart2(<%= i.getId() %>,$('#quantityItem').val())">Aggiungi al carrello</button>		
+						<button onclick="addCart(<%= i.getId() %>,$('#quantityItem').val())">Aggiungi al carrello</button>		
 					</div>
 				</div>
 			</div>

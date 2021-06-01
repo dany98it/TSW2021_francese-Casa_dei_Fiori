@@ -39,8 +39,15 @@
 					<td><%= bean.getItem().getId() %></td>
 					<td><%= bean.getItem().getNome() %></td>
 					<td><%= bean.getItem().getDescrizione() %></td>
-					<td><input name="quantity" id="<%="quantity"+bean.getItem().getId() %>" type="number" min="0" max="<%= bean.getItem().getQuantita() %>" value= "<%= bean.getQuantita() %>" 
-						required onchange="addShop(<%=bean.getItem().getId() %>,<%= bean.getItem().getQuantita() %>);">
+					<td><select  onchange="addShop(<%=bean.getItem().getId() %>,<%= bean.getItem().getQuantita() %>);" class="quantity" name="quantity" id="<%="quantity"+bean.getItem().getId() %>">
+						<% for(int x=0;x<=bean.getItem().getQuantita();x++){ %>
+							<option value="<%= x %>" 
+								<%if(x==bean.getQuantita()||(x==bean.getItem().getQuantita()&&x<bean.getQuantita())){%>
+									selected="selected"
+								<%}%>
+							> <%= x %> </option>
+						<%} %>
+					</select></td>
 					<td><%= bean.getItem().calcolaPrezzo()%></td>
 					<td id="errorQ">quantità invalita max <%= bean.getItem().getQuantita() %></td>
 				</tr>

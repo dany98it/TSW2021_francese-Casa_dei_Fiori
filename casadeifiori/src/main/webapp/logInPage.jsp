@@ -1,9 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
 
-<div id="divLogIn" class="modal">
-		<span onclick="closeLogIn()" class="close" title="Close Modal">&times;</span>
+<div id="divLogIn" class="modal1">
+		<div onclick="closeLogIn()" class="close" title="Close Modal">&times;</div>
 
-			<form action="logIn" class="modal-content animate" method="post">
+			<form action="logIn" class="modal-content1 animate" method="post">
 				<span class="logInTitle">Login</span>
 			
 				<div class="wrap-inputLogIn">

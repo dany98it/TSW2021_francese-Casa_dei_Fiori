@@ -42,6 +42,7 @@ function closeMenuMobile2(){
 
 function addShop(id,quantitymax) {
 	var quantity=document.getElementById("quantity"+id).value
+	console.log(quantity)
 	if(quantity<=quantitymax){
 		window.location.href ="addCart?itemID="+id+"&numItems="+quantity+"&page=cartPage.jsp";
 	}else{
@@ -330,33 +331,12 @@ function addQuantita(input,output){
 	}
 }
 
-function addCart(id){
+function addCart(id,quantity){
+	$(".alert").alert('close');
 	$.ajax({
 		"type":"GET",
 		"url":"addCart",
-		"data":"itemID="+id,
-		"success":function(){
-			html="<div class=\"alert alert-success alert-dismissible\" role=\"alert\">"
-			+"<strong>Success!</strong> l'articolo &egrave; stato aggiunto al carrello."
-			+"<button type=\"button\" class=\"close\" data-dismiss=\"alert\" aria-label=\"Close\">"
-			+"<span aria-hidden=\"true\">&times;</span></button></div>"
-			$("body").prepend(html);
-		},
-		"error":function(){
-			html="<div class=\"alert alert-danger alert-dismissible\" role=\"alert\">"
-			+"<strong>Success!</strong> l'articolo &egrave; stato aggiunto al carrello."
-			+"<button type=\"button\" class=\"close\" data-dismiss=\"alert\" aria-label=\"Close\">"
-			+"<span aria-hidden=\"true\">&times;</span></button></div>"
-			$("body").prepend(html);
-		}
-	})
-}
-
-function addCart2(id,quantity){
-	$.ajax({
-		"type":"GET",
-		"url":"addCart",
-		"data":"itemID="+id+"&numItems="+quantity,
+		"data":"itemID="+id+"&addItem="+quantity,
 		"success":function(){
 			html="<div class=\"alert alert-success alert-dismissible\" role=\"alert\">"
 			+"<strong>Success!</strong> l'articolo &egrave; stato aggiunto al carrello."
