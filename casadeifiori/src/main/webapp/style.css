@@ -201,6 +201,7 @@ body{
 .insertItem{
 	display: grid;
  	grid-template-columns: 40% 60%;
+ 	padding-left: 10px;
 }
 .itemCard{
 

@@ -203,7 +203,7 @@ private static DataSource ds;
 		Connection connection = null;
 		PreparedStatement preparedStatement = null;
 
-		ArrayList<String> tag=new ArrayList<String>();
+		ArrayList<SearchBean> tag=new ArrayList<SearchBean>();
 
 		String selectSQL = "SELECT nome FROM " + TagDAO.TABLE_NAME + " WHERE nome LIKE ?";
 
@@ -216,7 +216,7 @@ private static DataSource ds;
 			ResultSet rs = preparedStatement.executeQuery();
 			connection.commit();
 			while (rs.next()) {
-				tag.add(rs.getString("nome"));
+				tag.add(new SearchBean(rs.getString("nome")));
 			}
 
 		} finally {

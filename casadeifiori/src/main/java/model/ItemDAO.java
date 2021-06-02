@@ -306,7 +306,7 @@ public class ItemDAO implements DaoInterfacce<Item,Integer>{
 		Connection connection = null;
 		PreparedStatement preparedStatement = null;
 
-		ArrayList<String> item=new ArrayList<String>();
+		ArrayList<SearchBean> item=new ArrayList<SearchBean>();
 
 		String selectSQL = "SELECT nome FROM " + ItemDAO.TABLE_NAME + " WHERE nome LIKE ?";
 
@@ -319,7 +319,7 @@ public class ItemDAO implements DaoInterfacce<Item,Integer>{
 			ResultSet rs = preparedStatement.executeQuery();
 			connection.commit();
 			while (rs.next()) {
-				item.add(rs.getString("nome"));
+				item.add(new SearchBean(rs.getString("nome")));
 			}
 
 		} finally {

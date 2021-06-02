@@ -39,9 +39,9 @@
 								<div id="selectedFiles"></div> 
 								<label for="description">Descrizione:</label><br>
 								<textarea id="editortesto" name="description" placeholder="inserire descrizione"></textarea><br>
-								<label for="tag">tag:</label><br> 
+								<label for="tag">tag:</label><input type="button" value="Crea tag" class="float-right"><br> 
 								<input id="tag" name="tag" type="text" data-role="tagsinput"placeholder="tag,..." onchange="prewievTag('tag','tagItem')">
-								<label for="caratterisiche">caratterisiche:</label><br> 
+								<label for="caratterisiche">caratterisiche:</label><input type="button" value="Crea caratterisica" class="float-right"><br> 
 								<input id="caratterisiche" name="caratterisiche" type="text" data-role="tagsinput" placeholder="caratterisica:valore,..." onchange="prewievTag('caratterisiche','caratterisicheItem')">
 								<label for="price">Prezzo:</label><br> 
 								<input id="price" name="price" type="text" pattern="[0-9]{1,}.[0-9]{2}" required onchange="prewievPrezzo('prezzoItem')"><br>	

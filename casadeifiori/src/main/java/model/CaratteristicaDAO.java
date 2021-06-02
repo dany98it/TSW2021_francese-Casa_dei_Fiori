@@ -203,7 +203,7 @@ public class CaratteristicaDAO implements DaoInterfacce<Caratteristica, Integer>
 		Connection connection = null;
 		PreparedStatement preparedStatement = null;
 
-		ArrayList<String> caratteristica=new ArrayList<String>();
+		ArrayList<SearchBean> caratteristica=new ArrayList<SearchBean>();
 
 		String selectSQL = "SELECT nome FROM " + CaratteristicaDAO.TABLE_NAME + " WHERE nome LIKE ?";
 
@@ -216,7 +216,7 @@ public class CaratteristicaDAO implements DaoInterfacce<Caratteristica, Integer>
 			ResultSet rs = preparedStatement.executeQuery();
 			connection.commit();
 			while (rs.next()) {
-				caratteristica.add(rs.getString("nome"));
+				caratteristica.add(new SearchBean(rs.getString("nome")));
 			}
 
 		} finally {
