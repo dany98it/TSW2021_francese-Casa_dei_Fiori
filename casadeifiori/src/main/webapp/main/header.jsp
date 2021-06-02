@@ -14,7 +14,7 @@
 			<span onclick="openNav()" class="menu">&#9776;</span>
 		</div>
 		<div class="user">
-			<form>
+			<form action="MostraItem">
   				<input type="text" name="cerca" class="cerca ajax-typeahead" id="cerca" autocomplete="on">
 			</form>
 			<div id="cartIconDiv" >

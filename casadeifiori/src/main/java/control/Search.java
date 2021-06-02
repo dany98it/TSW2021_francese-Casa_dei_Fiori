@@ -47,7 +47,7 @@ public class Search extends HttpServlet {
 		String tagq=request.getParameter("tagq");
 		if(itemq!=null||itemq=="") {
 			try {
-				response.getWriter().write(gson.toJson(itemDAO.doRetrieveByName(itemq)));
+				response.getWriter().write(gson.toJson(itemDAO.doRetrieveName(itemq)));
 			} catch (IOException | SQLException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();

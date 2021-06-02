@@ -39,12 +39,23 @@ public class MostraItem extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		ItemDAO itemDao = new ItemDAO();
-		try {
-			Collection<Item> itemsCollection = itemDao.doRetrieveAll(null);
-			request.setAttribute("itemsCollection", itemsCollection);
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+		String cerca=request.getParameter("cerca");
+		if (cerca==null||cerca=="") {
+			try {
+				Collection<Item> itemsCollection = itemDao.doRetrieveAll(null);
+				request.setAttribute("itemsCollection", itemsCollection);
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}else {
+			try {
+				Collection<Item> itemsCollection = itemDao.doRetrieveByName(cerca);
+				request.setAttribute("itemsCollection", itemsCollection);
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 		}
 		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/listaItem.jsp");
 		dispatcher.forward(request, response);
