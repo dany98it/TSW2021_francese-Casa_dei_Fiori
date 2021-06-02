@@ -2,17 +2,17 @@ package model;
 
 public class Tag {
 	private int id;
-	private String name;
+	private String nome;
 	private String descrizione;
 	
 	public Tag() {
 		super();
 	}
 
-	public Tag(int id, String name, String descrizione) {
+	public Tag(int id, String nome, String descrizione) {
 		super();
 		this.id = id;
-		this.name = name;
+		this.nome = nome;
 		this.descrizione = descrizione;
 	}
 	
@@ -22,11 +22,11 @@ public class Tag {
 	public void setId(int id) {
 		this.id = id;
 	}
-	public String getName() {
-		return name;
+	public String getNome() {
+		return nome;
 	}
-	public void setName(String name) {
-		this.name = name;
+	public void setNome(String nome) {
+		this.nome = nome;
 	}
 	public String getDescrizione() {
 		return descrizione;

@@ -17,6 +17,7 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import model.CaratteristicaDAO;
 import model.ItemDAO;
+import model.TagDAO;
 
 /**
  * Servlet implementation class itemSearch
@@ -39,6 +40,7 @@ public class Search extends HttpServlet {
 		// TODO Auto-generated method stub
 		ItemDAO itemDAO=new ItemDAO();
 		CaratteristicaDAO cDAO=new CaratteristicaDAO();
+		TagDAO tagDAO=new TagDAO();
 		Gson gson=new Gson();
 		String itemq=request.getParameter("itemq");
 		String cq=request.getParameter("cq");
@@ -58,7 +60,12 @@ public class Search extends HttpServlet {
 				e.printStackTrace();
 			}
 		}else if (tagq!=null||tagq=="") {
-			
+			try {
+				response.getWriter().write(gson.toJson(tagDAO.doRetrieveByName(cq)));
+			} catch (IOException | SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 		}
 	}
 
