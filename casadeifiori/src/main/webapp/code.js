@@ -358,7 +358,7 @@ function cerca(){
 	$(".ajax-typeahead").autocomplete({
   		source: function (query,process){
 			return $.getJSON(
-                'itemSearch?q='+query.term,
+                'Search?itemq='+query.term,
                 function (data) {
                     console.log(data)
                     return process(data);
