@@ -187,28 +187,23 @@ function validateSignIn(form){
 	}
 }
 
-function tagAutoComplite(lista){
+var tag = new Bloodhound({
+  	datumTokenizer: Bloodhound.tokenizers.obj.whitespace('value'),
+  	queryTokenizer: Bloodhound.tokenizers.whitespace,
+  	remote: {
+    	url: 'Search?tagq=%QUERY',
+    	wildcard: '%QUERY'
+  	}
+});
+function tagAutoComplite(){
 	$('#tag').tagsinput({
 		typeaheadjs: {
 			name: 'tag',
-			source: substringMatcher(lista)
+			display: 'value',
+			source: tag
 		}
 	});
 }
-
-var substringMatcher = function(strs) {
-	return function findMatches(q, cb) {
-		var matches, substrRegex;
-		matches = [];
-		substrRegex = new RegExp(q, 'i');
-		$.each(strs, function(i, str) {
-			if (substrRegex.test(str)) {
-				matches.push(str);
-			}
-		});
-		cb(matches);
-	};
-};
 
 function InstagramImg(element){
 	var token= "ea60d9c604a23e0ae8550e0d02a4607e";
@@ -368,7 +363,50 @@ function cerca(){
     });
 }
 
-
+function creaTag(){
+	$(".alert").alert('close');
+	$.ajax({
+		"type":"GET",
+		"url":"creaTag",
+		"data":"name="+$("#nametag").val()+"&Suggerimento="+$("#Suggerimentotag").val(),
+		"success":function(){
+			html="<div class=\"alert alert-success alert-dismissible\" role=\"alert\">"
+			+"<strong>Success!</strong> il tag &egrave; stato aggiunto."
+			+"<button type=\"button\" class=\"close\" data-dismiss=\"alert\" aria-label=\"Close\">"
+			+"<span aria-hidden=\"true\">&times;</span></button></div>"
+			$("body").prepend(html);
+		},
+		"error":function(){
+			html="<div class=\"alert alert-danger alert-dismissible\" role=\"alert\">"
+			+"<strong>Success!</strong> il tag non &egrave; stato aggiunto."
+			+"<button type=\"button\" class=\"close\" data-dismiss=\"alert\" aria-label=\"Close\">"
+			+"<span aria-hidden=\"true\">&times;</span></button></div>"
+			$("body").prepend(html);
+		}
+	})
+}
+function creaC(){
+	$(".alert").alert('close');
+	$.ajax({
+		"type":"GET",
+		"url":"creaC",
+		"data":"name="+$("#namec").val()+"&Suggerimento="+$("#Suggerimentoc").val(),
+		"success":function(){
+			html="<div class=\"alert alert-success alert-dismissible\" role=\"alert\">"
+			+"<strong>Success!</strong> il caratterisiche &egrave; stato aggiunto."
+			+"<button type=\"button\" class=\"close\" data-dismiss=\"alert\" aria-label=\"Close\">"
+			+"<span aria-hidden=\"true\">&times;</span></button></div>"
+			$("body").prepend(html);
+		},
+		"error":function(){
+			html="<div class=\"alert alert-danger alert-dismissible\" role=\"alert\">"
+			+"<strong>Success!</strong> il caratterisiche non &egrave; stato aggiunto."
+			+"<button type=\"button\" class=\"close\" data-dismiss=\"alert\" aria-label=\"Close\">"
+			+"<span aria-hidden=\"true\">&times;</span></button></div>"
+			$("body").prepend(html);
+		}
+	})
+}
 /*function modCart(id,quantity){
 	$(".alert").alert('close');
 	$.ajax({

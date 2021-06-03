@@ -8,14 +8,14 @@
       </div>
       <form action="">
       	<div class="modal-body text-center">
-      		<label for="name">Nome:</label><br> 
-			<input id="name" name="name" type="text" maxlength="20" required placeholder="inserire nome"><br>
-			<label for="Suggerimento">Suggerimento:</label><br> 
-			<input id="Suggerimento" name="Suggerimento" type="text" maxlength="20" required placeholder="inserire suggerimento"><br>  
+      		<label for="namec">Nome:</label><br> 
+			<input id="namec" name="namec" type="text" maxlength="20" required placeholder="inserire nome"><br>
+			<label for="Suggerimentoc">Suggerimento:</label><br> 
+			<input id="Suggerimentoc" name="Suggerimentoc" type="text" maxlength="20" required placeholder="inserire suggerimento"><br>  
       	</div>
       	<div class="modal-footer d-flex justify-content-center colorFooter modelcontentC">
         	<button type="reset" class="btn btn-secondary" data-dismiss="modal">chiudi</button>
-        	<button type="submit" class="btn colorArangio">Crea</button>
+        	<button type="submit" class="btn colorArangio" onClick="creaC()">Crea</button>
       	</div>
       </form>
     </div>

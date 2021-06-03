@@ -8,28 +8,25 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;*/
 import java.sql.SQLException;
 
-import com.google.gson.Gson;
-
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import model.CaratteristicaDAO;
-import model.ItemDAO;
+import model.Tag;
 import model.TagDAO;
 
 /**
- * Servlet implementation class itemSearch
+ * Servlet implementation class CreaTag
  */
-@WebServlet("/Search")
-public class Search extends HttpServlet {
+@WebServlet(name = "creaTag", urlPatterns = { "/creaTag" })
+public class CreaTag extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
     /**
      * Default constructor. 
      */
-    public Search() {
+    public CreaTag() {
         // TODO Auto-generated constructor stub
     }
 
@@ -38,35 +35,17 @@ public class Search extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		ItemDAO itemDAO=new ItemDAO();
-		CaratteristicaDAO cDAO=new CaratteristicaDAO();
 		TagDAO tagDAO=new TagDAO();
-		Gson gson=new Gson();
-		String itemq=request.getParameter("itemq");
-		String cq=request.getParameter("cq");
-		String tagq=request.getParameter("tagq");
-		if(itemq!=null||itemq=="") {
-			try {
-				response.getWriter().write(gson.toJson(itemDAO.doRetrieveName(itemq)));
-			} catch (IOException | SQLException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-		} else if (cq!=null||cq=="") {
-			try {
-				response.getWriter().write(gson.toJson(cDAO.doRetrieveByName(cq)));
-			} catch (IOException | SQLException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-		}else if (tagq!=null||tagq=="") {
-			try {
-				response.getWriter().write(gson.toJson(tagDAO.doRetrieveByName(tagq)));
-			} catch (IOException | SQLException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
+		Tag tag=new Tag();
+		tag.setNome(request.getParameter("name"));
+		tag.setDescrizione(request.getParameter("Suggerimento"));
+		try {
+			tagDAO.doSave(tag);
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 		}
+		response.sendError(200);
 	}
 
 	/**

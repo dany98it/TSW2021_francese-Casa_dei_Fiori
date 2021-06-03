@@ -28,7 +28,7 @@ private static DataSource ds;
 		}
 	}
 	
-	private static final String TABLE_NAME = "caratteristica";
+	private static final String TABLE_NAME = "tag";
 	@Override
 	public void doSave(Tag t) throws SQLException {
 		Connection connection = null;
