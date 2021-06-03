@@ -204,7 +204,23 @@ function tagAutoComplite(){
 		}
 	});
 }
-
+var c = new Bloodhound({
+  	datumTokenizer: Bloodhound.tokenizers.obj.whitespace('value'),
+  	queryTokenizer: Bloodhound.tokenizers.whitespace,
+  	remote: {
+    	url: 'Search?cq=%QUERY',
+    	wildcard: '%QUERY'
+  	}
+});
+function cAutoComplite(){
+	$('#caratterisiche').tagsinput({
+		typeaheadjs: {
+			name: 'c',
+			display: 'value',
+			source: c
+		}
+	});
+}
 function InstagramImg(element){
 	var token= "ea60d9c604a23e0ae8550e0d02a4607e";
 	var username= "casadeifiori.ideecreazioni";
