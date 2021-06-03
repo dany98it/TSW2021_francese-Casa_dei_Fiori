@@ -1,6 +1,10 @@
 package control;
 
+import java.io.File;
+import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.InputStream;
+import java.io.PrintWriter;
 /*import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -10,10 +14,12 @@ import java.sql.SQLException;
 
 import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
+import jakarta.servlet.annotation.MultipartConfig;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.Part;
 import model.Immagine;
 import model.ImmagineDAO;
 import model.Item;
@@ -24,6 +30,7 @@ import model.TipoItem;
  * Servlet implementation class AggiungiItem
  */
 @WebServlet("/AggiungiItem")
+@MultipartConfig
 public class AggiungiItem extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
@@ -69,12 +76,27 @@ public class AggiungiItem extends HttpServlet {
 			// TODO Auto-generated catch block
 			e.printStackTrace(response.getWriter());
 		}
-		
-		ImmagineDAO imgDAO=new ImmagineDAO();
-		Immagine img= new Immagine();
-		
+		try (PrintWriter out = response.getWriter()) {
+			Part part = request.getPart("img");
+			String fileName=part.getSubmittedFileName();
+			String path=getServletContext().getRealPath("/"+"files"+File.separator+fileName);
+			InputStream in=part.getInputStream();
+			Immagine img=uploadFile(in, path);
+			img.setDescrizione(fileName);
+			ImmagineDAO imgDAO=new ImmagineDAO();
+			imgDAO.doSave(img);
+		} catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace(response.getWriter());
+		}
 		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/addItemPage.jsp");
 		dispatcher.forward(request, response);
 	}
-
+	public Immagine uploadFile(InputStream in,String path) throws Exception {
+		Immagine img=new Immagine();
+		byte[] b=new byte[in.available()];
+		in.read();
+		img.setImg(img.caricaImmagine(b));
+		return img;
+	}
 }
