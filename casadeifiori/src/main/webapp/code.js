@@ -198,11 +198,8 @@ function userIdValidate(){
 		"data":{telefono:$("#telefonoInput").val(),
 		 		email:$("emailInput").val()},
 		"error": function(jqXHR,textStatus,errorThrown){
-			console.log(jqXHR );
-			var errorText = jQuery.parseJSON(jqXHR.responseText.text);
-			console.log(errorText);
 			html="<div class=\"alert alert-danger alert-dismissible alertMod\" role=\"alert\">"
-			+"<strong>Attenzione!</strong> "+errorText+
+			+"<strong>Attenzione!</strong> "+jqXHR.getResponseHeader("error")+
 			+"<button type=\"button\" class=\"close\" data-dismiss=\"alert\" aria-label=\"Close\">"
 			+"<span aria-hidden=\"true\">&times;</span></button></div>"
 			$("body").prepend(html);
