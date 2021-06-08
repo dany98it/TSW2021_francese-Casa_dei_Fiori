@@ -4,7 +4,6 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.ArrayList;
 import java.util.Collection;
 import java.util.LinkedList;
 
@@ -13,8 +12,8 @@ import javax.naming.InitialContext;
 import javax.naming.NamingException;
 import javax.sql.DataSource;
 
-public class CaratteristicaDAO implements DaoInterfacce<Caratteristica, Integer> {
-	private static DataSource ds;
+public class MostraDAO implements DaoInterfacce<Mostra, Mostra>{
+private static DataSource ds;
 	
 	static {
 		try {
@@ -28,21 +27,21 @@ public class CaratteristicaDAO implements DaoInterfacce<Caratteristica, Integer>
 		}
 	}
 	
-	private static final String TABLE_NAME = "caratteristica";
+	private static final String TABLE_NAME = "mostra_img";
 	@Override
-	public void doSave(Caratteristica t) throws SQLException {
+	public void doSave(Mostra t) throws SQLException {
 		Connection connection = null;
 		PreparedStatement preparedStatement = null;
-		String insertSQL = "INSERT INTO " + CaratteristicaDAO.TABLE_NAME
-				+ " (`nome`, `descrizione`) VALUES (?, ?)";
+		String insertSQL = "INSERT INTO " + MostraDAO.TABLE_NAME
+				+ " (`item`, `immagine`) VALUES (?, ?)";
 
 		try {
 			
 			connection = ds.getConnection();
 			connection.setAutoCommit(false);
 			preparedStatement = connection.prepareStatement(insertSQL);
-			preparedStatement.setString(1, t.getNome());
-			preparedStatement.setString(2, t.getDescrizione());
+			preparedStatement.setInt(1, t.getItem());
+			preparedStatement.setInt(2, t.getImmagine());
 
 			preparedStatement.executeUpdate();
 
@@ -60,19 +59,20 @@ public class CaratteristicaDAO implements DaoInterfacce<Caratteristica, Integer>
 	}
 
 	@Override
-	public boolean doDelete(Integer code) throws SQLException {
+	public boolean doDelete(Mostra code) throws SQLException {
 		Connection connection = null;
 		PreparedStatement preparedStatement = null;
 
 		boolean result ;
 
-		String deleteSQL = "DELETE FROM " + CaratteristicaDAO.TABLE_NAME + " WHERE id = ?";
+		String deleteSQL = "DELETE FROM " + MostraDAO.TABLE_NAME + " WHERE item = ? AND immagine = ?";
 
 		try {
 			connection = ds.getConnection();
 			connection.setAutoCommit(false);
 			preparedStatement = connection.prepareStatement(deleteSQL);
-			preparedStatement.setInt(1, code);
+			preparedStatement.setInt(1, code.getItem());
+			preparedStatement.setInt(2, code.getImmagine());
 
 			result = preparedStatement.execute();
 			
@@ -90,24 +90,22 @@ public class CaratteristicaDAO implements DaoInterfacce<Caratteristica, Integer>
 	}
 
 	@Override
-	public int doUpdate(Caratteristica t) throws SQLException {
-		Connection connection = null;
+	public int doUpdate(Mostra t) throws SQLException {
+		return 0;
+		/*Connection connection = null;
 		PreparedStatement preparedStatement = null;
 
 		int result ;
 
-		String updateSQL = "UPDATE " + CaratteristicaDAO.TABLE_NAME + " SET  "
-				+ "nome =  ? ,"
-				+ "descrizione = ? ,"
+		String updateSQL = "UPDATE " + MostraDAO.TABLE_NAME + " SET  "
+				+ "item =  ? ,"
+				+ "immagine = ? ,"
 				+ "WHERE"+ "id = ? ";
 
 		try {
 			connection = ds.getConnection();
 			connection.setAutoCommit(false);
 			preparedStatement = connection.prepareStatement(updateSQL);
-			preparedStatement.setString(1, t.getNome());
-			preparedStatement.setString(2, t.getDescrizione());
-			preparedStatement.setInt(3, t.getId());
 			
 
 			result = preparedStatement.executeUpdate();
@@ -122,30 +120,30 @@ public class CaratteristicaDAO implements DaoInterfacce<Caratteristica, Integer>
 					connection.close();
 			}
 		}
-		return result;
+		return result;*/
 	}
 
 	@Override
-	public Caratteristica doRetrieveByKey(Integer code) throws SQLException {
+	public Mostra doRetrieveByKey(Mostra code) throws SQLException {
 		Connection connection = null;
 		PreparedStatement preparedStatement = null;
 
-		Caratteristica bean = new Caratteristica();
+		Mostra bean = new Mostra();
 
-		String selectSQL = "SELECT * FROM " + CaratteristicaDAO.TABLE_NAME + " WHERE id = ?";
+		String selectSQL = "SELECT * FROM " + MostraDAO.TABLE_NAME + " WHERE item = ? AND immagine= ? ";
 
 		try {
 			connection = ds.getConnection();
 			connection.setAutoCommit(false);
 			preparedStatement = connection.prepareStatement(selectSQL);
-			preparedStatement.setInt(1, code);
+			preparedStatement.setInt(1, code.getItem());
+			preparedStatement.setInt(2, code.getImmagine());
 
 			ResultSet rs = preparedStatement.executeQuery();
 			connection.commit();
 			while (rs.next()) {
-				bean.setId(rs.getInt("id"));
-				bean.setNome(rs.getString("nome"));
-				bean.setDescrizione(rs.getString("descrizione"));
+				bean.setItem(rs.getInt("item"));
+				bean.setImmagine(rs.getInt("immagine"));
 			}
 
 		} finally {
@@ -161,31 +159,33 @@ public class CaratteristicaDAO implements DaoInterfacce<Caratteristica, Integer>
 	}
 
 	@Override
-	public Collection<Caratteristica> doRetrieveAll(String order) throws SQLException {
+	public Collection<Mostra> doRetrieveAll(String order) throws SQLException {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	
+	
+	public Collection<Mostra> doRetrieveAllByItem(Integer item) throws SQLException {
 		Connection connection = null;
 		PreparedStatement preparedStatement = null;
 
-		Collection<Caratteristica> caratteristica = new LinkedList<Caratteristica>();
+		Collection<Mostra> mostra = new LinkedList<Mostra>();
 
-		String selectSQL = "SELECT * FROM " + CaratteristicaDAO.TABLE_NAME;
-
-		if (order != null && !order.equals("")) {
-			selectSQL += " ORDER BY " + order;
-		}
+		String selectSQL = "SELECT * FROM " + MostraDAO.TABLE_NAME +"WHERE item = ? ";
 
 		try {
 			connection = ds.getConnection();
 			connection.setAutoCommit(false);
 			preparedStatement = connection.prepareStatement(selectSQL);
+			preparedStatement.setInt(1, item);
 			
 			ResultSet rs = preparedStatement.executeQuery();
 			connection.commit();
 			while (rs.next()) {
-				Caratteristica bean = new Caratteristica();
-				bean.setId(rs.getInt("id"));
-				bean.setNome(rs.getString("nome"));
-				bean.setDescrizione(rs.getString("descrizione"));
-				caratteristica.add(bean);
+				Mostra bean = new Mostra();
+				bean.setItem(rs.getInt("item"));
+				bean.setImmagine(rs.getInt("immagine"));
+				mostra.add(bean);
 			}
 
 		} finally {
@@ -197,37 +197,8 @@ public class CaratteristicaDAO implements DaoInterfacce<Caratteristica, Integer>
 					connection.close();
 			}
 		}
-		return caratteristica;
+		return mostra;
 	}
-	public synchronized Object[] doRetrieveByName(String code) throws SQLException {
-		Connection connection = null;
-		PreparedStatement preparedStatement = null;
 
-		ArrayList<SearchBean> caratteristica=new ArrayList<SearchBean>();
 
-		String selectSQL = "SELECT nome FROM " + CaratteristicaDAO.TABLE_NAME + " WHERE nome LIKE ?";
-
-		try {
-			connection = ds.getConnection();
-			connection.setAutoCommit(false);
-			preparedStatement = connection.prepareStatement(selectSQL);
-			preparedStatement.setString(1, code+"%");
-
-			ResultSet rs = preparedStatement.executeQuery();
-			connection.commit();
-			while (rs.next()) {
-				caratteristica.add(new SearchBean(rs.getString("nome")));
-			}
-
-		} finally {
-			try {
-				if (preparedStatement != null)
-					preparedStatement.close();
-			} finally {
-				if (connection != null)
-					connection.close();
-			}
-		}
-		return caratteristica.toArray();
-	}
 }

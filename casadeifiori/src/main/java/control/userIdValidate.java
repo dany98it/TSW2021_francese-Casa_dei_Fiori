@@ -48,7 +48,7 @@ public class userIdValidate extends HttpServlet {
 		UserDAO uDao = new UserDAO();
 		int error=0;
 		try {
-			if(uDao.doRetrieveBy("telefono", telefono)!=null) {
+			if(uDao.doRetrieveBy("telefono", telefono).getTelefono()!=null) {
 				error=1;
 			}
 		} catch (SQLException e1) {
@@ -56,26 +56,28 @@ public class userIdValidate extends HttpServlet {
 			e1.printStackTrace();
 		}
 		try {
-			if(uDao.doRetrieveBy("email", email)!=null) {
+			if(uDao.doRetrieveBy("email", email).getEmail()!=null) {
 				error+=2;
 			}
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-
+		
+			System.out.println(error);
+		
 			switch (error) {
 			case 1:
-				response.addHeader("error","Email già in uso");
+				response.setHeader("error","Email già in uso");
 				response.sendError(519,"Email già in uso");
 				
 				break;
 			case 2:
-				response.addHeader("error","Numero di telefono già in uso");
+				response.setHeader("error","Numero di telefono già in uso");
 				response.sendError(519,"Numero di telefono già in uso");
 				break;
 			case 3:
-				response.addHeader("error", "Email e numero di telefono già in uso");
+				response.setHeader("error", "Email e numero di telefono già in uso");
 				response.sendError(519,"Email e numero di telefono già in uso");
 				break;
 

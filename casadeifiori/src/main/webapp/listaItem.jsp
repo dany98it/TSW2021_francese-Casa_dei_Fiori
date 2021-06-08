@@ -41,7 +41,7 @@
 				%>
 			<div class= "itemCard">
 				<img alt="itemCarrello" src="img/occhioChiuso.svg">
-				<h1><%= bean.getNome() %></h1>
+				<h1 class="itemTitle"><a href="MostraDettagliItem?itemID=<%=bean.getId()%>"><%= bean.getNome()%></a></h1>
 				<p class="prezzoItemCard"><%= bean.calcolaPrezzo() %></p>
 				<ul>
 					<% 
@@ -50,7 +50,6 @@
 								<li> <a href="delete?itemID=<%=bean.getId()%>"><button type="button" class="itemCardBtn">Elimina da db </button></a></li>
 								<li> <a href="modifica?itemID=<%=bean.getId()%>"><button type="button" class="itemCardBtn">Modifica </button></a> </li>
 						<% } %>
-						<li><a href="MostraDettagliItem?itemID=<%=bean.getId()%>"><button type="button" class="itemCardBtn">Mostra dettagli </button></a> </li> 
 						<% if(bean.getQuantita()>0) { %>
 							<li><a href="javascript:addCart(<%=bean.getId()%>,1)" ><button type="button" class="itemCardBtn">Aggiungi al Carrello </button> </a> </li>
 						<% } %>

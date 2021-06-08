@@ -192,6 +192,7 @@ function validateSignIn(form){
 }
 
 function userIdValidate(){
+	var error;
 	$.ajax({
 		"type":"POST",
 		"url":"userIdValidate",
@@ -203,11 +204,10 @@ function userIdValidate(){
 			+"<button type=\"button\" class=\"close\" data-dismiss=\"alert\" aria-label=\"Close\">"
 			+"<span aria-hidden=\"true\">&times;</span></button></div>"
 			$("body").prepend(html);
-			return false;
+			error=false;
 		}
-		
 	})
-	return false;
+	return error;
 }
 
 var tag = new Bloodhound({

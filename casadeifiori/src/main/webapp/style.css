@@ -83,7 +83,7 @@ body{
 .modal1 {
   	display: none; /* Hidden by default */
   	position: fixed; /* Stay in place */
-  	z-index: 1; 
+  	z-index: 2; 
   	left: 0;
   	top: 0;
   	width: 100%; /* Full width */
@@ -218,6 +218,10 @@ body{
   	overflow: hidden;
 }
 
+.itemTitle{
+	font-size: 1em
+}
+
 .itemListing{
 	display: grid;
  	grid-template-columns: auto auto auto auto;
@@ -234,9 +238,9 @@ body{
 .itemCard{
 
   	text-align: center;
-  	font-size: 0.6em;
-	min-width: 20em;
-  	min-height: 34em;
+  	font-size: 1em;
+	min-width: 5em;
+  	min-height: 10em;
   	max-width: 50em;
   	max-height: 50em;
   	margin: auto;
@@ -254,19 +258,19 @@ body{
 
 .prezzoItemCard {
 	color: grey;
-  	font-size: 22px;
+  	font-size: 1em;
 }
 
 .itemCardBtn{
 	border: none;
   	outline: 0;
   	padding: 12px;
-  
+ 	border-radius: 1em;
   	background-color: rgba(250,143,108,1);
   	text-align: center;
   	cursor: pointer;
   	width: 100%;
-  	font-size: 18px;
+  	font-size: 1em;
 }
 
 .itemCardBtn:hover{
@@ -727,6 +731,7 @@ span.twitter-typeahead .tt-suggestion:last-child {
 	
 	.modal-content1{
 		width: 80%;
+		height: 80%;
 		}
 	
 	.close {
@@ -828,8 +833,8 @@ span.twitter-typeahead .tt-suggestion:last-child {
 }
 @media screen and (max-width: 480px) {
 	.modal-content1{
-		width: 70%;
-		height: 200%;
+		width: 90%;
+		height: 60%;
 		overflow: scroll;
 		}
 		
