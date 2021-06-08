@@ -109,7 +109,7 @@ body{
   	margin: 10% auto; /* 15% from the top and centered */
   	border: 1% solid #888;
   	width: 40%; /* Could be more or less, depending on screen size */
-  	height: 40em;
+  	height: 40%;
 }
 
 .logInInput{
@@ -124,8 +124,8 @@ body{
 	width: 90%;
     position: relative;
     vertical-align: sub;
-    padding-bottom: 10%;
-    padding-left: 10%;
+    padding-bottom: 2%;
+    padding-left: 2%;
 }
 
 .logInTitle{
@@ -135,7 +135,7 @@ body{
     color: #333;
     line-height: 1.2;
     text-align: center;
-    padding-bottom: 30%;
+    padding-bottom: 10%;
 }
 
 .logInInput{
@@ -196,6 +196,10 @@ body{
 .animate {
   -webkit-animation: animatezoom 0.6s;
   animation: animatezoom 0.6s
+}
+
+.alertMod{
+	z-index: 2000;
 }
 
 
@@ -722,7 +726,7 @@ span.twitter-typeahead .tt-suggestion:last-child {
 	}
 	
 	.modal-content1{
-		width: 90%;
+		width: 80%;
 		}
 	
 	.close {
@@ -824,7 +828,9 @@ span.twitter-typeahead .tt-suggestion:last-child {
 }
 @media screen and (max-width: 480px) {
 	.modal-content1{
-		width: 90%;
+		width: 70%;
+		height: 200%;
+		overflow: scroll;
 		}
 		
 	.itemListing{

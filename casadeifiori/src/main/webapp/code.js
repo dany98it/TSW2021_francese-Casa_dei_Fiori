@@ -144,6 +144,10 @@ function validateConfermaPassword(password,conferma){
 function validateSignIn(form){
 	var valid=true;
 	
+	if(userIdValidate()==false){
+		valid= false;
+	};
+	
 	var nome = $("#nomeInput").val();
 	if(!validateNomeCognome(nome)){
 		valid=false;
@@ -187,6 +191,28 @@ function validateSignIn(form){
 	}
 }
 
+function userIdValidate(){
+	$.ajax({
+		"type":"POST",
+		"url":"userIdValidate",
+		"data":{telefono:$("#telefonoInput").val(),
+		 		email:$("emailInput").val()},
+		"error": function(jqXHR,textStatus,errorThrown){
+			console.log(jqXHR );
+			var errorText = jQuery.parseJSON(jqXHR.responseText.text);
+			console.log(errorText);
+			html="<div class=\"alert alert-danger alert-dismissible alertMod\" role=\"alert\">"
+			+"<strong>Attenzione!</strong> "+errorText+
+			+"<button type=\"button\" class=\"close\" data-dismiss=\"alert\" aria-label=\"Close\">"
+			+"<span aria-hidden=\"true\">&times;</span></button></div>"
+			$("body").prepend(html);
+			return false;
+		}
+		
+	})
+	return false;
+}
+
 var tag = new Bloodhound({
   	datumTokenizer: Bloodhound.tokenizers.obj.whitespace('value'),
   	queryTokenizer: Bloodhound.tokenizers.whitespace,
@@ -195,6 +221,7 @@ var tag = new Bloodhound({
     	wildcard: '%QUERY'
   	}
 });
+
 function tagAutoComplite(){
 	$('#tag').tagsinput({
 		typeaheadjs: {
@@ -204,6 +231,7 @@ function tagAutoComplite(){
 		}
 	});
 }
+
 var c = new Bloodhound({
   	datumTokenizer: Bloodhound.tokenizers.obj.whitespace('value'),
   	queryTokenizer: Bloodhound.tokenizers.whitespace,
@@ -379,14 +407,6 @@ function cerca(){
     });
 }
 
-
-/*function userIdValidate(){
-	$.ajax({
-		"type":"POST",
-		"data":"telefono"+$("#telefonoInput").val()+"&email="+$("emailInput").val()+
-		
-	})
-}*/
 
 
 function creaTag(){
