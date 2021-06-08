@@ -26,6 +26,12 @@
 				<%@ include file="main/navigationBar.jsp"%>
 			</nav>
 			<h2>Products</h2>
+			<div id="itemListFilter">
+		
+				<button id="submitItemFitler" value="filtra" >filtra</button>
+			
+			</div>
+			
 			<div class="itemListing">
 			<%
 					if (products != null && products.size() != 0) {

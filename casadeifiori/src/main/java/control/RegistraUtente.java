@@ -69,7 +69,7 @@ public class RegistraUtente extends HttpServlet {
 						return;
 					}
 					sessione.setAttribute("loggedUser", loggedUser);
-					response.sendRedirect("logInPage.jsp");
+					response.sendRedirect("index.jsp");
 					return;
 				}
 		      }

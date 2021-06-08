@@ -83,7 +83,7 @@ body{
 .modal1 {
   	display: none; /* Hidden by default */
   	position: fixed; /* Stay in place */
-  	z-index: 1; /* Sit on top */
+  	z-index: 1; 
   	left: 0;
   	top: 0;
   	width: 100%; /* Full width */
@@ -108,7 +108,7 @@ body{
   	background-color: #fefefe;
   	margin: 10% auto; /* 15% from the top and centered */
   	border: 1% solid #888;
-  	width: 25%; /* Could be more or less, depending on screen size */
+  	width: 40%; /* Could be more or less, depending on screen size */
   	height: 40em;
 }
 
@@ -159,7 +159,8 @@ body{
 .logInBtn{
 	font-family: Poppins-Medium;
     font-size: 16px;
-    color: black;
+    font-weight:bolder;
+    background-color: rgba(250,143,108,1);
     line-height: 1.2;
     text-transform: uppercase;
     display: -webkit-box;
@@ -169,7 +170,7 @@ body{
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 0 20px;
+    padding: 0 1em 0 1em;
     width: 100%;
     height: 50px;
 }
@@ -232,8 +233,8 @@ body{
   	font-size: 0.6em;
 	min-width: 20em;
   	min-height: 34em;
-  	max-width: 35em;
-  	max-height: 34em;
+  	max-width: 50em;
+  	max-height: 50em;
   	margin: auto;
   	text-align: center;
   	font-family: arial;
@@ -462,6 +463,7 @@ button:hover{
 	vertical-align: top;
 	display: inline-block;
 	text-align: center;
+	list-style-type: none;
 }
 
 .navFooterList{
@@ -697,27 +699,41 @@ span.twitter-typeahead .tt-suggestion:last-child {
 	padding-top: 60px;
 	text-align: center;
   	color: #67F0BB;	
-}
+	}
 
-.menuDrop a{
-	padding: 8px 8px 8px 32px;
-	text-decoration: none;
-	font-size: 25px;
-	color: #67F0BB;
-	display: block;
-}
+	.menuDrop a{
+		padding: 8px 8px 8px 32px;
+		text-decoration: none;
+		font-size: 25px;
+		color: #67F0BB;
+		display: block;
+	}
 
 .menuDrop a:hover{
-	color: white;
-}
+		color: white;
+	}
 
-.menuDrop .closebtn{
-  	position: absolute;
-  	top: 0;
-  	right: 25px;
-  	font-size: 36px;
-  	margin-left: 50px;
-}
+	.menuDrop .closebtn{
+  		position: absolute;
+  		top: 0;
+  		right: 25px;
+  		font-size: 36px;
+  		margin-left: 50px;
+	}
+	
+	.modal-content1{
+		width: 90%;
+		}
+	
+	.close {
+  	/* Position it in the top right corner outside of the modal */
+  		position: absolute;
+  		top: 4.5em;
+  		right: 2.5em;
+  		color: #000;
+  		font-size: 35px;
+  		font-weight: bold;
+	}
 
 	#headerMenuIconDiv{
 		grid-column-start: 1;
@@ -807,6 +823,10 @@ span.twitter-typeahead .tt-suggestion:last-child {
 	}
 }
 @media screen and (max-width: 480px) {
+	.modal-content1{
+		width: 90%;
+		}
+		
 	.itemListing{
  		grid-template-columns: auto ;
  		align-items: stretch;
@@ -818,6 +838,10 @@ span.twitter-typeahead .tt-suggestion:last-child {
 	
 }
 @media screen and (max-height: 450px) {
+	.modal-content1{
+		width: 90%;
+		}
+		
 	.itemListing{
  		grid-template-columns: auto ;
  		align-items: stretch;

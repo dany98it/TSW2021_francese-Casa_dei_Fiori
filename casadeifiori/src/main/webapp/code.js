@@ -379,6 +379,16 @@ function cerca(){
     });
 }
 
+
+/*function userIdValidate(){
+	$.ajax({
+		"type":"POST",
+		"data":"telefono"+$("#telefonoInput").val()+"&email="+$("emailInput").val()+
+		
+	})
+}*/
+
+
 function creaTag(){
 	$(".alert").alert('close');
 	$.ajax({
