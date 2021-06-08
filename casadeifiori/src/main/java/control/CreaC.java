@@ -19,7 +19,7 @@ import model.CaratteristicaDAO;
 /**
  * Servlet implementation class CreaC
  */
-@WebServlet(name = "creaC", urlPatterns = { "/creaC" })
+@WebServlet("/creaC")
 public class CreaC extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 

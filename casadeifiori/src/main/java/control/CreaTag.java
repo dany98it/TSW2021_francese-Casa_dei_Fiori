@@ -19,7 +19,7 @@ import model.TagDAO;
 /**
  * Servlet implementation class CreaTag
  */
-@WebServlet(name = "creaTag", urlPatterns = { "/creaTag" })
+@WebServlet("/creaTag")
 public class CreaTag extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
