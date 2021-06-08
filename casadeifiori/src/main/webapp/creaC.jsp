@@ -6,7 +6,6 @@
       <div class="modal-header d-flex justify-content-center colorHeader modelcontentB">
         <h5 class="modal-title" id="exampleModalLabel">Crea Caratterisiche</h5>
       </div>
-      <form action="">
       	<div class="modal-body text-center">
       		<label for="namec">Nome:</label><br> 
 			<input id="namec" name="namec" type="text" maxlength="20" required placeholder="inserire nome"><br>
@@ -17,7 +16,6 @@
         	<button type="reset" class="btn btn-secondary" data-dismiss="modal">chiudi</button>
         	<button type="submit" class="btn colorArangio" onClick="creaC()">Crea</button>
       	</div>
-      </form>
     </div>
   </div>
 </div>

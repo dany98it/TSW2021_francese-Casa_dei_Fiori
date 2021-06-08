@@ -37,7 +37,7 @@
 						<div>
 							<form method="post" action="AggiungiItem"> 
 								<label for="name">Nome:</label><br> 
-								<input id="name" name="name" type="text" maxlength="20" required placeholder="inserire nome" onchange="prewiev('name','titoloItem')"><br> 
+								<input id="name" name="name" type="text" maxlength="50" required placeholder="inserire nome" onchange="prewiev('name','titoloItem')"><br> 
 								<label for="img">immagini:</label><br>
 								<input type="file" id="img" name="img" accept="image/*" multiple="multiple" required="required"> <br>
 								<div id="selectedFiles"></div> 
