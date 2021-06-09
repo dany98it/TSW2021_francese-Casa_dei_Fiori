@@ -3,7 +3,6 @@
 		<ul class="ulMenu">
 			<li> <a href="listaItem.jsp"><button type="button" class="headerBtn" >Lista prodotti </button></a></li> 
 			<li> <a href="addItemPage.jsp"><button type="button" class="headerBtn">Aggiungi prodotto </button></a> </li>
-			
 			<li> 
 				<div class="dropDownNav">
 					<button class="headerBtn" >FIORI <i class="fa fa-caret-down"></i> </button>

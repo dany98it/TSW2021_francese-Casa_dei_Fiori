@@ -450,6 +450,11 @@ function creaC(){
 		}
 	})
 }
+function vai(event){
+	if(event.keyCode === 13){
+		window.location.href = "MostraItem?tipo=nome&cerca="+$("#cerca").val();
+	}
+}
 /*function modCart(id,quantity){
 	$(".alert").alert('close');
 	$.ajax({

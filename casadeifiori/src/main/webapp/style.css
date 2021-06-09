@@ -52,7 +52,6 @@ body{
 .cerca {
   	border: none;
   	font-size: 16px;
-  	background-color: transparent;
   	background-image: url('img/search.svg');
  	background-position: right; 
   	background-repeat: no-repeat;
@@ -67,10 +66,11 @@ body{
 	-webkit-transition: all .5s;
 	-moz-transition: all .5s;
 	transition: all .5s;	
+	background-color: transparent;
+    right: 0;
 }
 
 .cerca:focus {
-	z-index: 1;
 	box-sizing: border-box;
   	border: 2px solid black;
   	border-radius: 100px;
@@ -303,6 +303,7 @@ ul { padding:0 !important}
 	margin-top: 0;
 	background-color: #67F0BB;
 	color: #023838;
+	height: 3em;
 }
 .ulMenu {
 	display: flex;

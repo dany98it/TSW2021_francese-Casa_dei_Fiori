@@ -14,9 +14,6 @@
 			<span onclick="openNav()" class="menu">&#9776;</span>
 		</div>
 		<div class="user">
-			<form action="MostraItem">
-  				<input type="text" name="cerca" class="cerca ajax-typeahead" id="cerca" autocomplete="on">
-			</form>
 			<div id="cartIconDiv" >
 				<a href="cartPage.jsp"><button type="button" class="headerBtn"><img src="img/CarrelloSito.svg" alt="carrello" height="35px" width="35px" id="cartIcon"></button></a>
 			</div>
