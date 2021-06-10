@@ -68,9 +68,11 @@
 					</div>
 				</div>
 			</div>
-			<div class="FotoInsta">
-				<ul class="FotoInstaul" id="InstagramImg"></ul>
-			</div>
+		<script src="https://apps.elfsight.com/p/platform.js" defer></script>
+		<div id="instagram-feed1" class="instagram_feed"></div>
+		
+		<div class="elfsight-app-2eb02534-3e98-4e11-bbdd-c5f7ffcb5941"></div>
+
 			<footer>
 				<%@ include file="main/footer.jsp" %>
 			</footer>

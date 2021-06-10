@@ -247,8 +247,8 @@ function cAutoComplite(){
 	});
 }
 function InstagramImg(element){
-	var token= "ea60d9c604a23e0ae8550e0d02a4607e";
-	var username= "casadeifiori.ideecreazioni";
+	var token= "IGQVJWMm9SejlDeW5YR091YTRHa2x2QWZA5TzJfN3VXOWNMaUNkVFJEVjNIYnhpdXBfbkxrNzV5V0pJdGptaV95OHZAWd08xUkdsdm5ZAcDhZAWW92NHZA1NFRJYjV3dFJOb3luREp0N1ZAfQzk1ajZASaENKWQZDZD";
+	var username= "s_hopes__";
 	var numfoto= 6;
 	$.ajax({
 		url:"https://api.instagram.com/v1/users/search",
@@ -256,7 +256,9 @@ function InstagramImg(element){
 		type: "GET",
 		data: {access_token: token, q:username},
 		success: function(data){
+			console.log(data);
 			$.ajax({
+				
 				url:"https://api.instagram.com/v1/users/"+ data.data[0].id+ "/media/recent",
 				dataType: "jsonp",
 				type: "GET",
