@@ -84,7 +84,7 @@ body{
 .modal1 {
   	display: none; /* Hidden by default */
   	position: fixed; /* Stay in place */
-  	z-index: 2; 
+  	z-index: 999999999; 
   	left: 0;
   	top: 0;
   	width: 100%; /* Full width */
@@ -112,11 +112,11 @@ body{
   	margin: 10% auto; /* 15% from the top and centered */
   	border: 1% solid #888;
   	width: 80%; /* Could be more or less, depending on screen size */
-  	height: 40%;
+
 }
 
 .logInTitle{
-	font-size: 3em;
+	font-size: 2em;
   text-align: center;
   padding: 20px 0;
   border-bottom: 1px solid silver;
