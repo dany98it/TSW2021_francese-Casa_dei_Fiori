@@ -207,9 +207,13 @@ input[type="submit"]:hover{
 }
 
 .showPswLogIn{
-  	width:100%;
  	display: flex;
-  	justify-content: center;
+    position: absolute;
+    right: 0;
+    height: 100%;
+    align-items: center;
+    justify-content: center;
+    background-color: white;
 }
 
 /* The Close Button */
