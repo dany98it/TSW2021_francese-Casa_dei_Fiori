@@ -156,13 +156,13 @@ form .txt_fieldLogIn{
   left: 0;
   width: 0%;
   height: 2px;
-  background: #2691d9;
+  background: #67F0BB;
   transition: .5s;
 }
 .txt_fieldLogIn input:focus ~ label,
 .txt_fieldLogIn input:valid ~ label{
   top: -5px;
-  color: #2691d9;
+  color: #67F0BB;
 }
 .txt_fieldLogIn input:focus ~ span::before,
 .txt_fieldLogIn input:valid ~ span::before{
