@@ -13,8 +13,8 @@
 		<meta charset="utf-8">
 		<title>Dettagli Item</title>
 		<link rel=StyleSheet href="style.css" type="text/css">
-		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha256-aAr2Zpq8MZ+YA/D6JtRD3xtrwpEz2IqOS+pWD/7XKIw=" crossorigin="anonymous" />
-		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.css" integrity="sha512-aOG0c6nPNzGk+5zjwyJaoRUgCdOrfSDhmMID2u4+OIslr0GjpLKo7Xm0Ao3xmpM4T8AmIouRkqwj1nrdVsLKEQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css"  />
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.css" />
 	</head>
 	<body>
 		<%@ include file="main/menuMobile.jsp" %>
@@ -29,10 +29,15 @@
 			<div class="contenerSuperiore">
 				<div>
 					<div id="galleriaItem" class="galleria">
+						<% for(String img: galleriaItem){%>
+						
 						<div id="imgXL"class="w3-content" style="max-width:1200px">
     						<div id="listimg" class="w3-row-padding w3-section">
+    							<img alt="" src="<%= img %>">
 							</div>
 						</div>
+						<% }
+						%>
 					</div>
 					<h6>caratterisiche</h6>
 					<div id="caratterisicheItem" class="caratterisiche"></div>
