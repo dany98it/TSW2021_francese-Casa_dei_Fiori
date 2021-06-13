@@ -53,16 +53,17 @@
             			<div class="h-bg-inner"></div>
           			</div>
           			
-          			<a class="itemCardCart" href="#">
+          			<a class="itemCardCart" href="javascript:addCart(<%=bean.getId()%>,1)">
             			<span class="itemCardPrice"><%= bean.calcolaPrezzo() %></span>
             			<span class="itemCardAddCart">
-              			<span class="itemCardAddCartText">Add in cart</span>
+              			<span class="itemCardAddCartText">Aggiungi al carrello</span>
             			</span>
           			</a>
 				</div>
 			</div>
 			<% }} %>
-		</div>	
+		</div>
+		</div>
 			<footer>
 				<%@ include file="main/footer.jsp" %>
 			</footer>

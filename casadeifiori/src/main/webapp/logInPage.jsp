@@ -8,7 +8,7 @@
 				<div class="txt_fieldLogIn">
 					<input type="text" name="username" class="logInInput" required="required"/>
 					<span class="spanLogIn"></span>
-					<label for="username" class="logInLbl">Email o nuemro di telefono</label>
+					<label for="username" class="logInLbl">Email o numero di telefono</label>
 				</div>
 				
 				<div class="txt_fieldLogIn">
