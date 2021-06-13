@@ -35,7 +35,7 @@
 					<%@ include file="creaC.jsp" %>
 						<div class="insertItem">
 						<div>
-							<form method="post" action="AggiungiItem"> 
+							<form method="post" action="AggiungiItem" enctype="multipart/form-data"> 
 								<label for="name">Nome:</label><br> 
 								<input id="name" name="name" type="text" maxlength="50" required placeholder="inserire nome" onchange="prewiev('name','titoloItem')"><br> 
 								<label for="img">immagini:</label><br>
