@@ -182,8 +182,8 @@ form .wrap-LogInBtn{
 .forgotPswLogIn:hover{
   text-decoration: underline;
 }
-input[type="submit"]{
-  width: 70%;
+#logInForm input[type="submit"]{
+  width: 60%;
   height: 50px;
   border: 1px solid;
   background: #67F0BB;
@@ -194,7 +194,7 @@ input[type="submit"]{
   cursor: pointer;
   outline: none;
 }
-input[type="submit"]:hover{
+#logInForm input[type="submit"]:hover{
   border-color: #67F0BB;
   transition: .5s;
 }
@@ -949,7 +949,7 @@ span.twitter-typeahead .tt-suggestion:last-child {
 	.modal-content1{
 		top: 40%;
 		width: 80%;
-		height: 80%;
+		height: 70%;
 		}
 	
 	.close {
@@ -1034,7 +1034,7 @@ span.twitter-typeahead .tt-suggestion:last-child {
 		display: none !important;
 	}
 	.itemListing{
- 		grid-template-columns: auto auto;
+ 		grid-template-columns: auto;
  		align-items: stretch;
 	}
 
@@ -1051,27 +1051,33 @@ span.twitter-typeahead .tt-suggestion:last-child {
 }
 @media screen and (max-width: 480px) {
 	.modal-content1{
+		left: 50%;
 		top: 40%;
-		width: 90%;
-		height: 80%;
+		width: 70%;
+		height: 70%;
 		overflow: auto;
 		}
 	.itemListing{
  		grid-template-columns: auto ;
  		align-items: stretch;
 	}
-	
+	.itemCard{
+		width: 250px;
+	}
 	.info{
 		display: block;
 	}
 	
 }
 @media screen and (max-height: 450px) {
+	.itemCard{
+		width: 250px;
+	}
 	.modal-content1{
-		top: 40%;
+		top: 25%;
 		width: 90%;
-		height: 90%;
-		overflow: scroll
+		height: 70%;
+		overflow: scroll;
 		}
 		
 	.itemListing{
