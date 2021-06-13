@@ -171,7 +171,7 @@ private static DataSource ds;
 
 		Collection<Mostra> mostra = new LinkedList<Mostra>();
 
-		String selectSQL = "SELECT * FROM " + MostraDAO.TABLE_NAME +"WHERE item = ? ";
+		String selectSQL = "SELECT * FROM " + MostraDAO.TABLE_NAME +" WHERE item = ? ";
 
 		try {
 			connection = ds.getConnection();

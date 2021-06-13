@@ -2,6 +2,7 @@
 <%@page import="model.*"%>
 <%
 	Item i = (Item) request.getAttribute("item");
+	ArrayList<String> galleriaItem = (ArrayList<String>) request.getAttribute("galleriaItem");
     if(i==null){
     	response.sendRedirect("./MostraItem");	
     	return;

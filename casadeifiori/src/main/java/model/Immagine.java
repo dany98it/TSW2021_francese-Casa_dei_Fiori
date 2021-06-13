@@ -45,7 +45,7 @@ public class Immagine {
 		this.descrizione = descrizione;
 	}
 	public String imgConvert() throws IOException {
-		byte[] imageBytes = null;
+		byte[] imageBytes = new byte[2048];
 		img.read(imageBytes);
 		String imageStr = Base64.getEncoder().encodeToString(imageBytes);
 		return imageStr;

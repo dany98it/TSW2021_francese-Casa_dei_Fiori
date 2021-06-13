@@ -8,6 +8,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;*/
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.LinkedList;
+
+import com.mysql.cj.x.protobuf.MysqlxCrud.Collection;
 
 import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
@@ -48,7 +51,7 @@ public class MostraDettagliItem extends HttpServlet {
 			try {
 				Item i = new Item();
 				i = iDao.doRetrieveByKey(Integer.parseInt(itemID));
-				ArrayList<Mostra> m=(ArrayList<Mostra>) mdao.doRetrieveAllByItem(Integer.parseInt(itemID));
+				LinkedList<Mostra> m=(LinkedList<Mostra>) mdao.doRetrieveAllByItem(Integer.parseInt(itemID));
 				ArrayList<String> imgs=new ArrayList<>();
 				for (Mostra mostra : m) {
 					imgs.add(imDao.doRetrieveByKey(mostra.getImmagine()).imgConvert());
