@@ -8,6 +8,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;*/
 import java.sql.SQLException;
+import java.util.Base64;
+
+import com.mysql.cj.jdbc.Blob;
 
 import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
@@ -77,7 +80,9 @@ public class AggiungiItem extends HttpServlet {
 				if (part.getSubmittedFileName()!=null&&!part.getSubmittedFileName().equals("")) {
 					ImmagineDAO imgDAO=new ImmagineDAO();
 					int y=imgDAO.doGetMaxItemId()+1;
-					Immagine img=new Immagine(y, part.getInputStream(), part.getSubmittedFileName());
+					byte[] imageBytes = part.getInputStream().readAllBytes();
+					String imageStr = Base64.getEncoder().encodeToString(imageBytes);
+					Immagine img=new Immagine(y, imageStr, part.getSubmittedFileName());
 					imgDAO.doSave(img);
 					Mostra m=new Mostra();
 					MostraDAO mDao=new MostraDAO();
