@@ -1,6 +1,8 @@
 package model;
 
+import java.io.IOException;
 import java.io.InputStream;
+import java.util.Base64;
 
 public class Immagine {
 	private int id;
@@ -41,5 +43,11 @@ public class Immagine {
 
 	public void setDescrizione(String descrizione) {
 		this.descrizione = descrizione;
+	}
+	public String imgConvert() throws IOException {
+		byte[] imageBytes = null;
+		img.read(imageBytes);
+		String imageStr = Base64.getEncoder().encodeToString(imageBytes);
+		return imageStr;
 	}
 }
