@@ -1,10 +1,7 @@
 package control;
 
-import java.io.File;
-import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
-import java.io.PrintWriter;
 /*import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -24,13 +21,17 @@ import model.Immagine;
 import model.ImmagineDAO;
 import model.Item;
 import model.ItemDAO;
+import model.Mostra;
+import model.MostraDAO;
 import model.TipoItem;
 
 /**
  * Servlet implementation class AggiungiItem
  */
 @WebServlet("/AggiungiItem")
-@MultipartConfig
+@MultipartConfig(fileSizeThreshold = 1024*1024*2,
+		maxFileSize = 1024*1024*10,
+		maxRequestSize = 1024*10241*50)
 public class AggiungiItem extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
@@ -72,31 +73,25 @@ public class AggiungiItem extends HttpServlet {
 	
 		try {
 			itemDAO.doSave(item);
-		} catch (SQLException e) {
+			for (Part part : request.getParts()) {
+				if (part.getSubmittedFileName()!=null&&!part.getSubmittedFileName().equals("")) {
+					ImmagineDAO imgDAO=new ImmagineDAO();
+					int y=imgDAO.doGetMaxItemId()+1;
+					Immagine img=new Immagine(y, part.getInputStream(), part.getSubmittedFileName());
+					imgDAO.doSave(img);
+					Mostra m=new Mostra();
+					MostraDAO mDao=new MostraDAO();
+					m.setImmagine(y);
+					m.setItem(x);
+					mDao.doSave(m);
+				}
+			}
+		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace(response.getWriter());
 		}
-		try (PrintWriter out = response.getWriter()) {
-			Part part = request.getPart("img");
-			String fileName=part.getSubmittedFileName();
-			String path=getServletContext().getRealPath("/"+"files"+File.separator+fileName);
-			InputStream in=part.getInputStream();
-			Immagine img=uploadFile(in, path);
-			img.setDescrizione(fileName);
-			ImmagineDAO imgDAO=new ImmagineDAO();
-			imgDAO.doSave(img);
-		} catch (Exception e) {
-			// TODO: handle exception
-			e.printStackTrace(response.getWriter());
-		}
+		
 		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/addItemPage.jsp");
 		dispatcher.forward(request, response);
-	}
-	public Immagine uploadFile(InputStream in,String path) throws Exception {
-		Immagine img=new Immagine();
-		byte[] b=new byte[in.available()];
-		in.read();
-		img.setImg(img.caricaImmagine(b));
-		return img;
 	}
 }

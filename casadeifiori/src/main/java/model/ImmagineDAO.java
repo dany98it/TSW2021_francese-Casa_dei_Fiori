@@ -40,7 +40,7 @@ public class ImmagineDAO implements DaoInterfacce<Immagine, Integer> {
 			connection = ds.getConnection();
 			connection.setAutoCommit(false);
 			preparedStatement = connection.prepareStatement(insertSQL);
-			preparedStatement.setString(1, t.getImg());
+			preparedStatement.setBlob(1, t.getImg());
 			preparedStatement.setString(2, t.getDescrizione());
 			preparedStatement.executeUpdate();
 
@@ -100,7 +100,7 @@ public class ImmagineDAO implements DaoInterfacce<Immagine, Integer> {
 			connection = ds.getConnection();
 			connection.setAutoCommit(false);
 			preparedStatement = connection.prepareStatement(updateSQL);
-			preparedStatement.setString(1, t.getImg());
+			preparedStatement.setBlob(1, t.getImg());
 			preparedStatement.setString(2, t.getDescrizione());
 			preparedStatement.setInt(3, t.getId());
 			
@@ -138,7 +138,7 @@ public class ImmagineDAO implements DaoInterfacce<Immagine, Integer> {
 			connection.commit();
 			while (rs.next()) {
 				bean.setId(rs.getInt("id"));
-				bean.setImg(rs.getString("img"));
+				bean.setImg(rs.getBlob("img").getBinaryStream());
 				bean.setDescrizione(rs.getString("descrizione"));
 			}
 
@@ -176,7 +176,7 @@ public class ImmagineDAO implements DaoInterfacce<Immagine, Integer> {
 			while (rs.next()) {
 				Immagine bean = new Immagine();
 				bean.setId(rs.getInt("id"));
-				bean.setImg(rs.getString("img"));
+				bean.setImg(rs.getBlob("img").getBinaryStream());
 				bean.setDescrizione(rs.getString("descrizione"));
 				immagine.add(bean);
 			}
@@ -192,7 +192,40 @@ public class ImmagineDAO implements DaoInterfacce<Immagine, Integer> {
 		}
 		return immagine;
 	}
-	
+	public int doGetMaxItemId() throws SQLException {
+		Connection connection = null;
+		PreparedStatement preparedStatement = null;
+
+		int maxID = 0;
+
+		String selectSQL = "SELECT MAX(id) FROM " + ImmagineDAO.TABLE_NAME ;
+
+
+		try {
+			connection = ds.getConnection();
+			connection.setAutoCommit(false);
+			preparedStatement = connection.prepareStatement(selectSQL);
+			
+			ResultSet rs = preparedStatement.executeQuery();
+			connection.commit();
+		
+			if (rs.next()) {
+
+				maxID = rs.getInt(1);
+			}
+
+		} finally {
+			try {
+				if (preparedStatement != null)
+					preparedStatement.close();
+			} finally {
+				if (connection != null)
+					connection.close();
+			}
+		}
+		return maxID;
+		
+	}
 	
 
 }
