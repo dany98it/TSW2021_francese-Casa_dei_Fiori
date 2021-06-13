@@ -38,32 +38,35 @@
 					Iterator<?> it = products.iterator();
 					while (it.hasNext()) {
 						Item bean = (Item) it.next();
-				%>
+			%>
 			<div class= "itemCard">
-				<img alt="itemCarrello" src="img/occhioChiuso.svg">
-				<h1 class="itemTitle"><a href="MostraDettagliItem?itemID=<%=bean.getId()%>"><%= bean.getNome()%></a></h1>
-				<p class="prezzoItemCard"><%= bean.calcolaPrezzo() %></p>
-				<ul>
-					<% 
-							User user=(User) sessione.getAttribute("loggedUser");
-							if(!(user==null||user.getPermessi()!=Permessi.admin)){ %>
-								<li> <a href="delete?itemID=<%=bean.getId()%>"><button type="button" class="itemCardBtn">Elimina da db </button></a></li>
-								<li> <a href="modifica?itemID=<%=bean.getId()%>"><button type="button" class="itemCardBtn">Modifica </button></a> </li>
-						<% } %>
-						<% if(bean.getQuantita()>0) { %>
-							<li><a href="javascript:addCart(<%=bean.getId()%>,1)" ><button type="button" class="itemCardBtn">Aggiungi al Carrello </button> </a> </li>
-						<% } %>
-				</ul>
+				<div class="box-up">
+					<img alt="itemCarrello" class="itemCardImg" src="img/occhioChiuso.svg">
+						<div class="itemCardImgInfo">
+							<div class="itemCardImgInfoInner">
+								<span class="itemCardProductName"><a href="MostraDettagliItem?itemID=<%=bean.getId()%>"><%= bean.getNome()%></a></span>
+							</div>
+						</div>
+				</div>
+				<div class="box-down">
+          			<div class="h-bg">
+            			<div class="h-bg-inner"></div>
+          			</div>
+          			
+          			<a class="itemCardCart" href="#">
+            			<span class="itemCardPrice"><%= bean.calcolaPrezzo() %></span>
+            			<span class="itemCardAddCart">
+              			<span class="itemCardAddCartText">Add in cart</span>
+            			</span>
+          			</a>
+				</div>
 			</div>
 			<% }} %>
-			</div>
-			<br>
-			<br>
-			<br>
+		</div>	
 			<footer>
 				<%@ include file="main/footer.jsp" %>
 			</footer>
-		</div>
+		
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha256-OFRAJNoaD8L3Br5lglV7VyLRf0itmoBzWUoM+Sji4/8=" crossorigin="anonymous"></script>
 		<script src="https://kit.fontawesome.com/46a2d5ed1b.js" ></script>
