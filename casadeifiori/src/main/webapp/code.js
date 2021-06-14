@@ -315,6 +315,27 @@ function closeLogInOutside(){
 	
 }
 
+function openSignIn(){
+	document.getElementById('divSignIn').style.display='block'
+}
+
+function closeSignIn(){
+	document.getElementById('divSignIn').style.display='none';
+}
+
+function closeSignInOutside(){
+	// Get the modal
+	var modal = document.getElementById('divSignIn');
+
+	// When the user clicks anywhere outside of the modal, close it
+	window.onclick = function(event) {
+ 	 	if (event.target == modal) {
+   	 		modal.style.display = "none";
+  		}
+	}
+}
+	
+
 function currentDiv(n) {
   showDivs(slideIndex = n);
 }
@@ -464,3 +485,7 @@ function submitCercaItem(event){
 		}
 	})
 }*/
+
+const myDatePicker = MCDatepicker.create({
+	el:"#dataNascitaInput",
+});

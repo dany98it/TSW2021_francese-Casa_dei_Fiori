@@ -16,7 +16,7 @@
 						<i id="closedEyePassword" class="fas fa-eye-slash" onclick="showPassword('logInPassword','closedEyePassword','openEyePassword')"> </i>
 						<i id="openEyePassword" class="far fa-eye" onclick="hidePassword('logInPassword','openEyePassword','closedEyePassword')"></i> 	
 					</div>
-					<input type="password" name="password" id="logInPassword" required="required" />
+					<input type="password" name="password" class="logInInput" id="logInPassword" required="required" />
 					<span class="spanLogIn"></span>
 					<label for="password" class="logInLbl">Password </label> 
 				</div>
@@ -28,7 +28,7 @@
 					<input type="submit" value="log In">
 				</div>
 				<div class="signup_link">
-					Non sei iscritto? <a href="signInPage.jsp">Sing-in</a>
+					Non sei iscritto? <a href="" onclick="openSignIn()" >Sing-in</a>
 				</div>
 				
 			</form>

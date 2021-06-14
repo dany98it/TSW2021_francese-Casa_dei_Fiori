@@ -3,6 +3,7 @@
 <!DOCTYPE html>
 <html lang="it">
 	<head>
+		<link rel="stylesheet" href="/dist/mc-calendar.min.css" />
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<meta charset="utf-8">
 		<title>Home</title>
