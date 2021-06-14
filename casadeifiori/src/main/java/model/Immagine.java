@@ -1,13 +1,12 @@
 package model;
 
 import java.io.IOException;
-import java.sql.Blob;
-import java.sql.SQLException;
+import java.io.InputStream;
 import java.util.Base64;
 
 public class Immagine {
 	private int id;
-	private String img;
+	private InputStream img;
 	private String descrizione;
 	
 	
@@ -15,7 +14,7 @@ public class Immagine {
 		super();
 	}
 
-	public Immagine(int id, String img, String descrizione) {
+	public Immagine(int id, InputStream img, String descrizione) {
 		super();
 		this.id = id;
 		this.img = img;
@@ -30,11 +29,11 @@ public class Immagine {
 		this.id = id;
 	}
 
-	public String getImg() {
+	public InputStream getImg() {
 		return img;
 	}
 
-	public void setImg(String img) {
+	public void setImg(InputStream img) {
 		this.img = img;
 	}
 
@@ -44,5 +43,11 @@ public class Immagine {
 
 	public void setDescrizione(String descrizione) {
 		this.descrizione = descrizione;
+	}
+	public String imgConvert() throws IOException {
+		byte[] imageBytes = new byte[2048];
+		img.read(imageBytes);
+		String imageStr = Base64.getEncoder().encodeToString(imageBytes);
+		return imageStr;
 	}
 }

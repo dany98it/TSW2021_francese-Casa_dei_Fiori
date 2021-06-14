@@ -40,7 +40,7 @@ public class ImmagineDAO implements DaoInterfacce<Immagine, Integer> {
 			connection = ds.getConnection();
 			connection.setAutoCommit(false);
 			preparedStatement = connection.prepareStatement(insertSQL);
-			preparedStatement.setString(1, t.getImg());
+			preparedStatement.setBlob(1, t.getImg());
 			preparedStatement.setString(2, t.getDescrizione());
 			preparedStatement.executeUpdate();
 
@@ -100,7 +100,7 @@ public class ImmagineDAO implements DaoInterfacce<Immagine, Integer> {
 			connection = ds.getConnection();
 			connection.setAutoCommit(false);
 			preparedStatement = connection.prepareStatement(updateSQL);
-			preparedStatement.setString(1, t.getImg());
+			preparedStatement.setBlob(1, t.getImg());
 			preparedStatement.setString(2, t.getDescrizione());
 			preparedStatement.setInt(3, t.getId());
 			
@@ -138,7 +138,7 @@ public class ImmagineDAO implements DaoInterfacce<Immagine, Integer> {
 			connection.commit();
 			while (rs.next()) {
 				bean.setId(rs.getInt("id"));
-				bean.setImg(rs.getString("img"));
+				bean.setImg(rs.getBlob("img").getBinaryStream());
 				bean.setDescrizione(rs.getString("descrizione"));
 			}
 
@@ -176,7 +176,7 @@ public class ImmagineDAO implements DaoInterfacce<Immagine, Integer> {
 			while (rs.next()) {
 				Immagine bean = new Immagine();
 				bean.setId(rs.getInt("id"));
-				bean.setImg(rs.getString("img"));
+				bean.setImg(rs.getBlob("img").getBinaryStream());
 				bean.setDescrizione(rs.getString("descrizione"));
 				immagine.add(bean);
 			}
