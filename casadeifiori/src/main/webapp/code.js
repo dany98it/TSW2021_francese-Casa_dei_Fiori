@@ -246,32 +246,6 @@ function cAutoComplite(){
 		}
 	});
 }
-function InstagramImg(element){
-	var token= "IGQVJWMm9SejlDeW5YR091YTRHa2x2QWZA5TzJfN3VXOWNMaUNkVFJEVjNIYnhpdXBfbkxrNzV5V0pJdGptaV95OHZAWd08xUkdsdm5ZAcDhZAWW92NHZA1NFRJYjV3dFJOb3luREp0N1ZAfQzk1ajZASaENKWQZDZD";
-	var username= "s_hopes__";
-	var numfoto= 6;
-	$.ajax({
-		url:"https://api.instagram.com/v1/users/search",
-		dataType: "jsonp",
-		type: "GET",
-		data: {access_token: token, q:username},
-		success: function(data){
-			console.log(data);
-			$.ajax({
-				
-				url:"https://api.instagram.com/v1/users/"+ data.data[0].id+ "/media/recent",
-				dataType: "jsonp",
-				type: "GET",
-				data: {access_token: token, count: numfoto},
-				success: function(data2){
-					for(x in data2.data){
-						$("#InstagramImg").append("<li><img src= '"+ data2.data[x].images.thumbnail.url + "'></li>");
-					}
-				}
-			})
-		}
-	})
-}
 
 function prewiev(input,output){
 	$("#"+output).text($("#"+input).val())
@@ -319,6 +293,7 @@ function initFileSelect(){
 		});
 	});
 }
+
 function openLogIn(){
 	document.getElementById('divLogIn').style.display='block'
 }
@@ -406,8 +381,6 @@ function cerca(){
     });
 }
 
-
-
 function creaTag(){
 	$(".alert").alert('close');
 	$.ajax({
@@ -429,6 +402,7 @@ function creaTag(){
 			$("body").prepend(html);
 		}
 	})
+	//TODO chiudere dopo submit 
 }
 function creaC(){
 	$(".alert").alert('close');
@@ -451,8 +425,9 @@ function creaC(){
 			$("body").prepend(html);
 		}
 	})
+	//TODO chiudere dopo submit 
 }
-function vai(event){
+function submitCercaItem(event){
 	if(event.keyCode === 13){
 		window.location.href = "MostraItem?tipo=nome&cerca="+$("#cerca").val();
 	}
