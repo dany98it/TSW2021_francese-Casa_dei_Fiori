@@ -6,8 +6,8 @@
 <%@ include file="../signInPageModel.jsp" %>
 <div class="main" >
 	<script src="code.js" ></script>
-	<script> closeLogInOutside(); </script>
 	<script src="/dist/mc-calendar.min.js"></script>
+
 	<div id="headerContainer">
 		<div class="logo">
 			<img alt="logo" src="img/CasalogoSVGmodificato1.png" height="80" onclick="redirect('index.jsp')">
