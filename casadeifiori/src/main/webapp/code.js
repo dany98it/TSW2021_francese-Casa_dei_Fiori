@@ -453,6 +453,18 @@ function submitCercaItem(event){
 		window.location.href = "MostraItem?tipo=nome&cerca="+$("#cerca").val();
 	}
 }
+
+function datapickerInit(id){
+	$('#'+id).fdatepicker({
+		format: 'mm-dd-yyyy',
+		disableDblClickSelection: true,
+		leftArrow:'<<',
+		rightArrow:'>>',
+		closeIcon:'X',
+		closeButton: true
+	});
+}
+
 /*function modCart(id,quantity){
 	$(".alert").alert('close');
 	$.ajax({
@@ -486,6 +498,4 @@ function submitCercaItem(event){
 	})
 }*/
 
-const myDatePicker = MCDatepicker.create({
-	el:"#dataNascitaInput",
-});
+

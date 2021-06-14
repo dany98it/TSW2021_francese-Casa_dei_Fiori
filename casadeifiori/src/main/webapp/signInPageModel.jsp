@@ -37,8 +37,8 @@
 				
 				<div class="txt_fieldLogIn">
 						<div class="showPswLogIn">
-							<i id="closedEyePassword" class="fas fa-eye-slash" onclick="showPassword('logInPassword','closedEyePassword','openEyePassword')"> </i>
-							<i id="openEyePassword" class="far fa-eye" onclick="hidePassword('logInPassword','openEyePassword','closedEyePassword')"></i> 	
+							<i id="closedEyePassword1" class="fas fa-eye-slash" onclick="showPassword('passwordInput','closedEyePassword1','openEyePassword1')"> </i>
+							<i id="openEyePassword1" class="far fa-eye" onclick="hidePassword('passwordInput','openEyePassword1','closedEyePassword1')"></i> 	
 						</div>
 						<input id="passwordInput" type="password" name="password" class="logInInput" required="required"/>
 						<span class="spanLogIn"></span>
@@ -47,8 +47,8 @@
 				
 				<div class="txt_fieldLogIn">	
 						<div class="showPswLogIn">
-							<i id="closedEyePassword" class="fas fa-eye-slash" onclick="showPassword('logInPassword','closedEyePassword','openEyePassword')"> </i>
-							<i id="openEyePassword" class="far fa-eye" onclick="hidePassword('logInPassword','openEyePassword','closedEyePassword')"></i> 	
+							<i id="closedEyePassword2" class="fas fa-eye-slash" onclick="showPassword('confermaPasswordInput','closedEyePassword2','openEyePassword2')"> </i>
+							<i id="openEyePassword2" class="far fa-eye" onclick="hidePassword('confermaPasswordInput','openEyePassword2','closedEyePassword2')"></i> 	
 						</div>
 						<input id="confermaPasswordInput" type="password" name="confermaPassword" class="logInInput" required="required"/>
 						<span class="spanLogIn"></span>
@@ -65,4 +65,6 @@
 		<script src="https://kit.fontawesome.com/46a2d5ed1b.js" ></script>
 		<script src="code.js" ></script>
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-	
+		<script> $(document).ready(function() {
+			datapickerInit('dataNascitaInput');
+		}) </script>

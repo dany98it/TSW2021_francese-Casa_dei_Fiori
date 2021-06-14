@@ -7,6 +7,7 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<meta charset="utf-8">
 		<title>Home</title>
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/foundation-datepicker/1.5.6/css/foundation-datepicker.min.css" integrity="sha512-5lktVuTJhNGY32sLX+Dd6fJIEyEwz94hkK6ZAItlvrO8vu6ejjFOO7ek1ovNPIXtT1e9Ev5KVljxFDW4w+nS5g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 		<link rel=StyleSheet href="style.css" type="text/css">
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.css" integrity="sha512-aOG0c6nPNzGk+5zjwyJaoRUgCdOrfSDhmMID2u4+OIslr0GjpLKo7Xm0Ao3xmpM4T8AmIouRkqwj1nrdVsLKEQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 	</head>
@@ -83,5 +84,6 @@
 		<script src="code.js" ></script>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js" integrity="sha512-uto9mlQzrs59VwILcLiRYeLKPPbS/bT71da/OEBYEwcdNUk8jYIy+D176RYoop1Da+f9mvkYrmj5MCLZWEtQuA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 		<script> startShowSlides(); InstagramImg(); cerca(); </script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/foundation-datepicker/1.5.6/js/foundation-datepicker.min.js" integrity="sha512-PFxLo/1ToGLfmT9QwHsRsZGVGOxj1o86knAoAkGtShRhF2fB4GBCYZwelmGwoIPrarlWV3929M3Wt/IStCJ0Bg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 	</body>
 </html>
