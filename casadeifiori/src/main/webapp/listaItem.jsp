@@ -40,25 +40,25 @@
 						Item bean = (Item) it.next();
 			%>
 			<div class= "itemCard">
-				<a href="MostraDettagliItem?itemID=<%=bean.getId()%>">
+				
 				<div class="box-up">
-					<img alt="itemCarrello" class="itemCardImg" src="img/fiori2.jpg" height="200px">
+					<a href="MostraDettagliItem?itemID=<%=bean.getId()%>">
+					<img alt="itemCarrello" class="itemCardImg" src="img/fiori2.jpg" height="200px"></a>
 						<div class="itemCardImgInfo">
 							<div class="itemCardImgInfoInner">
 								<span class="itemCardProductName"><%= bean.getNome()%></span>
 							</div>
 						</div>
 				</div>
-				</a>
 				<div class="box-down">
           			<div class="h-bg">
             			<div class="h-bg-inner"></div>
           			</div>
           			
           			<a class="itemCardCart" href="javascript:addCart(<%=bean.getId()%>,1)">
-            			<span class="itemCardPrice"><%= bean.calcolaPrezzo() %></span>
+            			<span class="itemCardPrice"><%= bean.calcolaPrezzo() %> <i class="fas fa-cart-plus iconCart"></i></span>
             			<span class="itemCardAddCart">
-              			<span class="itemCardAddCartText">Aggiungi al carrello</span>
+              			<span class="itemCardAddCartText">Aggiungi</span>
             			</span>
           			</a>
 				</div>

@@ -314,7 +314,7 @@ form .wrap-LogInBtn{
 }
 
 .itemCard:hover .itemCardAddCart {
-  left: 50%;
+  left: 70%;
 }
 
 .itemCard:hover .itemCardImg {
@@ -458,7 +458,7 @@ form .wrap-LogInBtn{
   -ms-transform: translate(-50%, -50%);
   -o-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
-  font-size: 16px;
+  font-size: 1rem;
   color: #252525;
 }
 
@@ -1459,7 +1459,8 @@ span.twitter-typeahead .tt-suggestion:last-child {
  		align-items: stretch;
 	}
 	.itemCard{
-		width: 250px;
+		width: 80%
+		;
 	}
 	.info{
 		display: block;

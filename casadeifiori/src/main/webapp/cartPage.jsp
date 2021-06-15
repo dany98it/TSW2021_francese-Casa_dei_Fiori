@@ -69,7 +69,15 @@
         </div>
         <div class="price"><%=bean.getItem().calcolaPrezzo()%></div>
         <div class="quantity">
-          <input type="number" value="<%= bean.getQuantita() %>" min="1" class="quantity-field">
+        	<select  onchange="addShop(<%=bean.getItem().getId() %>,<%= bean.getItem().getQuantita() %>);" class="quantity" name="quantity" id="<%="quantity"+bean.getItem().getId() %>">
+						<% for(int x=0;x<=bean.getItem().getQuantita();x++){ %>
+							<option value="<%= x %>" 
+								<%if(x==bean.getQuantita()||(x==bean.getItem().getQuantita()&&x<bean.getQuantita())){%>
+									selected="selected"
+								<%}%>
+							> <%= x %> </option>
+						<%} %>
+			</select>
         </div>
         <div class="subtotal"><%= bean.getCostoTotale()%></div>
         <div class="remove">
