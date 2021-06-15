@@ -388,6 +388,10 @@ function addCart(id,quantity){
 	})
 }
 
+function opedItemDetails(id){
+	
+}
+
 function cerca(){
 	$(".ajax-typeahead").autocomplete({
   		source: function (query,process){

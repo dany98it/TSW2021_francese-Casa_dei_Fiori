@@ -79,3 +79,47 @@
 </div>
 </body>
 </html>
+
+
+		<table border="1">
+		<tr>
+			<th>ID</th>
+			<th>Nome</th>
+			<th>Descrizione</th>
+			<th>Quantità</th>
+			<th>Prezzo</th>
+		</tr>
+		<%
+			if (products != null && products.size() != 0) {
+			Iterator<?> it = products.iterator();
+			while (it.hasNext()) {
+				ItemCarrello bean = (ItemCarrello) it.next(); %>
+				<tr>
+					<td><%= bean.getItem().getId() %></td>
+					<td><%= bean.getItem().getNome() %></td>
+					<td><%= bean.getItem().getDescrizione() %></td>
+					<td><select  onchange="addShop(<%=bean.getItem().getId() %>,<%= bean.getItem().getQuantita() %>);" class="quantity" name="quantity" id="<%="quantity"+bean.getItem().getId() %>">
+						<% for(int x=0;x<=bean.getItem().getQuantita();x++){ %>
+							<option value="<%= x %>" 
+								<%if(x==bean.getQuantita()||(x==bean.getItem().getQuantita()&&x<bean.getQuantita())){%>
+									selected="selected"
+								<%}%>
+							> <%= x %> </option>
+						<%} %>
+					</select></td>
+					<td><%= bean.getItem().calcolaPrezzo()%></td>
+					<td id="errorQ">quantità invalita max <%= bean.getItem().getQuantita() %></td>
+				</tr>
+				<tr>
+					<td colspan="6">Prezzo parziale: <%= bean.getCostoTotale()%></td>
+				</tr>
+			<% } %>
+			<tr>
+				<td colspan="6">Prezzo totale : <%= cart.getCostoTotale()%></td>
+			</tr>
+		<% } else { %>
+			<tr>
+				<td colspan="6">Il Carrello è vuoto</td>
+			</tr>
+		<% } %>
+	</table>

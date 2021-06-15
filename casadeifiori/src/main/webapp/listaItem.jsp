@@ -40,14 +40,16 @@
 						Item bean = (Item) it.next();
 			%>
 			<div class= "itemCard">
+				<a href="MostraDettagliItem?itemID=<%=bean.getId()%>">
 				<div class="box-up">
-					<img alt="itemCarrello" class="itemCardImg" src="img/occhioChiuso.svg">
+					<img alt="itemCarrello" class="itemCardImg" src="img/fiori2.jpg" height="200px">
 						<div class="itemCardImgInfo">
 							<div class="itemCardImgInfoInner">
-								<span class="itemCardProductName"><a href="MostraDettagliItem?itemID=<%=bean.getId()%>"><%= bean.getNome()%></a></span>
+								<span class="itemCardProductName"><%= bean.getNome()%></span>
 							</div>
 						</div>
 				</div>
+				</a>
 				<div class="box-down">
           			<div class="h-bg">
             			<div class="h-bg-inner"></div>

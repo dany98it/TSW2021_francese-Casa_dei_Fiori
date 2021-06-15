@@ -19,7 +19,7 @@
 				<%@ include file="main/navigationBar.jsp"%>
 			</nav>
 		
-		<div id="main">
+<div id="main" class="mainCart">
 			
 			<%
 
@@ -41,86 +41,78 @@
   		products= (Collection<?>) cart.getItemsOrdinati();
   	} %>
   	
- <div id="cartDiv">
-	<div class="cartPage">
-		<!--  <div class="basket-module">
-        	<label for="promo-code">Enter a promotional code</label>
-        	<input id="promo-code" type="text" name="promo-code" maxlength="5" class="promo-code-field">
-        <button class="promo-code-cta">Apply</button>
-      </div>
-      -->
-	</div>
-	<div class="cartLabels">
+ <div class="basket">
+      <div class="basket-labels">
         <ul>
-          <li class="cartItem cartItemHeading">Item</li>
-          <li class="cartItemPrice">Prezzo</li>
-          <li class="cartItemQuantity">Quantità</li>
-          <li class="cartItemSubtotal">Subtotale</li>
+          <li class="item item-heading">Item</li>
+          <li class="price">Prezzo</li>
+          <li class="quantity">Quantità</li>
+          <li class="subtotal">Subtotale</li>
         </ul>
       </div>
-      <%if (products != null && products.size() != 0) {
+      
+      	<%
+			if (products != null && products.size() != 0) {
 			Iterator<?> it = products.iterator();
 			while (it.hasNext()) {
-				ItemCarrello bean = (ItemCarrello) it.next();%>
-      <div class="cartProduct">
-        <div class="cartItem">
-          <div class="productImage">
-            <img src="" alt="Immagine prodotto non disponibile" class="productFrame">
+				ItemCarrello bean = (ItemCarrello) it.next(); %>
+		<div class="basket-product">
+        <div class="item">
+          <div class="product-image">
+            <img src="img/fiori2.jpg" alt="Immagine prodotto non disponibile" class="product-frame">
           </div>
-          <div class="productDetails">
-            <h1><strong><span class="cartItemQuantity">4</span> <%= bean.getItem().getNome() %></strong> <%= bean.getItem().getDescrizione() %></h1>
-            <p><strong>Navy, Size 18</strong></p>
-            <p>Product Code - <%= bean.getItem().getId() %></p>
+          <div class="product-details">
+            <h1><strong><span class="item-quantity"><%= bean.getQuantita() %> x</span></strong> <%= bean.getItem().getNome() %></h1>
+            <p><strong></strong></p>
+            <p>Codice prodotto - <%= bean.getItem().getId() %></p>
           </div>
         </div>
-        <div class="cartItemPrice"><%= bean.getItem().calcolaPrezzo()%></div>
-        <div class="cartItemQuantity">
-          <input type="number" value="4" min="1" class="cartItemQuantityField">
+        <div class="price"><%=bean.getItem().calcolaPrezzo()%></div>
+        <div class="quantity">
+          <input type="number" value="<%= bean.getQuantita() %>" min="1" class="quantity-field">
         </div>
-        <div class="cartItemSubtotal"><%= bean.getCostoTotale() %></div>
-        <div class="cartItemRemove">
-          <button>Rimuovi</button>
+        <div class="subtotal"><%= bean.getCostoTotale()%></div>
+        <div class="remove">
+          <button>Remove</button>
         </div>
       </div>
-      <% }
-			}
-			else{ %>
-      <% } %>
-
-      <aside>
-      <div class="cartSummary">
-        <div class="cartSummaryTotalItems"><span class="cartTotalItems"></span> Oggetti nel carrello</div>
-        <div class="cartSummarySubtotal">
-          <div class="cartSummarySubtotalTitle">Subtotale</div>
-          <div class="cartSummarySubtotalValue cartSummarySubtotalFinalValue" id="cartSubtotal"><%= cart.getCostoTotale()%></div>
-          <!--  <div class="summary-promo hide">
-            <div class="promo-title">Promotion</div>
+      <% }}else{} %>
+    </div>
+    <aside>
+      <div class="summary">
+        <div class="summary-total-items"><span class="total-items"></span> Oggetti nel carrello </div>
+        <div class="summary-subtotal">
+          <div class="subtotal-title">Subtotale</div>
+          <div class="subtotal-value final-value" id="basket-subtotal"><%= cart.getCostoTotale() %></div>
+          <div class="summary-promo hide">
+            <div class="promo-title">Promozione</div>
             <div class="promo-value final-value" id="basket-promo"></div>
           </div>
-          -->
         </div>
-        <div class="cartSummaryDelivery">
-          <select name="cartDeliveryCollection" class="cartSummaryDeliverSelection">
-              <option value="0" selected="selected">Tipo di spedizione:</option>
+        <div class="summary-delivery">
+          <select name="delivery-collection" class="summary-delivery-selection">
+              <option value="0" selected="selected">Seleziona tipo di spedizione</option>
              <option value="collection">Collection</option>
              <option value="first-class">Royal Mail 1st Class</option>
              <option value="second-class">Royal Mail 2nd Class</option>
              <option value="signed-for">Royal Mail Special Delivery</option>
           </select>
         </div>
-        <div class="cartSummaryTotal">
-          <div class="cartSummaryTotalTitle">Total</div>
-          <div class="cartSummaryTotalValue cartSummarySubtotalFinalValue" id="cartTotal"></div>
+        <div class="summary-total">
+          <div class="total-title">Totale</div>
+          <div class="total-value final-value" id="basket-total"><%= cart.getCostoTotale()%></div>
         </div>
-        <div class="cartSummaryCheckout">
-          <button class="cartSummaryCheckoutCta">effettua checkout</button>
+        <div class="basket-module">
+        <label for="promo-code">Codice Promozionale</label>
+        <input id="promo-code" type="text" name="promo-code" maxlength="5" class="promo-code-field">
+        <button class="promo-code-cta">Apply</button>
+      </div>
+        <div class="summary-checkout">
+          <button class="checkout-cta">Checkout</button>
         </div>
       </div>
-    </aside>
+ 	</aside>
 </div>
-			
-			
-		</div>
 		<footer>
 			<%@ include file="main/footer.jsp" %>
 		</footer>
