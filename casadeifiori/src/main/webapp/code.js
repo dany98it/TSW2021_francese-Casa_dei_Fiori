@@ -1,4 +1,5 @@
-tinymce.init({
+//funzione che permette di modificare il testo in stile word 
+tinymce.init({ 
 	selector: '#editortesto',
 	plugins: 'autolink autosave charmap emoticons hr link lists advlist paste table searchreplace wordcount',
 	paste_data_images: false,
@@ -8,7 +9,7 @@ tinymce.init({
        });
    }
 });
-
+//Apre e chiude il menù a tendina 
 function closeNav() {
 	var menubar=document.getElementById("menuDropBar");
 	menubar.style.width = "0%"
@@ -26,7 +27,7 @@ function openNav() {
 	document.getElementById("main").style.marginLeft = "50%";
 	}
 }
-
+//Reindirizzamento ad una pagina 
 function redirect(dove) {
 	window.location.href = dove;
 }
@@ -39,7 +40,7 @@ function closeMenuMobile2(){
 	var bar = document.getElementById("menuDropBar2");
 	bar.style.display = "none";
 }
-
+//funzione che permette di aumentare o diminuire la quantità del carrello
 function addShop(id,quantitymax) {
 	var quantity=document.getElementById("quantity"+id).value
 	console.log(quantity)
@@ -51,7 +52,7 @@ function addShop(id,quantitymax) {
 	}
 }
 
-
+//funzioni che servono a nascondere e allo stesso tempo far vedere la password
 function showPassword(inpsw,none,inline){
 	var bar = document.getElementById(inpsw);
 	bar.setAttribute("type","text");
@@ -67,7 +68,7 @@ function hidePassword(inpsw,none,inline){
 	document.getElementById(none).style.display="none";
 	document.getElementById(inline).style.display="inline";
 }
-
+//Funzioni che permetto di scorrere le immagini nell'index
 var slideIndex;
 function plusSlides(n) {
 	showSlides(slideIndex += n);
@@ -101,7 +102,7 @@ function startShowSlides() {
   	dots[0].className += " active";
 	slideIndex=1;
 }
-
+//Funzioni per validare la form del Signin
 function validateNomeCognome(input){
 	var name = /^[A-Za-z]+$/;
 	if(input.match(name)){
@@ -209,7 +210,7 @@ function userIdValidate(){
 	})
 	return error;
 }
-
+//Funzioni che permettono di creare l'autocompilamento del tag e delle caratteristiche
 var tag = new Bloodhound({
   	datumTokenizer: Bloodhound.tokenizers.obj.whitespace('value'),
   	queryTokenizer: Bloodhound.tokenizers.whitespace,
@@ -246,7 +247,7 @@ function cAutoComplite(){
 		}
 	});
 }
-
+//Funzioni di anteprime del tag e delle caratteristiche
 function prewiev(input,output){
 	$("#"+output).text($("#"+input).val())
 }
@@ -254,14 +255,14 @@ function prewiev(input,output){
 function prewievTag(input,output){
 	$("#"+output).text($("#"+input).val().replace(/,/g," "))
 }
-
+//Funzione del anteprima del prezzo
 function prewievPrezzo(output){
 	var prezzo=Number($("#price").val());
 	prezzo=prezzo+(prezzo*Number($("#iva").val()))/100;
 	prezzo=prezzo-(prezzo*Number($("#sconto").val()))/100
 	$("#"+output).html(prezzo.toFixed(2)+" &euro;");
 }
-
+//Funzione dell'anteprima della galleria
 function initFileSelect(){
 	var selDiv=$("#selectedFiles")
 	var imgXL=$("#imgXL")
@@ -293,7 +294,7 @@ function initFileSelect(){
 		});
 	});
 }
-
+//Funzione che permette di aprire e chiudere il login , inoltre lo chiude anche premendo fuori dalla finestra
 function openLogIn(){
 	document.getElementById('divLogIn').style.display='block'
 }
@@ -335,7 +336,7 @@ function closeSignInOutside(){
 	}
 }
 	
-
+//Funzione che permette di ingrandire l'immagine scorrendo il mouse su di essa
 function currentDiv(n) {
   showDivs(slideIndex = n);
 }
@@ -355,7 +356,7 @@ function showDivs(n) {
   x[slideIndex-1].style.display = "block";
   dots[slideIndex-1].className += " w3-opacity-off";
 }
-
+//Funzione di anteprima della quantità
 function addQuantita(input,output){
 	var q=Number($("#"+input).val());
 	var out=$("#"+output);
@@ -364,7 +365,7 @@ function addQuantita(input,output){
 		out.append("<option value=\""+i+"\"> "+i+" </option>");
 	}
 }
-
+//Funzione che permette di avvisarti se un articolo è stato aggiunto nel carrello.
 function addCart(id,quantity){
 	$(".alert").alert('close');
 	$.ajax({
@@ -388,10 +389,7 @@ function addCart(id,quantity){
 	})
 }
 
-function opedItemDetails(id){
-	
-}
-
+//Funzione che tramite AJAX da l'autocompilamento della ricerca tramite suggerimenti
 function cerca(){
 	$(".ajax-typeahead").autocomplete({
   		source: function (query,process){
@@ -405,7 +403,7 @@ function cerca(){
         }
     });
 }
-
+//Funzione che permette di eseguire la creazione del tag senza ricaricare la pagina
 function creaTag(){
 	$(".alert").alert('close');
 	$.ajax({
@@ -429,6 +427,7 @@ function creaTag(){
 	})
 	//TODO chiudere dopo submit 
 }
+//Funzione che permette di eseguire la creazione delle caratteristiche senza ricaricare la pagina
 function creaC(){
 	$(".alert").alert('close');
 	$.ajax({
