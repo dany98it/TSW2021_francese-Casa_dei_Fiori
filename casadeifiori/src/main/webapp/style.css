@@ -37,6 +37,16 @@ body{
 .selectRicerca:focus{
 	border-color: #FA8F6C;
 }
+.formAddItemNotShow{
+	display: none;
+}
+.topSopra{
+	position: sticky !important;
+	z-index: 1;
+	top: 0;
+	width: 100%;
+	margin-bottom: 0 !important;
+}
 .buttonRicerca{
 	display: inline-block;
 	border-top-right-radius: 10px;

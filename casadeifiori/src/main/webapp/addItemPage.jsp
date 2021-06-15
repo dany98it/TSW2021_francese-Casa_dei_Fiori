@@ -35,7 +35,7 @@
 					<%@ include file="creaC.jsp" %>
 						<div class="insertItem">
 						<div class="formsAddItem">
-							<form method="post" action="AggiungiItem"> 
+							<form id="formAddItem" method="post" action="AggiungiItem"> 
 								<label for="name">Nome:</label><br> 
 								<input id="name" name="name" type="text" maxlength="50" required placeholder="inserire nome" onchange="prewiev('name','titoloItem')"><br> 
 								<label for="description">Descrizione:</label><br>
@@ -59,9 +59,9 @@
 								</select><br>
 								<label for="quantity">Quantità:</label><br> 
 								<input id="quantity" name="quantity" type="number" min="1" value="1" required onchange="addQuantita('quantity','quantityItem')"><br>
-								<input type="submit" value="Add"><input type="reset" value="Reset">
+								<input type="button" value="Add" onclick="checkAddItem()"><input type="reset" value="Reset">
 							</form>
-							<form action="saveImg" method="post" enctype="multipart/form-data">
+							<form class="formAddItemNotShow" action="saveImg" method="post" enctype="multipart/form-data">
 								<label for="img">immagini:</label><br>
 								<input type="file" id="img" name="img" accept="image/*" multiple="multiple" required="required"> <br>
 								<div id="selectedFiles"></div>

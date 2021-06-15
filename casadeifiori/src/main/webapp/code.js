@@ -372,14 +372,14 @@ function addCart(id,quantity){
 		"url":"addCart",
 		"data":"itemID="+id+"&addItem="+quantity,
 		"success":function(){
-			html="<div class=\"alert alert-success alert-dismissible\" role=\"alert\">"
+			html="<div class=\"alert alert-success alert-dismissible topSopra\" role=\"alert\">"
 			+"<strong>Success!</strong> l'articolo &egrave; stato aggiunto al carrello."
 			+"<button type=\"button\" class=\"close\" data-dismiss=\"alert\" aria-label=\"Close\">"
 			+"<span aria-hidden=\"true\">&times;</span></button></div>"
 			$("body").prepend(html);
 		},
 		"error":function(){
-			html="<div class=\"alert alert-danger alert-dismissible\" role=\"alert\">"
+			html="<div class=\"alert alert-danger alert-dismissible topSopra\" role=\"alert\">"
 			+"<strong>Success!</strong> l'articolo &egrave; stato aggiunto al carrello."
 			+"<button type=\"button\" class=\"close\" data-dismiss=\"alert\" aria-label=\"Close\">"
 			+"<span aria-hidden=\"true\">&times;</span></button></div>"
@@ -410,14 +410,14 @@ function creaTag(){
 		"url":"creaTag",
 		"data":"name="+$("#nametag").val()+"&Suggerimento="+$("#Suggerimentotag").val(),
 		"success":function(){
-			html="<div class=\"alert alert-success alert-dismissible\" role=\"alert\">"
+			html="<div class=\"alert alert-success alert-dismissible topSopra\" role=\"alert\">"
 			+"<strong>Success!</strong> il tag &egrave; stato aggiunto."
 			+"<button type=\"button\" class=\"close\" data-dismiss=\"alert\" aria-label=\"Close\">"
 			+"<span aria-hidden=\"true\">&times;</span></button></div>"
 			$("body").prepend(html);
 		},
 		"error":function(){
-			html="<div class=\"alert alert-danger alert-dismissible\" role=\"alert\">"
+			html="<div class=\"alert alert-danger alert-dismissible topSopra\" role=\"alert\">"
 			+"<strong>Success!</strong> il tag non &egrave; stato aggiunto."
 			+"<button type=\"button\" class=\"close\" data-dismiss=\"alert\" aria-label=\"Close\">"
 			+"<span aria-hidden=\"true\">&times;</span></button></div>"
@@ -434,14 +434,14 @@ function creaC(){
 		"url":"creaC",
 		"data":"name="+$("#namec").val()+"&Suggerimento="+$("#Suggerimentoc").val(),
 		"success":function(){
-			html="<div class=\"alert alert-success alert-dismissible\" role=\"alert\">"
+			html="<div class=\"alert alert-success alert-dismissible topSopra\" role=\"alert\">"
 			+"<strong>Success!</strong> il caratterisiche &egrave; stato aggiunto."
 			+"<button type=\"button\" class=\"close\" data-dismiss=\"alert\" aria-label=\"Close\">"
 			+"<span aria-hidden=\"true\">&times;</span></button></div>"
 			$("body").prepend(html);
 		},
 		"error":function(){
-			html="<div class=\"alert alert-danger alert-dismissible\" role=\"alert\">"
+			html="<div class=\"alert alert-danger alert-dismissible topSopra\" role=\"alert\">"
 			+"<strong>Success!</strong> il caratterisiche non &egrave; stato aggiunto."
 			+"<button type=\"button\" class=\"close\" data-dismiss=\"alert\" aria-label=\"Close\">"
 			+"<span aria-hidden=\"true\">&times;</span></button></div>"
@@ -466,7 +466,9 @@ function datapickerInit(id){
 		closeButton: true
 	});
 }
-
+function checkAddItem(){
+	
+}
 /*function modCart(id,quantity){
 	$(".alert").alert('close');
 	$.ajax({
