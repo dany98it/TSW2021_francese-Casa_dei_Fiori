@@ -9,14 +9,49 @@ body{
 	transition: margin-left 0.3s;
 	padding: 0;
 }
-
+.insertItem{
+	display: grid;
+	grid-template-columns: 50% 50%;
+}
+.formsAddItem{
+	padding-left: 5%
+}
 .menu{
 	font-size: 30px;
 	cursor: pointer;
 	display: none;
 }
+.formRicerca {
+	padding: 0 10%;
+	display: flex;
+}
+.selectRicerca{
+	display: inline-block;
+	border-top-left-radius: 10px;
+	border-bottom-left-radius: 10px;
+	border-right: none;
+  	border-color: black;
+  	outline: none;
+  	border-width: 2px;
+}
+.selectRicerca:focus{
+	border-color: #FA8F6C;
+}
+.buttonRicerca{
+	display: inline-block;
+	border-top-right-radius: 10px;
+	border-bottom-right-radius: 10px;
+	border-left: none;
+  	border-color: black;
+  	background: white;
+  	outline: none;
+  	border-width: 2px;
+}
+.buttonRicerca:focus{
+	border-color: #FA8F6C;
+	outline: none;
+}
 .colorHeader{
-	
 	background-color: #67F0BB;
 }
 .colorFooter{
@@ -53,35 +88,22 @@ body{
 	display: none;
 }
 .cerca {
-  	border: none;
   	font-size: 16px;
-  	background-image: url('img/search.svg');
- 	background-position: right; 
-  	background-repeat: no-repeat;
-  	background-size: 30px;
   	padding-top:7px;
   	padding-bottom:7px;
-	width: 30px;
 	position: relative;
 	text-align: center;
 	color: black;
 	cursor: pointer;
-	-webkit-transition: all .5s;
-	-moz-transition: all .5s;
-	transition: all .5s;	
-	background-color: transparent;
-    right: 0;
+	border-left: none;	
+	border-right: none;
+  	border-color: black;
+  	outline: none;
+  	width: 100%;
 }
-
-.cerca:focus {
-	box-sizing: border-box;
-  	border: 2px solid black;
-  	border-radius: 100px;
-	width: 100%;
-	position: static;
-	outline: none;
+.cerca:focus{
+	border-color: #FA8F6C;
 }
-
 /* The Modal (background) */
 .modal1 {
   	display: none; /* Hidden by default */
@@ -915,7 +937,6 @@ ul { padding:0 !important}
 	margin-top: 0;
 	background-color: #67f0bb;
 	color: #023838;
-	height: 3em;
 }
 .ulMenu {
 	display: flex;
@@ -1445,6 +1466,9 @@ span.twitter-typeahead .tt-suggestion:last-child {
 	.insertItem{
 		display: block;
 	}
+	.formsAddItem{
+	padding-right: 5%
+}
 }
 @media screen and (max-width: 480px) {
 	.modal-content1{

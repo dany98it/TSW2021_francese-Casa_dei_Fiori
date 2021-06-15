@@ -34,13 +34,10 @@
 					<%@ include file="creaTag.jsp" %>
 					<%@ include file="creaC.jsp" %>
 						<div class="insertItem">
-						<div>
-							<form method="post" action="AggiungiItem" enctype="multipart/form-data"> 
+						<div class="formsAddItem">
+							<form method="post" action="AggiungiItem"> 
 								<label for="name">Nome:</label><br> 
 								<input id="name" name="name" type="text" maxlength="50" required placeholder="inserire nome" onchange="prewiev('name','titoloItem')"><br> 
-								<label for="img">immagini:</label><br>
-								<input type="file" id="img" name="img" accept="image/*" multiple="multiple" required="required"> <br>
-								<div id="selectedFiles"></div> 
 								<label for="description">Descrizione:</label><br>
 								<textarea id="editortesto" name="description" placeholder="inserire descrizione"></textarea><br>
 								<label for="tag">tag:</label><input type="button" value="Crea tag" class="float-right" data-toggle="modal" data-target="#tagModal"><br> 
@@ -62,6 +59,12 @@
 								</select><br>
 								<label for="quantity">Quantità:</label><br> 
 								<input id="quantity" name="quantity" type="number" min="1" value="1" required onchange="addQuantita('quantity','quantityItem')"><br>
+								<input type="submit" value="Add"><input type="reset" value="Reset">
+							</form>
+							<form action="saveImg" method="post" enctype="multipart/form-data">
+								<label for="img">immagini:</label><br>
+								<input type="file" id="img" name="img" accept="image/*" multiple="multiple" required="required"> <br>
+								<div id="selectedFiles"></div>
 								<input type="submit" value="Add"><input type="reset" value="Reset">
 							</form>
 						</div>
@@ -108,6 +111,6 @@
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha256-OFRAJNoaD8L3Br5lglV7VyLRf0itmoBzWUoM+Sji4/8=" crossorigin="anonymous"></script>
     	<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-tagsinput/0.8.0/bootstrap-tagsinput.js" integrity="sha512-VvWznBcyBJK71YKEKDMpZ0pCVxjNuKwApp4zLF3ul+CiflQi6aIJR+aZCP/qWsoFBA28avL5T5HA+RE+zrGQYg==" crossorigin="anonymous"></script>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js" integrity="sha512-uto9mlQzrs59VwILcLiRYeLKPPbS/bT71da/OEBYEwcdNUk8jYIy+D176RYoop1Da+f9mvkYrmj5MCLZWEtQuA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-		<script type="text/javascript"> initFileSelect(); cerca(); cAutoComplite(); tagAutoComplite();</script>
+		<script type="text/javascript"> initFileSelect(); cAutoComplite(); tagAutoComplite();</script>
 	</body>
 </html>

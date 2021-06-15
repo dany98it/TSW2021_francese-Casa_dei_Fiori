@@ -41,4 +41,21 @@
 			</div>
 		</div>
 	</div>
+	<div class="colorHeader">
+		<form action="MostraItem" class="formRicerca">
+			<select class="selectRicerca" name="cerca">
+				<option>Tutti</option>
+				<optgroup label="categorie">
+					<option>Fiori</option>
+					<option>Piante</option>
+					<option>Oggettistica</option>
+				</optgroup>
+				<optgroup label="tag"></optgroup>
+				<optgroup label="carraterisiche"></optgroup>
+			</select>
+  			<input type="text" name="cerca" class="cerca ajax-typeahead" id="cerca" autocomplete="off">
+			<button type="submit" class="buttonRicerca"><i class="fas fa-search"></i></button>
+		</form>
+	</div>
+	<script type="text/javascript"> cerca();</script>
 </div>
