@@ -1,7 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
 	<div id="divLogIn" class="modal1">
 		<div onclick="closeLogIn()" class="close" title="Close Modal">&times;</div>
-			<form action="logIn" id="logInForm" class="modal-content1 aniamte" method="post">
+
+			<form action="logIn" class="modal-content1 aniamte logInForm" method="post">
 				<div class="logInTitle">Login</div>
 			
 				<div class="txt_fieldLogIn">
@@ -31,6 +32,3 @@
 				</div>
 			</form>
 		</div>
-		<script> $(document).ready(function() {
-			closeLogInOutside();
-		}) </script>

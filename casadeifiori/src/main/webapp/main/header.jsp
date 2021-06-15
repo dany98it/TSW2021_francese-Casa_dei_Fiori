@@ -4,6 +4,10 @@
 <% HttpSession sessione = request.getSession(true); %>
 <%@ include file="../logInPage.jsp" %>
 <%@ include file="../signInPageModel.jsp" %>
+<script> $(document).ready(function() {
+			datapickerInit('dataNascitaInput');
+			closeModalOutside();
+		}) </script>
 <div class="main" >
 	<script src="code.js" ></script>
 	<script src="/dist/mc-calendar.min.js"></script>

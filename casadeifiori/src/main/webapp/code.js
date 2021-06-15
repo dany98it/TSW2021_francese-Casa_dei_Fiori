@@ -296,7 +296,7 @@ function initFileSelect(){
 }
 //Funzione che permette di aprire e chiudere il login , inoltre lo chiude anche premendo fuori dalla finestra
 function openLogIn(){
-	document.getElementById('divLogIn').style.display='block'
+	document.getElementById('divLogIn').style.display='block';
 }
 
 function closeLogIn(){
@@ -313,7 +313,6 @@ function closeLogInOutside(){
    	 		modal.style.display = "none";
   		}
 	}
-	
 }
 
 function openSignIn(){

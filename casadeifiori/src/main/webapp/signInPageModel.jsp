@@ -2,7 +2,7 @@
 	<div id="divSignIn" class="modal1">
 		<div onclick="closeSignIn()" class="close" title="Close Modal">&times;</div>
 			
-			<form action="RegistraUtente" id="logInForm" class="modal-content1 aniamte" method="post" onsubmit="event.preventDefault(); return validateSignIn(this);">
+			<form action="RegistraUtente"  class="modal-content1 aniamte logInForm" method="post" onsubmit="event.preventDefault(); return validateSignIn(this);">
 			 <!--Previene che il form venga sottomesso senza verifica -->
 				<div class="logInTitle">SignIn</div>
 			
@@ -65,7 +65,3 @@
 		<script src="https://kit.fontawesome.com/46a2d5ed1b.js" ></script>
 		<script src="code.js" ></script>
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-		<script> $(document).ready(function() {
-			datapickerInit('dataNascitaInput');
-			closeSignInOutside();
-		}) </script>

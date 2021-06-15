@@ -101,7 +101,7 @@ body{
 .modal-content1 {
 	background-color: #fefefe;
   	position: absolute;
-  	top: 30%;
+  	top: 40%;
   	left: 50%;
   	transform: translate(-50%, -50%);
   	background: white;
@@ -185,7 +185,7 @@ form .wrap-LogInBtn{
 .forgotPswLogIn:hover{
   text-decoration: underline;
 }
-#logInForm input[type="submit"]{
+.logInForm input[type="submit"]{
   width: 60%;
   height: 50px;
   border: 1px solid;
@@ -197,7 +197,7 @@ form .wrap-LogInBtn{
   cursor: pointer;
   outline: none;
 }
-#logInForm input[type="submit"]:hover{
+.logInForm input[type="submit"]:hover{
   border-color: #67F0BB;
   transition: .5s;
 }
@@ -1352,8 +1352,8 @@ span.twitter-typeahead .tt-suggestion:last-child {
 	.close {
   	/* Position it in the top right corner outside of the modal */
   		position: absolute;
-  		top: 4.5em;
-  		right: 3.5em;
+  		top:0.5em;
+  		right: 1em;
   		color: #000;
   		font-size: 35px;
   		font-weight: bold;
