@@ -10,15 +10,12 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.LinkedList;
 
-import com.mysql.cj.x.protobuf.MysqlxCrud.Collection;
-
 import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import model.Immagine;
 import model.ImmagineDAO;
 import model.Item;
 import model.ItemDAO;
