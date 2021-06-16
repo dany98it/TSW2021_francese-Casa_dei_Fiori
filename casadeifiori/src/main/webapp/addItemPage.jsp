@@ -61,7 +61,7 @@
 								<input id="quantity" name="quantity" type="number" min="1" value="1" required onchange="addQuantita('quantity','quantityItem')"><br>
 								<input type="button" value="Add" onclick="checkAddItem()"><input type="reset" value="Reset">
 							</form>
-							<form class="formAddItemNotShow" action="saveImg" method="post" enctype="multipart/form-data">
+							<form id="formAddImg" class="formAddItemNotShow" action="saveImg" method="post" enctype="multipart/form-data">
 								<label for="img">immagini:</label><br>
 								<input type="file" id="img" name="img" accept="image/*" multiple="multiple" required="required"> <br>
 								<div id="selectedFiles"></div>

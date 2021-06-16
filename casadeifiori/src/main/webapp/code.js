@@ -467,7 +467,27 @@ function datapickerInit(id){
 	});
 }
 function checkAddItem(){
-	
+	var item=$('#formAddItem').serializeArray();
+	var itemdata="";
+	item.forEach(element=>{
+		itemdata+=element.name+"="+element.value+"&"
+	});
+	$.ajax({
+		url:"AggiungiItem",
+		method:"POST",
+		data:itemdata,
+		success:function(){
+			$('#formAddImg').removeClass('formAddItemNotShow')
+			$('#formAddItem').addClass('formAddItemNotShow')
+		},
+		error:function(){
+			html="<div class=\"alert alert-danger alert-dismissible topSopra\" role=\"alert\">"
+			+"<strong>Success!</strong> non &egrave; stato possibile aggiungere l'item'."
+			+"<button type=\"button\" class=\"close\" data-dismiss=\"alert\" aria-label=\"Close\">"
+			+"<span aria-hidden=\"true\">&times;</span></button></div>"
+			$("body").prepend(html);
+		}
+	})
 }
 /*function modCart(id,quantity){
 	$(".alert").alert('close');
