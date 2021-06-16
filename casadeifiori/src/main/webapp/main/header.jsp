@@ -6,7 +6,8 @@
 <%@ include file="../signInPageModel.jsp" %>
 <script> $(document).ready(function() {
 			datapickerInit('dataNascitaInput');
-			closeModalOutside();
+			closeLogInOutside();
+			closeSignInOutside();
 		}) </script>
 <div class="main" >
 	<script src="code.js" ></script>
@@ -53,7 +54,7 @@
 				<optgroup label="tag"></optgroup>
 				<optgroup label="carraterisiche"></optgroup>
 			</select>
-  			<input type="text" name="cerca" class="cerca ajax-typeahead" id="cerca" autocomplete="off">
+  			<input type="text" name="cerca" class="cerca ajax-typeahead" id="cerca" autocomplete="off" placeholder="Cosa stai cercando...">
 			<button type="submit" class="buttonRicerca"><i class="fas fa-search"></i></button>
 		</form>
 	</div>

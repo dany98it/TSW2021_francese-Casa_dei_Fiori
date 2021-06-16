@@ -22,10 +22,14 @@ body{
 	display: none;
 }
 .formRicerca {
-	padding: 0 10%;
+	padding: 0 5% 1%;
 	display: flex;
 }
+
+/*Da adattare alla grandezza della scritta*/
 .selectRicerca{
+	font-weight: bolder;
+	background-color:rgba(250,143,108,1);
 	display: inline-block;
 	border-top-left-radius: 10px;
 	border-bottom-left-radius: 10px;
@@ -48,6 +52,9 @@ body{
 	margin-bottom: 0 !important;
 }
 .buttonRicerca{
+	font-size: 1.5em;
+	color:rgba(250,143,108,1);
+	background-color:rgba(250,143,108,1);
 	display: inline-block;
 	border-top-right-radius: 10px;
 	border-bottom-right-radius: 10px;
@@ -102,7 +109,6 @@ body{
   	padding-top:7px;
   	padding-bottom:7px;
 	position: relative;
-	text-align: center;
 	color: black;
 	cursor: pointer;
 	border-left: none;	
@@ -132,9 +138,9 @@ body{
 /* Modal Content/Box */
 .modal-content1 {
 	background-color: #fefefe;
-  	position: absolute;
+  	position: relative;
   	top: 40%;
-  	left: 50%;
+  	left: 35%;
   	transform: translate(-50%, -50%);
   	background: white;
   	border-radius: 1em;
@@ -1375,6 +1381,8 @@ span.twitter-typeahead .tt-suggestion:last-child {
 	}
 	
 	.modal-content1{
+		left: 40%;
+		overflow: auto;
 		top: 40%;
 		width: 80%;
 		height: 70%;
@@ -1482,7 +1490,7 @@ span.twitter-typeahead .tt-suggestion:last-child {
 }
 @media screen and (max-width: 480px) {
 	.modal-content1{
-		left: 50%;
+		left: 35%;
 		top: 40%;
 		width: 70%;
 		height: 70%;
@@ -1509,7 +1517,6 @@ span.twitter-typeahead .tt-suggestion:last-child {
 		top: 25%;
 		width: 90%;
 		height: 70%;
-		overflow: scroll;
 		}
 		
 	.itemListing{
