@@ -29,7 +29,7 @@ private static DataSource ds;
 	
 	private static final String TABLE_NAME = "mostra_img";
 	@Override
-	public void doSave(Mostra t) throws SQLException {
+	public synchronized void doSave(Mostra t) throws SQLException {
 		Connection connection = null;
 		PreparedStatement preparedStatement = null;
 		String insertSQL = "INSERT INTO " + MostraDAO.TABLE_NAME

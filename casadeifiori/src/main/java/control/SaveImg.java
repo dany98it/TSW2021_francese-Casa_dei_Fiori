@@ -14,6 +14,7 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
 import jakarta.servlet.http.Part;
 import model.Immagine;
 import model.ImmagineDAO;
@@ -24,9 +25,7 @@ import model.MostraDAO;
  * Servlet implementation class SaveImg
  */
 @WebServlet(name = "saveImg", urlPatterns = { "/saveImg" })
-@MultipartConfig(fileSizeThreshold = 1024*1024*2,
-					maxFileSize = 1024*1024*10,
-					maxRequestSize = 1024*10241*50)
+@MultipartConfig(fileSizeThreshold = 1024*1024*2)
 public class SaveImg extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
@@ -50,20 +49,34 @@ public class SaveImg extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		int x=10;
+		HttpSession sessione = request.getSession(true);
+		int x;
+		synchronized (sessione) {
+			x=(int) sessione.getAttribute("idItem");
+			if(x==0) {
+				return;
+			}
+		}
 		for (Part part : request.getParts()) {
 			ImmagineDAO imgDAO=new ImmagineDAO();
 			int y;
 			try {
 				y = imgDAO.doGetMaxItemId()+1;
 				Immagine img=new Immagine(y, part.getInputStream(), part.getSubmittedFileName());
-				imgDAO.doSave(img);
+				synchronized (sessione) {
+					imgDAO.doSave(img);	
+				}
+				
+				Thread.sleep(1000);
 				Mostra m=new Mostra();
 				MostraDAO mDao=new MostraDAO();
 				m.setImmagine(y);
 				m.setItem(x);
 				mDao.doSave(m);
 			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} catch (InterruptedException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}

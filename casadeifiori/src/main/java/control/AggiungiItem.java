@@ -16,7 +16,9 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
 import jakarta.servlet.http.Part;
+import model.Carrello;
 import model.Immagine;
 import model.ImmagineDAO;
 import model.Item;
@@ -24,6 +26,7 @@ import model.ItemDAO;
 import model.Mostra;
 import model.MostraDAO;
 import model.TipoItem;
+import model.User;
 
 /**
  * Servlet implementation class AggiungiItem
@@ -50,6 +53,7 @@ public class AggiungiItem extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		HttpSession sessione = request.getSession(true);
 		ItemDAO itemDAO= new ItemDAO();
 		int x=0;
 		try {
@@ -67,6 +71,9 @@ public class AggiungiItem extends HttpServlet {
 				Integer.parseInt(request.getParameter("sconto")),
 				Integer.parseInt(request.getParameter("quantity")));
 		
+		synchronized (sessione) {
+			sessione.setAttribute("idItem", x);
+		}
 	
 		try {
 			itemDAO.doSave(item);

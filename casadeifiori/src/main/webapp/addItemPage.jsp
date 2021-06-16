@@ -63,7 +63,7 @@
 							</form>
 							<form id="formAddImg" class="formAddItemNotShow" action="saveImg" method="post" enctype="multipart/form-data">
 								<label for="img">immagini:</label><br>
-								<input type="file" id="img" name="img" accept="image/*" multiple="multiple" required="required"> <br>
+								<input type="file" id="img" name="img" accept="image/*" multiple="multiple" required="required" maxlength="4294967296"> <br>
 								<div id="selectedFiles"></div>
 								<input type="submit" value="Add"><input type="reset" value="Reset">
 							</form>

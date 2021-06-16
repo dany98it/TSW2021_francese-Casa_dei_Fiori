@@ -29,7 +29,7 @@ public class ImmagineDAO implements DaoInterfacce<Immagine, Integer> {
 	}
 	private static final String TABLE_NAME = "immagine";
 	@Override
-	public void doSave(Immagine t) throws SQLException {
+	public synchronized void doSave(Immagine t) throws SQLException {
 		Connection connection = null;
 		PreparedStatement preparedStatement = null;
 		String insertSQL = "INSERT INTO " + ImmagineDAO.TABLE_NAME
