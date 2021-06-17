@@ -12,7 +12,6 @@ import javax.naming.InitialContext;
 import javax.naming.NamingException;
 import javax.sql.DataSource;
 
-import com.mysql.cj.jdbc.Blob;
 
 public class ImmagineDAO {
 	private static DataSource ds;

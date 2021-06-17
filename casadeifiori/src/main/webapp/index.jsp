@@ -5,9 +5,7 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<meta charset="utf-8">
 		<title>Home</title>
-		<link rel=StyleSheet href="style.css" type="text/css">
-		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/foundation-datepicker/1.5.6/css/foundation-datepicker.min.css" integrity="sha512-5lktVuTJhNGY32sLX+Dd6fJIEyEwz94hkK6ZAItlvrO8vu6ejjFOO7ek1ovNPIXtT1e9Ev5KVljxFDW4w+nS5g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.css" integrity="sha512-aOG0c6nPNzGk+5zjwyJaoRUgCdOrfSDhmMID2u4+OIslr0GjpLKo7Xm0Ao3xmpM4T8AmIouRkqwj1nrdVsLKEQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+		<%@ include file="main/style.jsp" %>
 	</head>
 	<body>
 		<%@ include file="main/menuMobile.jsp" %>
@@ -19,13 +17,13 @@
 				<%@ include file="main/navigationBar.jsp"%>
 			</nav>
 			<div class="slideShowConteiner" >
-				<div class="slide fade" >
+				<div class="slide fade1" >
 					 <img src="img/Logo.png" style="width:100%">
 				</div>
-				<div class="slide fade">
+				<div class="slide fade1">
 					 <img src="img/logosenzascritta.png" style="width:100%">
 				</div>
-				<div class="slide fade">
+				<div class="slide fade1">
 					 <img src="img/logonew.png" style="width:100%">
 				</div>	
 				<a class="prev" onclick="plusSlides(-1)">&#10094;</a>

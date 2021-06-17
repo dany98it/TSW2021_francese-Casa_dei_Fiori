@@ -1,6 +1,5 @@
 package model;
 
-import java.io.InputStream;
 
 public class ImmagineRetrive {
 	private int id;

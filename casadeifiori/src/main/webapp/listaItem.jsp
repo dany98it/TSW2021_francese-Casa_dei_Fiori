@@ -12,9 +12,7 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<meta http-equiv="Content-Type" content="text/html; utf-8">
 		<title>Casa dei Fiori</title>
-		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css" />
-		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.css"  />
-		<link rel=StyleSheet href="style.css" type="text/css">
+		<%@ include file="main/style.jsp" %>
 	</head>
 	<body>
 		<%@ include file="main/menuMobile.jsp" %>
