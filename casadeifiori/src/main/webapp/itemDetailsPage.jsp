@@ -10,13 +10,14 @@
 <!DOCTYPE html>
 <html lang="it">
 	<head>
+		
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 		<meta charset="utf-8">
 		<title>Dettagli Item</title>
-		<link rel=StyleSheet href="style.css" type="text/css">
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css"  />
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.css" />
+		<link rel=StyleSheet href="style.css" type="text/css">
 	</head>
 	<body>
 		<%@ include file="main/menuMobile.jsp" %>

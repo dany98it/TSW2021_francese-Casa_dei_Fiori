@@ -472,10 +472,17 @@ form .wrap-LogInBtn{
 	text-decoration: none;
 }
 
-.itemCardImgInfoInner .itemCardProductName  a:hover {
+.itemCardImgInfoInner .itemCardProductName a:hover {
 	color: rgba(250,143,108,1);
 	font-weight: bolder;
-	text-decoration: none;
+	text-decoration: none !important;
+}
+
+.itemCardImgInfoInnerLink:hover{
+	
+	color: rgba(250,143,108,1);
+	font-weight: bolder;
+	text-decoration: none !important;
 }
 
 .itemCardImgInfoInner .itemCardProductName a:focus{
