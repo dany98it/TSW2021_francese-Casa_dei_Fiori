@@ -61,7 +61,7 @@ public class Search extends HttpServlet {
 			}
 		}else if (tagq!=null||tagq=="") {
 			try {
-				response.getWriter().write(gson.toJson(tagDAO.doRetrieveByName(tagq)));
+				response.getWriter().write(gson.toJson(tagDAO.doRetrieveName(tagq)));
 			} catch (IOException | SQLException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();

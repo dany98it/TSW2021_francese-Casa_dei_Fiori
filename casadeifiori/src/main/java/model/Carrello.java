@@ -2,6 +2,7 @@ package model;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Locale;
 
 
 public class Carrello {
@@ -76,7 +77,7 @@ public class Carrello {
 		for (ItemCarrello itemCarrello : itemsOrdinati) {
 			costoTotale += itemCarrello.getCostoTotale();
 		}
-		return costoTotale;
+		return Double.parseDouble(String.format(Locale.ENGLISH,"%.2f", costoTotale));
 	}
 
 }

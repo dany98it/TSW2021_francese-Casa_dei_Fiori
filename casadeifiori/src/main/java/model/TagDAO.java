@@ -199,7 +199,40 @@ private static DataSource ds;
 		}
 		return tag;
 	}
-	public synchronized Object[] doRetrieveByName(String code) throws SQLException {
+	public Tag doRetrieveByName (String code) throws SQLException {
+		Connection connection = null;
+		PreparedStatement preparedStatement = null;
+
+		Tag bean = new Tag();
+
+		String selectSQL = "SELECT * FROM " + TagDAO.TABLE_NAME + " WHERE nome = ?";
+
+		try {
+			connection = ds.getConnection();
+			connection.setAutoCommit(false);
+			preparedStatement = connection.prepareStatement(selectSQL);
+			preparedStatement.setString(1, code);
+
+			ResultSet rs = preparedStatement.executeQuery();
+			connection.commit();
+			while (rs.next()) {
+				bean.setId(rs.getInt("id"));
+				bean.setNome(rs.getString("nome"));
+				bean.setDescrizione(rs.getString("descrizione"));
+			}
+
+		} finally {
+			try {
+				if (preparedStatement != null)
+					preparedStatement.close();
+			} finally {
+				if (connection != null)
+					connection.close();
+			}
+		}
+		return bean;
+	}
+	public synchronized Object[] doRetrieveName(String code) throws SQLException {
 		Connection connection = null;
 		PreparedStatement preparedStatement = null;
 

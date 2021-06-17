@@ -1,14 +1,14 @@
 package model;
 
-public class Inclusione {
+public class InclusioneTag {
     private int item;
     private int tag;
  
-    public Inclusione() {
+    public InclusioneTag() {
     	super();
     }
 
-	public Inclusione(int item, int tag) {
+	public InclusioneTag(int item, int tag) {
 		super();
 		this.item = item;
 		this.tag = tag;

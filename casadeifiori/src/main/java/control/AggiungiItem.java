@@ -15,8 +15,12 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
+import model.InclusioneTag;
+import model.InclusioneTagDAO;
 import model.Item;
 import model.ItemDAO;
+import model.Tag;
+import model.TagDAO;
 import model.TipoItem;
 
 /**
@@ -65,7 +69,19 @@ public class AggiungiItem extends HttpServlet {
 		synchronized (sessione) {
 			sessione.setAttribute("idItem", x);
 		}
-	
+		String[] tag=request.getParameter("tag").split(",");
+		for (String string : tag) {
+			TagDAO tDao=new TagDAO();
+			try {
+				Tag t= tDao.doRetrieveByName(string);
+				InclusioneTag it=new InclusioneTag(x, t.getId());
+				InclusioneTagDAO itDao=new InclusioneTagDAO();
+				itDao.doSave(it);
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
 		try {
 			itemDAO.doSave(item);
 		} catch (Exception e) {

@@ -1,5 +1,7 @@
 package model;
 
+import java.util.Locale;
+
 public class ItemCarrello {
 	private Item item;
 	private int quantita;
@@ -33,6 +35,6 @@ public class ItemCarrello {
 	}
 	
 	public double getCostoTotale() {
-		return(this.item.calcolaPrezzo()*quantita);
+		return Double.parseDouble(String.format(Locale.ENGLISH,"%.2f", (this.item.calcolaPrezzo()*quantita)));
 	}
 }
