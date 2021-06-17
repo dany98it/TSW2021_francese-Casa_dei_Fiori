@@ -66,7 +66,14 @@
 								<option value="<%= x %>"> <%= x %> </option>
 							<%} %>
 						</select> <br>
-						<button onclick="addCart(<%= i.getId() %>,$('#quantityItem').val())">Aggiungi al carrello</button>		
+						
+						<% if(i.getQuantita()>0) { %>
+						<button onclick="addCart(<%= i.getId() %>,$('#quantityItem').val())">Aggiungi al carrello</button>
+						<% } else{%>
+							<div>
+								<p>Prodotto non disponibile al momento</p>
+							</div>
+						<% }%>
 					</div>
 				</div>
 			</div>

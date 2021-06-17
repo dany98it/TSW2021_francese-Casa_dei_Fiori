@@ -365,6 +365,7 @@ form .wrap-LogInBtn{
 
 .itemCard:hover .itemCardImgInfoInner {
   bottom: 155px;
+  text-decoration: none;
 }
 
 .itemCard:hover .a-size {
@@ -446,11 +447,13 @@ form .wrap-LogInBtn{
 
 .itemCardImgInfoInner .itemCardProductName {
   display: block;
+  text-decoration: none;
 }
 
 .itemCardImgInfoInner .itemCardProductName {
   font-size: 1.3em;
   color: #252525;
+  text-decoration: none;
 }
 
 .itemCardCart {
@@ -472,6 +475,13 @@ form .wrap-LogInBtn{
 .itemCardImgInfoInner .itemCardProductName  a:hover {
 	color: rgba(250,143,108,1);
 	font-weight: bolder;
+	text-decoration: none;
+}
+
+.itemCardImgInfoInner .itemCardProductName a:focus{
+	color: rgba(250,143,108,1);
+	font-weight: bolder;
+	text-decoration: none;
 }
 
 .itemCardCart .itemCardPrice {
@@ -869,54 +879,6 @@ form .wrap-LogInBtn{
   width: 100%;
 }
 
-@media screen and (max-width: 640px) {
-  .basket aside,
-  .basket,
-  .summary,
-  .item,
-  .remove {
-    width: 100%;
-  }
-  .basket-labels {
-    display: none;
-  }
-  .basket-module {
-    margin-bottom: 1rem;
-  }
-  .item {
-    margin-bottom: 1rem;
-  }
-  .product-image {
-    width: 40%;
-  }
-  .product-details {
-    width: 60%;
-  }
-  .price,
-  .subtotal {
-    width: 33%;
-  }
-  .quantity {
-    text-align: center;
-    width: 34%;
-  }
-  .quantity-field {
-    float: none;
-  }
-  .remove {
-    bottom: 0;
-    text-align: left;
-    margin-top: 0.75rem;
-    position: relative;
-  }
-  .remove button {
-    padding: 0;
-  }
-  .summary {
-    margin-top: 1.25rem;
-    position: relative;
-  }
-}
 
 @media screen and (min-width: 641px) and (max-width: 960px) {
   .basket aside {
@@ -1486,7 +1448,53 @@ span.twitter-typeahead .tt-suggestion:last-child {
 	}
 	.formsAddItem{
 	padding-right: 5%
-}
+	}
+	.basket aside,
+  .basket,
+  .summary,
+  .item,
+  .remove {
+    width: 100%;
+  }
+  .basket-labels {
+    display: none;
+  }
+  .basket-module {
+    margin-bottom: 1rem;
+  }
+  .item {
+    margin-bottom: 1rem;
+  }
+  .product-image {
+    width: 40%;
+  }
+  .product-details {
+    width: 60%;
+  }
+  .price,
+  .subtotal {
+    width: 33%;
+  }
+  .quantity {
+    text-align: center;
+    width: 34%;
+  }
+  .quantity-field {
+    float: none;
+  }
+  .remove {
+    bottom: 0;
+    text-align: left;
+    margin-top: 0.75rem;
+    position: relative;
+  }
+  .remove button {
+    padding: 0;
+  }
+  .summary {
+    margin-top: 1.25rem;
+    position: relative;
+  }
 }
 @media screen and (max-width: 480px) {
 	.modal-content1{

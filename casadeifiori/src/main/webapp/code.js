@@ -52,6 +52,17 @@ function addShop(id,quantitymax) {
 	}
 }
 
+function removeFromCart(id){
+	var quantity=0
+	console.log(quantity)
+	if(quantity<=0){
+		window.location.href ="addCart?itemID="+id+"&numItems="+quantity+"&page=cartPage.jsp";
+	}else{
+		document.getElementById("errorQ").style.display="block";
+		document.getElementById("acquista").style.display="none";
+	}
+}
+
 //funzioni che servono a nascondere e allo stesso tempo far vedere la password
 function showPassword(inpsw,none,inline){
 	var bar = document.getElementById(inpsw);

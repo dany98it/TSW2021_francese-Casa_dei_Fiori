@@ -68,8 +68,9 @@
           </div>
         </div>
         <div class="price"><%=bean.getItem().calcolaPrezzo()%></div>
-        <div class="quantity">
-        	<select  onchange="addShop(<%=bean.getItem().getId() %>,<%= bean.getItem().getQuantita() %>);" class="quantity" name="quantity" id="<%="quantity"+bean.getItem().getId() %>">
+        <div class="cartItemQuantity">
+        	<select  onchange="addShop(<%=bean.getItem().getId() %>,<%= bean.getItem().getQuantita() %>);"
+        	class="quantity" name="quantity" id="<%="quantity"+bean.getItem().getId() %>">
 						<% for(int x=0;x<=bean.getItem().getQuantita();x++){ %>
 							<option value="<%= x %>" 
 								<%if(x==bean.getQuantita()||(x==bean.getItem().getQuantita()&&x<bean.getQuantita())){%>
@@ -81,10 +82,12 @@
         </div>
         <div class="subtotal"><%= bean.getCostoTotale()%></div>
         <div class="remove">
-          <button>Remove</button>
+          <button onclick="removeFromCart(<%=bean.getItem().getId() %>,<%= bean.getItem().getQuantita() %>);">Remove</button>
         </div>
       </div>
-      <% }}else{} %>
+      <% }}else{%>
+    	  <div class="basket-product"><p>Il carrello è vuoto </p></div>
+      <%} %>
     </div>
     <aside>
       <div class="summary">
@@ -99,11 +102,10 @@
         </div>
         <div class="summary-delivery">
           <select name="delivery-collection" class="summary-delivery-selection">
-              <option value="0" selected="selected">Seleziona tipo di spedizione</option>
-             <option value="collection">Collection</option>
-             <option value="first-class">Royal Mail 1st Class</option>
-             <option value="second-class">Royal Mail 2nd Class</option>
-             <option value="signed-for">Royal Mail Special Delivery</option>
+              <option value="0" selected="selected">Seleziona il tipo di servizio</option>
+             <option value="first-class">Ritiro Locale </option>
+             <option value="second-class">Consegna Locale</option>
+             <option value="signed-for">Spedizione </option>
           </select>
         </div>
         <div class="summary-total">
@@ -113,7 +115,7 @@
         <div class="basket-module">
         <label for="promo-code">Codice Promozionale</label>
         <input id="promo-code" type="text" name="promo-code" maxlength="5" class="promo-code-field">
-        <button class="promo-code-cta">Apply</button>
+        <button class="promo-code-cta">Applica</button>
       </div>
         <div class="summary-checkout">
           <button class="checkout-cta">Checkout</button>

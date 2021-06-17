@@ -46,25 +46,39 @@
 					<img alt="itemCarrello" class="itemCardImg" src="img/fiori2.jpg" height="200px"></a>
 						<div class="itemCardImgInfo">
 							<div class="itemCardImgInfoInner">
-								<span class="itemCardProductName"><%= bean.getNome()%></span>
+								<a href="MostraDettagliItem?itemID=<%=bean.getId()%>"><span class="itemCardProductName"><%= bean.getNome()%></span></a>
 							</div>
 						</div>
 				</div>
-				<div class="box-down">
-          			<div class="h-bg">
-            			<div class="h-bg-inner"></div>
-          			</div>
+				
           			
-          			<a class="itemCardCart" href="javascript:addCart(<%=bean.getId()%>,1)">
-            			<span class="itemCardPrice"><%= bean.calcolaPrezzo() %> <i class="fas fa-cart-plus iconCart"></i></span>
-            			<span class="itemCardAddCart">
-              			<span class="itemCardAddCartText">Aggiungi</span>
-            			</span>
-          			</a>
-				</div>
-			</div>
+          			<% if(bean.getQuantita()>0) { %>
+							 <div class="box-down">
+          						<div class="h-bg">
+            						<div class="h-bg-inner"></div>
+          						</div>
+          					<a class="itemCardCart" href="javascript:addCart(<%=bean.getId()%>,1)">
+            					<span class="itemCardPrice"><%= bean.calcolaPrezzo() %> <i class="fas fa-cart-plus iconCart"></i></span>
+            					<span class="itemCardAddCart">
+              					<span class="itemCardAddCartText">Aggiungi</span>
+            					</span>
+          					</a>
+          					</div>
+						<% } else{%>
+							<div class="box-down">
+          						<div class="h-bg">
+            						<div class="h-bg-inner"></div>
+          						</div>
+          					<div class="itemCardCart" href="">
+          						<span class="itemCardPrice">Esaurito</span>
+            					<span class="itemCardAddCart">
+              					<span class="itemCardAddCartText">Non dispoibile</span>
+            					</span>
+    						</div>
+						</div>
+						<% }%>
+					</div>
 			<% }} %>
-		</div>
 		</div>
 			<footer>
 				<%@ include file="main/footer.jsp" %>
