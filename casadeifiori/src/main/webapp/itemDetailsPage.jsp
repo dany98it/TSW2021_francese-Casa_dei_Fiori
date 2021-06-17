@@ -2,7 +2,7 @@
 <%@page import="model.*"%>
 <%
 	Item i = (Item) request.getAttribute("item");
-	ArrayList<String> galleriaItem = (ArrayList<String>) request.getAttribute("galleriaItem");
+	ArrayList<Integer> galleriaItem = (ArrayList<Integer>) request.getAttribute("galleriaItem");
     if(i==null){
     	response.sendRedirect("./MostraItem");	
     	return;
@@ -11,6 +11,7 @@
 <html lang="it">
 	<head>
 		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 		<meta charset="utf-8">
 		<title>Dettagli Item</title>
 		<link rel=StyleSheet href="style.css" type="text/css">
@@ -30,15 +31,23 @@
 			<div class="contenerSuperiore">
 				<div>
 					<div id="galleriaItem" class="galleria">
-						<% for(String img: galleriaItem){%>
-						
 						<div id="imgXL"class="w3-content" style="max-width:1200px">
+							<% int count=1;
+								for(Integer img: galleriaItem){%>
+								<img class="mySlides" src="mostraImg?imgID=<%=img%>" style="width:100%;
+								<%if(count!=1){%>
+									<%="display:none"%>
+								<%}%>">
+							<% count++; }%>
     						<div id="listimg" class="w3-row-padding w3-section">
-    							<img alt="" src="<%= img %>">
+    						<% int count1=1;
+    							for(Integer img: galleriaItem){%>
+								<div class="w3-col s4">
+									<img class="demo w3-opacity w3-hover-opacity-off" src="mostraImg?imgID=<%=img%>" style="width:100%;cursor:pointer" onclick="currentDiv(<%=count1%>)">
+								</div>
+							<% count1++; }%>
 							</div>
 						</div>
-						<% }
-						%>
 					</div>
 					<h6>caratterisiche</h6>
 					<div id="caratterisicheItem" class="caratterisiche"></div>

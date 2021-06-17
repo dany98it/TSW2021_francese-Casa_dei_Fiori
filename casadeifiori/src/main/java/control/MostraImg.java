@@ -1,6 +1,7 @@
 package control;
 
 import java.io.IOException;
+import java.io.OutputStream;
 /*import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -9,31 +10,24 @@ import javax.servlet.http.HttpServletResponse;*/
 import java.sql.SQLException;
 
 import jakarta.servlet.ServletException;
-import jakarta.servlet.annotation.MultipartConfig;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import jakarta.servlet.http.HttpSession;
-import jakarta.servlet.http.Part;
 import model.ImmagineDAO;
-import model.ImmagineSave;
-import model.Mostra;
-import model.MostraDAO;
+import model.ImmagineRetrive;
 
 /**
- * Servlet implementation class SaveImg
+ * Servlet implementation class MostraImg
  */
-@WebServlet(name = "saveImg", urlPatterns = { "/saveImg" })
-@MultipartConfig(fileSizeThreshold = 1024*1024*2,
-					maxFileSize = 16177216)
-public class SaveImg extends HttpServlet {
+@WebServlet(name = "mostraImg", urlPatterns = { "/mostraImg" })
+public class MostraImg extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
     /**
      * Default constructor. 
      */
-    public SaveImg() {
+    public MostraImg() {
         // TODO Auto-generated constructor stub
     }
 
@@ -42,7 +36,19 @@ public class SaveImg extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		doGet(request, response);
+		int imgID = Integer.valueOf(request.getParameter("imgID"));
+		ImmagineDAO iDao=new ImmagineDAO();
+		try {
+			ImmagineRetrive i=iDao.doRetrieveByKey(imgID);
+			response.setContentType(i.getDescrizione());
+			OutputStream os=response.getOutputStream();
+			os.write(i.getImg());
+			os.flush();
+			os.close();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 
 	/**
@@ -50,33 +56,7 @@ public class SaveImg extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		HttpSession sessione = request.getSession(true);
-		int x;
-		synchronized (sessione) {
-			x=(int) sessione.getAttribute("idItem");
-			if(x==0) {
-				return;
-			}
-		}
-		for (Part part : request.getParts()) {
-			ImmagineDAO imgDAO=new ImmagineDAO();
-			int y;
-			try {
-				synchronized (sessione){
-					y = imgDAO.doGetMaxItemId()+1;
-					ImmagineSave img=new ImmagineSave(y, part.getInputStream(), part.getContentType());
-					imgDAO.doSave(new ImmagineSave(y, null, null));	
-					imgDAO.doUpdate(img);
-					Mostra m=new Mostra();
-					MostraDAO mDao=new MostraDAO();
-					m.setImmagine(y);
-					m.setItem(x);
-					mDao.doSave(m);
-				}
-			} catch (SQLException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-		}
+		doGet(request, response);
 	}
+
 }

@@ -49,9 +49,9 @@ public class MostraDettagliItem extends HttpServlet {
 				Item i = new Item();
 				i = iDao.doRetrieveByKey(Integer.parseInt(itemID));
 				LinkedList<Mostra> m=(LinkedList<Mostra>) mdao.doRetrieveAllByItem(Integer.parseInt(itemID));
-				ArrayList<String> imgs=new ArrayList<>();
+				ArrayList<Integer> imgs=new ArrayList<>();
 				for (Mostra mostra : m) {
-					imgs.add("data:image/jpg;base64,"+imDao.doRetrieveByKey(mostra.getImmagine()).imgConvert());
+					imgs.add(imDao.doRetrieveByKey(mostra.getImmagine()).getId());
 				}
 				request.setAttribute("item", i);
 				request.setAttribute("galleriaItem", imgs);

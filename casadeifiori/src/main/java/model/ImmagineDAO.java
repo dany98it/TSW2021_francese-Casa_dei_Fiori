@@ -12,7 +12,9 @@ import javax.naming.InitialContext;
 import javax.naming.NamingException;
 import javax.sql.DataSource;
 
-public class ImmagineDAO implements DaoInterfacce<Immagine, Integer> {
+import com.mysql.cj.jdbc.Blob;
+
+public class ImmagineDAO {
 	private static DataSource ds;
 	
 	static {
@@ -27,8 +29,8 @@ public class ImmagineDAO implements DaoInterfacce<Immagine, Integer> {
 		}
 	}
 	private static final String TABLE_NAME = "immagine";
-	@Override
-	public synchronized void doSave(Immagine t) throws SQLException {
+
+	public synchronized void doSave(ImmagineSave t) throws SQLException {
 		Connection connection = null;
 		PreparedStatement preparedStatement = null;
 		String insertSQL = "INSERT INTO " + ImmagineDAO.TABLE_NAME
@@ -54,7 +56,7 @@ public class ImmagineDAO implements DaoInterfacce<Immagine, Integer> {
 			}
 		}
 	}
-	@Override
+
 	public boolean doDelete(Integer code) throws SQLException {
 		Connection connection = null;
 		PreparedStatement preparedStatement = null;
@@ -83,8 +85,8 @@ public class ImmagineDAO implements DaoInterfacce<Immagine, Integer> {
 		}
 		return result;
 	}
-	@Override
-	public int doUpdate(Immagine t) throws SQLException {
+
+	public int doUpdate(ImmagineSave t) throws SQLException {
 		Connection connection = null;
 		PreparedStatement preparedStatement = null;
 
@@ -92,8 +94,8 @@ public class ImmagineDAO implements DaoInterfacce<Immagine, Integer> {
 
 		String updateSQL = "UPDATE " + ImmagineDAO.TABLE_NAME + " SET  "
 				+ "img =  ? ,"
-				+ "descrizione = ? ,"
-				+ " "+ "id = ? ";
+				+ "descrizione = ? "
+				+ "WHERE "+ "id = ? ";
 
 		try {
 			connection = ds.getConnection();
@@ -118,12 +120,12 @@ public class ImmagineDAO implements DaoInterfacce<Immagine, Integer> {
 		}
 		return result;
 	}
-	@Override
-	public Immagine doRetrieveByKey(Integer code) throws SQLException {
+
+	public ImmagineRetrive doRetrieveByKey(Integer code) throws SQLException {
 		Connection connection = null;
 		PreparedStatement preparedStatement = null;
 
-		Immagine bean = new Immagine();
+		ImmagineRetrive bean = new ImmagineRetrive();
 
 		String selectSQL = "SELECT * FROM " + ImmagineDAO.TABLE_NAME + " WHERE id = ?";
 
@@ -137,7 +139,8 @@ public class ImmagineDAO implements DaoInterfacce<Immagine, Integer> {
 			connection.commit();
 			while (rs.next()) {
 				bean.setId(rs.getInt("id"));
-				bean.setImg(rs.getBlob("img").getBinaryStream());
+				java.sql.Blob b=rs.getBlob("img");
+				bean.setImg(b.getBytes(1, (int) b.length()));
 				bean.setDescrizione(rs.getString("descrizione"));
 			}
 
@@ -152,12 +155,12 @@ public class ImmagineDAO implements DaoInterfacce<Immagine, Integer> {
 		}
 		return bean;
 	}
-	@Override
-	public Collection<Immagine> doRetrieveAll(String order) throws SQLException {
+
+	public Collection<ImmagineRetrive> doRetrieveAll(String order) throws SQLException {
 		Connection connection = null;
 		PreparedStatement preparedStatement = null;
 
-		Collection<Immagine> immagine = new LinkedList<Immagine>();
+		Collection<ImmagineRetrive> immagine = new LinkedList<ImmagineRetrive>();
 
 		String selectSQL = "SELECT * FROM " + ImmagineDAO.TABLE_NAME;
 
@@ -173,9 +176,10 @@ public class ImmagineDAO implements DaoInterfacce<Immagine, Integer> {
 			ResultSet rs = preparedStatement.executeQuery();
 			connection.commit();
 			while (rs.next()) {
-				Immagine bean = new Immagine();
+				ImmagineRetrive bean = new ImmagineRetrive();
 				bean.setId(rs.getInt("id"));
-				bean.setImg(rs.getBlob("img").getBinaryStream());
+				java.sql.Blob b=rs.getBlob("img");
+				bean.setImg(b.getBytes(1, (int) b.length()));
 				bean.setDescrizione(rs.getString("descrizione"));
 				immagine.add(bean);
 			}

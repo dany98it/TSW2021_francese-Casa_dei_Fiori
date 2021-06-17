@@ -1,14 +1,12 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
 <html lang="it">
 	<head>
-		<link rel="stylesheet" href="/dist/mc-calendar.min.css" />
-		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<meta charset="utf-8">
 		<title>Home</title>
-		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/foundation-datepicker/1.5.6/css/foundation-datepicker.min.css" integrity="sha512-5lktVuTJhNGY32sLX+Dd6fJIEyEwz94hkK6ZAItlvrO8vu6ejjFOO7ek1ovNPIXtT1e9Ev5KVljxFDW4w+nS5g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 		<link rel=StyleSheet href="style.css" type="text/css">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/foundation-datepicker/1.5.6/css/foundation-datepicker.min.css" integrity="sha512-5lktVuTJhNGY32sLX+Dd6fJIEyEwz94hkK6ZAItlvrO8vu6ejjFOO7ek1ovNPIXtT1e9Ev5KVljxFDW4w+nS5g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.css" integrity="sha512-aOG0c6nPNzGk+5zjwyJaoRUgCdOrfSDhmMID2u4+OIslr0GjpLKo7Xm0Ao3xmpM4T8AmIouRkqwj1nrdVsLKEQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 	</head>
 	<body>
