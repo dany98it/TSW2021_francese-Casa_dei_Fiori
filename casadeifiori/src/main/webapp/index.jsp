@@ -8,6 +8,7 @@
 		<%@ include file="main/style.jsp" %>
 	</head>
 	<body>
+		<%@ include file="main/script.jsp" %>
 		<%@ include file="main/menuMobile.jsp" %>
 		<div class="main" >
 			<header >
@@ -66,7 +67,6 @@
 					</div>
 				</div>
 			</div>
-		<script src="https://apps.elfsight.com/p/platform.js" defer></script>
 		<div id="instagram-feed1" class="instagram_feed"></div>
 		
 		<div class="elfsight-app-2eb02534-3e98-4e11-bbdd-c5f7ffcb5941"></div>
@@ -75,11 +75,6 @@
 				<%@ include file="main/footer.jsp" %>
 			</footer>
 		</div>
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-		<script src="https://kit.fontawesome.com/46a2d5ed1b.js" ></script>
-		<script src="code.js" ></script>
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js" integrity="sha512-uto9mlQzrs59VwILcLiRYeLKPPbS/bT71da/OEBYEwcdNUk8jYIy+D176RYoop1Da+f9mvkYrmj5MCLZWEtQuA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 		<script> startShowSlides(); InstagramImg(); cerca(); </script>
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/foundation-datepicker/1.5.6/js/foundation-datepicker.min.js" integrity="sha512-PFxLo/1ToGLfmT9QwHsRsZGVGOxj1o86knAoAkGtShRhF2fB4GBCYZwelmGwoIPrarlWV3929M3Wt/IStCJ0Bg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 	</body>
 </html>

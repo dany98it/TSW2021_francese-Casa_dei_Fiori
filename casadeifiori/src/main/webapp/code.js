@@ -43,7 +43,6 @@ function closeMenuMobile2(){
 //funzione che permette di aumentare o diminuire la quantità del carrello
 function addShop(id,quantitymax) {
 	var quantity=document.getElementById("quantity"+id).value
-	console.log(quantity)
 	if(quantity<=quantitymax){
 		window.location.href ="addCart?itemID="+id+"&numItems="+quantity+"&page=cartPage.jsp";
 	}else{
@@ -54,7 +53,6 @@ function addShop(id,quantitymax) {
 
 function removeFromCart(id){
 	var quantity=0
-	console.log(quantity)
 	if(quantity<=0){
 		window.location.href ="addCart?itemID="+id+"&numItems="+quantity+"&page=cartPage.jsp";
 	}else{
@@ -406,7 +404,6 @@ function cerca(){
 			return $.getJSON(
                 'Search?itemq='+query.term,
                 function (data) {
-                    console.log(data)
                     return process(data);
 				}
 			)

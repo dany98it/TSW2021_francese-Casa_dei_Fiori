@@ -12,6 +12,7 @@
 		<%@ include file="main/style.jsp" %>
 	</head>
 	<body>
+		<%@ include file="main/script.jsp" %>
 		<%@ include file="main/menuMobile.jsp" %>
 		<div id="main">
 			<header>
@@ -61,9 +62,6 @@
 				<%@ include file="main/footer.jsp" %>
 			</footer>
 		</div>
-		<script src="https://kit.fontawesome.com/46a2d5ed1b.js" ></script>
-		<script src="code.js" ></script>
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js" integrity="sha512-uto9mlQzrs59VwILcLiRYeLKPPbS/bT71da/OEBYEwcdNUk8jYIy+D176RYoop1Da+f9mvkYrmj5MCLZWEtQuA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 		<script type="text/javascript"> cerca();</script>	
 	</body>
 </html>

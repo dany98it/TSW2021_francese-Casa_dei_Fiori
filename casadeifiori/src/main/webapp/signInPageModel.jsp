@@ -62,6 +62,3 @@
 				
 			</form>
 		</div>
-		<script src="https://kit.fontawesome.com/46a2d5ed1b.js" ></script>
-		<script src="code.js" ></script>
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>

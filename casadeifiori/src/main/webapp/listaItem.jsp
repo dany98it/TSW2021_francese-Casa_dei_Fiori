@@ -15,6 +15,7 @@
 		<%@ include file="main/style.jsp" %>
 	</head>
 	<body>
+		<%@ include file="main/script.jsp" %>
 		<%@ include file="main/menuMobile.jsp" %>
 		<div id="main">
 			<header>
@@ -78,15 +79,9 @@
 					</div>
 			<% }} %>
 		</div>
-			<footer>
-				<%@ include file="main/footer.jsp" %>
-			</footer>
-		
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha256-OFRAJNoaD8L3Br5lglV7VyLRf0itmoBzWUoM+Sji4/8=" crossorigin="anonymous"></script>
-		<script src="https://kit.fontawesome.com/46a2d5ed1b.js" ></script>
-		<script src="code.js" ></script>
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js" integrity="sha512-uto9mlQzrs59VwILcLiRYeLKPPbS/bT71da/OEBYEwcdNUk8jYIy+D176RYoop1Da+f9mvkYrmj5MCLZWEtQuA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+		<footer>
+			<%@ include file="main/footer.jsp" %>
+		</footer>
 		<script type="text/javascript"> cerca();</script>
 	</body>
 </html>
