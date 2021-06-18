@@ -308,7 +308,7 @@ public class ItemDAO implements DaoInterfacce<Item,Integer>{
 
 		ArrayList<SearchBean> item=new ArrayList<SearchBean>();
 
-		String selectSQL = "SELECT nome FROM " + ItemDAO.TABLE_NAME + " WHERE nome LIKE ?";
+		String selectSQL = "SELECT nome FROM " + ItemDAO.TABLE_NAME + " WHERE nome LIKE ? GROUP BY nome";
 
 		try {
 			connection = ds.getConnection();

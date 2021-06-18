@@ -238,7 +238,7 @@ private static DataSource ds;
 
 		ArrayList<SearchBean> tag=new ArrayList<SearchBean>();
 
-		String selectSQL = "SELECT nome FROM " + TagDAO.TABLE_NAME + " WHERE nome LIKE ?";
+		String selectSQL = "SELECT nome FROM " + TagDAO.TABLE_NAME + " WHERE nome LIKE ? GROUP BY nome";
 
 		try {
 			connection = ds.getConnection();

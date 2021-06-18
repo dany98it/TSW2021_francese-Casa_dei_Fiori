@@ -205,7 +205,7 @@ public class CaratteristicaDAO implements DaoInterfacce<Caratteristica, Integer>
 
 		ArrayList<SearchBean> caratteristica=new ArrayList<SearchBean>();
 
-		String selectSQL = "SELECT nome FROM " + CaratteristicaDAO.TABLE_NAME + " WHERE nome LIKE ?";
+		String selectSQL = "SELECT nome FROM " + CaratteristicaDAO.TABLE_NAME + " WHERE nome LIKE ? GROUP BY nome";
 
 		try {
 			connection = ds.getConnection();
