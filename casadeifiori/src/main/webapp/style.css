@@ -16,6 +16,21 @@ body{
 .formsAddItem{
 	padding-left: 5%
 }
+.infoItem{
+	display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+.tag{
+	margin: 0 0 0.6em 0;
+}
+.tagp{
+	display: inline-block;
+    background-color: #67F0BB;
+    border-radius: 1em;
+    padding: 1%;
+    margin: 0.3em 0.1em;
+}
 .menu{
 	font-size: 30px;
 	cursor: pointer;

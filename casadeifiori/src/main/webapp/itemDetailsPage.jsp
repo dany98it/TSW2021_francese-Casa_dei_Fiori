@@ -3,6 +3,7 @@
 <%
 	Item i = (Item) request.getAttribute("item");
 	ArrayList<Integer> galleriaItem = (ArrayList<Integer>) request.getAttribute("galleriaItem");
+	ArrayList<String> tag = (ArrayList<String>) request.getAttribute("tag");
     if(i==null){
     	response.sendRedirect("./MostraItem");	
     	return;
@@ -50,13 +51,17 @@
 					<h6>caratterisiche</h6>
 					<div id="caratterisicheItem" class="caratterisiche"></div>
 					<h6>tag</h6>
-					<div id="tagItem" class="tag"></div>
+					<div id="tagItem" class="tag">
+						<% for(String t: tag){%>
+							<p class="tagp"><%=t %></p>
+						<%}%>
+					</div>
 					<h6>descrizione</h6>
 					<div id="descrizioneItem" class="descrizione"><%= i.getDescrizione() %></div>
 				</div>
 				<div>
 					<div class="infoItem">
-						<h6>prezzo</h6>
+						<h3>Acquista</h3>
 						<div id="prezzoItem" class="prezzo"><%= i.calcolaPrezzo() %> &euro;</div>
 						<label for="quantity">Quantit&agrave; </label>
 						<select class="quantity" name="quantity" id="quantityItem">
@@ -64,9 +69,8 @@
 								<option value="<%= x %>"> <%= x %> </option>
 							<%} %>
 						</select> <br>
-						
 						<% if(i.getQuantita()>0) { %>
-						<button onclick="addCart(<%= i.getId() %>,$('#quantityItem').val())">Aggiungi al carrello</button>
+							<button onclick="addCart(<%= i.getId() %>,$('#quantityItem').val())">Aggiungi al carrello</button>
 						<% } else{%>
 							<div>
 								<p>Prodotto non disponibile al momento</p>

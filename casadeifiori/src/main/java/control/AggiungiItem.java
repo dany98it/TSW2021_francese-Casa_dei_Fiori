@@ -73,21 +73,21 @@ public class AggiungiItem extends HttpServlet {
 		synchronized (sessione) {
 			sessione.setAttribute("idItem", x);
 		}
-		String[] tag=request.getParameter("tag").split(",");
-		for (String string : tag) {
-			TagDAO tDao=new TagDAO();
-			try {
-				Tag t= tDao.doRetrieveByName(string);
-				InclusioneTag it=new InclusioneTag(x, t.getId());
-				InclusioneTagDAO itDao=new InclusioneTagDAO();
-				itDao.doSave(it);
-			} catch (SQLException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-		}
 		try {
 			itemDAO.doSave(item);
+			String[] tag=request.getParameter("tag").split(",");
+			for (String string : tag) {
+				TagDAO tDao=new TagDAO();
+				try {
+					Tag t= tDao.doRetrieveByName(string);
+					InclusioneTag it=new InclusioneTag(x, t.getId());
+					InclusioneTagDAO itDao=new InclusioneTagDAO();
+					itDao.doSave(it);
+				} catch (SQLException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			}
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace(response.getWriter());

@@ -18,10 +18,13 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import model.ImmagineDAO;
+import model.InclusioneTag;
+import model.InclusioneTagDAO;
 import model.Item;
 import model.ItemDAO;
 import model.Mostra;
 import model.MostraDAO;
+import model.TagDAO;
 
 /**
  * Servlet implementation class mostraDettagli
@@ -45,6 +48,8 @@ public class MostraDettagliItem extends HttpServlet {
 		ItemDAO iDao = new ItemDAO();
 		MostraDAO mdao=new MostraDAO();
 		ImmagineDAO imDao=new ImmagineDAO();
+		InclusioneTagDAO itDao=new InclusioneTagDAO();
+		TagDAO tDao=new TagDAO();
 		String itemID = request.getParameter("itemID");
 			try {
 				Item i = new Item();
@@ -54,8 +59,14 @@ public class MostraDettagliItem extends HttpServlet {
 				for (Mostra mostra : m) {
 					imgs.add(imDao.doRetrieveByKey(mostra.getImmagine()).getId());
 				}
+				LinkedList<InclusioneTag> it=(LinkedList<InclusioneTag>) itDao.doRetrieveAllByItem(Integer.parseInt(itemID));
+				ArrayList<String> tag=new ArrayList<>();
+				for (InclusioneTag inclusioneTag : it) {
+					tag.add(tDao.doRetrieveByKey(inclusioneTag.getTag()).getNome());
+				}
 				request.setAttribute("item", i);
 				request.setAttribute("galleriaItem", imgs);
+				request.setAttribute("tag", tag);
 				RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/itemDetailsPage.jsp");
 				dispatcher.forward(request, response);
 			} catch (NumberFormatException e) {
