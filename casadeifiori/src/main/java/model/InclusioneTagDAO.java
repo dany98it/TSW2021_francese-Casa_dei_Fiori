@@ -27,13 +27,13 @@ private static DataSource ds;
 		}
 	}
 	
-	private static final String TABLE_NAME = "mostra_img";
+	private static final String TABLE_NAME = "inclusione_tag";
 	@Override
 	public synchronized void doSave(InclusioneTag t) throws SQLException {
 		Connection connection = null;
 		PreparedStatement preparedStatement = null;
 		String insertSQL = "INSERT INTO " + InclusioneTagDAO.TABLE_NAME
-				+ " (`item`, `tag`) VALUES (?, ?)";
+				+ " (item, tag) VALUES (?, ?)";
 
 		try {
 			
