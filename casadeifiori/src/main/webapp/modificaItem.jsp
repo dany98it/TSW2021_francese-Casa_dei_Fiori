@@ -83,7 +83,7 @@
 								</div>
 								<div>
 									<div class="infoItem">
-										<h6>prezzo</h6>
+										<h3>Acquista</h3>
 										<div id="prezzoItem" class="prezzo"><%= i.calcolaPrezzo() %> &euro;</div>
 										<label for="quantity">Quantit&agrave; </label>
 										<select class="quantity" name="quantity" id="quantityItem">

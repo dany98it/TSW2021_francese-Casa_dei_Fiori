@@ -262,7 +262,7 @@ function prewiev(input,output){
 }
 
 function prewievTag(input,output){
-	$("#"+output).text($("#"+input).val().replace(/,/g," "))
+	$("#"+output).html("<p class=\"tagp\">"+$("#"+input).val().replace(/,/g,"</p><p class=\"tagp\">")+"</p>")
 }
 //Funzione del anteprima del prezzo
 function prewievPrezzo(output){
