@@ -238,24 +238,6 @@ function tagAutoComplite(){
 		}
 	});
 }
-
-var c = new Bloodhound({
-  	datumTokenizer: Bloodhound.tokenizers.obj.whitespace('value'),
-  	queryTokenizer: Bloodhound.tokenizers.whitespace,
-  	remote: {
-    	url: 'Search?cq=%QUERY',
-    	wildcard: '%QUERY'
-  	}
-});
-function cAutoComplite(){
-	$('#caratterisiche').tagsinput({
-		typeaheadjs: {
-			name: 'c',
-			display: 'value',
-			source: c
-		}
-	});
-}
 //Funzioni di anteprime del tag e delle caratteristiche
 function prewiev(input,output){
 	$("#"+output).text($("#"+input).val())
@@ -473,6 +455,29 @@ function datapickerInit(id){
 		closeIcon:'X',
 		closeButton: true
 	});
+}
+var nAddCaratterisica=0;
+function addCaratterisica(){
+	nAddCaratterisica++;
+	$.ajax({
+		"type":"GET",
+		"url":"cercaC",
+		dataType:"json",
+		"success":function(data){
+			html="<div class=\"divC\" id=\"divC"+nAddCaratterisica+"\">"
+				+"<select name=\"caratterisica\" class=\"caratterisica\">";
+			for(let i=0; i<data.length; i++){
+				html+="<option value="+data[i]["id"]+">"+data[i]["nome"]+"</option>";
+			}
+			html+="</select>"
+				+"<input class=\"caratterisicaValore\" name=\"caratterisicaValore\" type=\"text\" placeholder=\"valore\">"
+				+"<input type=\"button\" value=\"rimuovi\" onclick=\"removeCaratterisica('divC"+nAddCaratterisica+"')\">"
+				+"</div>"
+			$("#caratterisicheSection").append(html);
+		}});
+}
+function removeCaratterisica(id){
+	$("#"+id).remove()
 }
 /*function modCart(id,quantity){
 	$(".alert").alert('close');

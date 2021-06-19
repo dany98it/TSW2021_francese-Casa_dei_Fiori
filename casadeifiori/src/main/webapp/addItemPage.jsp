@@ -35,8 +35,10 @@
 								<textarea id="editortesto" name="description" placeholder="inserire descrizione"></textarea><br>
 								<label for="tag">tag:</label><input type="button" value="Crea tag" class="float-right" data-toggle="modal" data-target="#tagModal"><br> 
 								<input id="tag" name="tag" type="text" data-role="tagsinput"placeholder="tag,..." onchange="prewievTag('tag','tagItem')">
-								<label for="caratterisiche">caratterisiche:</label><input type="button" value="Crea caratterisica" class="float-right" data-toggle="modal" data-target="#caratterisicheModal"><br> 
-								<input id="caratterisiche" name="caratterisiche" type="text" data-role="tagsinput" placeholder="caratterisica:valore,..." onchange="prewievTag('caratterisiche','caratterisicheItem')">
+								<label for="caratterisiche">caratterisiche:</label>
+								<input type="button" value="aggiungi" class="float-right" onclick="addCaratterisica()">
+								<input type="button" value="Crea" class="float-right" data-toggle="modal" data-target="#caratterisicheModal"><br> 
+								<section id="caratterisicheSection"></section>
 								<label for="price">Prezzo:</label><br> 
 								<input id="price" name="price" type="text" pattern="[0-9]{1,}.[0-9]{2}" required onchange="prewievPrezzo('prezzoItem')"><br>	
 								<label for="iva">Iva:</label><br> 
@@ -65,11 +67,11 @@
 											</div>
 										</div>
 									</div>
-									<h6>caratterisiche</h6>
+									<h3>caratterisiche</h3>
 									<div id="caratterisicheItem" class="caratterisiche"></div>
-									<h6>tag</h6>
+									<h3>tag</h3>
 									<div id="tagItem" class="tag"></div>
-									<h6>descrizione</h6>
+									<h3>descrizione</h3>
 									<div id="descrizioneItem" class="descrizione"></div>
 								</div>
 								<div>
