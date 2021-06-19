@@ -40,5 +40,4 @@ public class Caratteristica {
 		this.descrizione = descrizione;
 	}
 
-	
 }

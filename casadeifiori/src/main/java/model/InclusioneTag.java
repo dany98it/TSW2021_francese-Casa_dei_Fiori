@@ -30,5 +30,4 @@ public class InclusioneTag {
 		this.tag = tag;
 	}
     
-	
 }

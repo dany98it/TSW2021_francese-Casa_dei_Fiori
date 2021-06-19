@@ -12,9 +12,8 @@ import javax.naming.InitialContext;
 import javax.naming.NamingException;
 import javax.sql.DataSource;
 
-
-public class ImmagineDAO {
-	private static DataSource ds;
+public class PosserdereCaratteristicaDAO implements DaoInterfacce<PossedereCaratteristica, PossedereCaratteristica>{
+private static DataSource ds;
 	
 	static {
 		try {
@@ -27,21 +26,24 @@ public class ImmagineDAO {
 			System.out.println("Error:" + e.getMessage());
 		}
 	}
-	private static final String TABLE_NAME = "immagine";
-
-	public synchronized void doSave(ImmagineSave t) throws SQLException {
+	
+	private static final String TABLE_NAME = "possedere_caratt";
+	@Override
+	public synchronized void doSave(PossedereCaratteristica t) throws SQLException {
 		Connection connection = null;
 		PreparedStatement preparedStatement = null;
-		String insertSQL = "INSERT INTO " + ImmagineDAO.TABLE_NAME
-				+ " (`img`, `descrizione`) VALUES (?, ?)";
+		String insertSQL = "INSERT INTO " + PosserdereCaratteristicaDAO.TABLE_NAME
+				+ " (item, cratterisitca, valore) VALUES (?, ?,?)";
 
 		try {
 			
 			connection = ds.getConnection();
 			connection.setAutoCommit(false);
 			preparedStatement = connection.prepareStatement(insertSQL);
-			preparedStatement.setBlob(1, t.getImg());
-			preparedStatement.setString(2, t.getDescrizione());
+			preparedStatement.setInt(1, t.getItem());
+			preparedStatement.setInt(2, t.getCaratteristica());
+			preparedStatement.setString(3, t.getValore());
+
 			preparedStatement.executeUpdate();
 
 			connection.commit();
@@ -54,21 +56,24 @@ public class ImmagineDAO {
 					connection.close();
 			}
 		}
+		
 	}
 
-	public boolean doDelete(Integer code) throws SQLException {
+	@Override
+	public boolean doDelete(PossedereCaratteristica code) throws SQLException {
 		Connection connection = null;
 		PreparedStatement preparedStatement = null;
 
 		boolean result ;
 
-		String deleteSQL = "DELETE FROM " + ImmagineDAO.TABLE_NAME + " WHERE id = ?";
+		String deleteSQL = "DELETE FROM " + PosserdereCaratteristicaDAO.TABLE_NAME + " WHERE item = ? AND cratterisitca = ?";
 
 		try {
 			connection = ds.getConnection();
 			connection.setAutoCommit(false);
 			preparedStatement = connection.prepareStatement(deleteSQL);
-			preparedStatement.setInt(1, code);
+			preparedStatement.setInt(1, code.getItem());
+			preparedStatement.setInt(2, code.getCaratteristica());
 
 			result = preparedStatement.execute();
 			
@@ -85,24 +90,23 @@ public class ImmagineDAO {
 		return result;
 	}
 
-	public int doUpdate(ImmagineSave t) throws SQLException {
-		Connection connection = null;
+	@Override
+	public int doUpdate(PossedereCaratteristica t) throws SQLException {
+		return 0;
+		/*Connection connection = null;
 		PreparedStatement preparedStatement = null;
 
 		int result ;
 
-		String updateSQL = "UPDATE " + ImmagineDAO.TABLE_NAME + " SET  "
-				+ "img =  ? ,"
-				+ "descrizione = ? "
-				+ "WHERE "+ "id = ? ";
+		String updateSQL = "UPDATE " + MostraDAO.TABLE_NAME + " SET  "
+				+ "item =  ? ,"
+				+ "immagine = ? ,"
+				+ "WHERE"+ "id = ? ";
 
 		try {
 			connection = ds.getConnection();
 			connection.setAutoCommit(false);
 			preparedStatement = connection.prepareStatement(updateSQL);
-			preparedStatement.setBlob(1, t.getImg());
-			preparedStatement.setString(2, t.getDescrizione());
-			preparedStatement.setInt(3, t.getId());
 			
 
 			result = preparedStatement.executeUpdate();
@@ -117,30 +121,31 @@ public class ImmagineDAO {
 					connection.close();
 			}
 		}
-		return result;
+		return result;*/
 	}
 
-	public ImmagineRetrive doRetrieveByKey(Integer code) throws SQLException {
+	@Override
+	public PossedereCaratteristica doRetrieveByKey(PossedereCaratteristica code) throws SQLException {
 		Connection connection = null;
 		PreparedStatement preparedStatement = null;
 
-		ImmagineRetrive bean = new ImmagineRetrive();
+		PossedereCaratteristica bean = new PossedereCaratteristica();
 
-		String selectSQL = "SELECT * FROM " + ImmagineDAO.TABLE_NAME + " WHERE id = ?";
+		String selectSQL = "SELECT * FROM " + PosserdereCaratteristicaDAO.TABLE_NAME + " WHERE item = ? AND cratterisitca= ? ";
 
 		try {
 			connection = ds.getConnection();
 			connection.setAutoCommit(false);
 			preparedStatement = connection.prepareStatement(selectSQL);
-			preparedStatement.setInt(1, code);
+			preparedStatement.setInt(1, code.getItem());
+			preparedStatement.setInt(2, code.getCaratteristica());
 
 			ResultSet rs = preparedStatement.executeQuery();
 			connection.commit();
 			while (rs.next()) {
-				bean.setId(rs.getInt("id"));
-				java.sql.Blob b=rs.getBlob("img");
-				bean.setImg(b.getBytes(1, (int) b.length()));
-				bean.setDescrizione(rs.getString("descrizione"));
+				bean.setItem(rs.getInt("item"));
+				bean.setCaratteristica(rs.getInt("cratterisitca"));
+				bean.setValore(rs.getString("valore"));
 			}
 
 		} finally {
@@ -155,32 +160,35 @@ public class ImmagineDAO {
 		return bean;
 	}
 
-	public Collection<ImmagineRetrive> doRetrieveAll(String order) throws SQLException {
+	@Override
+	public Collection<PossedereCaratteristica> doRetrieveAll(String order) throws SQLException {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	
+	
+	public Collection<PossedereCaratteristica> doRetrieveAllByItem(Integer item) throws SQLException {
 		Connection connection = null;
 		PreparedStatement preparedStatement = null;
 
-		Collection<ImmagineRetrive> immagine = new LinkedList<ImmagineRetrive>();
+		Collection<PossedereCaratteristica> mostra = new LinkedList<PossedereCaratteristica>();
 
-		String selectSQL = "SELECT * FROM " + ImmagineDAO.TABLE_NAME;
-
-		if (order != null && !order.equals("")) {
-			selectSQL += " ORDER BY " + order;
-		}
+		String selectSQL = "SELECT * FROM " + PosserdereCaratteristicaDAO.TABLE_NAME +" WHERE item = ? ";
 
 		try {
 			connection = ds.getConnection();
 			connection.setAutoCommit(false);
 			preparedStatement = connection.prepareStatement(selectSQL);
+			preparedStatement.setInt(1, item);
 			
 			ResultSet rs = preparedStatement.executeQuery();
 			connection.commit();
 			while (rs.next()) {
-				ImmagineRetrive bean = new ImmagineRetrive();
-				bean.setId(rs.getInt("id"));
-				java.sql.Blob b=rs.getBlob("img");
-				bean.setImg(b.getBytes(1, (int) b.length()));
-				bean.setDescrizione(rs.getString("descrizione"));
-				immagine.add(bean);
+				PossedereCaratteristica bean = new PossedereCaratteristica();
+				bean.setItem(rs.getInt("item"));
+				bean.setCaratteristica(rs.getInt("cratterisitca"));
+				bean.setValore(rs.getString("valore"));
+				mostra.add(bean);
 			}
 
 		} finally {
@@ -192,41 +200,8 @@ public class ImmagineDAO {
 					connection.close();
 			}
 		}
-		return immagine;
+		return mostra;
 	}
-	public int doGetMaxItemId() throws SQLException {
-		Connection connection = null;
-		PreparedStatement preparedStatement = null;
-
-		int maxID = 0;
-
-		String selectSQL = "SELECT MAX(id) FROM " + ImmagineDAO.TABLE_NAME ;
 
 
-		try {
-			connection = ds.getConnection();
-			connection.setAutoCommit(false);
-			preparedStatement = connection.prepareStatement(selectSQL);
-			
-			ResultSet rs = preparedStatement.executeQuery();
-			connection.commit();
-		
-			if (rs.next()) {
-
-				maxID = rs.getInt(1);
-			}
-
-		} finally {
-			try {
-				if (preparedStatement != null)
-					preparedStatement.close();
-			} finally {
-				if (connection != null)
-					connection.close();
-			}
-		}
-		return maxID;
-		
-	}
-	
 }

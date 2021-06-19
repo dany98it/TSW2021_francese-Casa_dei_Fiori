@@ -81,5 +81,4 @@ public class Indirizzo {
 		this.numeroCivico = numeroCivico;
 	}
     
-    
 }

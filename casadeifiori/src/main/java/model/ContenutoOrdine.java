@@ -60,5 +60,4 @@ public class ContenutoOrdine {
 		this.prezzoVendita = prezzoVendita;
 	}
 	
-	
 }

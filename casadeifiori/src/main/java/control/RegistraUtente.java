@@ -72,9 +72,7 @@ public class RegistraUtente extends HttpServlet {
 					response.sendRedirect("index.jsp");
 					return;
 				}
-		      }
-		
-		
+			}
 	}
 
 }

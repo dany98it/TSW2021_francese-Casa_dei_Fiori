@@ -1,6 +1,7 @@
 package control;
 
 import java.io.IOException;
+import java.sql.SQLException;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -9,8 +10,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-
-import java.sql.SQLException;
 
 import model.Caratteristica;
 import model.CaratteristicaDAO;
@@ -26,6 +25,7 @@ import model.InclusioneTagDAO;
 import model.Item;
 import model.ItemDAO;
 import model.PossedereCaratteristica;
+import model.PosserdereCaratteristicaDAO;
 import model.Tag;
 import model.TagDAO;
 import model.TipoItem;
@@ -97,7 +97,8 @@ public class AggiungiItem extends HttpServlet {
 				CaratteristicaDAO cDao=new CaratteristicaDAO();
 				Caratteristica crt=cDao.doRetrieveByName(c[i]);
 				PossedereCaratteristica pC=new PossedereCaratteristica(x, crt.getId(), cVal[i]);
-				//TODO create class PossedereCaratteristicaDAO and implement method
+				PosserdereCaratteristicaDAO pCDao=new PosserdereCaratteristicaDAO();
+				pCDao.doSave(pC);
 			}
 		} catch (Exception e) {
 			// TODO Auto-generated catch block

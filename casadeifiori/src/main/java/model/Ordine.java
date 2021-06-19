@@ -62,5 +62,4 @@ public class Ordine {
 		this.user = user;
 	}
 	
-	
 }

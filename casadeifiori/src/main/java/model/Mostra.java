@@ -30,5 +30,4 @@ public class Mostra{
 		this.immagine = immagine;
 	}
     
-    
 }
