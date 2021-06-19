@@ -96,6 +96,6 @@
 			</footer>
 		</div>
 
-		<script type="text/javascript"> initFileSelect(); cAutoComplite(); tagAutoComplite();</script>
+		<script type="text/javascript"> initFileSelect(); tagAutoComplite();</script>
 	</body>
 </html>

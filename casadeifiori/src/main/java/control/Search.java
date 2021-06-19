@@ -55,7 +55,7 @@ public class Search extends HttpServlet {
 			}
 		} else if (cq!=null||cq=="") {
 			try {
-				response.getWriter().write(gson.toJson(cDAO.doRetrieveByName(cq)));
+				response.getWriter().write(gson.toJson(cDAO.doRetrieveName(cq)));
 			} catch (IOException | SQLException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();

@@ -12,6 +12,8 @@ import javax.servlet.http.HttpSession;
 
 import java.sql.SQLException;
 
+import model.Caratteristica;
+import model.CaratteristicaDAO;
 /*import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
@@ -23,6 +25,7 @@ import model.InclusioneTag;
 import model.InclusioneTagDAO;
 import model.Item;
 import model.ItemDAO;
+import model.PossedereCaratteristica;
 import model.Tag;
 import model.TagDAO;
 import model.TipoItem;
@@ -87,6 +90,14 @@ public class AggiungiItem extends HttpServlet {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
+			}
+			String[] c=request.getParameterValues("caratterisica");
+			String[] cVal=request.getParameterValues("caratterisicaValore");
+			for (int i = 0; i < cVal.length && i < c.length; i++) {
+				CaratteristicaDAO cDao=new CaratteristicaDAO();
+				Caratteristica crt=cDao.doRetrieveByName(c[i]);
+				PossedereCaratteristica pC=new PossedereCaratteristica(x, crt.getId(), cVal[i]);
+				//TODO create class PossedereCaratteristicaDAO and implement method
 			}
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
