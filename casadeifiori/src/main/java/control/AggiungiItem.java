@@ -94,8 +94,11 @@ public class AggiungiItem extends HttpServlet {
 			String[] c=request.getParameterValues("caratterisica");
 			String[] cVal=request.getParameterValues("caratterisicaValore");
 			for (int i = 0; i < cVal.length && i < c.length; i++) {
+				System.out.println("c="+c[i]);
+				System.out.println("cVal="+cVal[i]);
 				CaratteristicaDAO cDao=new CaratteristicaDAO();
-				Caratteristica crt=cDao.doRetrieveByName(c[i]);
+				Caratteristica crt=cDao.doRetrieveByKey(Integer.parseInt(c[i]));
+				System.out.println("crt=id="+crt.getId()+",nome="+crt.getNome()+",descrizione="+crt.getDescrizione());
 				PossedereCaratteristica pC=new PossedereCaratteristica(x, crt.getId(), cVal[i]);
 				PosserdereCaratteristicaDAO pCDao=new PosserdereCaratteristicaDAO();
 				pCDao.doSave(pC);

@@ -5,6 +5,7 @@
 	Item i = (Item) request.getAttribute("item");
 	ArrayList<Integer> galleriaItem = (ArrayList<Integer>) request.getAttribute("galleriaItem");
 	ArrayList<String> tag = (ArrayList<String>) request.getAttribute("tag");
+	ArrayList<PrintCaratteristica> c = (ArrayList<PrintCaratteristica>) request.getAttribute("c");
     if(i==null){
     	response.sendRedirect("./MostraItem");	
     	return;
@@ -53,15 +54,30 @@
 						</div>
 					</div>
 				</div>
-				<h6>caratterisiche</h6>
-				<div id="caratterisicheItem" class="caratterisiche"></div>
-				<h6>tag</h6>
+				<h3>caratterisiche</h3>
+				<div id="caratterisicheItem" class="caratterisiche">
+					<%for(PrintCaratteristica printCaratteristica:c){%>
+						<div>
+							<h5 style="display: inline-block;"><%=printCaratteristica.getNome()%>:</h5>
+							<%for(String s:printCaratteristica.getValore()){%>
+								<%if(s.startsWith("#")){
+									String[] s1=s.split(":");%>
+									<i class="fas fa-circle" style="color:<%=s1[0]%>" onmouseenter="cShow('<%=s1[0]+s1[1]%>')" onmouseleave="cNotShow('<%=s1[0]+s1[1]%>')"></i>
+									<p id="<%=s1[0].replace("#", "")+s1[1]%>" class="caratterisicap"><%=s1[1]%></p>
+								<%}else{%>
+									<p class="tagp"><%=s%></p>
+								<%}%>
+							<%}%>
+						</div>
+					<%}%>
+				</div>
+				<h3>tag</h3>
 				<div id="tagItem" class="tag">
 					<% for(String t: tag){%>
 					<p class="tagp"><%=t %></p>
 					<%}%>
 				</div>
-				<h6>descrizione</h6>
+				<h3>descrizione</h3>
 				<div id="descrizioneItem" class="descrizione"><%= i.getDescrizione() %></div>
 			</div>
 			<div>
