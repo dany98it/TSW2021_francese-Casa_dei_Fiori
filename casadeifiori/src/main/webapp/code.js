@@ -242,7 +242,24 @@ function tagAutoComplite(){
 function prewiev(input,output){
 	$("#"+output).text($("#"+input).val())
 }
-
+function prewievC(input1,input2,output,idOutput){
+	$("#"+idOutput).remove()
+	var html="<div id="+idOutput+"> <h5 style=\"display: inline-block;\">"+$("#"+input1+" option:selected").text()+":</h5>";
+	var s=$("#"+input2).val().split(",");
+	for(let i=0; i<s.length; i++){
+		if(s[i][0]==='#'){
+			var s1=s[i].split(":");
+			html+="<i class=\"fas fa-circle\" style=\"color:"+s1[0]
+			+"\" onmouseenter=\"cShow('"+s1[0]+s1[1]+"')\""
+			+" onmouseleave=\"cNotShow('"+s1[0]+s1[1]+"')\"></i>"
+			+"<p id="+s1[0].replace("#", "")+s1[1]+" class=\"caratterisicap\">"+s1[1]+"</p>"
+		}else{
+			html+="<p class=\"tagp\">"+s[i]+"</p>";
+		}
+	}
+	html+="</div>"
+	$("#"+output).append(html)
+}
 function prewievTag(input,output){
 	$("#"+output).html("<p class=\"tagp\">"+$("#"+input).val().replace(/,/g,"</p><p class=\"tagp\">")+"</p>")
 }
@@ -446,26 +463,58 @@ function datapickerInit(id){
 }
 var nAddCaratterisica=0;
 function addCaratterisica(){
-	nAddCaratterisica++;
 	$.ajax({
 		"type":"GET",
 		"url":"cercaC",
 		dataType:"json",
 		"success":function(data){
 			html="<div class=\"divC\" id=\"divC"+nAddCaratterisica+"\">"
-				+"<select name=\"caratterisica\" class=\"caratterisica\">";
+				+"<select id=\"selectC"+nAddCaratterisica+"\" name=\"caratterisica\" class=\"caratterisica\" onchange=\"prewievC('selectC"+nAddCaratterisica+"','valoreC"+nAddCaratterisica+"','caratterisicheItem','divMC"+nAddCaratterisica+"')\">";
 			for(let i=0; i<data.length; i++){
 				html+="<option value="+data[i]["id"]+">"+data[i]["nome"]+"</option>";
 			}
 			html+="</select>"
-				+"<input class=\"caratterisicaValore\" name=\"caratterisicaValore\" type=\"text\" placeholder=\"valore\">"
-				+"<input type=\"button\" value=\"rimuovi\" onclick=\"removeCaratterisica('divC"+nAddCaratterisica+"')\">"
+				+"<input id=\"valoreC"+nAddCaratterisica+"\" class=\"caratterisicaValore\" name=\"caratterisicaValore\" type=\"text\" placeholder=\"valore\" onchange=\"prewievC('selectC"+nAddCaratterisica+"','valoreC"+nAddCaratterisica+"','caratterisicheItem','divMC"+nAddCaratterisica+"')\">"
+				+"<input type=\"button\" value=\"rimuovi\" onclick=\"removeCaratterisica('divC"+nAddCaratterisica+"','divMC"+nAddCaratterisica+"')\">"
 				+"</div>"
 			$("#caratterisicheSection").append(html);
+			prewievC('selectC'+nAddCaratterisica,'valoreC'+nAddCaratterisica,'caratterisicheItem','divMC'+nAddCaratterisica)
+			nAddCaratterisica++;
 		}});
 }
-function removeCaratterisica(id){
-	$("#"+id).remove()
+function loadCaratterisica(nome,value){
+	$.ajax({
+		"type":"GET",
+		"url":"cercaC",
+		dataType:"json",
+		"success":function(data){
+			html="<div class=\"divC\" id=\"divC"+nAddCaratterisica+"\">"
+				+"<select id=\"selectC"+nAddCaratterisica+"\" name=\"caratterisica\" class=\"caratterisica\" onchange=\"prewievC('selectC"+nAddCaratterisica+"','valoreC"+nAddCaratterisica+"','caratterisicheItem','divMC"+nAddCaratterisica+"')\">";
+			for(let i=0; i<data.length; i++){
+				if(data[i]["nome"]===nome){
+					html+="<option value="+data[i]["id"]+" selected>"+data[i]["nome"]+"</option>";
+				}
+				html+="<option value="+data[i]["id"]+">"+data[i]["nome"]+"</option>";
+			}
+			html+="</select>"
+				+"<input id=\"valoreC"+nAddCaratterisica+"\" class=\"caratterisicaValore\" name=\"caratterisicaValore\" value=\""+value+"\""
+				+"type=\"text\" placeholder=\"valore\" onchange=\"prewievC('selectC"+nAddCaratterisica+"','valoreC"+nAddCaratterisica+"','caratterisicheItem','divMC"+nAddCaratterisica+"')\">"
+				+"<input type=\"button\" value=\"rimuovi\" onclick=\"removeCaratterisica('divC"+nAddCaratterisica+"','divMC"+nAddCaratterisica+"')\">"
+				+"</div>"
+			$("#caratterisicheSection").append(html);
+			prewievC('selectC'+nAddCaratterisica,'valoreC'+nAddCaratterisica,'caratterisicheItem','divMC'+nAddCaratterisica)
+			nAddCaratterisica++;
+		}});
+}
+function removeCaratterisica(id,id2){
+	$("#"+id).remove();
+	$("#"+id2).remove();
+}
+function cShow(id){
+	$(id).css( "display", "inline-block");
+}
+function cNotShow(id){
+	$(id).css("display","none");
 }
 /*function modCart(id,quantity){
 	$(".alert").alert('close');

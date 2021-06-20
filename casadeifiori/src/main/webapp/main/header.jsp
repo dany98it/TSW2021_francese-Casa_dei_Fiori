@@ -4,11 +4,9 @@
 	pageEncoding="ISO-8859-1"%>
 <% HttpSession sessione = request.getSession(true); %>
 <%@ include file="../logInPage.jsp"%>
-<%@ include file="../signInPageModel.jsp"%>
 <script> $(document).ready(function() {
 			datapickerInit('dataNascitaInput');
 			closeLogInOutside();
-			closeSignInOutside();
 		}) </script>
 <div class="main">
 	<script src="code.js"></script>

@@ -79,6 +79,6 @@
 			<%@ include file="main/footer.jsp"%>
 		</footer>
 	</div>
-	<script> startShowSlides(); InstagramImg(); cerca(); </script>
+	<script> startShowSlides(); cerca(); </script>
 </body>
 </html>

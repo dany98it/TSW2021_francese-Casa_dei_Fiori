@@ -42,7 +42,10 @@ body {
 	padding: 1%;
 	margin: 0.3em 0.1em;
 }
-
+.caratterisicap{
+	display: none;
+	margin: 0;
+}
 .menu {
 	font-size: 30px;
 	cursor: pointer;
