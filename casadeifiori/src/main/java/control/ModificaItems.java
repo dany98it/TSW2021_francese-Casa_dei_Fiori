@@ -24,6 +24,7 @@ import model.Mostra;
 import model.MostraDAO;
 import model.PossedereCaratteristica;
 import model.PosserdereCaratteristicaDAO;
+import model.PrintCaratteristica;
 import model.Tag;
 import model.TagDAO;
 import model.TipoItem;
@@ -31,7 +32,7 @@ import model.TipoItem;
 /**
  * Servlet implementation class ModificaItems
  */
-@WebServlet(description = "modificaItems", urlPatterns = { "/ModificaItems" })
+@WebServlet(description = "modificaItems", urlPatterns = { "/modificaItems" })
 public class ModificaItems extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
@@ -62,6 +63,8 @@ public class ModificaItems extends HttpServlet {
 		PosserdereCaratteristicaDAO pCDao=new PosserdereCaratteristicaDAO();
 		MostraDAO mdao = new MostraDAO();
 		ImmagineDAO imDao = new ImmagineDAO();
+		TagDAO tDao=new TagDAO();
+		CaratteristicaDAO cDao= new CaratteristicaDAO();
 		int x=Integer.parseInt(request.getParameter("id"));
 		itDao.doDeleteById(x);
 		try {
@@ -86,7 +89,6 @@ public class ModificaItems extends HttpServlet {
 			itemDAO.doSave(item);
 			String[] tag=request.getParameter("tag").split(",");
 			for (String string : tag) {
-				TagDAO tDao=new TagDAO();
 				Tag t= tDao.doRetrieveByName(string);
 				InclusioneTag it=new InclusioneTag(x, t.getId());
 				itDao.doSave(it);
@@ -94,7 +96,6 @@ public class ModificaItems extends HttpServlet {
 			String[] c=request.getParameterValues("caratterisica");
 			String[] cVal=request.getParameterValues("caratterisicaValore");
 				for (int i = 0; i < cVal.length && i < c.length; i++) {
-					CaratteristicaDAO cDao=new CaratteristicaDAO();
 					Caratteristica crt=cDao.doRetrieveByKey(Integer.parseInt(c[i]));
 					PossedereCaratteristica pC=new PossedereCaratteristica(x, crt.getId(), cVal[i]);
 					pCDao.doSave(pC);
@@ -104,7 +105,25 @@ public class ModificaItems extends HttpServlet {
 				for (Mostra mostra : m) {
 					imgs.add(imDao.doRetrieveByKey(mostra.getImmagine()).getId());
 				}
-				request.setAttribute("img", imgs);
+				LinkedList<InclusioneTag> it = (LinkedList<InclusioneTag>) itDao
+						.doRetrieveAllByItem(x);
+				ArrayList<String> tag1 = new ArrayList<>();
+				for (InclusioneTag inclusioneTag : it) {
+					tag1.add(tDao.doRetrieveByKey(inclusioneTag.getTag()).getNome());
+				}
+				LinkedList<PossedereCaratteristica> pc = (LinkedList<PossedereCaratteristica>) pCDao
+						.doRetrieveAllByItem(x);
+				ArrayList<PrintCaratteristica> c1 = new ArrayList<>();
+				for (PossedereCaratteristica possedereCaratteristica : pc) {
+					PrintCaratteristica prc = new PrintCaratteristica();
+					prc.setNome(cDao.doRetrieveByKey(possedereCaratteristica.getCaratteristica()).getNome());
+					prc.setValore(possedereCaratteristica.getValore().split(","));
+					c1.add(prc);
+				}
+				request.setAttribute("item", item);
+				request.setAttribute("galleriaItem", imgs);
+				request.setAttribute("tag", tag1);
+				request.setAttribute("c", c1);
 			} catch (Exception e) {
 			// TODO Auto-generated catch block
 				e.printStackTrace(response.getWriter());
