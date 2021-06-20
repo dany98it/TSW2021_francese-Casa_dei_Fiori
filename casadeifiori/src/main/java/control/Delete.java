@@ -18,9 +18,11 @@ import javax.servlet.http.HttpServletResponse;
 
 import model.CaratteristicaDAO;
 import model.ImmagineDAO;
+import model.InclusioneTagDAO;
 import model.ItemDAO;
 import model.Mostra;
 import model.MostraDAO;
+import model.PosserdereCaratteristicaDAO;
 import model.TagDAO;
 
 /**
@@ -45,6 +47,8 @@ public class Delete extends HttpServlet {
 		ItemDAO itemDao = new ItemDAO();
 		MostraDAO mosDao = new MostraDAO();
 		ImmagineDAO imgDADao = new ImmagineDAO();
+		InclusioneTagDAO itagDao = new InclusioneTagDAO();
+		PosserdereCaratteristicaDAO pCarDao = new PosserdereCaratteristicaDAO();
 		
 		int id = Integer.parseInt(request.getParameter("itemID"));
 		try {
@@ -54,6 +58,8 @@ public class Delete extends HttpServlet {
 			for(Mostra m: imgs) {
 				imgDADao.doDelete(m.getImmagine());
 			}
+			itagDao.doDeleteById(id);
+			pCarDao.doDeleteById(id);
 			itemDao.doDelete(id);
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block

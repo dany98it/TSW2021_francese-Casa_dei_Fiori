@@ -203,5 +203,32 @@ private static DataSource ds;
 		return mostra;
 	}
 
+	public boolean doDeleteById(int id) throws SQLException {
+		Connection connection = null;
+		PreparedStatement preparedStatement = null;
 
+		boolean result ;
+
+		String deleteSQL = "DELETE FROM " + PosserdereCaratteristicaDAO.TABLE_NAME + " WHERE item = ? AND cratterisitca = ?";
+
+		try {
+			connection = ds.getConnection();
+			connection.setAutoCommit(false);
+			preparedStatement = connection.prepareStatement(deleteSQL);
+			preparedStatement.setInt(1, id);
+
+			result = preparedStatement.execute();
+			
+			connection.commit();
+		} finally {
+			try {
+				if (preparedStatement != null)
+					preparedStatement.close();
+			} finally {
+				if (connection != null)
+					connection.close();
+			}
+		}
+		return result;
+	}
 }

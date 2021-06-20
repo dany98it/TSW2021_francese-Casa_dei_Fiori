@@ -200,4 +200,46 @@ private static DataSource ds;
 		return mostra;
 	}
 
+	public boolean doDeleteById(int id) {
+		Connection connection = null;
+		PreparedStatement preparedStatement = null;
+
+		boolean result = false ;
+
+		String deleteSQL = "DELETE FROM " + InclusioneTagDAO.TABLE_NAME + " WHERE item = ";
+
+		try {
+			connection = ds.getConnection();
+			connection.setAutoCommit(false);
+			preparedStatement = connection.prepareStatement(deleteSQL);
+			preparedStatement.setInt(1, id);
+
+			result = preparedStatement.execute();
+			
+			connection.commit();
+		}catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		finally {
+			try {
+				if (preparedStatement != null)
+					preparedStatement.close();
+			}catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}finally {
+				if (connection != null)
+					try {
+						connection.close();
+					} catch (SQLException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+			}
+		}
+		
+		return result;
+	}
+
 }
