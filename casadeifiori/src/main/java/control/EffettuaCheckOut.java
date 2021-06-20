@@ -61,6 +61,7 @@ public class EffettuaCheckOut extends HttpServlet {
 			if(user == null) {
 				RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/logInPage.jsp");
 				dispatcher.forward(request, response);
+				return;
 			}
 		}
 		OrdineDAO oDao = new OrdineDAO();

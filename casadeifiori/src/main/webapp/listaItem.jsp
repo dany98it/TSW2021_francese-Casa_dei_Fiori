@@ -1,12 +1,6 @@
 <%@page import="java.util.*,model.Item"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
-<%
-	Collection<?> products = (Collection<?>) request.getAttribute("itemsCollection");
-	if(products == null) {
-		response.sendRedirect("./MostraItem");	
-		return;
-	} %>
 <!DOCTYPE html>
 <html lang="it">
 <head>
@@ -25,6 +19,19 @@
 		<nav>
 			<%@ include file="main/navigationBar.jsp"%>
 		</nav>
+		<%
+			Collection<?> products = (Collection<?>) request.getAttribute("itemsCollection");
+				if(products == null) {
+				response.sendRedirect("./MostraItem");	
+				return;
+			}
+			boolean isAdmin;
+			if(sessione.getAttribute("isAdmin")!=null){
+				isAdmin=(boolean) sessione.getAttribute("isAdmin"); 
+			} else{
+				isAdmin=false;
+			}
+		%>
 		<h2>Products</h2>
 		<div id="itemListFilter">
 
@@ -63,8 +70,8 @@
 					<a class="itemCardCart"
 						href="javascript:addCart(<%=bean.getId()%>,1)"> <span
 						class="itemCardPrice"><%= bean.calcolaPrezzo() %> <i
-							class="fas fa-cart-plus iconCart"></i></span> <span
-						class="itemCardAddCart"> <span class="itemCardAddCartText">Aggiungi</span>
+							class="fas fa-cart-plus iconCart"></i></span> 
+							<span class="itemCardAddCart"> <span class="itemCardAddCartText">Aggiungi</span>
 					</span>
 					</a>
 				</div>
@@ -75,14 +82,25 @@
 					</div>
 					<div class="itemCardCart" href="">
 						<span class="itemCardPrice">Esaurito</span> <span
-							class="itemCardAddCart"> <span class="itemCardAddCartText">Non
-								dispoibile</span>
+							class="itemCardAddCart"> 
+							<span class="itemCardAddCartText">Non dispoibile</span>
 						</span>
 					</div>
 				</div>
-				<% }%>
+				<% }if(isAdmin){%>
+				<div class="box-down">
+					<div class="h-bg2">
+						<div class="h-bg-inner2"></div>
+					</div>
+					<div class="itemCardCart2" href="">
+						<span class="itemCardPrice2">Elimina</span> 
+							<span class="itemCardAddCart2"> <span class="itemCardAddCartText2">Definitivamente</span>
+						</span>
+					</div>
+				</div>
+			<% } %>
 			</div>
-			<% }} %>
+			<%}} %>
 		</div>
 		<footer>
 			<%@ include file="main/footer.jsp"%>

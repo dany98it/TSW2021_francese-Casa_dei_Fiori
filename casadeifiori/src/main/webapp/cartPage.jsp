@@ -106,7 +106,7 @@
 		<aside>
 			<div class="summary">
 				<div class="summary-total-items">
-					<span class="total-items"></span> Oggetti nel carrello
+					<span class="total-items"></span> Porsegui con il Checkout
 				</div>
 				<div class="summary-subtotal">
 					<div class="subtotal-title">Subtotale</div>
@@ -118,7 +118,7 @@
 				</div>
 				<div class="summary-delivery">
 					<select name="delivery-collection"
-						class="summary-delivery-selection">
+						class="summary-delivery-selection" >
 						<option value="0" selected="selected">Seleziona il tipo
 							di servizio</option>
 						<option value="first-class">Ritiro Locale</option>
@@ -130,14 +130,23 @@
 					<div class="total-title">Totale</div>
 					<div class="total-value final-value" id="basket-total"><%= cart.getCostoTotale()%></div>
 				</div>
-				<div class="basket-module">
+				<!--  <div class="basket-module">
 					<label for="promo-code">Codice Promozionale</label> <input
 						id="promo-code" type="text" name="promo-code" maxlength="5"
 						class="promo-code-field">
 					<button class="promo-code-cta">Applica</button>
 				</div>
+				-->
 				<div class="summary-checkout">
-					<button class="checkout-cta">Checkout</button>
+					<% if(sessione.getAttribute("loggedUser")!=null){ %>
+					<form action="EffettuaCheckOut" method="post">
+         				<input type="submit" class="checkout-cta" onchange="effettuaChecjout" value="Checkout">
+        			</form>
+        			<% }else{ %>
+        					<h5>Accedi o Iscriviti per proseguire con l'acquisto</h5>
+        					<button type="button" class="checkout-cta" onclick="openLogIn()">Log-in</button>
+							<button type="button" class="checkout-cta" onclick="openSignIn()">Sign-in</button>
+        			<%}%>
 				</div>
 			</div>
 		</aside>

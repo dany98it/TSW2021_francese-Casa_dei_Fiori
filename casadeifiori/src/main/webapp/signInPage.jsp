@@ -65,7 +65,7 @@
 					onclick="hidePassword('confermaPasswordInput','openEyePassword2','closedEyePassword2')"></i>
 				<br>
 			</fieldset>
-			<input type="submit" name="signIn" class="signInInput" /> <br>
+			<input type="submit" name="signIn" class="signInInput" value="Iscriviti" /> <br>
 		</form>
 		<footer>
 			<%@ include file="main/footer.jsp"%>
