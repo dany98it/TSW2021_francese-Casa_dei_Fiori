@@ -199,5 +199,35 @@ private static DataSource ds;
 		}
 		return mostra;
 	}
+	
+	public boolean doDeleteById(int code) throws SQLException {
+		Connection connection = null;
+		PreparedStatement preparedStatement = null;
+
+		boolean result ;
+
+		String deleteSQL = "DELETE FROM " + MostraDAO.TABLE_NAME + " WHERE item = ?";
+
+		try {
+			connection = ds.getConnection();
+			connection.setAutoCommit(false);
+			preparedStatement = connection.prepareStatement(deleteSQL);
+			preparedStatement.setInt(1, code);
+
+			result = preparedStatement.execute();
+			
+			connection.commit();
+		} finally {
+			try {
+				if (preparedStatement != null)
+					preparedStatement.close();
+			} finally {
+				if (connection != null)
+					connection.close();
+			}
+		}
+		return result;
+	}
+
 
 }

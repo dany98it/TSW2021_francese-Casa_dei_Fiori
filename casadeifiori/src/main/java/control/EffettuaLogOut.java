@@ -31,6 +31,7 @@ public class EffettuaLogOut extends HttpServlet {
 		
 		synchronized(sessione) {
 				sessione.removeAttribute("loggedUser");
+				sessione.removeAttribute("isAdmin");
 			}
 			
 		response.sendRedirect("index.jsp");

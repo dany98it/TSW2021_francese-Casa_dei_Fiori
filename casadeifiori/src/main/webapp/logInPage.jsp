@@ -2,10 +2,15 @@
 	pageEncoding="ISO-8859-1"%>
 <div id="divLogIn" class="modal1">
 	<div onclick="closeLogIn()" class="close" title="Close Modal">&times;</div>
-
-	<form action="logIn" class="modal-content1 aniamte logInForm"
-		method="post">
-		<div class="logInTitle">Login</div>
+		
+	<div class="modal-content1 aniamte logInForm">
+		<div class="logInTitle">
+			<button class="formLogInBtn" id="contentFormLogInBtn" onclick="switchLogInContent('contentFormLogIn','contentFormSignIn')">Log-in</button>
+			<button class="formLogInBtn" id="contentFormSignInBtn" onclick="switchLogInContent('contentFormSignIn','contentFormLogIn')">Sign-in</button>
+		</div>
+		
+		<form action="logIn"method="post" id="contentFormLogIn">
+		
 
 		<div class="txt_fieldLogIn">
 			<input type="text" name="username" class="logInInput"
@@ -32,7 +37,74 @@
 			<input type="submit" value="log In">
 		</div>
 		<div class="signup_link">
-			Non sei iscritto? <a href="" onclick="openSignIn()">Sing-in</a>
+			Non sei iscritto? <a onclick="switchLogInContent('contentFormSignIn','contentFormLogIn')">Sing-in</a>
 		</div>
 	</form>
+	
+	
+		<form action="RegistraUtente" onsubmit="event.preventDefault(); return validateSignIn(this);" method="post" id="contentFormSignIn">
+		<!--Previene che il form venga sottomesso senza verifica -->
+		<div class="txt_fieldLogIn">
+			<input type="text" name="nome" id="nomeInput" class="logInInput"
+				required="required" /> <span class="spanLogIn"></span> <label
+				for="nome" class="logInLbl">Nome</label>
+		</div>
+		<div class="txt_fieldLogIn">
+			<input type="text" name="cognome" id="cognomeInput"
+				class="logInInput" required="required" /> <span class="spanLogIn"></span>
+			<label for="cognome" class="logInLbl">Cognome</label>
+		</div>
+		<div class="txt_fieldLogIn">
+			<input type="text" name="dataNascita" id="dataNascitaInput"
+				class="logInInput" required="required" /> <span class="spanLogIn"></span>
+			<label for="dataNascita" class="logInLbl">Data Di Nascita</label> <br>
+
+		</div>
+
+		<div class="txt_fieldLogIn">
+			<input type="tel" name="telefono" id="telefonoInput"
+				class="logInInput" required="required" /> <span class="spanLogIn"></span>
+			<label for="telefono" class="logInLbl">Numero di cellulare</label>
+		</div>
+		<div class="txt_fieldLogIn">
+			<input type="email" name="email" id="emailInput" class="logInInput"
+				required="required" /> <span class="spanLogIn"></span> <label
+				for="email" class="logInLbl">E-mail</label>
+
+		</div>
+
+		<div class="txt_fieldLogIn">
+			<div class="showPswLogIn">
+				<i id="closedEyePassword1" class="fas fa-eye-slash"
+					onclick="showPassword('passwordInput','closedEyePassword1','openEyePassword1')">
+				</i> <i id="openEyePassword1" class="far fa-eye"
+					onclick="hidePassword('passwordInput','openEyePassword1','closedEyePassword1')"></i>
+			</div>
+			<input id="passwordInput" type="password" name="password"
+				class="logInInput" required="required" /> <span class="spanLogIn"></span>
+			<label for="password" class="logInLbl">Password</label>
+		</div>
+
+		<div class="txt_fieldLogIn">
+			<div class="showPswLogIn">
+				<i id="closedEyePassword2" class="fas fa-eye-slash"
+					onclick="showPassword('confermaPasswordInput','closedEyePassword2','openEyePassword2')">
+				</i> <i id="openEyePassword2" class="far fa-eye"
+					onclick="hidePassword('confermaPasswordInput','openEyePassword2','closedEyePassword2')"></i>
+			</div>
+			<input id="confermaPasswordInput" type="password"
+				name="confermaPassword" class="logInInput" required="required" /> <span
+				class="spanLogIn"></span> <label for="confermaPassword"
+				class="logInLbl">Conferma Password</label>
+
+		</div>
+
+		<div class="wrap-LogInBtn">
+			<input type="submit" name="signIn" class="signInInput" value="Iscriviti"/>
+		</div>
+
+	</form>
+	</div>
+	
+
 </div>

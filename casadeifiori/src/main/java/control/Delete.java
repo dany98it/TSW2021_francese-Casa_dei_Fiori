@@ -7,6 +7,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;*/
 import java.sql.SQLException;
+import java.util.Collection;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -15,7 +16,12 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import model.CaratteristicaDAO;
+import model.ImmagineDAO;
 import model.ItemDAO;
+import model.Mostra;
+import model.MostraDAO;
+import model.TagDAO;
 
 /**
  * Servlet implementation class Delete
@@ -37,8 +43,18 @@ public class Delete extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		ItemDAO itemDao = new ItemDAO();
+		MostraDAO mosDao = new MostraDAO();
+		ImmagineDAO imgDADao = new ImmagineDAO();
+		
+		int id = Integer.parseInt(request.getParameter("itemID"));
 		try {
-			itemDao.doDelete(Integer.parseInt(request.getParameter("itemID")));
+			
+			Collection<Mostra> imgs = mosDao.doRetrieveAllByItem(id);
+			mosDao.doDeleteById(id);
+			for(Mostra m: imgs) {
+				imgDADao.doDelete(m.getImmagine());
+			}
+			itemDao.doDelete(id);
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

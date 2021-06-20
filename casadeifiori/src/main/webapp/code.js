@@ -288,6 +288,8 @@ function initFileSelect(){
 //Funzione che permette di aprire e chiudere il login , inoltre lo chiude anche premendo fuori dalla finestra
 function openLogIn(){
 	document.getElementById('divLogIn').style.display='block';
+	switchLogInContent('contentFormLogIn','contentFormSignIn');
+	$("#logInBtnSwitch").css("background-color","#023838")
 }
 
 function closeLogIn(){
@@ -307,23 +309,9 @@ function closeLogInOutside(){
 }
 
 function openSignIn(){
-	document.getElementById('divSignIn').style.display='block'
-}
-
-function closeSignIn(){
-	document.getElementById('divSignIn').style.display='none';
-}
-
-function closeSignInOutside(){
-	// Get the modal
-	var modal = document.getElementById('divSignIn');
-
-	// When the user clicks anywhere outside of the modal, close it
-	window.onclick = function(event) {
- 	 	if (event.target == modal) {
-   	 		modal.style.display = "none";
-  		}
-	}
+	document.getElementById('divLogIn').style.display='block'
+	switchLogInContent('contentFormSignIn','contentFormLogIn');
+	$("#signInBtnSwitch").css("background-color","#023838");
 }
 	
 //Funzione che permette di ingrandire l'immagine scorrendo il mouse su di essa
@@ -511,5 +499,12 @@ function removeCaratterisica(id){
 		}
 	})
 }*/
+
+function switchLogInContent(show,hide){
+	$("#"+hide).css("display","none");
+	$("#"+hide+"Btn").css("background-color","#67f0bb");
+	$("#"+show).css("display","block");
+	$("#"+show+"Btn").css("background-color","#023838");
+}
 
 

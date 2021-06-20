@@ -1041,6 +1041,15 @@ to {
 	width: 100%;
 }
 
+.formLogInBtn{
+	color: #e9f4fb;
+	width: 4em;
+	height: 2em;
+	border-radius: 5rem;
+	background-color: #67f0bb;
+	border: none;
+}
+
 @media screen and (min-width: 641px) and (max-width: 960px) {
 	.basket aside {
 		padding: 0 1rem 0 0;
@@ -1265,7 +1274,7 @@ button:hover {
 }
 
 .navFooterTitleList {
-	font-size: 120%;
+	font-size: 160%;
 	vertical-align: inherit;
 	text-align: inherit;
 }
@@ -1305,12 +1314,12 @@ button:hover {
 
 #facebookIcon {
 	color: white;
-	font-size: 250%;
+	font-size: 350%;
 }
 
 #instagramIcon {
 	color: white;
-	font-size: 250%;
+	font-size: 350%;
 }
 
 .belowNavFooter {
@@ -1496,6 +1505,15 @@ span.twitter-typeahead .tt-suggestion:last-child {
 }
 
 @media screen and (max-width: 1024px) {
+	.formLogInBtn{
+	width: 4em;
+	height: 2em;
+	border-radius: 5rem;
+	background-color: #67f0bb;
+	border: none;
+	font-size: 1em;
+	}
+	
 	.menuDrop {
 		display: block;
 		height: 100%;
@@ -1529,11 +1547,11 @@ span.twitter-typeahead .tt-suggestion:last-child {
 		margin-left: 50px;
 	}
 	.modal-content1 {
-		left: 40%;
+		left: 45%;
 		overflow: auto;
 		top: 40%;
-		width: 80%;
-		height: 70%;
+		width: 90%;
+		height: 90%;
 	}
 	.close {
 		/* Position it in the top right corner outside of the modal */
@@ -1670,11 +1688,12 @@ span.twitter-typeahead .tt-suggestion:last-child {
 }
 
 @media screen and (max-width: 480px) {
+
 	.modal-content1 {
 		left: 47%;
 		top: 40%;
 		width: 93%;
-		height: 80%;
+		height: 90%;
 		overflow: auto;
 	}
 	.itemListing {
@@ -1694,18 +1713,14 @@ span.twitter-typeahead .tt-suggestion:last-child {
 		width: 250px;
 	}
 	.modal-content1 {
+		left: 47%;
 		top: 25%;
 		width: 90%;
-		height: 70%;
+		height: 90%;
+		overflow: auto;
 	}
 	.itemListing {
 		grid-template-columns: auto;
 		align-items: stretch;
-	}
-	.menuDrop {
-		padding-top: 0.2em;
-	}
-	.menuDrop a {
-		font-size: 0.2em;
 	}
 }

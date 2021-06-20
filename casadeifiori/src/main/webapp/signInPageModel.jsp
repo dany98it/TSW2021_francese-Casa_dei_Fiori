@@ -4,7 +4,7 @@
 	<div onclick="closeSignIn()" class="close" title="Close Modal">&times;</div>
 
 	<form action="RegistraUtente" class="modal-content1 aniamte logInForm"
-		method="post"
+		method="post" id="contentFormSignIn"
 		onsubmit="event.preventDefault(); return validateSignIn(this);">
 		<!--Previene che il form venga sottomesso senza verifica -->
 		<div class="logInTitle">SignIn</div>
