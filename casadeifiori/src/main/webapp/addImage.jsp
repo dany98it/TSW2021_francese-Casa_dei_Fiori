@@ -2,11 +2,15 @@
 	pageEncoding="ISO-8859-1"%>
 <%@page import="model.*"%>
 <%
-	Item i = (Item) request.getAttribute("item");
-    if(i==null){
-    	response.sendRedirect("./MostraItem");	
-    	return;
-    }%>
+Item i = (Item) request.getAttribute("item");
+ArrayList<Integer> galleriaItem = (ArrayList<Integer>) request.getAttribute("galleriaItem");
+ArrayList<String> tag = (ArrayList<String>) request.getAttribute("tag");
+ArrayList<PrintCaratteristica> c = (ArrayList<PrintCaratteristica>) request.getAttribute("c");
+if (i == null) {
+	response.sendRedirect("./MostraItem");
+	return;
+}
+%>
 <!DOCTYPE html>
 <html lang="it">
 <head>
@@ -25,13 +29,15 @@
 		<nav>
 			<%@ include file="main/navigationBar.jsp"%>
 		</nav>
-		<%	boolean isAdmin;
-					if(sessione.getAttribute("isAdmin")!=null){
-						isAdmin=(boolean) sessione.getAttribute("isAdmin"); 
-					} else{
-						isAdmin=false;
-					}
-					if(isAdmin){ %>
+		<%
+		boolean isAdmin;
+		if (sessione.getAttribute("isAdmin") != null) {
+			isAdmin = (boolean) sessione.getAttribute("isAdmin");
+		} else {
+			isAdmin = false;
+		}
+		if (isAdmin) {
+		%>
 		<div class="insertItem">
 			<div>
 				<form action="saveImg" method="post" enctype="multipart/form-data">
@@ -44,7 +50,7 @@
 				</form>
 			</div>
 			<div>
-				<h1 id="titoloItem" class="titoloItem"><%= i.getNome() %></h1>
+				<h1 id="titoloItem" class="titoloItem"><%=i.getNome()%></h1>
 				<div class="contenerSuperiore">
 					<div>
 						<div id="galleriaItem" class="galleria">
@@ -52,26 +58,70 @@
 								<div id="listimg" class="w3-row-padding w3-section"></div>
 							</div>
 						</div>
-						<h6>caratterisiche</h6>
-						<div id="caratterisicheItem" class="caratterisiche"></div>
-						<h6>tag</h6>
-						<div id="tagItem" class="tag"></div>
+						<h3>caratterisiche</h3>
+						<div id="caratterisicheItem" class="caratterisiche">
+							<%
+							for (PrintCaratteristica printCaratteristica : c) {
+							%>
+							<div>
+								<h5 style="display: inline-block;"><%=printCaratteristica.getNome()%>:
+								</h5>
+								<%
+								for (String s : printCaratteristica.getValore()) {
+								%>
+								<%
+								if (s.startsWith("#")) {
+									String[] s1 = s.split(":");
+								%>
+								<i class="fas fa-circle" style="color:<%=s1[0]%>"
+									onmouseenter="cShow('<%=s1[0] + s1[1]%>')"
+									onmouseleave="cNotShow('<%=s1[0] + s1[1]%>')"></i>
+								<p id="<%=s1[0].replace("#", "") + s1[1]%>" class="caratterisicap"><%=s1[1]%></p>
+								<%
+								} else {
+								%>
+								<p class="tagp"><%=s%></p>
+								<%
+								}
+								%>
+								<%
+								}
+								%>
+							</div>
+							<%
+							}
+							%>
+						</div>
+						<h3>tag</h3>
+						<div id="tagItem" class="tag">
+							<%
+							for (String t : tag) {
+							%>
+							<p class="tagp"><%=t%></p>
+							<%
+							}
+							%>
+						</div>
 						<h6>descrizione</h6>
-						<div id="descrizioneItem" class="descrizione"><%= i.getDescrizione() %></div>
+						<div id="descrizioneItem" class="descrizione"><%=i.getDescrizione()%></div>
 					</div>
 					<div>
 						<div class="infoItem">
 							<h3>Acquista</h3>
-							<div id="prezzoItem" class="prezzo"><%= i.calcolaPrezzo() %>
+							<div id="prezzoItem" class="prezzo"><%=i.calcolaPrezzo()%>
 								&euro;
 							</div>
 							<label for="quantity">Quantit&agrave; </label> <select
 								class="quantity" name="quantity" id="quantityItem">
-								<% for(int x=1;x<=i.getQuantita();x++){ %>
-								<option value="<%= x %>">
-									<%= x %>
+								<%
+								for (int x = 1; x <= i.getQuantita(); x++) {
+								%>
+								<option value="<%=x%>">
+									<%=x%>
 								</option>
-								<%} %>
+								<%
+								}
+								%>
 							</select> <br>
 							<button>Aggiungi al carrello</button>
 						</div>
@@ -79,16 +129,20 @@
 				</div>
 			</div>
 		</div>
-		<% } else { %>
+		<%
+		} else {
+		%>
 		<%@ include file="main/nonPermessi.jsp"%>
-		<% } %>
+		<%
+		}
+		%>
 		<footer>
 			<%@ include file="main/footer.jsp"%>
 		</footer>
 	</div>
 	<script type="text/javascript">
-			initFileSelect();
-			cerca();
-		</script>
+		initFileSelect();
+		cerca();
+	</script>
 </body>
 </html>

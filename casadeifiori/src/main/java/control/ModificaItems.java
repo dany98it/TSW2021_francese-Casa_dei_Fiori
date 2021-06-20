@@ -87,37 +87,28 @@ public class ModificaItems extends HttpServlet {
 			String[] tag=request.getParameter("tag").split(",");
 			for (String string : tag) {
 				TagDAO tDao=new TagDAO();
-				try {
-					Tag t= tDao.doRetrieveByName(string);
-					InclusioneTag it=new InclusioneTag(x, t.getId());
-					itDao.doSave(it);
-				} catch (SQLException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
+				Tag t= tDao.doRetrieveByName(string);
+				InclusioneTag it=new InclusioneTag(x, t.getId());
+				itDao.doSave(it);
 			}
 			String[] c=request.getParameterValues("caratterisica");
 			String[] cVal=request.getParameterValues("caratterisicaValore");
-			for (int i = 0; i < cVal.length && i < c.length; i++) {
-				System.out.println("c="+c[i]);
-				System.out.println("cVal="+cVal[i]);
-				CaratteristicaDAO cDao=new CaratteristicaDAO();
-				Caratteristica crt=cDao.doRetrieveByKey(Integer.parseInt(c[i]));
-				System.out.println("crt=id="+crt.getId()+",nome="+crt.getNome()+",descrizione="+crt.getDescrizione());
-				PossedereCaratteristica pC=new PossedereCaratteristica(x, crt.getId(), cVal[i]);
-				pCDao.doSave(pC);
-			}
-		} catch (Exception e) {
+				for (int i = 0; i < cVal.length && i < c.length; i++) {
+					CaratteristicaDAO cDao=new CaratteristicaDAO();
+					Caratteristica crt=cDao.doRetrieveByKey(Integer.parseInt(c[i]));
+					PossedereCaratteristica pC=new PossedereCaratteristica(x, crt.getId(), cVal[i]);
+					pCDao.doSave(pC);
+				}
+				LinkedList<Mostra> m = (LinkedList<Mostra>) mdao.doRetrieveAllByItem(x);
+				ArrayList<Integer> imgs = new ArrayList<>();
+				for (Mostra mostra : m) {
+					imgs.add(imDao.doRetrieveByKey(mostra.getImmagine()).getId());
+				}
+				request.setAttribute("img", imgs);
+			} catch (Exception e) {
 			// TODO Auto-generated catch block
-			e.printStackTrace(response.getWriter());
-		}
-
-		LinkedList<Mostra> m = (LinkedList<Mostra>) mdao.doRetrieveAllByItem(x);
-		ArrayList<Integer> imgs = new ArrayList<>();
-		for (Mostra mostra : m) {
-			imgs.add(imDao.doRetrieveByKey(mostra.getImmagine()).getId());
-		}
-		request.setAttribute("item", item);
+				e.printStackTrace(response.getWriter());
+			}
 		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/modificaImage.jsp");
 		dispatcher.forward(request, response);
 	}

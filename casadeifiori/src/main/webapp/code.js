@@ -516,6 +516,17 @@ function cShow(id){
 function cNotShow(id){
 	$(id).css("display","none");
 }
+function rimuoviImg(imgId){
+		$.ajax({
+		"type":"GET",
+		"url":"remuveImg",
+		data:"imgId="+imgId,
+		dataType:"json",
+		"success":function(data){
+			$("#imgXXL"+imgId).remove();
+			$("#imgL"+imgId).remove();
+		}});
+}
 /*function modCart(id,quantity){
 	$(".alert").alert('close');
 	$.ajax({
