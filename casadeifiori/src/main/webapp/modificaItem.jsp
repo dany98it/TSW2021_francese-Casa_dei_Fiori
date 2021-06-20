@@ -40,7 +40,7 @@ if (i == null) {
 		%>
 		<div class="insertItem">
 			<div>
-				<form method="post" action="modificaItem">
+				<form method="post" action="modificaItems">
 					<input value="<%=i.getId()%>" name="id" hidden="false"> <label
 						for="name">Nome:</label><br> <input value="<%=i.getNome()%>"
 						id="name" name="name" type="text" maxlength="20" required
