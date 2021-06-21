@@ -209,7 +209,7 @@ private static DataSource ds;
 
 		boolean result ;
 
-		String deleteSQL = "DELETE FROM " + PosserdereCaratteristicaDAO.TABLE_NAME + " WHERE item = ? AND cratterisitca = ?";
+		String deleteSQL = "DELETE FROM " + PosserdereCaratteristicaDAO.TABLE_NAME + " WHERE item = ?";
 
 		try {
 			connection = ds.getConnection();

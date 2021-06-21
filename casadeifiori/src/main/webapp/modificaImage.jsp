@@ -6,10 +6,7 @@
 	ArrayList<Integer> galleriaItem = (ArrayList<Integer>) request.getAttribute("galleriaItem");
 	ArrayList<String> tag = (ArrayList<String>) request.getAttribute("tag");
 	ArrayList<PrintCaratteristica> c = (ArrayList<PrintCaratteristica>) request.getAttribute("c");
-	if(i==null){
-		response.sendRedirect("./MostraItem");	
-		return;
-	}%>
+%>
 <!DOCTYPE html>
 <html lang="it">
 <head>

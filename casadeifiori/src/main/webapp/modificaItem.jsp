@@ -45,10 +45,7 @@ if (i == null) {
 						for="name">Nome:</label><br> <input value="<%=i.getNome()%>"
 						id="name" name="name" type="text" maxlength="20" required
 						placeholder="inserire nome"
-						onchange="prewiev('name','titoloItem')"><br> <label
-						for="img">immagini:</label><br> <input type="file" id="img"
-						name="img" accept="image/*" multiple="multiple"> <br>
-					<div id="selectedFiles"></div>
+						onchange="prewiev('name','titoloItem')"><br>
 					<label for="description">Descrizione:</label><br>
 					<textarea id="editortesto" name="description"
 						placeholder="inserire descrizione"><%=i.getDescrizione()%></textarea>
@@ -190,7 +187,7 @@ if (i == null) {
 			loadCaratterisica("<%=printCaratteristica.getNome()%>","<%=v2%>");
 		<%}%>
 		initFileSelect();
-		cerca();
+		tagAutoComplite();
 	</script>
 </body>
 </html>

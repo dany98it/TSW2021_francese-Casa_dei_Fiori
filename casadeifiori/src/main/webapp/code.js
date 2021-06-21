@@ -522,7 +522,7 @@ function rimuoviImg(imgId){
 		"url":"remuveImg",
 		data:"imgId="+imgId,
 		dataType:"json",
-		"success":function(data){
+		"success":function(){
 			$("#imgXXL"+imgId).remove();
 			$("#imgL"+imgId).remove();
 		}});

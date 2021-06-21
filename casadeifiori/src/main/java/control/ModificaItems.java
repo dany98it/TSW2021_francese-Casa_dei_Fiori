@@ -86,7 +86,7 @@ public class ModificaItems extends HttpServlet {
 			sessione.setAttribute("idItem", x);
 		}
 		try {
-			itemDAO.doSave(item);
+			itemDAO.doUpdate(item);
 			String[] tag=request.getParameter("tag").split(",");
 			for (String string : tag) {
 				Tag t= tDao.doRetrieveByName(string);
@@ -124,12 +124,12 @@ public class ModificaItems extends HttpServlet {
 				request.setAttribute("galleriaItem", imgs);
 				request.setAttribute("tag", tag1);
 				request.setAttribute("c", c1);
+				RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/modificaImage.jsp");
+				dispatcher.forward(request, response);
 			} catch (Exception e) {
 			// TODO Auto-generated catch block
 				e.printStackTrace(response.getWriter());
 			}
-		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/modificaImage.jsp");
-		dispatcher.forward(request, response);
 	}
 
 }

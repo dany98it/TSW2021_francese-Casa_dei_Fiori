@@ -206,7 +206,7 @@ private static DataSource ds;
 
 		boolean result = false ;
 
-		String deleteSQL = "DELETE FROM " + InclusioneTagDAO.TABLE_NAME + " WHERE item = ";
+		String deleteSQL = "DELETE FROM " + InclusioneTagDAO.TABLE_NAME + " WHERE item = ?";
 
 		try {
 			connection = ds.getConnection();

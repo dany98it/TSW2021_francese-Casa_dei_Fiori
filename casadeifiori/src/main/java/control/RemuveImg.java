@@ -49,6 +49,7 @@ public class RemuveImg extends HttpServlet {
 		try {
 			mostraDAO.doDelete(mostra);
 			iDao.doDelete(img);
+			response.sendError(200);
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
