@@ -208,15 +208,17 @@ function userIdValidate(){
 		"url":"userIdValidate",
 		"data":{telefono:$("#telefonoInput").val(),
 		 		email:$("emailInput").val()},
-		"error": function(jqXHR,textStatus,errorThrown){
-			html="<div class=\"alert alert-danger alert-dismissible alertMod\" role=\"alert\">"
-			+"<strong>Attenzione!</strong> "+jqXHR.getResponseHeader("error")+
-			+"<button type=\"button\" class=\"close\" data-dismiss=\"alert\" aria-label=\"Close\">"
-			+"<span aria-hidden=\"true\">&times;</span></button></div>"
-			$("body").prepend(html);
-			error=false;
-			closeAlert();
+		"success": function(data){
+			if(data!="unico"){
+				html="<div class=\"alert alert-danger alert-dismissible alertMod\" role=\"alert\">"
+				+"<strong>Attenzione!</strong> "+data+
+				+"<button type=\"button\" class=\"close\" data-dismiss=\"alert\" aria-label=\"Close\">"
+				+"<span aria-hidden=\"true\">&times;</span></button></div>"
+				$("body").prepend(html);
+				error=false;
+			}
 		}
+			
 	})
 	return error;
 }

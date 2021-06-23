@@ -69,21 +69,18 @@ public class userIdValidate extends HttpServlet {
 		
 			switch (error) {
 			case 1:
-				response.setHeader("error","Email già in uso");
-				response.sendError(519,"Email già in uso");
 				
+				response.getWriter().write("Email già in uso");
 				break;
 			case 2:
-				response.setHeader("error","Numero di telefono già in uso");
-				response.sendError(519,"Numero di telefono già in uso");
+				response.getWriter().write("Numero di telefono già in uso");
 				break;
 			case 3:
-				response.setHeader("error", "Email e numero di telefono già in uso");
-				response.sendError(519,"Email e numero di telefono già in uso");
+				response.getWriter().write("Email e numero di telefono già in uso");
 				break;
 
 			default:
-				response.sendError(200);
+				response.getWriter().write("unico");
 				break;
 			}
 			
