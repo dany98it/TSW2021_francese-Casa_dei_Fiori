@@ -138,11 +138,16 @@
 				</div>
 				-->
 				<div class="summary-checkout">
-					<% if(sessione.getAttribute("loggedUser")!=null){ %>
-					<form action="EffettuaCheckOut" method="post">
-         				<input type="submit" class="checkout-cta" onchange="effettuaChecjout" value="Checkout">
-        			</form>
-        			<% }else{ %>
+					<% if(sessione.getAttribute("loggedUser")!=null){
+							
+							if (products != null && products.size() != 0)
+							{%>
+							<form action="EffettuaCheckOut" method="post">
+         						<input type="submit" class="checkout-cta" onchange="effettuaChecjout" value="Checkout">
+        					</form>
+						<% }else{ %>
+							<h5>Carrello vuoto</h5>
+        			<% }}else{ %>
         					<h5>Accedi o Iscriviti per proseguire con l'acquisto</h5>
         					<button type="button" class="checkout-cta" onclick="openLogIn()">Log-in</button>
 							<button type="button" class="checkout-cta" onclick="openSignIn()">Sign-in</button>
