@@ -18,7 +18,10 @@ import com.google.gson.Gson;
 
 import model.CaratteristicaDAO;
 import model.ItemDAO;
+import model.PossedereCaratteristica;
+import model.PosserdereCaratteristicaDAO;
 import model.TagDAO;
+import model.TipoItem;
 
 /**
  * Servlet implementation class itemSearch
@@ -41,14 +44,35 @@ public class Search extends HttpServlet {
 		// TODO Auto-generated method stub
 		ItemDAO itemDAO=new ItemDAO();
 		CaratteristicaDAO cDAO=new CaratteristicaDAO();
+		PosserdereCaratteristicaDAO pcDAO=new PosserdereCaratteristicaDAO();
 		TagDAO tagDAO=new TagDAO();
 		Gson gson=new Gson();
 		String itemq=request.getParameter("itemq");
 		String cq=request.getParameter("cq");
 		String tagq=request.getParameter("tagq");
+		String doveq=request.getParameter("doveq");
 		if(itemq!=null||itemq=="") {
 			try {
-				response.getWriter().write(gson.toJson(itemDAO.doRetrieveName(itemq)));
+				if(doveq!=null||doveq=="") {
+					int group=Integer.parseInt(doveq.split(":")[0]);
+					int id=Integer.parseInt(doveq.split(":")[1]);
+					switch (group) {
+					case 1:
+						response.getWriter().write(gson.toJson(itemDAO.doRetrieveNameByTipo(itemq,TipoItem.values()[id])));
+						break;
+					case 2:
+						response.getWriter().write(gson.toJson(itemDAO.doRetrieveNameByTagID(itemq,id)));
+						break;
+					case 3:
+						response.getWriter().write(gson.toJson(pcDAO.doRetrieveValueByName(itemq,id)));
+						break;
+					default:
+						response.getWriter().write(gson.toJson(itemDAO.doRetrieveName(itemq)));
+						break;
+					}
+				} else {
+					response.getWriter().write(gson.toJson(itemDAO.doRetrieveName(itemq)));
+				}
 			} catch (IOException | SQLException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();

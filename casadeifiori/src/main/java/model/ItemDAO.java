@@ -13,6 +13,8 @@ import javax.naming.InitialContext;
 import javax.naming.NamingException;
 import javax.sql.DataSource;
 
+import com.google.gson.JsonElement;
+
 public class ItemDAO implements DaoInterfacce<Item,Integer>{
 	
 	private static DataSource ds;
@@ -332,5 +334,84 @@ public class ItemDAO implements DaoInterfacce<Item,Integer>{
 			}
 		}
 		return item.toArray();
+	}
+	public synchronized Object[] doRetrieveNameByTipo(String code, TipoItem t) throws SQLException {
+		Connection connection = null;
+		PreparedStatement preparedStatement = null;
+
+		ArrayList<SearchBean> item=new ArrayList<SearchBean>();
+
+		String selectSQL = "SELECT nome FROM " + ItemDAO.TABLE_NAME + " WHERE nome LIKE ? AND tipo = ? GROUP BY nome";
+
+		try {
+			connection = ds.getConnection();
+			connection.setAutoCommit(false);
+			preparedStatement = connection.prepareStatement(selectSQL);
+			preparedStatement.setString(1, code+"%");
+			preparedStatement.setString(2, t.toString());
+
+			ResultSet rs = preparedStatement.executeQuery();
+			connection.commit();
+			while (rs.next()) {
+				item.add(new SearchBean(rs.getString("nome")));
+			}
+
+		} finally {
+			try {
+				if (preparedStatement != null)
+					preparedStatement.close();
+			} finally {
+				if (connection != null)
+					connection.close();
+			}
+		}
+		return item.toArray();
+	}
+
+	public Object[] doRetrieveNameByTagID(String itemq, int id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public Collection<Item> doRetrieveByNameAndTipo(String code, TipoItem tipoItem) throws SQLException {
+		Connection connection = null;
+		PreparedStatement preparedStatement = null;
+
+		Collection<Item> products = new LinkedList<Item>();
+
+		String selectSQL = "SELECT * FROM " + ItemDAO.TABLE_NAME + " WHERE nome LIKE ? AND tipo = ?";
+
+		try {
+			connection = ds.getConnection();
+			connection.setAutoCommit(false);
+			preparedStatement = connection.prepareStatement(selectSQL);
+			preparedStatement.setString(1, code+"%");
+			preparedStatement.setString(2, tipoItem.toString());
+			
+			ResultSet rs = preparedStatement.executeQuery();
+			connection.commit();
+			while (rs.next()) {
+				Item bean = new Item();
+				bean.setId(rs.getInt("id"));
+				bean.setIva(rs.getInt("iva"));
+				bean.setPrezzo(rs.getDouble("prezzo"));
+				bean.setDescrizione(rs.getString("descrizione"));
+				bean.setNome(rs.getString("nome"));
+				bean.setTipo(TipoItem.valueOf(rs.getString("tipo")));
+				bean.setSconto(rs.getInt("sconto"));
+				bean.setQuantita(rs.getInt("quantita"));
+				products.add(bean);
+			}
+
+		} finally {
+			try {
+				if (preparedStatement != null)
+					preparedStatement.close();
+			} finally {
+				if (connection != null)
+					connection.close();
+			}
+		}
+		return products;
 	}
 }

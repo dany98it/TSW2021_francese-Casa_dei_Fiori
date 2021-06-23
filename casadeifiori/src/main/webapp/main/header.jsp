@@ -59,15 +59,26 @@
 	</div>
 	<div class="colorHeader">
 		<form action="MostraItem" class="formRicerca">
-			<select class="selectRicerca" name="cerca">
-				<option>Tutti</option>
+			<select id="selectCerca" class="selectRicerca" name="dove">
+				<option value="0:0">Tutti</option>
 				<optgroup label="categorie">
-					<option>Fiori</option>
-					<option>Piante</option>
-					<option>Oggettistica</option>
+					<%  TipoItem[] t1 = TipoItem.values();
+						for(int i1=0; i1<t1.length; i1++){%>
+						<option value="1:<%=i1%>"><%=t1[i1].name()%></option>
+						<%}%>
 				</optgroup>
-				<optgroup label="tag"></optgroup>
-				<optgroup label="carraterisiche"></optgroup>
+				<optgroup label="tag">
+					<%  Collection<Tag> tags=new TagDAO().doRetrieveAll(null);
+						for(Tag tag1:tags){%>
+						<option value="2:<%=tag1.getId()%>"><%=tag1.getNome()%></option>
+						<%}%>
+				</optgroup>
+				<optgroup label="carraterisiche">
+					<%  Collection<Caratteristica> cs=new CaratteristicaDAO().doRetrieveAll(null);
+						for(Caratteristica c1:cs){%>
+						<option value="3:<%=c1.getId()%>"><%=c1.getNome()%></option>
+						<%}%>
+				</optgroup>
 			</select> <input type="text" name="cerca" class="cerca ajax-typeahead"
 				id="cerca" autocomplete="off" placeholder="Cosa stai cercando...">
 			<button type="submit" class="buttonRicerca">

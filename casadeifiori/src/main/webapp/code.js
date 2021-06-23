@@ -217,6 +217,7 @@ function userIdValidate(){
 				+"<button type=\"button\" class=\"close\" data-dismiss=\"alert\" aria-label=\"Close\">"
 				+"<span aria-hidden=\"true\">&times;</span></button></div>"
 				$("body").prepend(html);
+				closeAlert();
 				error=false;
 			}
 		}	
@@ -396,7 +397,7 @@ function cerca(){
 	$(".ajax-typeahead").autocomplete({
   		source: function (query,process){
 			return $.getJSON(
-                'Search?itemq='+query.term,
+                'Search?itemq='+query.term+"&doveq"+$("#selectCerca").val(),
                 function (data) {
                     return process(data);
 				}

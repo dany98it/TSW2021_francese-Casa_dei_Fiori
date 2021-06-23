@@ -12,6 +12,8 @@ import javax.naming.InitialContext;
 import javax.naming.NamingException;
 import javax.sql.DataSource;
 
+import com.google.gson.JsonElement;
+
 public class PosserdereCaratteristicaDAO implements DaoInterfacce<PossedereCaratteristica, PossedereCaratteristica>{
 private static DataSource ds;
 	
@@ -230,5 +232,10 @@ private static DataSource ds;
 			}
 		}
 		return result;
+	}
+
+	public JsonElement doRetrieveValueByName(String itemq, int id) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 }
