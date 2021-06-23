@@ -215,6 +215,7 @@ function userIdValidate(){
 			+"<span aria-hidden=\"true\">&times;</span></button></div>"
 			$("body").prepend(html);
 			error=false;
+			closeAlert();
 		}
 	})
 	return error;
@@ -373,6 +374,7 @@ function addCart(id,quantity){
 			+"<button type=\"button\" class=\"close\" data-dismiss=\"alert\" aria-label=\"Close\">"
 			+"<span aria-hidden=\"true\">&times;</span></button></div>"
 			$("body").prepend(html);
+			closeAlert();
 		},
 		"error":function(){
 			html="<div class=\"alert alert-danger alert-dismissible topSopra\" role=\"alert\">"
@@ -380,6 +382,7 @@ function addCart(id,quantity){
 			+"<button type=\"button\" class=\"close\" data-dismiss=\"alert\" aria-label=\"Close\">"
 			+"<span aria-hidden=\"true\">&times;</span></button></div>"
 			$("body").prepend(html);
+			closeAlert();
 		}
 	})
 }
@@ -410,6 +413,7 @@ function creaTag(){
 			+"<button type=\"button\" class=\"close\" data-dismiss=\"alert\" aria-label=\"Close\">"
 			+"<span aria-hidden=\"true\">&times;</span></button></div>"
 			$("body").prepend(html);
+			closeAlert();
 		},
 		"error":function(){
 			html="<div class=\"alert alert-danger alert-dismissible topSopra\" role=\"alert\">"
@@ -417,6 +421,7 @@ function creaTag(){
 			+"<button type=\"button\" class=\"close\" data-dismiss=\"alert\" aria-label=\"Close\">"
 			+"<span aria-hidden=\"true\">&times;</span></button></div>"
 			$("body").prepend(html);
+			closeAlert();
 		}
 	})
 	//TODO chiudere dopo submit 
@@ -434,6 +439,7 @@ function creaC(){
 			+"<button type=\"button\" class=\"close\" data-dismiss=\"alert\" aria-label=\"Close\">"
 			+"<span aria-hidden=\"true\">&times;</span></button></div>"
 			$("body").prepend(html);
+			closeAlert();
 		},
 		"error":function(){
 			html="<div class=\"alert alert-danger alert-dismissible topSopra\" role=\"alert\">"
@@ -441,6 +447,7 @@ function creaC(){
 			+"<button type=\"button\" class=\"close\" data-dismiss=\"alert\" aria-label=\"Close\">"
 			+"<span aria-hidden=\"true\">&times;</span></button></div>"
 			$("body").prepend(html);
+			closeAlert();
 		}
 	})
 	//TODO chiudere dopo submit 
@@ -566,5 +573,6 @@ function switchLogInContent(show,hide){
 	$("#"+show).css("display","block");
 	$("#"+show+"Btn").css("background-color","#023838");
 }
-
-
+function closeAlert(){
+	setTimeout(function(){ $(".alert").alert('close'); }, 2000);
+}
