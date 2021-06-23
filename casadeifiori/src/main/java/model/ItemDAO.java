@@ -386,6 +386,7 @@ public class ItemDAO implements DaoInterfacce<Item,Integer>{
 			connection.setAutoCommit(false);
 			preparedStatement = connection.prepareStatement(selectSQL);
 			preparedStatement.setString(1, code+"%");
+			System.out.println(tipoItem.toString());
 			preparedStatement.setString(2, tipoItem.toString());
 			
 			ResultSet rs = preparedStatement.executeQuery();

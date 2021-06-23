@@ -38,7 +38,7 @@ public class MostraItem extends HttpServlet {
 		ItemDAO itemDao = new ItemDAO();
 		String cerca=request.getParameter("cerca");
 		String doveq=request.getParameter("doveq");
-		if (cerca==null||cerca=="") {
+		if (cerca==null||cerca.equals("")) {
 			try {
 				Collection<Item> itemsCollection = itemDao.doRetrieveAll(null);
 				request.setAttribute("itemsCollection", itemsCollection);
@@ -47,7 +47,7 @@ public class MostraItem extends HttpServlet {
 				e.printStackTrace();
 			}
 		}else {
-			if(doveq!=null||doveq=="") {
+			if(doveq!=null&&!doveq.equals("")) {
 				int group=Integer.parseInt(doveq.split(":")[0]);
 				int id=Integer.parseInt(doveq.split(":")[1]);
 				switch (group) {

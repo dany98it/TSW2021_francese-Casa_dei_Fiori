@@ -51,9 +51,9 @@ public class Search extends HttpServlet {
 		String cq=request.getParameter("cq");
 		String tagq=request.getParameter("tagq");
 		String doveq=request.getParameter("doveq");
-		if(itemq!=null||itemq=="") {
+		if(itemq!=null&&!itemq.equals("")) {
 			try {
-				if(doveq!=null||doveq=="") {
+				if(doveq!=null&&!doveq.equals("")) {
 					int group=Integer.parseInt(doveq.split(":")[0]);
 					int id=Integer.parseInt(doveq.split(":")[1]);
 					switch (group) {
@@ -77,14 +77,14 @@ public class Search extends HttpServlet {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-		} else if (cq!=null||cq=="") {
+		} else if (cq!=null&&!cq.equals("")) {
 			try {
 				response.getWriter().write(gson.toJson(cDAO.doRetrieveName(cq)));
 			} catch (IOException | SQLException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-		}else if (tagq!=null||tagq=="") {
+		}else if (tagq!=null&&!tagq.equals("")) {
 			try {
 				response.getWriter().write(gson.toJson(tagDAO.doRetrieveName(tagq)));
 			} catch (IOException | SQLException e) {
