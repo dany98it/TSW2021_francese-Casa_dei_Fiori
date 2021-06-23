@@ -194,7 +194,8 @@ body {
 	box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.05);
 	align-items: center;
 	justify-content: center;
-	overflow: hidden;
+	overflow-X: hidden;
+	overflow-Y: auto;
 	background-color: #fefefe;
 	margin: 10% auto; /* 15% from the top and centered */
 	border: 1% solid #888;
@@ -1551,7 +1552,6 @@ span.twitter-typeahead .tt-suggestion:last-child {
 	}
 	.modal-content1 {
 		left: 45%;
-		overflow: auto;
 		top: 40%;
 		width: 90%;
 		height: 90%;
@@ -1697,7 +1697,6 @@ span.twitter-typeahead .tt-suggestion:last-child {
 		top: 40%;
 		width: 93%;
 		height: 90%;
-		overflow: auto;
 	}
 	.itemListing {
 		grid-template-columns: auto;
@@ -1720,7 +1719,6 @@ span.twitter-typeahead .tt-suggestion:last-child {
 		top: 25%;
 		width: 90%;
 		height: 90%;
-		overflow: auto;
 	}
 	.itemListing {
 		grid-template-columns: auto;
