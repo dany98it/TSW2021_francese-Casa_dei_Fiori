@@ -69,14 +69,13 @@ public class userIdValidate extends HttpServlet {
 		
 			switch (error) {
 			case 1:
-				
-				response.getWriter().write("Email già in uso");
+				response.getWriter().write("Numero di telefono gi&agrave; in uso");
 				break;
 			case 2:
-				response.getWriter().write("Numero di telefono già in uso");
+				response.getWriter().write("Email gi&agrave; in uso");
 				break;
 			case 3:
-				response.getWriter().write("Email e numero di telefono già in uso");
+				response.getWriter().write("Email e numero di telefono gi&agrave; in uso");
 				break;
 
 			default:

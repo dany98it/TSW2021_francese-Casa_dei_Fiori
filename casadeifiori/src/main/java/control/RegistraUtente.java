@@ -58,6 +58,7 @@ public class RegistraUtente extends HttpServlet {
 					user.setPassword(Password.criptaPassword(request.getParameter("password")));
 					user.setNome(request.getParameter("nome"));
 					user.setCognome(request.getParameter("cognome"));
+					System.out.println(request.getParameter("dataNascita"));
 					user.setdataNascita(Date.valueOf(request.getParameter("dataNascita")));
 					user.setPermessi(Permessi.user);
 					user.setTelefono(request.getParameter("telefono"));
@@ -65,7 +66,6 @@ public class RegistraUtente extends HttpServlet {
 					try {
 						userdao.doSave(user);
 					} catch (SQLException e) {
-						response.sendRedirect("signInPage.jsp");
 						return;
 					}
 					sessione.setAttribute("loggedUser", loggedUser);

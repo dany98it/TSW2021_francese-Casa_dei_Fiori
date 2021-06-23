@@ -202,24 +202,26 @@ function validateSignIn(form){
 }
 
 function userIdValidate(){
-	var error;
+	var error = true;
 	$.ajax({
 		"type":"POST",
 		"url":"userIdValidate",
 		"data":{telefono:$("#telefonoInput").val(),
-		 		email:$("emailInput").val()},
+		 		email:$("#emailInput").val()},
+		"async": false,
 		"success": function(data){
 			if(data!="unico"){
-				html="<div class=\"alert alert-danger alert-dismissible alertMod\" role=\"alert\">"
-				+"<strong>Attenzione!</strong> "+data+
+				$(".alert").alert('close');
+				html="<div class=\"alert alert-danger alert-dismissible alertMod topSopra\" role=\"alert\">"
+				+"<strong>Attenzione!</strong> "+data
 				+"<button type=\"button\" class=\"close\" data-dismiss=\"alert\" aria-label=\"Close\">"
 				+"<span aria-hidden=\"true\">&times;</span></button></div>"
 				$("body").prepend(html);
 				error=false;
 			}
-		}
-			
+		}	
 	})
+	console.log(error);
 	return error;
 }
 //Funzioni che permettono di creare l'autocompilamento del tag e delle caratteristiche
@@ -462,7 +464,7 @@ function submitCercaItem(event){
 
 function datapickerInit(id){
 	$('#'+id).fdatepicker({
-		format: 'mm-dd-yyyy',
+		format: 'yyyy-mm-dd',
 		disableDblClickSelection: true,
 		leftArrow:'<<',
 		rightArrow:'>>',
