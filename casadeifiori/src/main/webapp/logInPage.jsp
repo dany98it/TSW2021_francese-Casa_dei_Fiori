@@ -9,12 +9,12 @@
 			<button class="formLogInBtn" id="contentFormSignInBtn" onclick="switchLogInContent('contentFormSignIn','contentFormLogIn')">Sign-in</button>
 		</div>
 		
-		<form action="logIn"method="post" id="contentFormLogIn">
+		<form action="logIn"method="post" id="contentFormLogIn" onsubmit="event.preventDefault(); return logInCheck(this);">
 		
 
 		<div class="txt_fieldLogIn">
 			<input type="text" name="username" class="logInInput"
-				required="required" /> <span class="spanLogIn"></span> <label
+				required="required" id="logInUsername"/> <span class="spanLogIn"></span> <label
 				for="username" class="logInLbl">Email o numero di telefono</label>
 		</div>
 

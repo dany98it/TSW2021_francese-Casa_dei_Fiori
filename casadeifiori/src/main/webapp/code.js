@@ -222,9 +222,35 @@ function userIdValidate(){
 			}
 		}	
 	})
-	console.log(error);
 	return error;
 }
+
+function logInCheck(form){
+	var error = true;
+	$.ajax({
+		"type":"POST",
+		"url":"LogInValidate",
+		"data":{username:$("#logInUsername").val(),
+		 		password:$("#logInPassword").val()},
+		"async": false,
+		"success": function(data){
+			if(data!="passed"){
+				$(".alert").alert('close');
+				html="<div class=\"alert alert-danger alert-dismissible alertMod topSopra\" role=\"alert\">"
+				+"<strong>Attenzione!</strong> "+data
+				+"<button type=\"button\" class=\"close\" data-dismiss=\"alert\" aria-label=\"Close\">"
+				+"<span aria-hidden=\"true\">&times;</span></button></div>"
+				$("body").prepend(html);
+				error=false;
+			}
+		}	
+	})
+	if(error==true){
+		form.submit();
+	}
+}
+
+
 //Funzioni che permettono di creare l'autocompilamento del tag e delle caratteristiche
 var tag = new Bloodhound({
   	datumTokenizer: Bloodhound.tokenizers.obj.whitespace('value'),
