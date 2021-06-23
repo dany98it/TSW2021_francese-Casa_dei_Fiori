@@ -4,7 +4,6 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.ArrayList;
 import java.util.Collection;
 import java.util.LinkedList;
 
@@ -13,8 +12,8 @@ import javax.naming.InitialContext;
 import javax.naming.NamingException;
 import javax.sql.DataSource;
 
-public class TagDAO implements DaoInterfacce<Tag, Integer> {
-private static DataSource ds;
+public class IndirizzoDAO implements DaoInterfacce<Indirizzo, Integer>{
+	private static DataSource ds;
 	
 	static {
 		try {
@@ -28,21 +27,27 @@ private static DataSource ds;
 		}
 	}
 	
-	private static final String TABLE_NAME = "tag";
+	private static final String TABLE_NAME = "indirizzo";
 	@Override
-	public void doSave(Tag t) throws SQLException {
+	public void doSave(Indirizzo i) throws SQLException {
 		Connection connection = null;
 		PreparedStatement preparedStatement = null;
-		String insertSQL = "INSERT INTO " + TagDAO.TABLE_NAME
-				+ " (`nome`, `descrizione`) VALUES (?, ?)";
+		String insertSQL = "INSERT INTO " + IndirizzoDAO.TABLE_NAME
+				+ " (`id`, `provincia`,`citta`,`cap`,`via`,`interno`,`numero_civico`,`user`) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
 
 		try {
 			
 			connection = ds.getConnection();
 			connection.setAutoCommit(false);
 			preparedStatement = connection.prepareStatement(insertSQL);
-			preparedStatement.setString(1, t.getNome());
-			preparedStatement.setString(2, t.getDescrizione());
+			preparedStatement.setInt(1, i.getId());
+			preparedStatement.setString(2, i.getProvincia());
+			preparedStatement.setString(3, i.getCittà());
+			preparedStatement.setString(4, i.getCap());
+			preparedStatement.setString(5, i.getVia());
+			preparedStatement.setString(6, i.getInterno());
+			preparedStatement.setString(7, i.getNumeroCivico());
+			preparedStatement.setInt(8, i.getUser());
 
 			preparedStatement.executeUpdate();
 
@@ -56,7 +61,6 @@ private static DataSource ds;
 					connection.close();
 			}
 		}
-		
 	}
 
 	@Override
@@ -66,7 +70,7 @@ private static DataSource ds;
 
 		boolean result ;
 
-		String deleteSQL = "DELETE FROM " + TagDAO.TABLE_NAME + " WHERE id = ?";
+		String deleteSQL = "DELETE FROM " + IndirizzoDAO.TABLE_NAME + " WHERE id = ?";
 
 		try {
 			connection = ds.getConnection();
@@ -90,25 +94,33 @@ private static DataSource ds;
 	}
 
 	@Override
-	public int doUpdate(Tag t) throws SQLException {
+	public int doUpdate(Indirizzo i) throws SQLException {
 		Connection connection = null;
 		PreparedStatement preparedStatement = null;
 
 		int result ;
 
-		String updateSQL = "UPDATE " + TagDAO.TABLE_NAME + " SET  "
-				+ "nome =  ? ,"
-				+ "descrizione = ? ,"
-				+ " Where"+ "id = ? ";
+		String updateSQL = "UPDATE " + IndirizzoDAO.TABLE_NAME + " SET  "
+				+ "provincia =  ? ,"
+				+ "citta = ? ,"
+				+ "cap = ? ,"
+				+ "via = ? ,"
+				+ "interno = ? ,"
+				+ "numero_civico = ? ,"
+				+ "WHERE "+ "id = ? ";
 
 		try {
 			connection = ds.getConnection();
 			connection.setAutoCommit(false);
 			preparedStatement = connection.prepareStatement(updateSQL);
-			preparedStatement.setString(1, t.getNome());
-			preparedStatement.setString(2, t.getDescrizione());
-			preparedStatement.setInt(3, t.getId());
 			
+			preparedStatement.setString(1, i.getProvincia());
+			preparedStatement.setString(2, i.getCittà());
+			preparedStatement.setString(3, i.getCap());
+			preparedStatement.setString(4, i.getVia());
+			preparedStatement.setString(5, i.getInterno());
+			preparedStatement.setString(6, i.getNumeroCivico());
+			preparedStatement.setInt(7, i.getId());
 
 			result = preparedStatement.executeUpdate();
 			
@@ -126,13 +138,13 @@ private static DataSource ds;
 	}
 
 	@Override
-	public Tag doRetrieveByKey(Integer code) throws SQLException {
+	public Indirizzo doRetrieveByKey(Integer code) throws SQLException {
 		Connection connection = null;
 		PreparedStatement preparedStatement = null;
 
-		Tag bean = new Tag();
+		Indirizzo bean = new Indirizzo();
 
-		String selectSQL = "SELECT * FROM " + TagDAO.TABLE_NAME + " WHERE id = ?";
+		String selectSQL = "SELECT * FROM " + IndirizzoDAO.TABLE_NAME + " WHERE id = ?";
 
 		try {
 			connection = ds.getConnection();
@@ -144,8 +156,13 @@ private static DataSource ds;
 			connection.commit();
 			while (rs.next()) {
 				bean.setId(rs.getInt("id"));
-				bean.setNome(rs.getString("nome"));
-				bean.setDescrizione(rs.getString("descrizione"));
+				bean.setProvincia(rs.getString("provincia"));
+				bean.setCittà(rs.getString("citta"));
+				bean.setCap(rs.getString("cap"));
+				bean.setVia(rs.getString("via"));
+				bean.setInterno(rs.getString("interno"));
+				bean.setNumeroCivico(rs.getString("numero_civico"));
+				bean.setUser(rs.getInt("user"));
 			}
 
 		} finally {
@@ -161,13 +178,13 @@ private static DataSource ds;
 	}
 
 	@Override
-	public Collection<Tag> doRetrieveAll(String order) throws SQLException {
+	public Collection<Indirizzo> doRetrieveAll(String order) throws SQLException {
 		Connection connection = null;
 		PreparedStatement preparedStatement = null;
 
-		Collection<Tag> tag = new LinkedList<Tag>();
+		Collection<Indirizzo> Indirizzo = new LinkedList<Indirizzo>();
 
-		String selectSQL = "SELECT * FROM " + TagDAO.TABLE_NAME;
+		String selectSQL = "SELECT * FROM " + IndirizzoDAO.TABLE_NAME;
 
 		if (order != null && !order.equals("")) {
 			selectSQL += " ORDER BY " + order;
@@ -181,11 +198,16 @@ private static DataSource ds;
 			ResultSet rs = preparedStatement.executeQuery();
 			connection.commit();
 			while (rs.next()) {
-				Tag bean = new Tag();
+				Indirizzo bean = new Indirizzo();
 				bean.setId(rs.getInt("id"));
-				bean.setNome(rs.getString("nome"));
-				bean.setDescrizione(rs.getString("descrizione"));
-				tag.add(bean);
+				bean.setProvincia(rs.getString("provincia"));
+				bean.setCittà(rs.getString("citta"));
+				bean.setCap(rs.getString("cap"));
+				bean.setVia(rs.getString("via"));
+				bean.setInterno(rs.getString("interno"));
+				bean.setNumeroCivico(rs.getString("numero_civico"));
+				bean.setUser(rs.getInt("user"));
+				Indirizzo.add(bean);
 			}
 
 		} finally {
@@ -197,28 +219,35 @@ private static DataSource ds;
 					connection.close();
 			}
 		}
-		return tag;
+		return Indirizzo;
 	}
-	public Tag doRetrieveByName (String code) throws SQLException {
+	
+	public Collection<Indirizzo> doRetrieveAllByUser(Integer user) throws SQLException {
 		Connection connection = null;
 		PreparedStatement preparedStatement = null;
 
-		Tag bean = new Tag();
+		Collection<Indirizzo> Indirizzo = new LinkedList<Indirizzo>();
 
-		String selectSQL = "SELECT * FROM " + TagDAO.TABLE_NAME + " WHERE nome = ?";
+		String selectSQL = "SELECT * FROM " + IndirizzoDAO.TABLE_NAME + "WHERE user="+user;
 
 		try {
 			connection = ds.getConnection();
 			connection.setAutoCommit(false);
 			preparedStatement = connection.prepareStatement(selectSQL);
-			preparedStatement.setString(1, code);
-
+			
 			ResultSet rs = preparedStatement.executeQuery();
 			connection.commit();
 			while (rs.next()) {
+				Indirizzo bean = new Indirizzo();
 				bean.setId(rs.getInt("id"));
-				bean.setNome(rs.getString("nome"));
-				bean.setDescrizione(rs.getString("descrizione"));
+				bean.setProvincia(rs.getString("provincia"));
+				bean.setCittà(rs.getString("citta"));
+				bean.setCap(rs.getString("cap"));
+				bean.setVia(rs.getString("via"));
+				bean.setInterno(rs.getString("interno"));
+				bean.setNumeroCivico(rs.getString("numero_civico"));
+				bean.setUser(rs.getInt("user"));
+				Indirizzo.add(bean);
 			}
 
 		} finally {
@@ -230,37 +259,7 @@ private static DataSource ds;
 					connection.close();
 			}
 		}
-		return bean;
+		return Indirizzo;
 	}
-	public synchronized Object[] doRetrieveName(String code) throws SQLException {
-		Connection connection = null;
-		PreparedStatement preparedStatement = null;
-
-		ArrayList<SearchBean> tag=new ArrayList<SearchBean>();
-
-		String selectSQL = "SELECT nome FROM " + TagDAO.TABLE_NAME + " WHERE nome LIKE ? GROUP BY nome";
-
-		try {
-			connection = ds.getConnection();
-			connection.setAutoCommit(false);
-			preparedStatement = connection.prepareStatement(selectSQL);
-			preparedStatement.setString(1, code+"%");
-
-			ResultSet rs = preparedStatement.executeQuery();
-			connection.commit();
-			while (rs.next()) {
-				tag.add(new SearchBean(rs.getString("nome")));
-			}
-
-		} finally {
-			try {
-				if (preparedStatement != null)
-					preparedStatement.close();
-			} finally {
-				if (connection != null)
-					connection.close();
-			}
-		}
-		return tag.toArray();
-	}
+	
 }
