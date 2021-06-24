@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.LinkedList;
 
@@ -234,8 +235,39 @@ private static DataSource ds;
 		return result;
 	}
 
-	public JsonElement doRetrieveValueByName(String itemq, int id) {
-		// TODO Auto-generated method stub
-		return null;
+	public Collection<PossedereCaratteristica> doRetrieveValueByC(int id) throws SQLException {
+		Connection connection = null;
+		PreparedStatement preparedStatement = null;
+
+		Collection<PossedereCaratteristica> mostra = new LinkedList<PossedereCaratteristica>();
+
+		String selectSQL = "SELECT * FROM " + PosserdereCaratteristicaDAO.TABLE_NAME + " WHERE cratterisitca = ? GROUP BY valore";
+
+		try {
+			connection = ds.getConnection();
+			connection.setAutoCommit(false);
+			preparedStatement = connection.prepareStatement(selectSQL);
+			preparedStatement.setInt(1, id);
+			
+			ResultSet rs = preparedStatement.executeQuery();
+			connection.commit();
+			while (rs.next()) {
+				PossedereCaratteristica bean = new PossedereCaratteristica();
+				bean.setItem(rs.getInt("item"));
+				bean.setCaratteristica(rs.getInt("cratterisitca"));
+				bean.setValore(rs.getString("valore"));
+				mostra.add(bean);
+			}
+
+		} finally {
+			try {
+				if (preparedStatement != null)
+					preparedStatement.close();
+			} finally {
+				if (connection != null)
+					connection.close();
+			}
+		}
+		return mostra;
 	}
 }

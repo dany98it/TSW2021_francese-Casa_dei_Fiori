@@ -74,11 +74,23 @@
 						<%}%>
 				</optgroup>
 				<optgroup label="carraterisiche">
-					<%  Collection<Caratteristica> cs=new CaratteristicaDAO().doRetrieveAll(null);
-						for(Caratteristica c1:cs){%>
-						<option value="3:<%=c1.getId()%>"><%=c1.getNome()%></option>
-						<%}%>
 				</optgroup>
+				<%  Collection<Caratteristica> cs=new CaratteristicaDAO().doRetrieveAll(null);
+					for(Caratteristica c1:cs){%>
+					<optgroup label="<%=c1.getNome()%>">
+						<%Collection<PossedereCaratteristica> pcs=new PosserdereCaratteristicaDAO().doRetrieveValueByC(c1.getId());
+							for(PossedereCaratteristica pc: pcs){
+								String[] values=pc.getValore().split(",");
+								for(String s:values){
+									if(s.startsWith("#")){%>
+										<option value="3:<%=c1.getId()%>:<%=s.replace("#", "_")%>"><%=s.split(":")[1]%></option>
+									<%}else{ %>
+										<option value="3:<%=c1.getId()%>:<%=s%>"><%=s%></option>
+									<%} %>		
+								<%} %>
+							<%}%>
+					</optgroup>
+					<%}%>
 			</select> <input type="text" name="cerca" class="cerca ajax-typeahead"
 				id="cerca" autocomplete="off" placeholder="Cosa stai cercando...">
 			<button type="submit" class="buttonRicerca">

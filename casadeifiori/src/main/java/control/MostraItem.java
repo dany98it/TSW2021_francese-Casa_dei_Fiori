@@ -37,7 +37,7 @@ public class MostraItem extends HttpServlet {
 		// TODO Auto-generated method stub
 		ItemDAO itemDao = new ItemDAO();
 		String cerca=request.getParameter("cerca");
-		String doveq=request.getParameter("doveq");
+		String dove=request.getParameter("dove");
 		if (cerca==null||cerca.equals("")) {
 			try {
 				Collection<Item> itemsCollection = itemDao.doRetrieveAll(null);
@@ -47,9 +47,9 @@ public class MostraItem extends HttpServlet {
 				e.printStackTrace();
 			}
 		}else {
-			if(doveq!=null&&!doveq.equals("")) {
-				int group=Integer.parseInt(doveq.split(":")[0]);
-				int id=Integer.parseInt(doveq.split(":")[1]);
+			if(dove!=null&&!dove.equals("")) {
+				int group=Integer.parseInt(dove.split(":")[0]);
+				int id=Integer.parseInt(dove.split(":")[1]);
 				switch (group) {
 				case 1:
 					try {
@@ -61,8 +61,22 @@ public class MostraItem extends HttpServlet {
 					}
 					break;
 				case 2:
+					try {
+						Collection<Item> itemsCollection = itemDao.doRetrieveByNameAndTag(cerca,id);
+						request.setAttribute("itemsCollection", itemsCollection);
+					} catch (SQLException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
 					break;
 				case 3:
+					try {
+						Collection<Item> itemsCollection = itemDao.doRetrieveByCValue(cerca,id,dove.split(":")[2]);
+						request.setAttribute("itemsCollection", itemsCollection);
+					} catch (SQLException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
 					break;
 				default:
 					try {

@@ -64,7 +64,7 @@ public class Search extends HttpServlet {
 						response.getWriter().write(gson.toJson(itemDAO.doRetrieveNameByTagID(itemq,id)));
 						break;
 					case 3:
-						response.getWriter().write(gson.toJson(pcDAO.doRetrieveValueByName(itemq,id)));
+						response.getWriter().write(gson.toJson(itemDAO.doRetrieveNameByCValue(itemq,id,doveq.split(":")[2])));
 						break;
 					default:
 						response.getWriter().write(gson.toJson(itemDAO.doRetrieveName(itemq)));

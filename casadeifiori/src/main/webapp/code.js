@@ -423,7 +423,7 @@ function cerca(){
 	$(".ajax-typeahead").autocomplete({
   		source: function (query,process){
 			return $.getJSON(
-                'Search?itemq='+query.term+"&doveq"+$("#selectCerca").val(),
+                'Search?itemq='+query.term+"&doveq="+$("#selectCerca").val(),
                 function (data) {
                     return process(data);
 				}

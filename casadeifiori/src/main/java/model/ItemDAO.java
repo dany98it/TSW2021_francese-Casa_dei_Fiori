@@ -368,9 +368,37 @@ public class ItemDAO implements DaoInterfacce<Item,Integer>{
 		return item.toArray();
 	}
 
-	public Object[] doRetrieveNameByTagID(String itemq, int id) {
-		// TODO Auto-generated method stub
-		return null;
+	public Object[] doRetrieveNameByTagID(String code, int id) throws SQLException {
+		Connection connection = null;
+		PreparedStatement preparedStatement = null;
+
+		ArrayList<SearchBean> item=new ArrayList<SearchBean>();
+
+		String selectSQL = "SELECT nome FROM " + ItemDAO.TABLE_NAME + " WHERE nome LIKE ? AND id IN (SELECT item FROM inclusione_tag WHERE tag = ?) GROUP BY nome";
+
+		try {
+			connection = ds.getConnection();
+			connection.setAutoCommit(false);
+			preparedStatement = connection.prepareStatement(selectSQL);
+			preparedStatement.setString(1, code+"%");
+			preparedStatement.setInt(2, id);
+
+			ResultSet rs = preparedStatement.executeQuery();
+			connection.commit();
+			while (rs.next()) {
+				item.add(new SearchBean(rs.getString("nome")));
+			}
+
+		} finally {
+			try {
+				if (preparedStatement != null)
+					preparedStatement.close();
+			} finally {
+				if (connection != null)
+					connection.close();
+			}
+		}
+		return item.toArray();
 	}
 
 	public Collection<Item> doRetrieveByNameAndTipo(String code, TipoItem tipoItem) throws SQLException {
@@ -386,8 +414,126 @@ public class ItemDAO implements DaoInterfacce<Item,Integer>{
 			connection.setAutoCommit(false);
 			preparedStatement = connection.prepareStatement(selectSQL);
 			preparedStatement.setString(1, code+"%");
-			System.out.println(tipoItem.toString());
 			preparedStatement.setString(2, tipoItem.toString());
+			
+			ResultSet rs = preparedStatement.executeQuery();
+			connection.commit();
+			while (rs.next()) {
+				Item bean = new Item();
+				bean.setId(rs.getInt("id"));
+				bean.setIva(rs.getInt("iva"));
+				bean.setPrezzo(rs.getDouble("prezzo"));
+				bean.setDescrizione(rs.getString("descrizione"));
+				bean.setNome(rs.getString("nome"));
+				bean.setTipo(TipoItem.valueOf(rs.getString("tipo")));
+				bean.setSconto(rs.getInt("sconto"));
+				bean.setQuantita(rs.getInt("quantita"));
+				products.add(bean);
+			}
+
+		} finally {
+			try {
+				if (preparedStatement != null)
+					preparedStatement.close();
+			} finally {
+				if (connection != null)
+					connection.close();
+			}
+		}
+		return products;
+	}
+
+	public Collection<Item> doRetrieveByNameAndTag(String code, int id) throws SQLException {
+		Connection connection = null;
+		PreparedStatement preparedStatement = null;
+
+		Collection<Item> products = new LinkedList<Item>();
+
+		String selectSQL = "SELECT * FROM " + ItemDAO.TABLE_NAME + " WHERE nome LIKE ? AND id IN (SELECT item FROM inclusione_tag WHERE tag = ?) ";
+
+		try {
+			connection = ds.getConnection();
+			connection.setAutoCommit(false);
+			preparedStatement = connection.prepareStatement(selectSQL);
+			preparedStatement.setString(1, code+"%");
+			preparedStatement.setInt(2, id);
+			
+			ResultSet rs = preparedStatement.executeQuery();
+			connection.commit();
+			while (rs.next()) {
+				Item bean = new Item();
+				bean.setId(rs.getInt("id"));
+				bean.setIva(rs.getInt("iva"));
+				bean.setPrezzo(rs.getDouble("prezzo"));
+				bean.setDescrizione(rs.getString("descrizione"));
+				bean.setNome(rs.getString("nome"));
+				bean.setTipo(TipoItem.valueOf(rs.getString("tipo")));
+				bean.setSconto(rs.getInt("sconto"));
+				bean.setQuantita(rs.getInt("quantita"));
+				products.add(bean);
+			}
+
+		} finally {
+			try {
+				if (preparedStatement != null)
+					preparedStatement.close();
+			} finally {
+				if (connection != null)
+					connection.close();
+			}
+		}
+		return products;
+	}
+
+	public Object[] doRetrieveNameByCValue(String code, int id, String value) throws SQLException {
+		Connection connection = null;
+		PreparedStatement preparedStatement = null;
+
+		ArrayList<SearchBean> item=new ArrayList<SearchBean>();
+
+		String selectSQL = "SELECT nome FROM " + ItemDAO.TABLE_NAME + " WHERE nome LIKE ? AND id IN (SELECT item FROM possedere_caratt WHERE cratterisitca = ? AND valore LIKE ?) GROUP BY nome";
+
+		try {
+			connection = ds.getConnection();
+			connection.setAutoCommit(false);
+			preparedStatement = connection.prepareStatement(selectSQL);
+			preparedStatement.setString(1, code+"%");
+			preparedStatement.setInt(2, id);
+			preparedStatement.setString(3, "%"+value+"%");
+
+			ResultSet rs = preparedStatement.executeQuery();
+			connection.commit();
+			while (rs.next()) {
+				item.add(new SearchBean(rs.getString("nome")));
+			}
+
+		} finally {
+			try {
+				if (preparedStatement != null)
+					preparedStatement.close();
+			} finally {
+				if (connection != null)
+					connection.close();
+			}
+		}
+		return item.toArray();
+	}
+	
+	public Collection<Item> doRetrieveByCValue(String code, int id, String value) throws SQLException {
+		Connection connection = null;
+		PreparedStatement preparedStatement = null;
+
+		Collection<Item> products = new LinkedList<Item>();
+
+		String selectSQL = "SELECT * FROM " + ItemDAO.TABLE_NAME + " WHERE nome LIKE ? AND id IN (SELECT item FROM possedere_caratt WHERE cratterisitca = ? AND valore LIKE ?)";
+
+		try {
+			connection = ds.getConnection();
+			connection.setAutoCommit(false);
+			preparedStatement = connection.prepareStatement(selectSQL);
+			preparedStatement.setString(1, code+"%");
+			preparedStatement.setInt(2, id);
+			preparedStatement.setString(3, "%"+value+"%");
 			
 			ResultSet rs = preparedStatement.executeQuery();
 			connection.commit();
