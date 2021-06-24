@@ -142,9 +142,7 @@
 							
 							if (products != null && products.size() != 0)
 							{%>
-							<form action="EffettuaCheckOut" method="post">
-         						<input type="submit" class="checkout-cta" onchange="effettuaChecjout" value="Checkout">
-        					</form>
+							<button type="button" class="checkout-cta" onclick="location.href='pagamentoPage.jsp'">SAFE CHECKOUT</button>
 						<% }else{ %>
 							<h5>Carrello vuoto</h5>
         			<% }}else{ %>

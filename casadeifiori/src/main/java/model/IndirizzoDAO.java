@@ -238,7 +238,7 @@ public class IndirizzoDAO implements DaoInterfacce<Indirizzo, Integer>{
 
 		Collection<Indirizzo> Indirizzo = new LinkedList<Indirizzo>();
 
-		String selectSQL = "SELECT * FROM " + IndirizzoDAO.TABLE_NAME + "WHERE user="+user;
+		String selectSQL = "SELECT * FROM " + IndirizzoDAO.TABLE_NAME + " WHERE user = " +user;
 
 		try {
 			connection = ds.getConnection();

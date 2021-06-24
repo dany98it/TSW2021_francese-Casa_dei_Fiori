@@ -98,5 +98,18 @@ public class Indirizzo {
 	public void setCognome(String cognome) {
 		this.cognome = cognome;
 	}
+
+	@Override
+	public String toString() {
+		if(this.interno.isBlank()||this.interno.isEmpty()) {
+			return nome +" "+ cognome +","+  città
+				+ "("+  provincia +"),"+ cap +","+  via +" "+ numeroCivico ;
+		}
+		else{
+			return nome +" "+ cognome +","+  città
+					+ "("+  provincia +"),"+ cap +","+  via +" "+ numeroCivico +" Interno:"+  interno;
+		}
+	}
+	
 	
 }
