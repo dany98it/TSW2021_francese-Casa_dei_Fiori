@@ -73,6 +73,7 @@ public class Indirizzo {
 	public void setUser(int user) {
 		this.user = user;
 	}
-
-     
+	public boolean isLocalConsegna() {
+		return città.equals("Grottaminarda")&&provincia.equals("AV");
+	}
 }
