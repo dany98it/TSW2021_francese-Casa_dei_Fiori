@@ -326,7 +326,7 @@ form .wrap-LogInBtn {
 }
 
 /* The Close Button */
-.close {
+.close1 {
 	/* Position it in the top right corner outside of the modal */
 	position: absolute;
 	right: 1em;
@@ -336,7 +336,7 @@ form .wrap-LogInBtn {
 }
 
 /* Close button on hover */
-.close:hover, .close:focus {
+.close1:hover, .close1:focus {
 	color: red;
 	cursor: pointer;
 }

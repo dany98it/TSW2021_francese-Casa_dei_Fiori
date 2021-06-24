@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
 <div id="divLogIn" class="modal1">
-	<div onclick="closeLogIn()" class="close" title="Close Modal">&times;</div>
+	<div onclick="closeLogIn()" class="close1" title="Close Modal">&times;</div>
 		
 	<div class="modal-content1 aniamte logInForm">
 		<div class="logInTitle">
