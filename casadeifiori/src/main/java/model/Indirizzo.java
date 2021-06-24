@@ -8,13 +8,16 @@ public class Indirizzo {
     private String via;
     private String interno;
     private String numeroCivico;
+    private String nome;
+    private String cognome;
     private int user;
     
     public Indirizzo() {
 		super();
 	}
+    
 	public Indirizzo(int id, String provincia, String città, String cap, String via, String interno,
-			String numeroCivico, int user) {
+			String numeroCivico, String nome, String cognome, int user) {
 		super();
 		this.id = id;
 		this.provincia = provincia;
@@ -23,8 +26,11 @@ public class Indirizzo {
 		this.via = via;
 		this.interno = interno;
 		this.numeroCivico = numeroCivico;
+		this.nome = nome;
+		this.cognome = cognome;
 		this.user = user;
 	}
+
 	public int getId() {
 		return id;
 	}
@@ -76,4 +82,21 @@ public class Indirizzo {
 	public boolean isLocalConsegna() {
 		return città.equals("Grottaminarda")&&provincia.equals("AV");
 	}
+
+	public String getNome() {
+		return nome;
+	}
+
+	public void setNome(String nome) {
+		this.nome = nome;
+	}
+
+	public String getCognome() {
+		return cognome;
+	}
+
+	public void setCognome(String cognome) {
+		this.cognome = cognome;
+	}
+	
 }

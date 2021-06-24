@@ -785,7 +785,7 @@ to {
 
 .price:before, .subtotal:before, .subtotal-value:before, .total-value:before,
 	.promo-value:before {
-	content: '€';
+	content: '\20AC';
 }
 
 .hide {

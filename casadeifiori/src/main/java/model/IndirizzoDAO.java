@@ -33,7 +33,7 @@ public class IndirizzoDAO implements DaoInterfacce<Indirizzo, Integer>{
 		Connection connection = null;
 		PreparedStatement preparedStatement = null;
 		String insertSQL = "INSERT INTO " + IndirizzoDAO.TABLE_NAME
-				+ " (`id`, `provincia`,`citta`,`cap`,`via`,`interno`,`numero_civico`,`user`) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
+				+ " (`id`,`provincia`,`citta`,`cap`,`via`,`interno`,`numero_civico`,`user`,`nome`,`cognome`) VALUES (?, ?, ?, ?, ?, ?, ?, ?,?,?)";
 
 		try {
 			
@@ -48,6 +48,8 @@ public class IndirizzoDAO implements DaoInterfacce<Indirizzo, Integer>{
 			preparedStatement.setString(6, i.getInterno());
 			preparedStatement.setString(7, i.getNumeroCivico());
 			preparedStatement.setInt(8, i.getUser());
+			preparedStatement.setString(9, i.getNome());
+			preparedStatement.setString(10, i.getCognome());
 
 			preparedStatement.executeUpdate();
 
@@ -107,6 +109,8 @@ public class IndirizzoDAO implements DaoInterfacce<Indirizzo, Integer>{
 				+ "via = ? ,"
 				+ "interno = ? ,"
 				+ "numero_civico = ? ,"
+				+ "nome = ? ,"
+				+ "cognome = ? ,"
 				+ "WHERE "+ "id = ? ";
 
 		try {
@@ -120,7 +124,9 @@ public class IndirizzoDAO implements DaoInterfacce<Indirizzo, Integer>{
 			preparedStatement.setString(4, i.getVia());
 			preparedStatement.setString(5, i.getInterno());
 			preparedStatement.setString(6, i.getNumeroCivico());
-			preparedStatement.setInt(7, i.getId());
+			preparedStatement.setString(7, i.getNome());
+			preparedStatement.setString(8, i.getCognome());
+			preparedStatement.setInt(9, i.getId());
 
 			result = preparedStatement.executeUpdate();
 			
@@ -163,6 +169,8 @@ public class IndirizzoDAO implements DaoInterfacce<Indirizzo, Integer>{
 				bean.setInterno(rs.getString("interno"));
 				bean.setNumeroCivico(rs.getString("numero_civico"));
 				bean.setUser(rs.getInt("user"));
+				bean.setNome(rs.getString("nome"));
+				bean.setCognome(rs.getString("cognome"));
 			}
 
 		} finally {
@@ -207,6 +215,8 @@ public class IndirizzoDAO implements DaoInterfacce<Indirizzo, Integer>{
 				bean.setInterno(rs.getString("interno"));
 				bean.setNumeroCivico(rs.getString("numero_civico"));
 				bean.setUser(rs.getInt("user"));
+				bean.setNome(rs.getString("nome"));
+				bean.setCognome(rs.getString("cognome"));
 				Indirizzo.add(bean);
 			}
 
@@ -247,6 +257,8 @@ public class IndirizzoDAO implements DaoInterfacce<Indirizzo, Integer>{
 				bean.setInterno(rs.getString("interno"));
 				bean.setNumeroCivico(rs.getString("numero_civico"));
 				bean.setUser(rs.getInt("user"));
+				bean.setNome(rs.getString("nome"));
+				bean.setCognome(rs.getString("cognome"));
 				Indirizzo.add(bean);
 			}
 

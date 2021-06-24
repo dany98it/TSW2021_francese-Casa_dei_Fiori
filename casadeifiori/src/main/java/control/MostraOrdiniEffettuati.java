@@ -48,7 +48,7 @@ public class MostraOrdiniEffettuati extends HttpServlet {
 		synchronized (sessione) {
 			loggedUser = (User) sessione.getAttribute("loggedUser");
 			if(loggedUser==null) {
-				response.sendRedirect("logInPage.jsp"); //logged-in page   
+				response.sendRedirect("index.jsp"); //logged-in page   
 				return;
 			}   
 		};
