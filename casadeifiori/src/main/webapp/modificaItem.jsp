@@ -4,7 +4,7 @@
 <%
 Item i = (Item) request.getAttribute("item");
 ArrayList<Integer> galleriaItem = (ArrayList<Integer>) request.getAttribute("galleriaItem");
-ArrayList<String> tag = (ArrayList<String>) request.getAttribute("tag");
+ArrayList<String> tag3 = (ArrayList<String>) request.getAttribute("tag");
 ArrayList<PrintCaratteristica> c = (ArrayList<PrintCaratteristica>) request.getAttribute("c");
 if (i == null) {
 	response.sendRedirect("./MostraItem");
@@ -51,21 +51,21 @@ if (i == null) {
 						placeholder="inserire descrizione"><%=i.getDescrizione()%></textarea>
 					<br> <label for="tag">tag:</label><br>
 						<%
-							String t1="";
-							for (String t : tag) {
-								t1=t+","+t1;
+							String t2="";
+							for (String t3 : tag3) {
+								t2=t3+","+t2;
 							}
 						%>
 					<input id="tag"
 						name="tag" type="text" data-role="tagsinput" placeholder="tag,..."
-						onchange="prewievTag('tag','tagItem')"  value="<%= t1%>"> <label
+						onchange="prewievTag('tag','tagItem')"  value="<%= t2%>"> <label
 						for="caratterisiche">caratterisiche:</label> <input type="button"
 						value="aggiungi" class="float-right" onclick="addCaratterisica()">
 					<input type="button" value="Crea" class="float-right"
 						data-toggle="modal" data-target="#caratterisicheModal"><br>
 					<section id="caratterisicheSection"></section>
 					<label for="price">Prezzo:</label><br> <input
-						value="<%=i.getPrezzo()%>" id="price" name="price" type="text"
+						value="<%=String.format(Locale.ENGLISH,"%.2f", i.getPrezzo())%>" id="price" name="price" type="text"
 						pattern="[0-9]{1,}.[0-9]{2}" required
 						onchange="prewievPrezzo('prezzoItem')"><br> <label
 						for="iva">Iva:</label><br> <input value="<%=i.getIva()%>"
@@ -131,9 +131,9 @@ if (i == null) {
 						<h3>tag</h3>
 						<div id="tagItem" class="tag">
 							<%
-							for (String t : tag) {
+							for (String t3 : tag3) {
 							%>
-							<p class="tagp"><%=t%></p>
+							<p class="tagp"><%=t3%></p>
 							<%
 							}
 							%>
@@ -144,7 +144,7 @@ if (i == null) {
 					<div>
 						<div class="infoItem">
 							<h3>Acquista</h3>
-							<div id="prezzoItem" class="prezzo"><%=i.calcolaPrezzo()%>
+							<div id="prezzoItem" class="prezzo"><%=String.format(Locale.ENGLISH,"%.2f", i.calcolaPrezzo())%>
 								&euro;
 							</div>
 							<label for="quantity">Quantit&agrave; </label> <select

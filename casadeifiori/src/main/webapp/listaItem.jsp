@@ -69,7 +69,7 @@
 					</div>
 					<a class="itemCardCart"
 						href="javascript:addCart(<%=bean.getId()%>,1)"> <span
-						class="itemCardPrice"><%= bean.calcolaPrezzo() %> <i
+						class="itemCardPrice"><%=String.format(Locale.ENGLISH,"%.2f", bean.calcolaPrezzo()) %> <i
 							class="fas fa-cart-plus iconCart"></i></span> 
 							<span class="itemCardAddCart"> <span class="itemCardAddCartText">Aggiungi</span>
 					</span>

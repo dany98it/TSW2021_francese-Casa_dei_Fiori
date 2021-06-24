@@ -83,7 +83,7 @@
 			<div>
 				<div class="infoItem">
 					<h3>Acquista</h3>
-					<div id="prezzoItem" class="prezzo"><%= i.calcolaPrezzo() %>
+					<div id="prezzoItem" class="prezzo"><%=String.format(Locale.ENGLISH,"%.2f",  i.calcolaPrezzo()) %>
 						&euro;
 					</div>
 					<label for="quantity">Quantit&agrave; </label> <select

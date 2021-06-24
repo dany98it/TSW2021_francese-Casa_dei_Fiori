@@ -76,7 +76,7 @@
 							<%= bean.getItem().getId() %></p>
 					</div>
 				</div>
-				<div class="price"><%=bean.getItem().calcolaPrezzo()%></div>
+				<div class="price"><%=String.format(Locale.ENGLISH,"%.2f", bean.getItem().calcolaPrezzo())%></div>
 				<div class="cartItemQuantity">
 					<select
 						onchange="addShop(<%=bean.getItem().getId() %>,<%= bean.getItem().getQuantita() %>);"
@@ -91,7 +91,7 @@
 						<%} %>
 					</select>
 				</div>
-				<div class="subtotal"><%= bean.getCostoTotale()%></div>
+				<div class="subtotal"><%=String.format(Locale.ENGLISH,"%.2f", bean.getCostoTotale())%></div>
 				<div class="remove">
 					<button
 						onclick="removeFromCart(<%=bean.getItem().getId() %>,<%= bean.getItem().getQuantita() %>);">Remove</button>
@@ -110,7 +110,7 @@
 				</div>
 				<div class="summary-subtotal">
 					<div class="subtotal-title">Subtotale</div>
-					<div class="subtotal-value final-value" id="basket-subtotal"><%= cart.getCostoTotale() %></div>
+					<div class="subtotal-value final-value" id="basket-subtotal"><%=String.format(Locale.ENGLISH,"%.2f", cart.getCostoTotale()) %></div>
 					<div class="summary-promo hide">
 						<div class="promo-title">Promozione</div>
 						<div class="promo-value final-value" id="basket-promo"></div>
@@ -128,7 +128,7 @@
 				</div>
 				<div class="summary-total">
 					<div class="total-title">Totale</div>
-					<div class="total-value final-value" id="basket-total"><%= cart.getCostoTotale()%></div>
+					<div class="total-value final-value" id="basket-total"><%= String.format(Locale.ENGLISH,"%.2f", cart.getCostoTotale())%></div>
 				</div>
 				<!--  <div class="basket-module">
 					<label for="promo-code">Codice Promozionale</label> <input
