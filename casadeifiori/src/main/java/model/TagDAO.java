@@ -263,4 +263,40 @@ private static DataSource ds;
 		}
 		return tag.toArray();
 	}
+	
+	public Collection<Tag> doRetrieveByDescrizione (String code) throws SQLException {
+		Connection connection = null;
+		PreparedStatement preparedStatement = null;
+
+		Collection<Tag> tag = new LinkedList<Tag>();
+
+		String selectSQL = "SELECT * FROM " + TagDAO.TABLE_NAME + " WHERE descrizione = ?";
+		
+		try {
+			connection = ds.getConnection();
+			connection.setAutoCommit(false);
+			preparedStatement = connection.prepareStatement(selectSQL);
+			preparedStatement.setString(1, code);
+			
+			ResultSet rs = preparedStatement.executeQuery();
+			connection.commit();
+			while (rs.next()) {
+				Tag bean = new Tag();
+				bean.setId(rs.getInt("id"));
+				bean.setNome(rs.getString("nome"));
+				bean.setDescrizione(rs.getString("descrizione"));
+				tag.add(bean);
+			}
+
+		} finally {
+			try {
+				if (preparedStatement != null)
+					preparedStatement.close();
+			} finally {
+				if (connection != null)
+					connection.close();
+			}
+		}
+		return tag;
+	}
 }

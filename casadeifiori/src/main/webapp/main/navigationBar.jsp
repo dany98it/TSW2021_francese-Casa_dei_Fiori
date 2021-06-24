@@ -1,3 +1,5 @@
+<%@ page import="model.*"%>
+<%@ page import="java.util.*"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
 <div class="menuBar">
@@ -13,9 +15,10 @@
 				</button>
 				<div class="dropDownNavContent">
 					<ul>
-						<li><a href="#">Link 1</a></li>
-						<li><a href="#">Link 1</a></li>
-						<li><a href="#">Link 1</a></li>
+						<%  Collection<Tag> tags1=new TagDAO().doRetrieveByDescrizione("fiori");
+						for(Tag tag10:tags1){%>
+							<li><a href="MostraItem?tag=<%=tag10.getId()%>"><%=tag10.getNome()%></a></li>
+						<%}%>
 					</ul>
 				</div>
 			</div>
@@ -27,9 +30,10 @@
 				</button>
 				<div class="dropDownNavContent">
 					<ul>
-						<li><a href="#">Link 1</a></li>
-						<li><a href="#">Link 1</a></li>
-						<li><a href="#">Link 1</a></li>
+						<%  Collection<Tag> tags2=new TagDAO().doRetrieveByDescrizione("piante");
+						for(Tag tag20:tags2){%>
+							<li><a href="MostraItem?tag=<%=tag20.getId()%>"><%=tag20.getNome()%></a></li>
+						<%}%>
 					</ul>
 				</div>
 			</div>
@@ -41,9 +45,10 @@
 				</button>
 				<div class="dropDownNavContent">
 					<ul>
-						<li><a href="#">Link 1</a></li>
-						<li><a href="#">Link 1</a></li>
-						<li><a href="#">Link 1</a></li>
+						<%  Collection<Tag> tags3=new TagDAO().doRetrieveByDescrizione("eventi");
+						for(Tag tag30:tags3){%>
+							<li><a href="MostraItem?tag=<%=tag30.getId()%>"><%=tag30.getNome()%></a></li>
+						<%}%>
 					</ul>
 				</div>
 			</div>
@@ -55,9 +60,10 @@
 				</button>
 				<div class="dropDownNavContent">
 					<ul>
-						<li><a href="#">Link 1</a></li>
-						<li><a href="#">Link 1</a></li>
-						<li><a href="#">Link 1</a></li>
+						<%  Collection<Tag> tags4=new TagDAO().doRetrieveByDescrizione("oggettistica");
+						for(Tag tag40:tags4){%>
+							<li><a href="MostraItem?tag=<%=tag40.getId()%>"><%=tag40.getNome()%></a></li>
+						<%}%>
 					</ul>
 				</div>
 			</div>
