@@ -561,4 +561,45 @@ public class ItemDAO implements DaoInterfacce<Item,Integer>{
 		}
 		return products;
 	}
+
+	public Collection<Item> doRetrieveByTag(int id) throws SQLException {
+		Connection connection = null;
+		PreparedStatement preparedStatement = null;
+
+		Collection<Item> products = new LinkedList<Item>();
+
+		String selectSQL = "SELECT * FROM " + ItemDAO.TABLE_NAME + " WHERE id IN (SELECT item FROM inclusione_tag WHERE tag = ?) ";
+
+		try {
+			connection = ds.getConnection();
+			connection.setAutoCommit(false);
+			preparedStatement = connection.prepareStatement(selectSQL);
+			preparedStatement.setInt(1, id);
+			
+			ResultSet rs = preparedStatement.executeQuery();
+			connection.commit();
+			while (rs.next()) {
+				Item bean = new Item();
+				bean.setId(rs.getInt("id"));
+				bean.setIva(rs.getInt("iva"));
+				bean.setPrezzo(rs.getDouble("prezzo"));
+				bean.setDescrizione(rs.getString("descrizione"));
+				bean.setNome(rs.getString("nome"));
+				bean.setTipo(TipoItem.valueOf(rs.getString("tipo")));
+				bean.setSconto(rs.getInt("sconto"));
+				bean.setQuantita(rs.getInt("quantita"));
+				products.add(bean);
+			}
+
+		} finally {
+			try {
+				if (preparedStatement != null)
+					preparedStatement.close();
+			} finally {
+				if (connection != null)
+					connection.close();
+			}
+		}
+		return products;
+	}
 }

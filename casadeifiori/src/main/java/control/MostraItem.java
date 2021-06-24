@@ -38,13 +38,24 @@ public class MostraItem extends HttpServlet {
 		ItemDAO itemDao = new ItemDAO();
 		String cerca=request.getParameter("cerca");
 		String dove=request.getParameter("dove");
+		String tag=request.getParameter("tag");
 		if (cerca==null||cerca.equals("")) {
-			try {
-				Collection<Item> itemsCollection = itemDao.doRetrieveAll(null);
-				request.setAttribute("itemsCollection", itemsCollection);
-			} catch (SQLException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
+			if (tag==null||tag.equals("")) {
+				try {
+					Collection<Item> itemsCollection = itemDao.doRetrieveAll(null);
+					request.setAttribute("itemsCollection", itemsCollection);
+				} catch (SQLException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			}else {
+				try {
+					Collection<Item> itemsCollection = itemDao.doRetrieveByTag(Integer.parseInt(tag));
+					request.setAttribute("itemsCollection", itemsCollection);
+				} catch (SQLException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
 			}
 		}else {
 			if(dove!=null&&!dove.equals("")) {
