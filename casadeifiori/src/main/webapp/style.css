@@ -1556,7 +1556,7 @@ span.twitter-typeahead .tt-suggestion:last-child {
 		width: 90%;
 		height: 90%;
 	}
-	.close {
+	.close1 {
 		/* Position it in the top right corner outside of the modal */
 		position: absolute;
 		top: 0.5em;
