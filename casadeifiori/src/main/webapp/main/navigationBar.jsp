@@ -15,7 +15,9 @@
 				</button>
 				<div class="dropDownNavContent">
 					<ul>
-						<%  Collection<Tag> tags1=new TagDAO().doRetrieveByDescrizione("fiori");
+						<%  
+						TagDAO tDAO = new TagDAO();
+						Collection<Tag> tags1=tDAO.doRetrieveByDescrizione("fiori");
 						for(Tag tag10:tags1){%>
 							<li><a href="MostraItem?tag=<%=tag10.getId()%>"><%=tag10.getNome()%></a></li>
 						<%}%>
@@ -30,7 +32,7 @@
 				</button>
 				<div class="dropDownNavContent">
 					<ul>
-						<%  Collection<Tag> tags2=new TagDAO().doRetrieveByDescrizione("piante");
+						<%  Collection<Tag> tags2=tDAO.doRetrieveByDescrizione("piante");
 						for(Tag tag20:tags2){%>
 							<li><a href="MostraItem?tag=<%=tag20.getId()%>"><%=tag20.getNome()%></a></li>
 						<%}%>
@@ -45,7 +47,7 @@
 				</button>
 				<div class="dropDownNavContent">
 					<ul>
-						<%  Collection<Tag> tags3=new TagDAO().doRetrieveByDescrizione("eventi");
+						<%  Collection<Tag> tags3=tDAO.doRetrieveByDescrizione("eventi");
 						for(Tag tag30:tags3){%>
 							<li><a href="MostraItem?tag=<%=tag30.getId()%>"><%=tag30.getNome()%></a></li>
 						<%}%>
@@ -60,7 +62,7 @@
 				</button>
 				<div class="dropDownNavContent">
 					<ul>
-						<%  Collection<Tag> tags4=new TagDAO().doRetrieveByDescrizione("oggettistica");
+						<%  Collection<Tag> tags4=tDAO.doRetrieveByDescrizione("oggettistica");
 						for(Tag tag40:tags4){%>
 							<li><a href="MostraItem?tag=<%=tag40.getId()%>"><%=tag40.getNome()%></a></li>
 						<%}%>

@@ -81,8 +81,17 @@
 					onclick="hidePassword('passwordInput','openEyePassword1','closedEyePassword1')"></i>
 			</div>
 			<input id="passwordInput" type="password" name="password"
-				class="logInInput" required="required" /> <span class="spanLogIn"></span>
+				class="logInInput" required="required" onfocus="showPswInfo()" onblur="hidePswInfo()" onkeyup="pswReqCheck()" /> <span class="spanLogIn"></span>
 			<label for="password" class="logInLbl">Password</label>
+		</div>
+		
+		<div id="pswRequisiti" class="txt_fieldLogIn">
+  			<h3>La Password deve contenere:</h3>
+ 			 	<p id="letter" class="invalid">Un <b>carattere minuscolo</b> </p>
+  				<p id="capital" class="invalid">Un <b>carattere maiuscolo</b> </p>
+  				<p id="number" class="invalid">Un <b>numero</b></p>
+  				<p id="specialChar" class="invalid">Un <b>carattere speciale</b></p>
+  				<p id="length" class="invalid">minimo <b>8 caratteri</b></p>
 		</div>
 
 		<div class="txt_fieldLogIn">

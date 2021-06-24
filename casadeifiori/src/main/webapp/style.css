@@ -785,7 +785,7 @@ to {
 
 .price:before, .subtotal:before, .subtotal-value:before, .total-value:before,
 	.promo-value:before {
-	content: '€';
+	content: 'â‚¬';
 }
 
 .hide {
@@ -1028,7 +1028,7 @@ to {
 	font-size: 1rem;
 	text-align: center;
 	text-transform: uppercase;
-	padding: 0.625rem 0;
+	padding: 0.625rem 8rem;
 	width: 100%;
 	background-color: #67F0BB;
 	border: none;
@@ -1052,6 +1052,43 @@ to {
 	border-radius: 5rem;
 	background-color: #67f0bb;
 	border: none;
+}
+
+/* The message box is shown when the user clicks on the password field */
+#pswRequisiti {
+  display:none;
+  background: #f1f1f1;
+  color: #000;
+  position: relative;
+  padding: 20px;
+  margin-top: 10px;
+}
+
+#pswRequisiti p {
+  padding: 0.3em 1.5em;
+  font-size: 1rem;
+}
+
+/* Add a green text color and a checkmark when the requirements are right */
+.valid {
+  color: green;
+}
+
+.valid:before {
+  position: relative;
+  left: -35px;
+  content: "\2713";
+}
+
+/* Add a red text color and an "x" when the requirements are wrong */
+.invalid {
+  color: red;
+}
+
+.invalid:before {
+  position: relative;
+  left: -35px;
+  content: "X";
 }
 
 @media screen and (min-width: 641px) and (max-width: 960px) {

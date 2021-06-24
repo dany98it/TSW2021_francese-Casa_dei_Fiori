@@ -605,5 +605,73 @@ function switchLogInContent(show,hide){
 	$("#"+show+"Btn").css("background-color","#023838");
 }
 function closeAlert(){
-	setTimeout(function(){ $(".alert").alert('close'); }, 2000);
+	setTimeout(function(){ $(".alert").alert('close'); }, 4000);
+}
+
+// When the user clicks on the password field, show the message box
+function showPswInfo() {
+  document.getElementById("pswRequisiti").style.display = "block";
+}
+
+// When the user clicks outside of the password field, hide the message box
+function hidePswInfo() {
+  document.getElementById("pswRequisiti").style.display = "none";
+}
+
+function pswReqCheck(){
+	var psw = document.getElementById("passwordInput");
+	var letter = document.getElementById("letter");
+	var capital = document.getElementById("capital");
+	var number = document.getElementById("number");
+	var length = document.getElementById("length");
+	var specialChar = document.getElementById("specialChar");
+	 // Validate lowercase letters
+  var lowerCaseLetters = /[a-z]/g;
+  if(psw.value.match(lowerCaseLetters)) {  
+    letter.classList.remove("invalid");
+    letter.classList.add("valid");
+  } else {
+    letter.classList.remove("valid");
+    letter.classList.add("invalid");
+  }
+  
+  // Validate capital letters
+  var upperCaseLetters = /[A-Z]/g;
+  if(psw.value.match(upperCaseLetters)) {  
+    capital.classList.remove("invalid");
+    capital.classList.add("valid");
+  } else {
+    capital.classList.remove("valid");
+    capital.classList.add("invalid");
+  }
+
+  // Validate numbers
+  var numbers = /[0-9]/g;
+  if(psw.value.match(numbers)) {  
+    number.classList.remove("invalid");
+    number.classList.add("valid");
+  } else {
+    number.classList.remove("valid");
+    number.classList.add("invalid");
+  }
+
+
+ // Validate special
+  var special = /[^\w\s]/g;
+  if(psw.value.match(special)) {  
+    specialChar.classList.remove("invalid");
+    specialChar.classList.add("valid");
+  } else {
+    specialChar.classList.remove("valid");
+    specialChar.classList.add("invalid");
+  }
+  
+  // Validate length
+  if(psw.value.length >= 8) {
+    length.classList.remove("invalid");
+    length.classList.add("valid");
+  } else {
+    length.classList.remove("valid");
+    length.classList.add("invalid");
+  }
 }
