@@ -5,7 +5,7 @@
 Item i = (Item) request.getAttribute("item");
 ArrayList<Integer> galleriaItem = (ArrayList<Integer>) request.getAttribute("galleriaItem");
 ArrayList<String> tag = (ArrayList<String>) request.getAttribute("tag");
-ArrayList<PrintCaratteristica> c = (ArrayList<PrintCaratteristica>) request.getAttribute("c");
+ArrayList<PrintCaratteristica> car = (ArrayList<PrintCaratteristica>) request.getAttribute("c");
 if (i == null) {
 	response.sendRedirect("./MostraItem");
 	return;
@@ -61,7 +61,7 @@ if (i == null) {
 						<h3>caratterisiche</h3>
 						<div id="caratterisicheItem" class="caratterisiche">
 							<%
-							for (PrintCaratteristica printCaratteristica : c) {
+							for (PrintCaratteristica printCaratteristica : car) {
 							%>
 							<div>
 								<h5 style="display: inline-block;"><%=printCaratteristica.getNome()%>:
