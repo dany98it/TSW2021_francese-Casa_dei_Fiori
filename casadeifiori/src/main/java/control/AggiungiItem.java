@@ -2,6 +2,8 @@ package control;
 
 import java.io.IOException;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.LinkedList;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -24,8 +26,10 @@ import model.InclusioneTag;
 import model.InclusioneTagDAO;
 import model.Item;
 import model.ItemDAO;
+import model.Mostra;
 import model.PossedereCaratteristica;
 import model.PosserdereCaratteristicaDAO;
+import model.PrintCaratteristica;
 import model.Tag;
 import model.TagDAO;
 import model.TipoItem;
@@ -100,12 +104,29 @@ public class AggiungiItem extends HttpServlet {
 				PosserdereCaratteristicaDAO pCDao=new PosserdereCaratteristicaDAO();
 				pCDao.doSave(pC);
 			}
+			LinkedList<InclusioneTag> it = (LinkedList<InclusioneTag>) new InclusioneTagDAO()
+					.doRetrieveAllByItem(x);
+			ArrayList<String> tag1 = new ArrayList<>();
+			for (InclusioneTag inclusioneTag : it) {
+				tag1.add(new TagDAO().doRetrieveByKey(inclusioneTag.getTag()).getNome());
+			}
+			LinkedList<PossedereCaratteristica> pc = (LinkedList<PossedereCaratteristica>) new PosserdereCaratteristicaDAO()
+					.doRetrieveAllByItem(x);
+			ArrayList<PrintCaratteristica> c1 = new ArrayList<>();
+			for (PossedereCaratteristica possedereCaratteristica : pc) {
+				PrintCaratteristica prc = new PrintCaratteristica();
+				prc.setNome(new CaratteristicaDAO().doRetrieveByKey(possedereCaratteristica.getCaratteristica()).getNome());
+				prc.setValore(possedereCaratteristica.getValore().split(","));
+				c1.add(prc);
+			}
+			request.setAttribute("item", item);
+			request.setAttribute("tag", tag1);
+			request.setAttribute("c", c1);
+			RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/addImage.jsp");
+			dispatcher.forward(request, response);
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace(response.getWriter());
 		}
-		request.setAttribute("item", item);
-		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/addImage.jsp");
-		dispatcher.forward(request, response);
 	}
 }
