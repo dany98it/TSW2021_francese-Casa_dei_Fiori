@@ -93,6 +93,7 @@ public class EffettuaCheckOut extends HttpServlet {
 			co.setPrezzoVendita(itemToUpdate.getPrezzo());
 			co.setOrdine(maxId);
 			co.setQuantita(item.getQuantita());
+			co.setNome(itemToUpdate.getNome());
 			cos.add(co);
 			costoTotale += item.getCostoTotale();
 			itemToUpdate.setQuantita(nuovaQuantita);

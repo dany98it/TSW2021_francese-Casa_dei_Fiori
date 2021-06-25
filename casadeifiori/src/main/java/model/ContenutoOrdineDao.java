@@ -36,7 +36,7 @@ public class ContenutoOrdineDao implements DaoInterfacce<ContenutoOrdine,Integer
 				Connection connection = null;
 				PreparedStatement preparedStatement = null;
 				String insertSQL = "INSERT INTO " + TABLE_NAME
-						+ " (ordine, item, quantita, iva_vendita, prezzo_vendita) VALUES (?, ?, ?, ?, ?)";
+						+ " (ordine, item, quantita, iva_vendita, prezzo_vendita, nome) VALUES (?, ?, ?, ?, ?,?)";
 
 				try {
 					
@@ -48,7 +48,7 @@ public class ContenutoOrdineDao implements DaoInterfacce<ContenutoOrdine,Integer
 					preparedStatement.setInt(3, t.getQuantita());
 					preparedStatement.setInt(4, t.getIvaVendita());
 					preparedStatement.setDouble(5, t.getPrezzoVendita());
-	
+					preparedStatement.setString(6, t.getNome());
 
 					preparedStatement.executeUpdate();
 
@@ -126,6 +126,7 @@ public class ContenutoOrdineDao implements DaoInterfacce<ContenutoOrdine,Integer
 				bean.setQuantita(rs.getInt("quantita"));
 				bean.setIvaVendita(rs.getInt("iva_vendita"));
 				bean.setPrezzoVendita(rs.getDouble("prezzo_vendita"));
+				bean.setNome(rs.getString("nome"));
 			}
 
 		} finally {
@@ -167,6 +168,7 @@ public class ContenutoOrdineDao implements DaoInterfacce<ContenutoOrdine,Integer
 				bean.setQuantita(rs.getInt("quantita"));
 				bean.setIvaVendita(rs.getInt("iva_vendita"));
 				bean.setPrezzoVendita(rs.getDouble("prezzo_vendita"));
+				bean.setNome(rs.getString("nome"));
 			}
 
 		} finally {
@@ -204,6 +206,7 @@ public class ContenutoOrdineDao implements DaoInterfacce<ContenutoOrdine,Integer
 				bean.setQuantita(rs.getInt("quantita"));
 				bean.setIvaVendita(rs.getInt("iva_vendita"));
 				bean.setPrezzoVendita(rs.getDouble("prezzo_vendita"));
+				bean.setNome(rs.getString("nome"));
 			}
 
 		} finally {
@@ -241,6 +244,7 @@ public class ContenutoOrdineDao implements DaoInterfacce<ContenutoOrdine,Integer
 				bean.setQuantita(rs.getInt("quantita"));
 				bean.setIvaVendita(rs.getInt("iva_vendita"));
 				bean.setPrezzoVendita(rs.getDouble("prezzo_vendita"));
+				bean.setNome(rs.getString("nome"));
 				products.add(bean);
 			}
 
