@@ -37,6 +37,7 @@
 				<th>Prezzo Totale</th>
 				<th>Data Ordine</th>
 				<th>Dettagli</th>
+				<th>fattura</th>
 			</tr>
 			<%
 					if (ordini != null && ordini.size() != 0) {
@@ -51,6 +52,8 @@
 				<td><%= ordine.getDataOrdine().toString() %></td>
 				<td><a href="MostraDettagliOrdine?orderID=<%=ordine.getId()%>"><button
 							type="button">Mostra dettagli</button></a> <br></td>
+				<td><a href="generateFattura?ordine=<%=ordine.getId()%>"><button
+							type="button">Mostra fattura</button></a> <br></td>
 			</tr>
 			<% } 
 				}else{  %>
