@@ -59,7 +59,7 @@
 						<h1>
 							<strong><span class="item-quantity"><%= bean.getQuantita() %>
 									x</span></strong>
-							<%= bean.getItem() %></h1>
+							<%= bean.getNome() %></h1>
 						<p>
 							<strong></strong>
 						</p>

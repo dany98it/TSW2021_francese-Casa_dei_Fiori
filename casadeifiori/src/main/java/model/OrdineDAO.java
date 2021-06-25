@@ -152,6 +152,7 @@ public class OrdineDAO implements DaoInterfacce<Ordine, Integer> {
 			ResultSet rs = preparedStatement.executeQuery();
 			connection.commit();
 			while (rs.next()) {
+				bean.setId(rs.getInt("id"));
 				bean.setTipoOrdine(TipoOrdine.valueOf(rs.getString("tipo")));
 				bean.setTipoPagamento(TipoPagamento.valueOf(rs.getString("tipo_di_pagamento")));
 				bean.setPrezzoTotale(rs.getDouble("prezzo_totale"));

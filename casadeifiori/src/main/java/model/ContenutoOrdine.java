@@ -6,18 +6,19 @@ public class ContenutoOrdine {
 	private int quantita;
 	private int ivaVendita;
 	private double prezzoVendita;
+	private String nome;
 	
 	public ContenutoOrdine() {
 		super();
 	}
 
-	public ContenutoOrdine(int ordine, int item, int quantita, int ivaVenditita, double prezzoVendita) {
-		super();
+	public ContenutoOrdine(int ordine, int item, int quantita, int ivaVendita, double prezzoVendita, String nome) {
 		this.ordine = ordine;
 		this.item = item;
 		this.quantita = quantita;
-		this.ivaVendita = ivaVenditita;
+		this.ivaVendita = ivaVendita;
 		this.prezzoVendita = prezzoVendita;
+		this.nome = nome;
 	}
 
 	public int getOrdine() {
@@ -58,6 +59,14 @@ public class ContenutoOrdine {
 
 	public void setPrezzoVendita(double prezzoVendita) {
 		this.prezzoVendita = prezzoVendita;
+	}
+
+	public String getNome() {
+		return nome;
+	}
+
+	public void setNome(String nome) {
+		this.nome = nome;
 	}
 	
 }
