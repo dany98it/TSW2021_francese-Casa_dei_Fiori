@@ -512,7 +512,7 @@ function addCaratterisica(){
 				html+="<option value="+data[i]["id"]+">"+data[i]["nome"]+"</option>";
 			}
 			html+="</select>"
-				+"<input id=\"picker"+nAddCaratterisica+"\" class=\"caratterisicaValore\" name=\"caratterisicaValore\" type=\"color\"  onchange=\"colorC('selectC"+nAddCaratterisica+"','valoreC"+nAddCaratterisica+"','picker"+nAddCaratterisica+"','caratterisicheItem','divMC"+nAddCaratterisica+"')\">"
+				+"<input id=\"picker"+nAddCaratterisica+"\" class=\"caratterisicaValore\" name=\"caratterisicaColore\" type=\"color\"  onchange=\"colorC('selectC"+nAddCaratterisica+"','valoreC"+nAddCaratterisica+"','picker"+nAddCaratterisica+"','caratterisicheItem','divMC"+nAddCaratterisica+"')\">"
 				+"<input id=\"valoreC"+nAddCaratterisica+"\" class=\"caratterisicaValore\" name=\"caratterisicaValore\" type=\"text\" placeholder=\"valore\" onchange=\"prewievC('selectC"+nAddCaratterisica+"','valoreC"+nAddCaratterisica+"','caratterisicheItem','divMC"+nAddCaratterisica+"')\">"
 				+"<input type=\"button\" value=\"rimuovi\" onclick=\"removeCaratterisica('divC"+nAddCaratterisica+"','divMC"+nAddCaratterisica+"')\">"
 				+"</div>"
@@ -536,7 +536,7 @@ function loadCaratterisica(nome,value){
 				html+="<option value="+data[i]["id"]+">"+data[i]["nome"]+"</option>";
 			}
 			html+="</select>"
-				+"<input id=\"picker"+nAddCaratterisica+"\" class=\"caratterisicaValore\" name=\"caratterisicaValore\" type=\"color\"  onchange=\"colorC('selectC"+nAddCaratterisica+"','valoreC"+nAddCaratterisica+"','picker"+nAddCaratterisica+"','caratterisicheItem','divMC"+nAddCaratterisica+"')\">"
+				+"<input id=\"picker"+nAddCaratterisica+"\" class=\"caratterisicaValore\" name=\"caratterisicaColore\" type=\"color\"  onchange=\"colorC('selectC"+nAddCaratterisica+"','valoreC"+nAddCaratterisica+"','picker"+nAddCaratterisica+"','caratterisicheItem','divMC"+nAddCaratterisica+"')\">"
 				+"<input id=\"valoreC"+nAddCaratterisica+"\" class=\"caratterisicaValore\" name=\"caratterisicaValore\" value=\""+value+"\""
 				+"type=\"text\" placeholder=\"valore\" onchange=\"prewievC('selectC"+nAddCaratterisica+"','valoreC"+nAddCaratterisica+"','caratterisicheItem','divMC"+nAddCaratterisica+"')\">"
 				+"<input type=\"button\" value=\"rimuovi\" onclick=\"removeCaratterisica('divC"+nAddCaratterisica+"','divMC"+nAddCaratterisica+"')\">"
