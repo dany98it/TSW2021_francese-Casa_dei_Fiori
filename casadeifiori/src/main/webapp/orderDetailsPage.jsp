@@ -99,6 +99,9 @@
 					<div class="total-title">Totale</div>
 					<div class="total-value final-value" id="basket-total"><%= String.format(Locale.ENGLISH,"%.2f", ordine.getPrezzoTotale())%></div>
 				</div>
+				<div class="summary-checkout">
+						<a href="generateFattura?ordine=<%=ordine.getId()%>"> <button type="button" class="checkout-cta">Mostra Fattura</button></a>
+				</div>
 			</div>
 		</aside>
 		</div>
