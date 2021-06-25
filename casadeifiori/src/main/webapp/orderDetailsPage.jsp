@@ -14,13 +14,17 @@
 <body>
 	<%@ include file="main/script.jsp"%>
 	<%@ include file="main/menuMobile.jsp"%>
-	<div id="main">
 		<header>
 			<%@ include file="main/header.jsp"%>
 		</header>
 		<nav>
 			<%@ include file="main/navigationBar.jsp"%>
 		</nav>
+	<div id="main" class="mainCart">
+		<div>
+			<a href="MostraOrdiniEffettuati">Torna ai miei ordini</a>
+		</div>
+		
 		<%
 				Ordine ordine = (Ordine) request.getAttribute("ordine");
 				Collection<?> products;
@@ -30,41 +34,77 @@
 					products = (Collection<?>) request.getAttribute("contenutoOrdine");
 					e.printStackTrace();
 				} %>
-		<table border="1">
-			<tr>
-				<th>Item</th>
-				<th>Quantità</th>
-				<th>Iva Vendita</th>
-				<th>Prezzo Vendita</th>
-				<th>Dettagli</th>
-			</tr>
+		<div class="basket">
+			<div class="basket-labels">
+				<ul>
+					<li class="item item-heading">Item</li>
+					<li class="quantity">Iva Vendita</li>
+					<li class="price">Quantità</li>
+					<li class="subtotal">Prezzo Vendita</li>
+				</ul>
+			</div>
+
 			<%
-					if (products != null && products.size() != 0) {
-						Iterator<?> it = products.iterator();
-						while (it.hasNext()) {
-							ContenutoOrdine bean = (ContenutoOrdine) it.next(); %>
-			<tr>
-				<td><%= bean.getItem() %></td>
-				<td><%= bean.getQuantita() %></td>
-				<td><%= bean.getIvaVendita() %></td>
-				<td><%= bean.getPrezzoVendita() %></td>
-				<td><a href="MostraDettagliItem?itemID=<%=bean.getItem()%>"><button
-							type="button">Mostra dettagli</button> </a> <br></td>
-			</tr>
-			<% } %>
-			<tr>
-				<td colspan="6">Prezzo totale : <%= ordine.getPrezzoTotale() %></td>
-			</tr>
-			<% } else { %>
-			<tr>
-				<td colspan="6">L'ordine non esiste</td>
-			</tr>
-			<% } %>
-		</table>
+			if (products != null && products.size() != 0) {
+				Iterator<?> it = products.iterator();
+				while (it.hasNext()) {
+					ContenutoOrdine bean = (ContenutoOrdine) it.next(); %>
+			<div class="basket-product">
+				<div class="item">
+					<div class="product-image">
+						<img src="img/fiori2.jpg" alt="Immagine prodotto non disponibile"
+							class="product-frame">
+					</div>
+					<div class="product-details">
+						<h1>
+							<strong><span class="item-quantity"><%= bean.getQuantita() %>
+									x</span></strong>
+							<%= bean.getItem() %></h1>
+						<p>
+							<strong></strong>
+						</p>
+						<p>
+							Codice prodotto -
+							<%= bean.getItem() %></p>
+					</div>
+				</div>
+				<div id="ivaOrder" class="price"><%= bean.getIvaVendita() %></div>
+				<div class="cartItemQuantity">
+					<div class="quantity" id="<%="quantity"+bean.getItem() %>">
+						<%= bean.getQuantita() %>
+					</div>
+				</div>
+				<div class="subtotal"><%=String.format(Locale.ENGLISH,"%.2f", bean.getPrezzoVendita())%></div>
+			</div>
+			<% }}%>	
+		</div>
+		<aside>
+			<div class="summary">
+				<div class="summary-total-items">
+					<span class="total-items"></span> <p>Dettagli ordine ID <%= ordine.getId() %></p>
+				</div>
+				<div class="summary-subtotal">
+					<div class="subtotal-title">Data Ordine</div>
+					<div class="subtotal-value final-value" id="basket-subtotal2"><%= ordine.getDataOrdine() %></div>
+				</div>
+				<div class="summary-subtotal">
+					<div class="subtotal-title">Tipo Di Pagamento</div>
+					<div class="subtotal-value final-value" id="basket-subtotal2"><%= ordine.getTipoPagamento() %></div>
+				</div>
+				<div class="summary-subtotal">
+					<div class="subtotal-title">Tipo Ordine</div>
+					<div class="subtotal-value final-value" id="basket-subtotal2"><%= ordine.getTipoOrdine() %></div>
+				</div>
+				<div class="summary-total">
+					<div class="total-title">Totale</div>
+					<div class="total-value final-value" id="basket-total"><%= String.format(Locale.ENGLISH,"%.2f", ordine.getPrezzoTotale())%></div>
+				</div>
+			</div>
+		</aside>
+		</div>
 		<footer>
 			<%@ include file="main/footer.jsp"%>
 		</footer>
-	</div>
 	<script type="text/javascript"> cerca();</script>
 </body>
 </html>

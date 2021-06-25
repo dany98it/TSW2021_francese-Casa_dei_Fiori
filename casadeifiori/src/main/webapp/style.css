@@ -789,6 +789,18 @@ to {
 	content: '\20AC';
 }
 
+#ivaOrder:before{
+	content: '';
+}
+
+#ivaOrder:after{
+	content: '\0025';
+}
+
+#basket-subtotal2:before{
+	content: '';
+}
+
 .hide {
 	display: none;
 }
