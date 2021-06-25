@@ -20,7 +20,7 @@
 		</nav>
 		<div class="slideShowConteiner">
 			<div class="slide fade1">
-				<img src="img/Logo.png" style="width: 100%">
+				<img src="img/sfondo2.jpg" style="width: 100%">
 			</div>
 			<div class="slide fade1">
 				<img src="img/logosenzascritta.png" style="width: 100%">
