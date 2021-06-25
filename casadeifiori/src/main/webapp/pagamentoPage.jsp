@@ -38,7 +38,7 @@
 					</select>
 					</div>
 					<div class="buttonAddAddressDiv">
-						<button class="buttonAddAddress">Aggiungi Nuovo Indirizzo</button>
+						<button class="buttonAddAddress" onclick="location.href='aggiungiIndirizzo.jsp'">Aggiungi Nuovo Indirizzo</button>
 					</div>
 				<%}}%>
 			</div>

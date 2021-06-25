@@ -80,7 +80,7 @@
 					<div class="h-bg">
 						<div class="h-bg-inner"></div>
 					</div>
-					<div class="itemCardCart" href="">
+					<div class="itemCardCart" >
 						<span class="itemCardPrice">Esaurito</span> <span
 							class="itemCardAddCart"> 
 							<span class="itemCardAddCartText">Non dispoibile</span>
@@ -92,10 +92,25 @@
 					<div class="h-bg2">
 						<div class="h-bg-inner2"></div>
 					</div>
-					<div class="itemCardCart2" href="">
-						<span class="itemCardPrice2">Elimina</span> 
-							<span class="itemCardAddCart2"> <span class="itemCardAddCartText2">Definitivamente</span>
+					<div class="itemCardCart2">
+					<a class="itemCardCart"
+						href="delete?itemID=<%=bean.getId()%>"> <span class="itemCardPrice2">Elimina</span> 
+						<span class="itemCardAddCart2"> <span class="itemCardAddCartText2">Definitivamente</span>
 						</span>
+					</a>
+						
+					</div>
+				</div>
+				<div class="box-down">
+					<div class="h-bg2">
+						<div class="h-bg-inner2"></div>
+					</div>
+					<div class="itemCardCart2">
+					<a class="itemCardCart"
+						href="modifica?itemID=<%=bean.getId()%>"> <span class="itemCardPrice2">Modifica</span> 
+						<span class="itemCardAddCart2"> <span class="itemCardAddCartText2">Definitivamente</span>
+						</span>
+					</a>
 					</div>
 				</div>
 			<% } %>
@@ -105,6 +120,7 @@
 		<footer>
 			<%@ include file="main/footer.jsp"%>
 		</footer>
+		</div>
 		<script type="text/javascript"> cerca();</script>
 </body>
 </html>

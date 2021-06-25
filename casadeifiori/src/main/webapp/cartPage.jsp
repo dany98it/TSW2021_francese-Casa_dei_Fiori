@@ -108,7 +108,7 @@
 				<div class="summary-total-items">
 					<span class="total-items"></span> Porsegui con il Checkout
 				</div>
-				<div class="summary-subtotal">
+				<!-- <div class="summary-subtotal">
 					<div class="subtotal-title">Subtotale</div>
 					<div class="subtotal-value final-value" id="basket-subtotal"><%=String.format(Locale.ENGLISH,"%.2f", cart.getCostoTotale()) %></div>
 					<div class="summary-promo hide">
@@ -125,7 +125,7 @@
 						<option value="second-class">Consegna Locale</option>
 						<option value="signed-for">Spedizione</option>
 					</select>
-				</div>
+				</div> -->
 				<div class="summary-total">
 					<div class="total-title">Totale</div>
 					<div class="total-value final-value" id="basket-total"><%= String.format(Locale.ENGLISH,"%.2f", cart.getCostoTotale())%></div>
