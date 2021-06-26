@@ -1,3 +1,5 @@
+<%@ page import="model.*"%>
+<%@ page import="java.util.*"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
@@ -30,7 +32,7 @@
 			</div>
 			<a class="prev" onclick="plusSlides(-1)">&#10094;</a> <a class="next"
 				onclick="plusSlides(1)">&#10095;</a>
-			<div style="text-align: center">
+			<div class="slideShowDot">
 				<span class="dot" onclick="currentSlide(1)"></span> <span
 					class="dot" onclick="currentSlide(2)"></span> <span class="dot"
 					onclick="currentSlide(3)"></span>
@@ -70,6 +72,32 @@
 						arriverà a poche ore dall'ordine effettuato </strong>
 				</div>
 			</div>
+		</div>
+		<div class="itemIndexConteiner">
+			<%Collection<Tag> tagsIndex= new TagDAO().doRetrieveByDescrizione("home");
+				for(Tag tagIndex:tagsIndex){%>
+				<div class="itemIndexRow">
+				<h3><%=tagIndex.getNome() %></h3>
+					<div class="itemIndexMultiCarousel" data-items="1,3,5,6" data-slide="1" id="MultiCarousel"  data-interval="1000">
+						<div class="itemIndexMultiCarousel-inner">
+							<%Collection<Item> itemsIndex=new ItemDAO().doRetrieveByTag(tagIndex.getId());
+								for(Item itemIndex:itemsIndex){%>
+									<div class="itemIndex">
+										<div class="pad15">
+											<a href="MostraDettagliItem?itemID=<%=itemIndex.getId()%>">
+												<%Mostra mostraIndex =new MostraDAO().doRetrieveByItem(itemIndex.getId());%>
+												<img class="padImg" alt="<%=itemIndex.getNome() %>" src="mostraImg?imgID=<%=mostraIndex.getImmagine()%>" height="200px">
+											</a>
+										</div>
+									</div>
+								<%} %>
+
+						</div>
+						<button class="leftLstIndex">&#10094;</button>
+            			<button class="rightLstIndex">&#10095;</button>
+					</div>
+				</div>
+			<%} %>
 		</div>
 		<div id="instagram-feed1" class="instagram_feed"></div>
 
