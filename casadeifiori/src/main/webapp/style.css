@@ -6,7 +6,47 @@ body {
 	margin: 0;
 	padding: 0 !important;
 }
-
+.itemIndexMultiCarousel{
+	float: left;
+	overflow: hidden;
+	padding: 15px;
+	width: 100%;
+	position: relative;
+}
+.itemIndexMultiCarousel .itemIndexMultiCarousel-inner{
+	transition: 1s ease all;
+	float: left;
+}
+.itemIndexMultiCarousel .itemIndexMultiCarousel-inner .itemIndex{
+	float: left;
+}
+.itemIndexMultiCarousel .itemIndexMultiCarousel-inner .itemIndex > div{
+	text-align: center;
+	padding: 10px;
+	margin: 10px;
+}
+.itemIndexMultiCarousel .leftLstIndex,.itemIndexMultiCarousel .rightLstIndex{
+	position: absolute;
+	border:none;
+	top:50%;
+	background: white;
+}
+.itemIndexMultiCarousel .leftLstIndex{
+	left: 0;
+}
+.itemIndexMultiCarousel .rightLstIndex{
+	right: 0;
+}
+.itemIndexMultiCarousel .leftLstIndex.over,.itemIndexMultiCarousel .rightLstIndex.over{ 
+	pointer-events: none;
+	background:#ccc;
+}
+.slideShowDot{
+	bottom: 0;
+	position: absolute;
+	width: 100%;
+    text-align: center;
+}
 .main {
 	transition: margin-left 0.3s;
 	padding: 0;
@@ -1799,6 +1839,9 @@ span.twitter-typeahead .tt-suggestion:last-child {
 	}
 	.info {
 		display: block;
+	}
+	.infodiv{
+		margin-top:0; 
 	}
 	.insertItem {
 		display: block;

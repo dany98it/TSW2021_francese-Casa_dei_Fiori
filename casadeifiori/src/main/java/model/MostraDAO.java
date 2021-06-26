@@ -199,7 +199,38 @@ private static DataSource ds;
 		}
 		return mostra;
 	}
-	
+	public Mostra doRetrieveByItem(Integer item) throws SQLException {
+		Connection connection = null;
+		PreparedStatement preparedStatement = null;
+
+		Mostra mostra = new Mostra();
+
+		String selectSQL = "SELECT * FROM " + MostraDAO.TABLE_NAME +" WHERE item = ? ";
+
+		try {
+			connection = ds.getConnection();
+			connection.setAutoCommit(false);
+			preparedStatement = connection.prepareStatement(selectSQL);
+			preparedStatement.setInt(1, item);
+			
+			ResultSet rs = preparedStatement.executeQuery();
+			connection.commit();
+			if (rs.next()) {
+				mostra.setItem(rs.getInt("item"));
+				mostra.setImmagine(rs.getInt("immagine"));
+			}
+
+		} finally {
+			try {
+				if (preparedStatement != null)
+					preparedStatement.close();
+			} finally {
+				if (connection != null)
+					connection.close();
+			}
+		}
+		return mostra;
+	}
 	public boolean doDeleteById(int code) throws SQLException {
 		Connection connection = null;
 		PreparedStatement preparedStatement = null;
