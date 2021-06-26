@@ -81,11 +81,11 @@
 						<%Collection<PossedereCaratteristica> pcs=new PosserdereCaratteristicaDAO().doRetrieveValueByC(c1.getId());
 							for(PossedereCaratteristica pc: pcs){
 								String[] values=pc.getValore().split(",");
-								for(String s:values){
-									if(s.startsWith("#")){%>
-										<option value="3:<%=c1.getId()%>:<%=s.replace("#", "_")%>"><%=s.split(":")[1]%></option>
+								for(String sCarHeader:values){
+									if(sCarHeader.startsWith("#")){%>
+										<option value="3:<%=c1.getId()%>:<%=sCarHeader.replace("#", "_")%>"><%=sCarHeader.split(":")[1]%></option>
 									<%}else{ %>
-										<option value="3:<%=c1.getId()%>:<%=s%>"><%=s%></option>
+										<option value="3:<%=c1.getId()%>:<%=sCarHeader%>"><%=sCarHeader%></option>
 									<%} %>		
 								<%} %>
 							<%}%>

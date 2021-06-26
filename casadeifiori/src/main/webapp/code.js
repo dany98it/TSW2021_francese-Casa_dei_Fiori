@@ -21,7 +21,7 @@ function closeNav() {
 
 function openNav() {
 	var menubar=document.getElementById("menuDropBar");
-	menubar.style.width = "50%"
+	menubar.style.width = "80%"
 	menubar.className ="menuDrop border";
 	if(window.innerWidth>1000){
 	document.getElementById("main").style.marginLeft = "50%";
@@ -682,4 +682,19 @@ function colorC(input1,input2,input3,output,idOutput){
 	var val=$("#"+input2).val()+$("#"+input3).val()+":colore,";
 	$("#"+input2).val(val);
 	prewievC(input1,input2,output,idOutput);
+}
+
+var dropdown = document.getElementsByClassName("dropdown-btn");
+var i;
+
+for (i = 0; i < dropdown.length; i++) {
+  dropdown[i].addEventListener("click", function() {
+    this.classList.toggle("active");
+    var dropdownContent = this.nextElementSibling;
+    if (dropdownContent.style.display === "block") {
+      dropdownContent.style.display = "none";
+    } else {
+      dropdownContent.style.display = "block";
+    }
+  });
 }

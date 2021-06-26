@@ -67,11 +67,11 @@ if (i == null) {
 								<h5 style="display: inline-block;"><%=printCaratteristica.getNome()%>:
 								</h5>
 								<%
-								for (String s : printCaratteristica.getValore()) {
+								for (String scar : printCaratteristica.getValore()) {
 								%>
 								<%
-								if (s.startsWith("#")) {
-									String[] s1 = s.split(":");
+								if (scar.startsWith("#")) {
+									String[] s1 = scar.split(":");
 								%>
 								<i class="fas fa-circle" style="color:<%=s1[0]%>"
 									onmouseenter="cShow('<%=s1[0] + s1[1]%>')"
@@ -80,7 +80,7 @@ if (i == null) {
 								<%
 								} else {
 								%>
-								<p class="tagp"><%=s%></p>
+								<p class="tagp"><%=scar%></p>
 								<%
 								}
 								%>
