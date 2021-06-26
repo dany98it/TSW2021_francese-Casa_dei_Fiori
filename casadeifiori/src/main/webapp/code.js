@@ -705,56 +705,7 @@ for (i = 0; i < dropdown.length; i++) {
     }
   });
 }
-	// Validate lowercase letters
-	var lowerCaseLetters = /[a-z]/g;
-	if (psw.value.match(lowerCaseLetters)) {
-		letter.classList.remove("invalid");
-		letter.classList.add("valid");
-	} else {
-		letter.classList.remove("valid");
-		letter.classList.add("invalid");
-	}
 
-	// Validate capital letters
-	var upperCaseLetters = /[A-Z]/g;
-	if (psw.value.match(upperCaseLetters)) {
-		capital.classList.remove("invalid");
-		capital.classList.add("valid");
-	} else {
-		capital.classList.remove("valid");
-		capital.classList.add("invalid");
-	}
-
-	// Validate numbers
-	var numbers = /[0-9]/g;
-	if (psw.value.match(numbers)) {
-		number.classList.remove("invalid");
-		number.classList.add("valid");
-	} else {
-		number.classList.remove("valid");
-		number.classList.add("invalid");
-	}
-
-
-	// Validate special
-	var special = /[^\w\s]/g;
-	if (psw.value.match(special)) {
-		specialChar.classList.remove("invalid");
-		specialChar.classList.add("valid");
-	} else {
-		specialChar.classList.remove("valid");
-		specialChar.classList.add("invalid");
-	}
-
-	// Validate length
-	if (psw.value.length >= 8) {
-		length.classList.remove("invalid");
-		length.classList.add("valid");
-	} else {
-		length.classList.remove("valid");
-		length.classList.add("invalid");
-	}
-}
 function colorC(input1, input2, input3, output, idOutput) {
 
 	var val = $("#" + input2).val() + $("#" + input3).val() + ":colore,";

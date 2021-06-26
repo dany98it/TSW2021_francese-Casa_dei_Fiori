@@ -23,6 +23,7 @@
 		<div class="slideShowConteiner">
 			<div class="slide fade1">
 				<img src="img/sfondo2.jpg" style="width: 100%">
+				<p class="slideText">Essere vinti dal profumo dei fiori &egrave; una forma deliziosa di sconfitta. <a href="MostraItem?tag=12">#FioriVeri</a></p>
 			</div>
 			<div class="slide fade1">
 				<img src="img/logosenzascritta.png" style="width: 100%">
@@ -47,17 +48,17 @@
 				<div>
 					<strong> Da oltre 100 anni ci impegniamo a realizzare
 						creazioni floreali all'avanguardia, riconosciuti in tutto il mondo
-						per stile e unicit‡ </strong>
+						per stile e unicit√† </strong>
 				</div>
 			</div>
 			<div class="infodiv">
 				<img alt="" src="">
 				<div>
-					<strong class="center">QUALIT¿ GARANTITA</strong>
+					<strong class="center">QUALIT√Ä GARANTITA</strong>
 				</div>
 				<div>
 					<strong> Consegniamo sempre fiori freschi di premissima
-						qualit‡ che vengono lavorati dal fiorista pi˘ vicino al luogo di
+						qualit√† che vengono lavorati dal fiorista pi√π vicino al luogo di
 						destinazione poco prima della consegna </strong>
 				</div>
 			</div>
@@ -67,9 +68,9 @@
 					<strong class="center">CONSEGNA IN GIORNATA</strong>
 				</div>
 				<div>
-					<strong> Per tutti i nostri prodotti floreali Ë
+					<strong> Per tutti i nostri prodotti floreali √®
 						disponibile la consegna in giornata. Il tuo regalo floreale
-						arriver‡ a poche ore dall'ordine effettuato </strong>
+						arriver√† a poche ore dall'ordine effettuato </strong>
 				</div>
 			</div>
 		</div>
