@@ -8,7 +8,7 @@
 			datapickerInit('dataNascitaInput');
 			closeLogInOutside();
 		}) </script>
-<div class="main">
+<div class="main" id="mainHeader">
 	<script src="code.js"></script>
 	<script src="/dist/mc-calendar.min.js"></script>
 

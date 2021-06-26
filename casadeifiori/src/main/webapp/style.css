@@ -58,7 +58,7 @@ body {
 }
 .main {
 	transition: margin-left 0.3s;
-	padding: 0;
+	padding-top: 150px;
 }
 
 .insertItem {
@@ -153,6 +153,25 @@ body {
 .buttonRicerca:focus {
 	border-color: #FA8F6C;
 	outline: none;
+}
+
+#mainHeader{
+	padding-top: 0px;
+	display: block;
+	z-index:3000;
+	position: fixed;
+  	top: 0;
+  	transition: top 0.3s; /* Transition effect when sliding down (and up) */
+  	width: 100%; /* Full width */
+}
+
+#mainMenuBar{
+	padding-top: 0px;
+	z-index:3000;
+	position: fixed;
+  	top: 135px;
+  	transition: top 0.3s; /* Transition effect when sliding down (and up) */
+  	width: 100%; /* Full width */
 }
 
 .colorHeader {
@@ -1779,7 +1798,7 @@ span.twitter-typeahead .tt-suggestion:last-child {
 	}
 	
 	.menuDrop {
-		z-index: 2000;
+		z-index: 10000;
 		text-transform: capitalize;
 		display: block;
 		height: 100%;
@@ -1869,6 +1888,7 @@ span.twitter-typeahead .tt-suggestion:last-child {
 		grid-template-columns: auto auto auto;
 		grid-template-rows: auto auto;
 	}
+	
 	.logo {
 		grid-column-start: 1;
 		grid-column-end: 4;

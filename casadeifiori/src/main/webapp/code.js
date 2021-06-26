@@ -24,7 +24,6 @@ function openNav() {
 	menubar.style.width = "80%"
 	menubar.className ="menuDrop border";
 	if(window.innerWidth>1000){
-	document.getElementById("main").style.marginLeft = "50%";
 	}
 }
 //Reindirizzamento ad una pagina 
@@ -705,13 +704,6 @@ for (i = 0; i < dropdown.length; i++) {
     }
   });
 }
-
-function colorC(input1, input2, input3, output, idOutput) {
-
-	var val = $("#" + input2).val() + $("#" + input3).val() + ":colore,";
-	$("#" + input2).val(val);
-	prewievC(input1, input2, output, idOutput);
-}
 $(document).ready(function () {
     var itemsMainDiv = ('.itemIndexMultiCarousel');
     var itemsDiv = ('.itemIndexMultiCarousel-inner');
@@ -818,3 +810,17 @@ $(document).ready(function () {
     }
 
 }) 
+
+/* When the user scrolls down, hide the navbar. When the user scrolls up, show the navbar */
+var prevScrollpos = window.pageYOffset;
+window.onscroll = function() {
+  var currentScrollPos = window.pageYOffset;
+  if (prevScrollpos > currentScrollPos) {
+    document.getElementById("mainHeader").style.top = "0";
+document.getElementById("mainMenuBar").style.top = "135px";
+  } else {
+    document.getElementById("mainHeader").style.top = "-500px";
+document.getElementById("mainMenuBar").style.top = "-500px";
+  }
+  prevScrollpos = currentScrollPos;
+}

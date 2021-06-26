@@ -2,7 +2,7 @@
 <%@ page import="java.util.*"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
-<div class="menuBar">
+<div class="menuBar" id="mainMenuBar")>
 	<ul class="ulMenu">
 		<li><a href="listaItem.jsp"><button type="button"
 					class="headerBtn">Lista prodotti</button></a></li>
