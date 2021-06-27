@@ -6,6 +6,11 @@ body {
 	margin: 0;
 	padding: 0 !important;
 }
+
+a{
+	text-decoration: none;
+	color: #67F0BB; 
+}
 .itemIndexMultiCarousel{
 	float: left;
 	overflow: hidden;
@@ -58,12 +63,12 @@ body {
 }
 .main {
 	transition: margin-left 0.3s;
-	padding-top: 170px;
+	padding-top: 210px;
 }
 
 #main {
 	transition: margin-left 0.3s;
-	padding-top: 170px;
+	padding-top: 210px;
 }
 
 .insertItem {
@@ -171,7 +176,7 @@ body {
 }
 
 #mainMenuBar{
-	padding-top: 0px;
+	padding-top: 40px;
 	z-index:100;
 	position: fixed;
   	top: 128px;
@@ -554,13 +559,17 @@ to {
 	left: 0px;
 }
 
+.itemCard:hover .h-bg3{
+	left: 0px;
+}
+
 .itemCard:hover .itemCardPrice {
 	left: 20px;
 	-webkit-transform: translateY(-50%);
 	-ms-transform: translateY(-50%);
 	-o-transform: translateY(-50%);
 	transform: translateY(-50%);
-	color: #818181;
+	color: #00000;
 }
 
 .itemCard:hover .itemCardPrice2 {
@@ -569,7 +578,7 @@ to {
 	-ms-transform: translateY(-50%);
 	-o-transform: translateY(-50%);
 	transform: translateY(-50%);
-	color: #818181;
+	color: #00000;
 }
 
 .itemCard:hover .itemCardAddCart {
@@ -644,7 +653,7 @@ to {
 	/* ease-out */
 	width: 660px;
 	height: 100%;
-	background-color: #67F0BB;
+	background-color: #023838;
 	position: absolute;
 	left: -659px;
 }
@@ -662,7 +671,25 @@ to {
 	/* ease-out */
 	width: 660px;
 	height: 100%;
-	background-color: #FF0000;
+	background-color:#CC0000;
+	position: absolute;
+	left: -659px;
+}
+
+.h-bg3 {
+	-webkit-transition: all 800ms cubic-bezier(0, 0, 0.18, 1);
+	-moz-transition: all 800ms cubic-bezier(0, 0, 0.18, 1);
+	-o-transition: all 800ms cubic-bezier(0, 0, 0.18, 1);
+	transition: all 800ms cubic-bezier(0, 0, 0.18, 1);
+	/* ease-out */
+	-webkit-transition-timing-function: cubic-bezier(0, 0, 0.18, 1);
+	-moz-transition-timing-function: cubic-bezier(0, 0, 0.18, 1);
+	-o-transition-timing-function: cubic-bezier(0, 0, 0.18, 1);
+	transition-timing-function: cubic-bezier(0, 0, 0.18, 1);
+	/* ease-out */
+	width: 660px;
+	height: 100%;
+	background-color: #FFFF00;
 	position: absolute;
 	left: -659px;
 }
@@ -671,13 +698,19 @@ to {
 .h-bg .h-bg-inner {
 	width: 50%;
 	height: 100%;
-	background-color: #023838;
+	background-color: #67F0BB;
 }
 
 .h-bg2 .h-bg-inner2 {
 	width: 50%;
 	height: 100%;
-	background-color: #CC0000;
+	background-color: #FF0000;
+}
+
+.h-bg3 .h-bg-inner3 {
+	width: 50%;
+	height: 100%;
+	background-color: #987654;
 }
 
 .itemCardImgInfoInner {
@@ -1456,6 +1489,7 @@ ul {
 	list-style-type: none;
 	color: #023838;
 	z-index: 4000;
+	font-size: 1.3em;
 }
 
 .headerUserList {
@@ -1511,8 +1545,10 @@ ul {
 	float: none;
 	padding: 3% 5%;
 	text-decoration: none;
+	text-transform: capitalize;
 	display: block;
 	text-align: center;
+	color: #023838;
 }
 
 .dropDownNav:hover .dropDownNavContent {

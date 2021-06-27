@@ -40,8 +40,6 @@
 									class="headerBtn">Il mio profilo</button></a></li>
 						<li><a href="MostraOrdiniEffettuati"><button
 									type="button" class="headerBtn">I miei ordini</button></a></li>
-						<li><a href="adminMostraOrdini"><button type="button"
-									class="headerBtn">Amministrazione Ordini</button></a></li>
 						<li><a href="EffettuaLogOut"><button type="button"
 									class="headerBtn">Log-out</button></a></li>
 						<% }else{%>

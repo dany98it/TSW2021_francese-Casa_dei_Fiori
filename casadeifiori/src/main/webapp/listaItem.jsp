@@ -89,6 +89,18 @@
 				</div>
 				<% }if(isAdmin){%>
 				<div class="box-down">
+					<div class="h-bg3">
+						<div class="h-bg-inner3"></div>
+					</div>
+					<div class="itemCardCart2">
+					<a class="itemCardCart"
+						href="modifica?itemID=<%=bean.getId()%>"> <span class="itemCardPrice2">Modifica</span> 
+						<span class="itemCardAddCart2"> <span class="itemCardAddCartText2">Modifica</span>
+						</span>
+					</a>
+					</div>
+				</div>
+				<div class="box-down">
 					<div class="h-bg2">
 						<div class="h-bg-inner2"></div>
 					</div>
@@ -99,18 +111,6 @@
 						</span>
 					</a>
 						
-					</div>
-				</div>
-				<div class="box-down">
-					<div class="h-bg2">
-						<div class="h-bg-inner2"></div>
-					</div>
-					<div class="itemCardCart2">
-					<a class="itemCardCart"
-						href="modifica?itemID=<%=bean.getId()%>"> <span class="itemCardPrice2">Modifica</span> 
-						<span class="itemCardAddCart2"> <span class="itemCardAddCartText2">Definitivamente</span>
-						</span>
-					</a>
 					</div>
 				</div>
 			<% } %>

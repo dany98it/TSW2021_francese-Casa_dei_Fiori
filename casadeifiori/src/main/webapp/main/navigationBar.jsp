@@ -4,10 +4,6 @@
 	pageEncoding="ISO-8859-1"%>
 <div class="menuBar" id="mainMenuBar")>
 	<ul class="ulMenu">
-		<li><a href="listaItem.jsp"><button type="button"
-					class="headerBtn">Lista prodotti</button></a></li>
-		<li><a href="addItemPage.jsp"><button type="button"
-					class="headerBtn">Aggiungi prodotto</button></a></li>
 		<li>
 			<div class="dropDownNav">
 				<button class="headerBtn">
@@ -70,5 +66,28 @@
 				</div>
 			</div>
 		</li>
+		<%
+		HttpSession sessione3 = request.getSession(true); 
+  		boolean isAdmin3;
+  		if(sessione3.getAttribute("isAdmin")!=null){
+				isAdmin3=(boolean) sessione3.getAttribute("isAdmin"); 
+			} else{
+				isAdmin3=false;
+			}
+  		if(isAdmin3){%>
+		<li>
+			<div class="dropDownNav">
+				<button class="headerBtn">
+					AMMINSITRAZIONE <i class="fa fa-caret-down"></i>
+				</button>
+				<div class="dropDownNavContent">
+					<ul>
+							<li><a href="adminMostraOrdini">Amministrazione Ordini</a></li>
+							<li><a href="addItemPage.jsp">Aggiungi prodotto</a></li>
+					</ul>
+				</div>
+			</div>
+		</li>
+		<% }%>
 	</ul>
 </div>
