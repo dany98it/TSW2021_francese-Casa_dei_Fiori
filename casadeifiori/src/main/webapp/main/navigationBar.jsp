@@ -2,67 +2,72 @@
 <%@ page import="java.util.*"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
-<div class="menuBar" id="mainMenuBar")>
+<div class="menuBar" id="mainMenuBar">
 	<ul class="ulMenu">
 		<li>
 			<div class="dropDownNav">
 				<button class="headerBtn">
-					FIORI <i class="fa fa-caret-down"></i>
+					FIORI    <i class="fa fa-caret-down" id="frecciaDropDown"></i>
 				</button>
 				<div class="dropDownNavContent">
-					<ul>
+				<div class="headerNavContent">
+       				<h2>FIORI</h2>
+      			</div>
 						<%  
 						TagDAO tDAO = new TagDAO();
 						Collection<Tag> tags1=tDAO.doRetrieveByDescrizione("fiori");
 						for(Tag tag10:tags1){%>
-							<li><a href="MostraItem?tag=<%=tag10.getId()%>"><%=tag10.getNome()%></a></li>
+							<div class="rowNavBar"><a href="MostraItem?tag=<%=tag10.getId()%>"><%=tag10.getNome()%></a></div>
 						<%}%>
-					</ul>
 				</div>
 			</div>
 		</li>
 		<li>
 			<div class="dropDownNav">
 				<button class="headerBtn">
-					PIANTE <i class="fa fa-caret-down"></i>
+					PIANTE <i class="fa fa-caret-down" id="frecciaDropDown"></i>
 				</button>
 				<div class="dropDownNavContent">
-					<ul>
+				<div class="headerNavContent">
+       				<h2>PIANTE</h2>
+      			</div>
 						<%  Collection<Tag> tags2=tDAO.doRetrieveByDescrizione("piante");
 						for(Tag tag20:tags2){%>
-							<li><a href="MostraItem?tag=<%=tag20.getId()%>"><%=tag20.getNome()%></a></li>
+							<div class="rowNavBar"><a href="MostraItem?tag=<%=tag20.getId()%>"><%=tag20.getNome()%></a></div>
 						<%}%>
-					</ul>
 				</div>
 			</div>
 		</li>
 		<li>
 			<div class="dropDownNav">
 				<button class="headerBtn">
-					EVENTI <i class="fa fa-caret-down"></i>
+					EVENTI <i class="fa fa-caret-down" id="frecciaDropDown"></i>
 				</button>
 				<div class="dropDownNavContent">
-					<ul>
+				<div class="headerNavContent">
+       				<h2>EVENTI</h2>
+      			</div>
 						<%  Collection<Tag> tags3=tDAO.doRetrieveByDescrizione("eventi");
 						for(Tag tag30:tags3){%>
-							<li><a href="MostraItem?tag=<%=tag30.getId()%>"><%=tag30.getNome()%></a></li>
+							<div class="rowNavBar"><a href="MostraItem?tag=<%=tag30.getId()%>"><%=tag30.getNome()%></a></div>
 						<%}%>
-					</ul>
+	
 				</div>
 			</div>
 		</li>
 		<li>
 			<div class="dropDownNav">
 				<button class="headerBtn">
-					OGGETTISTICA <i class="fa fa-caret-down"></i>
+					OGGETTISTICA <i class="fa fa-caret-down" id="frecciaDropDown"></i>
 				</button>
 				<div class="dropDownNavContent">
-					<ul>
+				<div class="headerNavContent">
+       				<h2>OGGETTISTICA</h2>
+      			</div>
 						<%  Collection<Tag> tags4=tDAO.doRetrieveByDescrizione("oggettistica");
 						for(Tag tag40:tags4){%>
-							<li><a href="MostraItem?tag=<%=tag40.getId()%>"><%=tag40.getNome()%></a></li>
+							<div class="rowNavBar"><a href="MostraItem?tag=<%=tag40.getId()%>"><%=tag40.getNome()%></a></div>
 						<%}%>
-					</ul>
 				</div>
 			</div>
 		</li>
@@ -78,13 +83,14 @@
 		<li>
 			<div class="dropDownNav">
 				<button class="headerBtn">
-					AMMINSITRAZIONE <i class="fa fa-caret-down"></i>
+					AMMINSITRAZIONE <i class="fa fa-caret-down" id="frecciaDropDown"></i>
 				</button>
 				<div class="dropDownNavContent">
-					<ul>
-							<li><a href="adminMostraOrdini">Amministrazione Ordini</a></li>
-							<li><a href="addItemPage.jsp">Aggiungi prodotto</a></li>
-					</ul>
+				<div class="headerNavContent">
+       				<h2>AMMINSITRAZIONE</h2>
+      			</div>
+							<div class="rowNavBar"><a href="adminMostraOrdini">Amministrazione Ordini</a></div>
+							<div class="rowNavBar"><a href="addItemPage.jsp">Aggiungi prodotto</a></div>
 				</div>
 			</div>
 		</li>

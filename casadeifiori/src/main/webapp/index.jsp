@@ -98,8 +98,8 @@
 			</div>
 			<%}}%>
 		</div>
-		<span class="btn_prev" onclick="scrollToNextPage()"></span>
- 	 	<span class="btn_next" onclick="scrollToPrevPage()"></span>
+		<span class="btn_prev" ></span>
+ 	 	<span class="btn_next" ></span>
 		</div>
 		<div id="instagram-feed1" class="instagram_feed"></div>
 

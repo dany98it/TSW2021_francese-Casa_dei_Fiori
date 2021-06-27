@@ -12,13 +12,14 @@
 <body>
 	<%@ include file="main/script.jsp"%>
 	<%@ include file="main/menuMobile.jsp"%>
-	<div id="main" class="main">
+
 		<header>
 			<%@include file="main/header.jsp"%>
 		</header>
 		<nav>
 			<%@ include file="main/navigationBar.jsp"%>
 		</nav>
+	<div id="mainListItem" class="main">	
 		<%
 			Collection<?> products = (Collection<?>) request.getAttribute("itemsCollection");
 				if(products == null) {
@@ -32,13 +33,19 @@
 				isAdmin=false;
 			}
 		%>
-		<h2>Products</h2>
-		<div id="itemListFilter">
+		<div class="imgListItem">
+			<img alt="Prodotti" src="img/listaItemImg.png" style="width: 100%">
+			<div class="imgListItemText">
+				<h1>Essere vinti dal profumo dei fiori è una forma deliziosa di sconfitta</h1>
+				<p>Prdototti di qualità dal 1970</p>
+			</div>
+		</div>
+		<!--<div id="itemListFilter">
 
 			<button id="submitItemFitler" value="filtra">filtra</button>
 
-		</div>
-
+		</div>-->
+		
 		<div class="itemListing">
 			<%
 					if (products != null && products.size() != 0) {
@@ -117,10 +124,10 @@
 			</div>
 			<%}} %>
 		</div>
+		</div>
 		<footer>
 			<%@ include file="main/footer.jsp"%>
 		</footer>
-		</div>
 		<script type="text/javascript"> cerca();</script>
 </body>
 </html>
