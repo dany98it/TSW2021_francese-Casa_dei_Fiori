@@ -64,7 +64,7 @@
 				<td ><%= ordine.getDataOrdine().toString() %></td>
 				<td><a href="MostraDettagliOrdine?orderID=<%=ordine.getId()%>"><button
 							type="button">Mostra dettagli</button></a> <br></td>
-				<td><a href="generateFattura?ordine=<%=ordine.getId()%>"><button
+				<td><a href="generateFattura?ordine=<%=ordine.getId()%>" target="_blank"><button
 							type="button">Mostra fattura</button></a> <br></td>
 			</tr>
 			<% } 

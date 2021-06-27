@@ -49,9 +49,9 @@
 			<div class="itemCard">
 
 				<div class="box-up">
-					<a href="MostraDettagliItem?itemID=<%=bean.getId()%>"> <img
-						alt="itemCarrello" class="itemCardImg" src="img/fiori2.jpg"
-						height="200px"></a>
+					<a href="MostraDettagliItem?itemID=<%=bean.getId()%>">
+					<%Mostra mostraIndex =new MostraDAO().doRetrieveByItem(bean.getId());%>
+								<img class="itemCardImg" alt=" <%= bean.getNome() %> " src="mostraImg?imgID=<%=mostraIndex.getImmagine()%>" height="200px"></a>
 					<div class="itemCardImgInfo">
 						<div class="itemCardImgInfoInner">
 							<a class="itemCardImgInfoInnerLink"

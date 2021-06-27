@@ -13,13 +13,13 @@
 <body>
 	<%@ include file="main/script.jsp"%>
 	<%@ include file="main/menuMobile.jsp"%>
-	<div class="main">
 		<header>
 			<%@ include file="main/header.jsp"%>
 		</header>
 		<nav>
 			<%@ include file="main/navigationBar.jsp"%>
 		</nav>
+	<div class="main" id="mainInex">
 		<div class="slideShowConteiner">
 			<div class="slide fade1">
 				<img src="img/sfondo2.jpg" style="width: 100%">
@@ -74,31 +74,32 @@
 				</div>
 			</div>
 		</div>
-		<div class="itemIndexConteiner">
+		
+		<div id="paginated_gallery" class="gallery">
+		<div class="gallery_scroller">
 			<%Collection<Tag> tagsIndex= new TagDAO().doRetrieveByDescrizione("home");
 				for(Tag tagIndex:tagsIndex){%>
-				<div class="itemIndexRow">
-				<h3><%=tagIndex.getNome() %></h3>
-					<div class="itemIndexMultiCarousel" data-items="1,3,5,6" data-slide="1" id="MultiCarousel"  data-interval="1000">
-						<div class="itemIndexMultiCarousel-inner">
 							<%Collection<Item> itemsIndex=new ItemDAO().doRetrieveByTag(tagIndex.getId());
-								for(Item itemIndex:itemsIndex){%>
-									<div class="itemIndex">
-										<div class="pad15">
-											<a href="MostraDettagliItem?itemID=<%=itemIndex.getId()%>">
-												<%Mostra mostraIndex =new MostraDAO().doRetrieveByItem(itemIndex.getId());%>
-												<img class="padImg" alt="<%=itemIndex.getNome() %>" src="mostraImg?imgID=<%=mostraIndex.getImmagine()%>" height="200px">
-											</a>
-										</div>
-									</div>
-								<%} %>
+								for(Item bean:itemsIndex){%>
+									<div class="itemCard colored_card">
 
+				<div class="box-up">
+					<a href="MostraDettagliItem?itemID=<%=bean.getId()%>">
+					<%Mostra mostraIndex =new MostraDAO().doRetrieveByItem(bean.getId());%>
+								<img class="itemCardImg" alt=" <%= bean.getNome() %> " src="mostraImg?imgID=<%=mostraIndex.getImmagine()%>" height="200px"></a>
+					<div class="itemCardImgInfo">
+						<div class="itemCardImgInfoInner">
+							<a class="itemCardImgInfoInnerLink"
+								href="MostraDettagliItem?itemID=<%=bean.getId()%>"><span
+								class="itemCardProductName"><%= bean.getNome()%></span></a>
 						</div>
-						<button class="leftLstIndex">&#10094;</button>
-            			<button class="rightLstIndex">&#10095;</button>
 					</div>
 				</div>
-			<%} %>
+			</div>
+			<%}}%>
+		</div>
+		<span class="btn_prev" onclick="scrollToNextPage()"></span>
+ 	 	<span class="btn_next" onclick="scrollToPrevPage()"></span>
 		</div>
 		<div id="instagram-feed1" class="instagram_feed"></div>
 

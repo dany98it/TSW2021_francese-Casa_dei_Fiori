@@ -824,3 +824,21 @@ document.getElementById("mainMenuBar").style.top = "-500px";
   }
   prevScrollpos = currentScrollPos;
 }
+
+const gallery = document.querySelector('#paginated_gallery');
+const gallery_scroller = gallery.querySelector('.gallery_scroller');
+const gallery_item_size = gallery_scroller.querySelector('div').clientWidth;
+
+gallery.querySelector('.btn_next').addEventListener('click', scrollToNextPage);
+gallery.querySelector('.btn_prev').addEventListener('click', scrollToPrevPage);
+
+// For paginated scrolling, simply scroll the gallery one item in the given
+// direction and let css scroll snaping handle the specific alignment.
+function scrollToNextPage() {
+	const gallery_scroller = gallery.querySelector('.gallery_scroller');
+  gallery_scroller.scrollBy(gallery_item_size, 0);
+}
+function scrollToPrevPage() {
+	const gallery_scroller = gallery.querySelector('.gallery_scroller');
+  gallery_scroller.scrollBy(-gallery_item_size, 0);
+}

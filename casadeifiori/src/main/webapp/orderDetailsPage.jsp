@@ -52,8 +52,8 @@
 			<div class="basket-product">
 				<div class="item">
 					<div class="product-image">
-						<img src="img/fiori2.jpg" alt="Immagine prodotto non disponibile"
-							class="product-frame">
+						<%Mostra mostraIndex =new MostraDAO().doRetrieveByItem(bean.getItem());%>
+								<a href="MostraDettagliItem?itemID=<%=bean.getItem()%>"><img class="product-frame" alt=" <%= bean.getNome() %> " src="mostraImg?imgID=<%=mostraIndex.getImmagine()%>" height="300px"></a>
 					</div>
 					<div class="product-details">
 						<h1>
@@ -100,7 +100,7 @@
 					<div class="total-value final-value" id="basket-total"><%= String.format(Locale.ENGLISH,"%.2f", ordine.getPrezzoTotale())%></div>
 				</div>
 				<div class="summary-checkout">
-						<a href="generateFattura?ordine=<%=ordine.getId()%>"> <button type="button" class="checkout-cta">Mostra Fattura</button></a>
+						<a href="generateFattura?ordine=<%=ordine.getId()%>" target="_blank"> <button type="button" class="checkout-cta">Mostra Fattura</button></a>
 				</div>
 			</div>
 		</aside>
