@@ -58,7 +58,12 @@ body {
 }
 .main {
 	transition: margin-left 0.3s;
-	padding-top: 150px;
+	padding-top: 170px;
+}
+
+#main {
+	transition: margin-left 0.3s;
+	padding-top: 170px;
 }
 
 .insertItem {
@@ -158,7 +163,7 @@ body {
 #mainHeader{
 	padding-top: 0px;
 	display: block;
-	z-index:3000;
+	z-index:101;
 	position: fixed;
   	top: 0;
   	transition: top 0.3s; /* Transition effect when sliding down (and up) */
@@ -167,9 +172,9 @@ body {
 
 #mainMenuBar{
 	padding-top: 0px;
-	z-index:3000;
+	z-index:100;
 	position: fixed;
-  	top: 135px;
+  	top: 128px;
   	transition: top 0.3s; /* Transition effect when sliding down (and up) */
   	width: 100%; /* Full width */
 }
@@ -203,6 +208,74 @@ body {
 .colorArangio {
 	background-color: #FA8F6C !important;
 }
+
+.ordersTable{
+	overflow-x:auto;
+	padding: 20px 5px 20px 5px;
+}
+
+.ordersTable td{
+   justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 5px 5px 5px 5px;
+    border: none;
+}
+
+.ordersTable th{
+	background-color: #67F0BB;
+	color: #023838;  
+   justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 5px 5px 5px 5px;
+}
+
+.ordersTable tr:nth-child(even) {
+  background-color: #eee;
+}
+.ordersTable tr:nth-child(odd) {
+ background-color: #fff;
+}
+#tableOrders{
+	border-collapse: collapse;
+        border-radius:10px;
+        border-style: hidden; /* hide standard table (collapsed) border */
+        box-shadow: 0 0 0 1px #000; /* this draws the table border  */ 
+}
+
+/* top-left border-radius */
+    #tableOrders tr:first-child th:first-child,
+    #tableOrders.Info tr:first-child td:first-child {
+        border-top-left-radius: 10px;
+    }
+    
+    /* top-right border-radius */
+    #tableOrders tr:first-child th:last-child,
+    #tableOrders.Info tr:first-child td:last-child {
+        border-top-right-radius: 10px;
+    }
+    
+    /* bottom-left border-radius */
+    #tableOrders tr:last-child td:first-child {
+        border-bottom-left-radius: 10px;
+    }
+    
+    /* bottom-right border-radius */
+    #tableOrders tr:last-child td:last-child {
+        border-bottom-right-radius: 10px;
+    }
+
+
+.mainOrdiniDiv{
+	display: flex;
+   align-items: center; 
+   justify-content: center;
+	padding-left: 5%;
+	padding-right: 5%;
+	border-radius: 20px;
+}
+
 
 #cartIcon {
 	font-size: 190%;
@@ -1382,20 +1455,24 @@ ul {
 	background-color: #67f0bb;
 	list-style-type: none;
 	color: #023838;
+	z-index: 4000;
 }
 
 .headerUserList {
 	padding: 0% 0% 0% 0% !important;
+	z-index: 4000;
 }
 
 .ulMenu li {
 	list-style-type: none;
 	display: inline !important;
 	color: #023838;
+	z-index: 4000;
 }
 
 .ulMenu ul {
 	padding: 0% 0% 0% 0%;
+	z-index: 4000;
 }
 
 .ulMenu2 li {
@@ -1403,6 +1480,7 @@ ul {
 	list-style-type: none;
 	display: list-item !important;
 	color: #023838;
+	z-index: 4000;
 }
 
 .menuMobile {
@@ -1449,12 +1527,13 @@ ul {
 	text-align: left;
 	min-width: 10em;
 	box-shadow: 0 0.5em 1em 0 rgba(0, 0, 0, 0.2);
-	z-index: 1;
+	z-index: 4000;
 	right: 0;
 }
 
 .menuDropBar2 ul {
 	padding: 0 !important;
+	z-index: 4000;
 }
 
 .menuDrop3 {

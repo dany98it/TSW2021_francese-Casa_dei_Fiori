@@ -817,7 +817,7 @@ window.onscroll = function() {
   var currentScrollPos = window.pageYOffset;
   if (prevScrollpos > currentScrollPos) {
     document.getElementById("mainHeader").style.top = "0";
-document.getElementById("mainMenuBar").style.top = "135px";
+document.getElementById("mainMenuBar").style.top = "128px";
   } else {
     document.getElementById("mainHeader").style.top = "-500px";
 document.getElementById("mainMenuBar").style.top = "-500px";

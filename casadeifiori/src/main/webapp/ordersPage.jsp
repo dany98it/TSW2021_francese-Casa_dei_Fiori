@@ -22,14 +22,20 @@
 		<nav>
 			<%@ include file="main/navigationBar.jsp"%>
 		</nav>
+		<div class="mainOrdiniDiv">
 		<h1>Ordini effettuati</h1>
+		</div>
+		<div class="mainOrdiniDiv">
 		<form action="MostraOrdiniEffettuati" method="post">
 			<label for="startDate">Da: </label> <input type="date"
 				name="startDate"> <label for="endDate"> A : </label> <input
 				type="date" name="endDate"> <input type="submit"
 				value="Filtra">
 		</form>
-		<table border="1">
+		</div>
+		<div class="mainOrdiniDiv">
+		<div class="ordersTable">
+		<table border="1" id="tableOrders" >
 			<tr>
 				<th>ID</th>
 				<th>Tipo Ordine</th>
@@ -62,6 +68,8 @@
 			</tr>
 			<% } %>
 		</table>
+		</div>
+		</div>
 		<footer>
 			<%@ include file="main/footer.jsp"%>
 		</footer>

@@ -22,17 +22,27 @@
 		<nav>
 			<%@ include file="main/navigationBar.jsp"%>
 		</nav>
+		<div class="mainOrdiniDiv">
 		<h1>Ordini effettuati</h1>
+		</div>
+		<div class="mainOrdiniDiv">
 		<form action="adminMostraOrdini" method="post">
 			<label for="customerName">Nome Cliente</label> <input type="text"
-				name="customerName"> <label for="startDate">Da: </label> <input
-				type="date" name="startDate"> <label for="endDate">
-				A : </label> <input type="date" name="endDate"> <input type="submit"
+				name="customerName">
+				<label for="startDate">Da: </label> <input
+				type="date" name="startDate">
+				<label for="endDate"> A : </label> <input type="date" name="endDate">
+
+				<input type="submit"
 				value="Filtra">
 		</form>
-		<table border="1">
+		</div>
+		<div class="mainOrdiniDiv">
+		<div class="ordersTable">
+		<table border="1" id="tableOrders" class="ordersTable">
 			<tr>
 				<th>ID</th>
+				<th>Cliente</th>
 				<th>Tipo Ordine</th>
 				<th>Tipo Pagamento</th>
 				<th>Prezzo Totale</th>
@@ -47,10 +57,11 @@
 						Ordine ordine = (Ordine) it.next(); %>
 			<tr>
 				<td><%= ordine.getId() %></td>
+				<td><%= ordine.getUser() %></td>
 				<td><%= ordine.getTipoOrdine().toString() %></td>
 				<td><%= ordine.getTipoPagamento().toString() %></td>
 				<td><%= ordine.getPrezzoTotale() %></td>
-				<td><%= ordine.getDataOrdine().toString() %></td>
+				<td ><%= ordine.getDataOrdine().toString() %></td>
 				<td><a href="MostraDettagliOrdine?orderID=<%=ordine.getId()%>"><button
 							type="button">Mostra dettagli</button></a> <br></td>
 				<td><a href="generateFattura?ordine=<%=ordine.getId()%>"><button
@@ -63,6 +74,8 @@
 			</tr>
 			<% } %>
 		</table>
+		</div>
+		</div>
 		<footer>
 			<%@ include file="main/footer.jsp"%>
 		</footer>

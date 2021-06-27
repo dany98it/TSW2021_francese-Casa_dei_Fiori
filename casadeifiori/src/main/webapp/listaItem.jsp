@@ -12,7 +12,7 @@
 <body>
 	<%@ include file="main/script.jsp"%>
 	<%@ include file="main/menuMobile.jsp"%>
-	<div id="main">
+	<div id="main" class="main">
 		<header>
 			<%@include file="main/header.jsp"%>
 		</header>
