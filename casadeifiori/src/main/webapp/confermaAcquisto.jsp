@@ -18,7 +18,17 @@
 		<nav>
 			<%@ include file="main/navigationBar.jsp"%>
 		</nav>
-		<h1>Acquisto avvenuto con successo</h1>
+		<div class="acquistedItem">
+			<div>
+				<h1>Acquisto avvenuto con successo</h1>
+			</div>
+		</div><br>
+		<div class="acquistedItem">
+			<div>
+				<img alt="" src="img/successo.png"><br>
+			</div>
+		</div>
+		
 		<footer>
 			<%@ include file="main/footer.jsp"%>
 		</footer>

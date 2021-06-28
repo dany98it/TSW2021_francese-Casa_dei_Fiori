@@ -81,7 +81,26 @@ a {
 	left: 50%;
 	top: 50%;
 	transform: translate(-50%, -50%);
-	font-size: 200%;
+	font-size: 300%;
+	font-weight: bolder;
+	color: #023838;
+	text-align: center;
+}
+
+.img-magnifier-glass {
+  position: absolute;
+  border: 3px solid #000;
+  border-radius: 50%;
+  cursor: none;
+  /*Set the size of the magnifier glass:*/
+  width: 100px;
+  height: 100px;
+}
+
+.errorDiv{
+	justify-content: center;
+	display: flex;
+	text-align: center;
 }
 
 .slideShowDot {
@@ -144,9 +163,15 @@ a {
 }
 
 .infoItem {
+	padding-left: 30px;
 	display: flex;
 	align-items: center;
 	flex-direction: column;
+}
+
+.infoDetailsItemButton{
+	background-color: #67F0BB;
+	border-radius: 10px;
 }
 
 .tag {
@@ -200,10 +225,17 @@ a {
 
 .topSopra {
 	position: sticky !important;
-	z-index: 5000 !important;
+	z-index: 15000 !important;
 	top: 0;
 	width: 100%;
 	margin-bottom: 0 !important;
+}
+
+.acquistedItem{
+	justify-content: center;
+	display: flex;
+	vertical-align:top;
+	color: #023838;
 }
 
 .buttonRicerca {
@@ -1259,6 +1291,15 @@ to {
 	box-sizing: border-box;
 }
 
+#quantityItem{
+	width: 50px;
+}
+
+.contenerSuperiore{
+	color: #023838;
+	text-transform: capitalize;
+}
+
 .basket-product {
 	border-bottom: 1px solid #ccc;
 	padding: 1rem 0;
@@ -2108,8 +2149,7 @@ span.twitter-typeahead .tt-suggestion:last-child {
 }
 
 .lineIndex{
-	size: 6em;
-	width: 50%;
+	width: 100%;
 	justify-content: center;
 	display: flex;
 	color: #67f0bb;

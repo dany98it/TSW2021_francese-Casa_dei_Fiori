@@ -51,7 +51,7 @@ public class adminMostraOrdini extends HttpServlet {
 		synchronized (sessione) {
 			loggedUser = (User) sessione.getAttribute("loggedUser");
 			if(loggedUser==null) {
-				response.sendRedirect("logInPage.jsp"); //logged-in page 
+				response.sendRedirect("index.jsp"); //logged-in page 
 				return;
 			}
 			if(loggedUser.getPermessi() != Permessi.admin) {

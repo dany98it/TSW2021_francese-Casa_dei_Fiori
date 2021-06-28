@@ -24,8 +24,7 @@
 			<div class="slide fade1">
 				<img src="img/sfondo2.jpg" style="width: 100%">
 				<p class="slideText">
-					Essere vinti dal profumo dei fiori &egrave; una forma deliziosa di
-					sconfitta. <a href="MostraItem?tag=12">#FioriVeri</a>
+					Fiorai di eccellenza e di esperienza <br><a href="MostraItem?tag=12">#FioriVeri</a>
 				</p>
 			</div>
 			<div class="slide fade1">
@@ -43,9 +42,10 @@
 			</div>
 		</div>
 		<div class="indexInfo">
-			<hr class="lineIndex">
+			<hr class="lineIndex" size="10" align="center">
 			<h1>Garantiamo qualit&aacute; e felicit&aacute;</h1>
 			<h4 class="paragraphInfoBox">Dal 1970</h4>
+			<hr class="lineIndex" size="10" align="center">
 		</div>
 			<div>
 				<h4 class="HeaderInfoBox">Cosa ti offriamo</h4>
@@ -117,8 +117,10 @@
 		</div>
 		<div id="instagram-feed1" class="instagram_feed"></div>
 
-		<div class="elfsight-app-2eb02534-3e98-4e11-bbdd-c5f7ffcb5941"></div>
-
+		<!--  <div class="elfsight-app-2eb02534-3e98-4e11-bbdd-c5f7ffcb5941"></div>
+		<script src="https://apps.elfsight.com/p/platform.js" defer></script>
+		<div class="elfsight-app-d89c3258-9692-4972-8f61-9527af6827c6"></div>
+		-->
 		<footer>
 			<%@ include file="main/footer.jsp"%>
 		</footer>

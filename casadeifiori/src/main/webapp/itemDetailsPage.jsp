@@ -32,7 +32,7 @@
 		<div class="contenerSuperiore">
 			<div>
 				<div id="galleriaItem" class="galleria">
-					<div id="imgXL" class="w3-content" style="max-width: 1200px">
+					<div id="imgXL" class="w3-content" style="max-width: 1200px" >
 						<% int count=1;
 								for(Integer img: galleriaItem){%>
 						<img class="mySlides" src="mostraImg?imgID=<%=img%>"
@@ -98,7 +98,7 @@
 						<%} %>
 					</select> <br>
 					<% if(i.getQuantita()>0) { %>
-					<button
+					<button class="infoDetailsItemButton"
 						onclick="addCart(<%= i.getId() %>,$('#quantityItem').val())">Aggiungi
 						al carrello</button>
 					<% } else{%>

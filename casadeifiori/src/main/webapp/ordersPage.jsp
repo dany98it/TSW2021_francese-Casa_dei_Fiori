@@ -66,7 +66,7 @@
 					<% } 
 				}else{  %>
 					<tr>
-						<td colspan="6">Non ci sono ordini effettuati</td>
+						<td colspan="7">Non ci sono ordini effettuati</td>
 					</tr>
 					<% } %>
 				</table>

@@ -49,11 +49,11 @@
 				<label class="AddressLabel" for="creditCardNome"> <span
 					class="AddressLabelSpan">NOME</span> <input class="AddressInput"
 					type="text" name="creditCardNome" placeholder="MARIO"
-					autocomplete="given-name">
+					autocomplete="given-name" required="required">
 				</label> <label class="AddressLabel" for="creditCardCognome"> <span
 					class="AddressLabelSpan">COGNOME </span> <input
 					class="AddressInput" type="text" name="creditCardCognome"
-					placeholder="ROSSI" autocomplete="family-name">
+					placeholder="ROSSI" autocomplete="family-name" required="required">
 				</label>
 			</div>
 			<i class="fas fa-credit-card" style="font-size: 30px"
@@ -63,7 +63,7 @@
 					class="AddressLabelSpan"> NUMERO CARTA DI CREDITO </span> <input
 					id="creditCard" onkeyup="cambiaIcona()"
 					class="AddressInput input-card" type="text" name="creditCardNumber"
-					placeholder="XXXX XXXX XXXX XXXX" autocomplete="cc-number">
+					placeholder="XXXX XXXX XXXX XXXX" autocomplete="cc-number" required="required">
 				</label>
 			</div>
 			<div class="creditCardDetailsChechout creditCardDetailsChechout--2">
@@ -73,10 +73,10 @@
 					id="creditCardDate" class="AddressInput input-datacard" type="text"
 					name="creditCardEXPDate" placeholder="MM/YY" autocomplete="cc-exp"
 					data-date-format="mm/yy" data-start-view="year"
-					data-min-view="year">
+					data-min-view="year" required="required">
 				</label> <label class="AddressLabel" for="creditCardCVV"> <span
 					class="AddressLabelSpan">CVV</span> <input class="AddressInput"
-					type="password" name="creditCardCVV" placeholder="XXX">
+					type="password" name="creditCardCVV" placeholder="XXX" required="required">
 				</label>
 			</div>
 			<div class="buttonAddAddressDiv">

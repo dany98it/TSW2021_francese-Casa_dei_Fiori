@@ -71,7 +71,7 @@
 					</label> <label class="AddressLabel" for="interno"> <span
 						class="AddressLabelSpan">Interno</span> <input
 						class="AddressInput" type="text" id="internoIndirizzo"
-						name="interno" value="0" placeholder="3" />
+						name="interno" placeholder="3" />
 					</label> <label class="AddressLabel" for="numeroCivico"> <span
 						class="AddressLabelSpan">Numero Civico</span> <input
 						class="AddressInput" type="text" id="numeroCivicoIndirizzo"
