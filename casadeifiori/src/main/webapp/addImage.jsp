@@ -76,7 +76,8 @@ if (i == null) {
 								<i class="fas fa-circle" style="color:<%=s1[0]%>"
 									onmouseenter="cShow('<%=s1[0] + s1[1]%>')"
 									onmouseleave="cNotShow('<%=s1[0] + s1[1]%>')"></i>
-								<p id="<%=s1[0].replace("#", "") + s1[1]%>" class="caratterisicap"><%=s1[1]%></p>
+								<p id="<%=s1[0].replace("#", "") + s1[1]%>"
+									class="caratterisicap"><%=s1[1]%></p>
 								<%
 								} else {
 								%>

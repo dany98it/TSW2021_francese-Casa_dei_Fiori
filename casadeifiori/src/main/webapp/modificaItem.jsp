@@ -45,33 +45,33 @@ if (i == null) {
 						for="name">Nome:</label><br> <input value="<%=i.getNome()%>"
 						id="name" name="name" type="text" maxlength="20" required
 						placeholder="inserire nome"
-						onchange="prewiev('name','titoloItem')"><br>
-					<label for="description">Descrizione:</label><br>
+						onchange="prewiev('name','titoloItem')"><br> <label
+						for="description">Descrizione:</label><br>
 					<textarea id="editortesto" name="description"
 						placeholder="inserire descrizione"><%=i.getDescrizione()%></textarea>
 					<br> <label for="tag">tag:</label><br>
-						<%
+					<%
 							String t2="";
 							for (String t3 : tag3) {
 								t2=t3+","+t2;
 							}
 						%>
-					<input id="tag"
-						name="tag" type="text" data-role="tagsinput" placeholder="tag,..."
-						onchange="prewievTag('tag','tagItem')"  value="<%= t2%>"> <label
-						for="caratterisiche">caratterisiche:</label> <input type="button"
-						value="aggiungi" class="float-right" onclick="addCaratterisica()">
-					<input type="button" value="Crea" class="float-right"
-						data-toggle="modal" data-target="#caratterisicheModal"><br>
+					<input id="tag" name="tag" type="text" data-role="tagsinput"
+						placeholder="tag,..." onchange="prewievTag('tag','tagItem')"
+						value="<%= t2%>"> <label for="caratterisiche">caratterisiche:</label>
+					<input type="button" value="aggiungi" class="float-right"
+						onclick="addCaratterisica()"> <input type="button"
+						value="Crea" class="float-right" data-toggle="modal"
+						data-target="#caratterisicheModal"><br>
 					<section id="caratterisicheSection"></section>
 					<label for="price">Prezzo:</label><br> <input
-						value="<%=String.format(Locale.ENGLISH,"%.2f", i.getPrezzo())%>" id="price" name="price" type="text"
-						pattern="[0-9]{1,}.[0-9]{2}" required
-						onchange="prewievPrezzo('prezzoItem')"><br> <label
-						for="iva">Iva:</label><br> <input value="<%=i.getIva()%>"
-						id="iva" name="iva" type="number" min="0" value="22" required
-						onchange="prewievPrezzo('prezzoItem')"><br> <label
-						for="sconto">Sconto:</label><br> <input
+						value="<%=String.format(Locale.ENGLISH,"%.2f", i.getPrezzo())%>"
+						id="price" name="price" type="text" pattern="[0-9]{1,}.[0-9]{2}"
+						required onchange="prewievPrezzo('prezzoItem')"><br>
+					<label for="iva">Iva:</label><br> <input
+						value="<%=i.getIva()%>" id="iva" name="iva" type="number" min="0"
+						value="22" required onchange="prewievPrezzo('prezzoItem')"><br>
+					<label for="sconto">Sconto:</label><br> <input
 						value="<%=i.getSconto()%>" id="sconto" name="sconto" type="number"
 						min="0" value="0" required onchange="prewievPrezzo('prezzoItem')"><br>
 					<label for="tipo">Tipo:</label><br> <select name="tipo"
@@ -126,8 +126,7 @@ if (i == null) {
 							</div>
 						</div>
 						<h3>caratterisiche</h3>
-						<div id="caratterisicheItem" class="caratterisiche">
-						</div>
+						<div id="caratterisicheItem" class="caratterisiche"></div>
 						<h3>tag</h3>
 						<div id="tagItem" class="tag">
 							<%

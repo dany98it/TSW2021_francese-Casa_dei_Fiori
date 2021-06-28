@@ -14,17 +14,17 @@
 <body>
 	<%@ include file="main/script.jsp"%>
 	<%@ include file="main/menuMobile.jsp"%>
-		<header>
-			<%@ include file="main/header.jsp"%>
-		</header>
-		<nav>
-			<%@ include file="main/navigationBar.jsp"%>
-		</nav>
+	<header>
+		<%@ include file="main/header.jsp"%>
+	</header>
+	<nav>
+		<%@ include file="main/navigationBar.jsp"%>
+	</nav>
 	<div id="main" class="mainCart">
 		<div>
 			<a href="MostraOrdiniEffettuati">Torna ai miei ordini</a>
 		</div>
-		
+
 		<%
 				Ordine ordine = (Ordine) request.getAttribute("ordine");
 				Collection<?> products;
@@ -53,7 +53,10 @@
 				<div class="item">
 					<div class="product-image">
 						<%Mostra mostraIndex =new MostraDAO().doRetrieveByItem(bean.getItem());%>
-								<a href="MostraDettagliItem?itemID=<%=bean.getItem()%>"><img class="product-frame" alt=" <%= bean.getNome() %> " src="mostraImg?imgID=<%=mostraIndex.getImmagine()%>" height="300px"></a>
+						<a href="MostraDettagliItem?itemID=<%=bean.getItem()%>"><img
+							class="product-frame" alt=" <%= bean.getNome() %> "
+							src="mostraImg?imgID=<%=mostraIndex.getImmagine()%>"
+							height="300px"></a>
 					</div>
 					<div class="product-details">
 						<h1>
@@ -76,12 +79,15 @@
 				</div>
 				<div class="subtotal"><%=String.format(Locale.ENGLISH,"%.2f", bean.getPrezzoVendita())%></div>
 			</div>
-			<% }}%>	
+			<% }}%>
 		</div>
 		<aside>
 			<div class="summary">
 				<div class="summary-total-items">
-					<span class="total-items"></span> <p>Dettagli ordine ID <%= ordine.getId() %></p>
+					<span class="total-items"></span>
+					<p>
+						Dettagli ordine ID
+						<%= ordine.getId() %></p>
 				</div>
 				<div class="summary-subtotal">
 					<div class="subtotal-title">Data Ordine</div>
@@ -100,14 +106,17 @@
 					<div class="total-value final-value" id="basket-total"><%= String.format(Locale.ENGLISH,"%.2f", ordine.getPrezzoTotale())%></div>
 				</div>
 				<div class="summary-checkout">
-						<a href="generateFattura?ordine=<%=ordine.getId()%>" target="_blank"> <button type="button" class="checkout-cta">Mostra Fattura</button></a>
+					<a href="generateFattura?ordine=<%=ordine.getId()%>"
+						target="_blank">
+						<button type="button" class="checkout-cta">Mostra Fattura</button>
+					</a>
 				</div>
 			</div>
 		</aside>
-		</div>
-		<footer>
-			<%@ include file="main/footer.jsp"%>
-		</footer>
+	</div>
+	<footer>
+		<%@ include file="main/footer.jsp"%>
+	</footer>
 	<script type="text/javascript"> cerca();</script>
 </body>
 </html>

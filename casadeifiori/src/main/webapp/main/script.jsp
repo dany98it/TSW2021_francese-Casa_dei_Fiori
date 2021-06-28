@@ -9,7 +9,8 @@
 <script src="https://apps.elfsight.com/p/platform.js"></script>
 <script
 	src="https://cdnjs.cloudflare.com/ajax/libs/foundation-datepicker/1.5.6/js/foundation-datepicker.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/foundation-datepicker/1.5.6/js/locales/foundation-datepicker.it.js"></script>
+<script
+	src="https://cdnjs.cloudflare.com/ajax/libs/foundation-datepicker/1.5.6/js/locales/foundation-datepicker.it.js"></script>
 <script
 	src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/js/bootstrap.min.js"></script>
 <script

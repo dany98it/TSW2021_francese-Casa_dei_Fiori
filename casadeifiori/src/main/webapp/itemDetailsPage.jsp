@@ -57,18 +57,21 @@
 				<h3>caratterisiche</h3>
 				<div id="caratterisicheItem" class="caratterisiche">
 					<%for(PrintCaratteristica printCaratteristica:c){%>
-						<div>
-							<h5 style="display: inline-block;"><%=printCaratteristica.getNome()%>:</h5>
-							<%for(String s:printCaratteristica.getValore()){%>
-								<%if(s.startsWith("#")){
+					<div>
+						<h5 style="display: inline-block;"><%=printCaratteristica.getNome()%>:
+						</h5>
+						<%for(String s:printCaratteristica.getValore()){%>
+						<%if(s.startsWith("#")){
 									String[] s1=s.split(":");%>
-									<i class="fas fa-circle" style="color:<%=s1[0]%>" onmouseenter="cShow('<%=s1[0]+s1[1]%>')" onmouseleave="cNotShow('<%=s1[0]+s1[1]%>')"></i>
-									<p id="<%=s1[0].replace("#", "")+s1[1]%>" class="caratterisicap"><%=s1[1]%></p>
-								<%}else{%>
-									<p class="tagp"><%=s%></p>
-								<%}%>
-							<%}%>
-						</div>
+						<i class="fas fa-circle" style="color:<%=s1[0]%>"
+							onmouseenter="cShow('<%=s1[0]+s1[1]%>')"
+							onmouseleave="cNotShow('<%=s1[0]+s1[1]%>')"></i>
+						<p id="<%=s1[0].replace("#", "")+s1[1]%>" class="caratterisicap"><%=s1[1]%></p>
+						<%}else{%>
+						<p class="tagp"><%=s%></p>
+						<%}%>
+						<%}%>
+					</div>
 					<%}%>
 				</div>
 				<h3>tag</h3>

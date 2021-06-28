@@ -61,7 +61,10 @@
 				<div class="item">
 					<div class="product-image">
 						<%Mostra mostraIndex =new MostraDAO().doRetrieveByItem(bean.getItem().getId());%>
-								<a href="MostraDettagliItem?itemID=<%=bean.getItem().getId()%>"><img class="product-frame" alt=" <%= bean.getItem().getNome() %> " src="mostraImg?imgID=<%=mostraIndex.getImmagine()%>" height="300px"></a>
+						<a href="MostraDettagliItem?itemID=<%=bean.getItem().getId()%>"><img
+							class="product-frame" alt=" <%= bean.getItem().getNome() %> "
+							src="mostraImg?imgID=<%=mostraIndex.getImmagine()%>"
+							height="300px"></a>
 					</div>
 					<div class="product-details">
 						<h1>
@@ -118,7 +121,7 @@
 				</div>
 				<div class="summary-delivery">
 					<select name="delivery-collection"
-						class="summary-delivery-selection" >
+						class="summary-delivery-selection">
 						<option value="0" selected="selected">Seleziona il tipo
 							di servizio</option>
 						<option value="first-class">Ritiro Locale</option>
@@ -142,14 +145,15 @@
 							
 							if (products != null && products.size() != 0)
 							{%>
-							<button type="button" class="checkout-cta" onclick="location.href='pagamentoPage.jsp'">SAFE CHECKOUT</button>
-						<% }else{ %>
-							<h5>Carrello vuoto</h5>
-        			<% }}else{ %>
-        					<h5>Accedi o Iscriviti per proseguire con l'acquisto</h5>
-        					<button type="button" class="checkout-cta" onclick="openLogIn()">Log-in</button>
-							<button type="button" class="checkout-cta" onclick="openSignIn()">Sign-in</button>
-        			<%}%>
+					<button type="button" class="checkout-cta"
+						onclick="location.href='pagamentoPage.jsp'">SAFE CHECKOUT</button>
+					<% }else{ %>
+					<h5>Carrello vuoto</h5>
+					<% }}else{ %>
+					<h5>Accedi o Iscriviti per proseguire con l'acquisto</h5>
+					<button type="button" class="checkout-cta" onclick="openLogIn()">Log-in</button>
+					<button type="button" class="checkout-cta" onclick="openSignIn()">Sign-in</button>
+					<%}%>
 				</div>
 			</div>
 		</aside>

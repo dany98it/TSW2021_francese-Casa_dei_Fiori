@@ -1,7 +1,7 @@
 <%@page import="model.*"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
-    <% HttpSession sessioneUser = request.getSession(true); 
+	pageEncoding="ISO-8859-1"%>
+<% HttpSession sessioneUser = request.getSession(true); 
     	User user=(User)sessioneUser.getAttribute("loggedUser");%>
 <!DOCTYPE html>
 <html>
@@ -23,21 +23,25 @@
 		</nav>
 		<div class="userDiv">
 			<%if(user!=null){%>
-				<h1>Profilo <%=user.getPermessi()%> numero <%=user.getId()%></h1>
-				<h2>Nominativo:</h2>
-				<p><%=user.getNome()+" "+user.getCognome()%></p>
-				<h2>Data di nascità:</h2>
-				<p><%=user.getdataNascita()%></p>
-				<h2>Email:</h2>
-				<p><%=user.getEmail() %></p>
-				<h2>Telefono:</h2>
-				<p><%=user.getTelefono() %></p>
-				<h2>Indirizzi:</h2>
-				<%Collection<Indirizzo> indirizziUser=new IndirizzoDAO().doRetrieveAllByUser(user.getId());
+			<h1>
+				Profilo
+				<%=user.getPermessi()%>
+				numero
+				<%=user.getId()%></h1>
+			<h2>Nominativo:</h2>
+			<p><%=user.getNome()+" "+user.getCognome()%></p>
+			<h2>Data di nascità:</h2>
+			<p><%=user.getdataNascita()%></p>
+			<h2>Email:</h2>
+			<p><%=user.getEmail() %></p>
+			<h2>Telefono:</h2>
+			<p><%=user.getTelefono() %></p>
+			<h2>Indirizzi:</h2>
+			<%Collection<Indirizzo> indirizziUser=new IndirizzoDAO().doRetrieveAllByUser(user.getId());
 					for(Indirizzo indirizzoUser:indirizziUser){%>
-						<p><%=indirizzoUser.getVia()+" "+indirizzoUser.getNumeroCivico()+","+indirizzoUser.getCittà()+"("+
+			<p><%=indirizzoUser.getVia()+" "+indirizzoUser.getNumeroCivico()+","+indirizzoUser.getCittà()+"("+
 							indirizzoUser.getProvincia()+") "+indirizzoUser.getCap()%></p>
-					<%}%>
+			<%}%>
 			<%}%>
 		</div>
 		<footer>
