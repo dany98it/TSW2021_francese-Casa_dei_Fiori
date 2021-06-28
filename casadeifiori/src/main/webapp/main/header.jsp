@@ -36,7 +36,7 @@
 					onmouseenter="menuMobile2()" onmouseleave="closeMenuMobile2()">
 					<ul class="ulMenu2">
 						<% if(sessione.getAttribute("loggedUser")!=null){ %>
-						<li><a href="#" id="afterHomeBtn"><button type="button"
+						<li><a href="user.jsp" id="afterHomeBtn"><button type="button"
 									class="headerBtn">Il mio profilo</button></a></li>
 						<li><a href="MostraOrdiniEffettuati"><button
 									type="button" class="headerBtn">I miei ordini</button></a></li>

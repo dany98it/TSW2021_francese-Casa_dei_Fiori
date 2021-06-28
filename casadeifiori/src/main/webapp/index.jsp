@@ -41,36 +41,36 @@
 		</div>
 		<div class="info">
 			<div class="infodiv">
-				<img alt="" src="">
+				<img class="infodivImg" alt="" src="img/HP_MOD3_Tangibles_02.jpg">
 				<div>
 					<strong class="center">UNO STILE UNICO</strong>
 				</div>
 				<div>
 					<strong> Da oltre 100 anni ci impegniamo a realizzare
 						creazioni floreali all'avanguardia, riconosciuti in tutto il mondo
-						per stile e unicità </strong>
+						per stile e unicit&agrave; </strong>
 				</div>
 			</div>
 			<div class="infodiv">
-				<img alt="" src="">
+				<img class="infodivImg" alt="" src="img/HP_MOD3_Tangibles_01.gif">
 				<div>
-					<strong class="center">QUALITÀ GARANTITA</strong>
+					<strong class="center">QUALIT&Agrave; GARANTITA</strong>
 				</div>
 				<div>
 					<strong> Consegniamo sempre fiori freschi di premissima
-						qualità che vengono lavorati dal fiorista più vicino al luogo di
+						qualit&agrave; che vengono lavorati dal fiorista pi&ugrave; vicino al luogo di
 						destinazione poco prima della consegna </strong>
 				</div>
 			</div>
 			<div class="infodiv">
-				<img alt="" src="">
+				<img class="infodivImg" alt="" src="img/HP_MOD3_Tangibles_03.jpg">
 				<div>
 					<strong class="center">CONSEGNA IN GIORNATA</strong>
 				</div>
 				<div>
-					<strong> Per tutti i nostri prodotti floreali è
+					<strong> Per tutti i nostri prodotti floreali &egrave;
 						disponibile la consegna in giornata. Il tuo regalo floreale
-						arriverà a poche ore dall'ordine effettuato </strong>
+						arriver&agrave; a poche ore dall'ordine effettuato </strong>
 				</div>
 			</div>
 		</div>

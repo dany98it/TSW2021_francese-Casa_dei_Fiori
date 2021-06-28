@@ -9,6 +9,9 @@ body {
 .ui-autocomplete{
 	z-index: 100000;
 }
+.infodivImg{
+	width: 80%;
+}
 a{
 	text-decoration: none;
 	color: #67F0BB; 
@@ -89,8 +92,10 @@ a{
   left: 75%;
   transform: translate(-50%, -50%);
 }
-
-.imgListItemText h1, p{
+.userDiv{
+	text-align: center;
+}
+.imgListItemText h1, .imgListItemText  p{
 	font-weight: bolder;
 	}
 
@@ -1563,6 +1568,7 @@ to {
 	.summary {
 		width: 28%;
 	}
+
 }
 
 @media screen and (max-width: 960px) {
@@ -1951,6 +1957,7 @@ to {
 		rgba(250, 143, 108, 0.4));
 	padding-left: 10%;
 	padding-right: 10%;
+	padding-top: 2%;
 }
 
 .infodiv {
@@ -2043,7 +2050,9 @@ span.twitter-typeahead .tt-suggestion:last-child {
 	border: none;
 	font-size: 1em;
 	}
-	
+	#mainInex {
+    	padding-top: 170px;
+	}
 	.menuDrop {
 		z-index: 10000;
 		text-transform: capitalize;
@@ -2221,9 +2230,12 @@ span.twitter-typeahead .tt-suggestion:last-child {
 		position: relative;
 	}
 }
-
+@media screen and (max-width: 640px) {
+	#mainInex {
+    	padding-top: 160px;
+	}
+}
 @media screen and (max-width: 480px) {
-
 	.modal-content1 {
 		left: 47%;
 		top: 40%;

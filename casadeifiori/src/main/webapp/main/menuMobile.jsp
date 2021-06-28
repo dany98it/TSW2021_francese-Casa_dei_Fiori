@@ -17,7 +17,7 @@
 			}
   	if(sessione2.getAttribute("loggedUser")!=null){ %>
 	<div class="dropdown-container">
-  		<a href="#">Il mio account</a>
+  		<a href="user.jsp">Il mio account</a>
   		<a href="cartPage.jsp">carrello</a>
     	<a href="MostraOrdiniEffettuati">I miei Ordini</a>
     	<a href="EffettuaLogOut">Log-out</a>
