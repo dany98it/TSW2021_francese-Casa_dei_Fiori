@@ -12,3 +12,4 @@
 <link rel="stylesheet"
 	href="https://cdnjs.cloudflare.com/ajax/libs/foundation-datepicker/1.5.6/css/foundation-datepicker.min.css" />
 <link rel="stylesheet" href="style.css" type="text/css">
+<link rel="icon" href="img/logosenzascritta.png">

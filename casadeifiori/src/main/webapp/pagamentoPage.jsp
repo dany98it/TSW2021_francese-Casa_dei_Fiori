@@ -61,7 +61,7 @@
 			<div class="creditCardDetailsChechout">
 				<label class="AddressLabel" for="creditCardNumber"> <span
 					class="AddressLabelSpan"> NUMERO CARTA DI CREDITO </span> <input
-					id="creditCard" onchange="cambiaIcona()"
+					id="creditCard" onkeyup="cambiaIcona()"
 					class="AddressInput input-card" type="text" name="creditCardNumber"
 					placeholder="XXXX XXXX XXXX XXXX" autocomplete="cc-number">
 				</label>

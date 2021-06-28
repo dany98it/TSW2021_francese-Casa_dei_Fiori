@@ -1275,6 +1275,7 @@ to {
 
 .product-frame {
 	border: 1px solid #aaa;
+	height: 10%;
 }
 
 .product-details {
