@@ -65,7 +65,7 @@ public class Delete extends HttpServlet {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/listaItem.jsp");
+		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/MostraItem?dove=0%3A0&cerca=");
 		dispatcher.forward(request, response);
 	}
 

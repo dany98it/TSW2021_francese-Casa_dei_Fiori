@@ -462,7 +462,7 @@ a {
 .modal1 {
 	display: none; /* Hidden by default */
 	position: fixed; /* Stay in place */
-	z-index: 2000;
+	z-index: 11000;
 	left: 0;
 	top: 0;
 	width: 100%; /* Full width */
@@ -611,9 +611,24 @@ form .wrap-LogInBtn {
 .paragraphInfoBox {
 	display:flex;
 	justify-content: center;
-	font-weight: bold;
+	font-weight: normal;
 	color: #023838;
 }
+
+.indexInfo h1{
+	font-size: 3.5rem;
+	margin-top: 40px;
+	display: flex;
+	justify-content: center;
+	font-weight: bolder;
+	color: rgb(239, 126, 109);
+}
+
+.indexInfo h4{
+		margin-bottom: 40px;
+		font-weight: bolder;
+	}
+
 .signup_link a:hover {
 	text-decoration: underline;
 }
@@ -2091,7 +2106,22 @@ span.twitter-typeahead .tt-suggestion:last-child {
 	border-bottom: 0px;
 }
 
+.lineIndex{
+	size: 6em;
+	width: 50%;
+	justify-content: center;
+	display: flex;
+	color: #67f0bb;
+	
+}
+
 @media screen and (max-width: 1024px) {
+	.indexInfo h1{
+		font-size: 1.4rem;
+	}
+	.indexInfo p{
+		font-size: 0.8rem;
+	}
 	.imgListItemText h1 {
 	display: none;
 	}

@@ -42,7 +42,16 @@
 					onclick="currentSlide(3)"></span>
 			</div>
 		</div>
+		<div class="indexInfo">
+			<hr class="lineIndex">
+			<h1>Garantiamo qualit&aacute; e felicit&aacute;</h1>
+			<h4 class="paragraphInfoBox">Dal 1970</h4>
+		</div>
+			<div>
+				<h4 class="HeaderInfoBox">Cosa ti offriamo</h4>
+			</div>
 		<div class="info">
+
 			<div class="infodiv">
 				<img class="infodivImg" alt="" src="img/HP_MOD3_Tangibles_02.jpg">
 				<div>

@@ -22,8 +22,8 @@
 		<nav>
 			<%@ include file="main/navigationBar.jsp"%>
 		</nav>
-		<div class="mainOrdiniDiv">
-			<h1>Ordini effettuati</h1>
+		<div class="HeaderInfoBox">
+			<h1>Amministrazione ordini effettuati</h1>
 		</div>
 		<div class="mainOrdiniDiv">
 			<form action="adminMostraOrdini" method="post">

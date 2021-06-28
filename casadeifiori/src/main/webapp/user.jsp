@@ -23,23 +23,35 @@
 		</nav>
 		<div class="userDiv">
 			<%if(user!=null){%>
+			<div class="HeaderInfoBox">
 			<h1>
 				Profilo
 				<%=user.getPermessi()%>
-				numero
+				ID 
 				<%=user.getId()%></h1>
-			<h2>Nominativo:</h2>
-			<p><%=user.getNome()+" "+user.getCognome()%></p>
-			<h2>Data di nascità:</h2>
-			<p><%=user.getdataNascita()%></p>
-			<h2>Email:</h2>
-			<p><%=user.getEmail() %></p>
-			<h2>Telefono:</h2>
-			<p><%=user.getTelefono() %></p>
-			<h2>Indirizzi:</h2>
+			</div>
+			<div class="HeaderInfoBox">
+			<h2>Nominativo</h2>
+			</div>
+			<p class="paragraphInfoBox"><%=user.getNome()+" "+user.getCognome()%></p>
+			<div class="HeaderInfoBox">
+			<h2>Data di nascità</h2>
+			</div>
+			<p class="paragraphInfoBox"><%=user.getdataNascita()%></p>
+			<div class="HeaderInfoBox">
+			<h2>Email</h2>
+			</div>
+			<p class="paragraphInfoBox"><%=user.getEmail() %></p>
+			<div class="HeaderInfoBox">
+			<h2>Telefono</h2>
+			</div>
+			<p class="paragraphInfoBox"><%=user.getTelefono() %></p>
+			<div class="HeaderInfoBox">
+			<h2>Indirizzi</h2>
+			</div>
 			<%Collection<Indirizzo> indirizziUser=new IndirizzoDAO().doRetrieveAllByUser(user.getId());
 					for(Indirizzo indirizzoUser:indirizziUser){%>
-			<p><%=indirizzoUser.getVia()+" "+indirizzoUser.getNumeroCivico()+","+indirizzoUser.getCittà()+"("+
+			<p class="paragraphInfoBox"><%=indirizzoUser.getVia()+" "+indirizzoUser.getNumeroCivico()+","+indirizzoUser.getCittà()+"("+
 							indirizzoUser.getProvincia()+") "+indirizzoUser.getCap()%></p>
 			<%}%>
 			<%}%>

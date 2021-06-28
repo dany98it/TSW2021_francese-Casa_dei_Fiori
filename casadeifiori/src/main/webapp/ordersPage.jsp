@@ -22,7 +22,7 @@
 		<nav>
 			<%@ include file="main/navigationBar.jsp"%>
 		</nav>
-		<div class="mainOrdiniDiv">
+		<div class="HeaderInfoBox">
 			<h1>Ordini effettuati</h1>
 		</div>
 		<div class="mainOrdiniDiv">
