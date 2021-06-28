@@ -373,7 +373,7 @@ a {
 	overflow-y: hidden;
 	display: flex;
 	align-items: center;
-	height: 500px;f
+	height: 500px;
 	/* Enable Safari touch scrolling physics which is needed for scroll snap */
 	-webkit-overflow-scrolling: touch;
 }
@@ -631,8 +631,7 @@ form .wrap-LogInBtn {
 	z-index: 2000;
 }
 
-@
--webkit-keyframes animatezoom {
+@-webkit-keyframes animatezoom {
 	from {-webkit-transform: scale(0)
 }
 
@@ -641,8 +640,7 @@ to {
 }
 
 }
-@
-keyframes animatezoom {
+@keyframes animatezoom {
 	from {transform: scale(0)
 }
 
@@ -1944,8 +1942,7 @@ button:hover {
 	animation-duration: 1.5s;
 }
 
-@
--webkit-keyframes fade {
+@-webkit-keyframes fade {
 	from {opacity: .4
 }
 
@@ -1954,8 +1951,7 @@ to {
 }
 
 }
-@
-keyframes fade {
+@keyframes fade {
 	from {opacity: .4
 }
 

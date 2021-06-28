@@ -32,7 +32,7 @@
 				<img src="img/indexphoto.jpg" style="width: 100%">
 			</div>
 			<div class="slide fade1">
-				<img src="img/indexphoto2.jpg" style="width: 100%">
+				<img src="img/Indexphoto2.jpg" style="width: 100%">
 				<p class="slideText">
 					L'autunno sta arrivando , affrettati per non perdere le migliori offerte! 
 					 <a href="MostraItem?tag=42">#Autunno</a>
