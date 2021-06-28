@@ -46,29 +46,30 @@
 			<div class="creditCardDetailsChechout creditCardDetailsChechout--2">
 					<label class="AddressLabel" for="creditCardNome">
 					<span class="AddressLabelSpan">NOME</span>
-					<input class="AddressInput" type="text" name="creditCardNome" placeholder="MARIO">
+					<input class="AddressInput" type="text" name="creditCardNome" placeholder="MARIO" autocomplete="given-name">
 					</label>
 					<label class="AddressLabel" for="creditCardCognome">
 					<span class="AddressLabelSpan">COGNOME </span>
-					<input class="AddressInput" type="text" name="creditCardCognome" placeholder="ROSSI">
+					<input class="AddressInput" type="text" name="creditCardCognome" placeholder="ROSSI" autocomplete="family-name">
 					</label>
 			</div>
+			<i class="fas fa-credit-card" style="font-size: 30px" id="creditCardIcon"></i>
 			<div class="creditCardDetailsChechout">
 					<label class="AddressLabel" for="creditCardNumber">
 					<span class="AddressLabelSpan"> NUMERO CARTA DI CREDITO </span> 
-					<input class="AddressInput" type="text" name="creditCardNumber" placeholder="XXXX-XXXX-XXXX-XXXX">
+					<input id="creditCard" onchange="cambiaIcona()" class="AddressInput input-card" type="text" name="creditCardNumber" placeholder="XXXX XXXX XXXX XXXX" autocomplete="cc-number">
 					</label>
 			</div>
 			<div class="creditCardDetailsChechout creditCardDetailsChechout--2">
 
 					<label class="AddressLabel" for="creditCardEXPDate">
 					<span class="AddressLabelSpan">DATA SCADENZA </span>
-					<input class="AddressInput" type="month" name="creditCardEXPDate">
+					<input id="creditCardDate" class="AddressInput input-datacard" type="text" name="creditCardEXPDate" placeholder="MM/YY" autocomplete="cc-exp" data-date-format="mm/yy" data-start-view="year" data-min-view="year">
 					</label>
 
 					<label class="AddressLabel" for="creditCardCVV">
 					<span class="AddressLabelSpan">CVV</span>
-					<input class="AddressInput" type="password" name="creditCardCVV" placeholder="XXX">
+					<input class="AddressInput" type="password" name="creditCardCVV" placeholder="XXX" >
 					</label>
 			</div>
 					<div class="buttonAddAddressDiv" >
@@ -82,5 +83,8 @@
 		<footer>
 			<%@ include file="main/footer.jsp"%>
 		</footer>
+		<script type="text/javascript">
+			cardDatapickerInit("creditCardDate");
+		</script>
 </body>
 </html>

@@ -6,7 +6,9 @@ body {
 	margin: 0;
 	padding: 0 !important;
 }
-
+.ui-autocomplete{
+	z-index: 100000;
+}
 a{
 	text-decoration: none;
 	color: #67F0BB; 

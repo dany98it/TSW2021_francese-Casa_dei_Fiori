@@ -42,14 +42,16 @@
 					<div class="txtFieldAddAddress">
 						<label class="AddressLabel" for="provincia">
 							<span class="AddressLabelSpan" >Provincia</span>
-							<input class="AddressInput" type="text" id="provinciaIndirizzo" name="provincia" required="required" placeholder="Roma" />
+							<select class="AddressInput" id="provinciaIndirizzo" name="provincia" required="required" onchange="selectComuni()">
+							</select>
 						</label>
 					</div>
 					
 					<div class="txtFieldAddAddress">
 						<label class="AddressLabel" for="citta">
 							<span class="AddressLabelSpan" >Citt&#225; </span>
-							<input class="AddressInput" type="text" id="cittaIndirizzo" name="citta" required="required" placeholder="Roma"/>
+							<select class="AddressInput" id="cittaIndirizzo" name="citta" required="required">
+							</select>
 						</label>
 					</div>
 					<div class="txtFieldAddAddress">
@@ -83,5 +85,6 @@
 	<footer>
 		<%@ include file="main/footer.jsp"%>
 	</footer>
+	<script type="text/javascript">selectProvincia()</script>
 </body>
 </html>

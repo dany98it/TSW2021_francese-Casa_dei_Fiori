@@ -496,9 +496,7 @@ function datapickerInit(id) {
 	$('#' + id).fdatepicker({
 		format: 'yyyy-mm-dd',
 		disableDblClickSelection: true,
-		leftArrow: '<<',
-		rightArrow: '>>',
-		closeIcon: 'X',
+		language: 'it',
 		closeButton: true
 	});
 }
@@ -825,3 +823,102 @@ document.getElementById("mainMenuBar").style.top = "-500px";
   prevScrollpos = currentScrollPos;
 }
 
+function AmexCardnumber(inputtxt) {
+	var cardno = /^(?:3[47][0-9]{13})$/;
+	return cardno.test(inputtxt);
+}
+
+function VisaCardnumber(inputtxt) {
+	var cardno = /^(?:4[0-9]{12}(?:[0-9]{3})?)$/;
+	return cardno.test(inputtxt);
+}
+
+function MasterCardnumber(inputtxt) {
+	var cardno = /^(?:5[1-5][0-9]{14})$/;
+	return cardno.test(inputtxt);
+}
+
+function DiscoverCardnumber(inputtxt) {
+	var cardno = /^(?:6(?:011|5[0-9][0-9])[0-9]{12})$/;
+	return cardno.test(inputtxt);
+}
+
+function DinerClubCardnumber(inputtxt) {
+	var cardno = /^(?:3(?:0[0-5]|[68][0-9])[0-9]{11})$/;
+	return cardno.test(inputtxt);
+}
+
+function JCBCardnumber(inputtxt) {
+	var cardno = /^(?:(?:2131|1800|35\d{3})\d{11})$/;
+	return cardno.test(inputtxt);
+}
+
+function IsValidCreditCardNumber(cardNumber) {
+	var cardType = "fas fa-credit-card";
+	if (VisaCardnumber(cardNumber)) {
+		cardType = "fab fa-cc-visa";
+	} else if (MasterCardnumber(cardNumber)) {
+		cardType = "fab fa-cc-mastercard";
+	} else if (AmexCardnumber(cardNumber)) {
+		cardType = "fab fa-cc-amex";
+	} else if (DiscoverCardnumber(cardNumber)) {
+		cardType = "fab fa-cc-discover";
+	} else if (DinerClubCardnumber(cardNumber)) {
+		cardType = "fab fa-cc-diners-club";
+	} else if (JCBCardnumber(cardNumber)) {
+		cardType = "fab fa-cc-jcb";
+	}
+	return cardType;
+}
+
+function cambiaIcona(){
+	$("#creditCardIcon").attr("class", IsValidCreditCardNumber($("#creditCard").val().replaceAll(' ','')))
+}
+
+function cardDatapickerInit(id) {
+	$('#' + id).fdatepicker({
+		format: 'mm/yy',
+		disableDblClickSelection: true,
+		language: 'it',
+		closeButton: true
+	});
+}
+
+
+function selectProvincia() {
+	$.ajax({
+		"type": "GET",
+		"url": "https://comuni-ita.herokuapp.com/api/province",
+		dataType: "json",
+		"success": function(data) {
+			data.sort(function (a, b) {
+  				return a["nome"].localeCompare(b["nome"]);
+			});
+			var html="";
+			for(var i=0; i<data.length;i++){
+				html+="<option value=\""+data[i]["nome"]+"\">"+data[i]["nome"]+"</option>"
+			}
+			$("#provinciaIndirizzo").html(html);
+		}
+	});	
+}
+
+
+
+function selectComuni() {
+	$.ajax({
+		"type": "GET",
+		"url": "https://comuni-ita.herokuapp.com/api/comuni/provincia/"+$('#provinciaIndirizzo').val()+"?onlyname=true",
+		dataType: "json",
+		"success": function(data) {
+			data.sort(function (a, b) {
+  				return a.localeCompare(b);
+			});
+			var html="";
+			for(var i=0; i<data.length;i++){
+				html+="<option value=\""+data[i]+"\">"+data[i]+"</option>"
+			}
+			$("#cittaIndirizzo").html(html);
+		}
+	});
+}
