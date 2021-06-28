@@ -28,7 +28,7 @@
 		<nav>
 			<%@ include file="main/navigationBar.jsp"%>
 		</nav>
-		<h1 id="titoloItem" class="titoloItem"><%= i.getNome() %></h1>
+		<h1 id="titoloItem" class="titoloItem HeaderInfoBox"><%= i.getNome() %></h1>
 		<div class="contenerSuperiore">
 			<div>
 				<div id="galleriaItem" class="galleria">

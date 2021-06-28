@@ -112,7 +112,7 @@ a {
 .imgListItemText {
 	color: #023838;
 	position: absolute;
-	top: 35%;
+	top: 50%;
 	left: 75%;
 	transform: translate(-50%, -50%);
 }
@@ -602,6 +602,18 @@ form .wrap-LogInBtn {
 	text-decoration: none;
 }
 
+.HeaderInfoBox{
+	display:flex;
+	justify-content: center;
+	font-weight: bolder;
+	color: #023838;
+	}
+.paragraphInfoBox {
+	display:flex;
+	justify-content: center;
+	font-weight: bold;
+	color: #023838;
+}
 .signup_link a:hover {
 	text-decoration: underline;
 }
@@ -1702,7 +1714,7 @@ ul {
 .headerNavContent {
 	border-bottom: 50px;
 	padding-left: 30px;
-	color: #67F0BB;
+	color: #FFFFFF;
 	background-color: #023838;
 }
 
@@ -1715,6 +1727,12 @@ ul {
 	text-align: center;
 	color: #023838;
 }
+
+.dropDownNav a:hover {
+	background-color: #023838;
+	color: #FFFFFF;
+
+	}
 
 #frecciaDropDown {
 	padding-top: 4px;
@@ -2074,6 +2092,17 @@ span.twitter-typeahead .tt-suggestion:last-child {
 }
 
 @media screen and (max-width: 1024px) {
+	.imgListItemText h1 {
+	display: none;
+	}
+
+	.imgListItemText  p {
+		display: none;
+	}
+	
+	#mainListItem{
+		padding-top: 166px;
+	}
 	.formLogInBtn {
 		width: 4em;
 		height: 2em;
@@ -2264,9 +2293,6 @@ span.twitter-typeahead .tt-suggestion:last-child {
 	.basket aside {
 		padding: 0 1rem 0 0;
 	}
-	.summary {
-		width: 28%;
-	}
 	
 	.imgListItemText h1 {
 	font-size: large;
@@ -2298,8 +2324,7 @@ span.twitter-typeahead .tt-suggestion:last-child {
 	
 	}
 	.imgListItemText h1 {
-	font-size: smaller;
-	font-weight: bolder;
+	display: none;
 	}
 
 	.imgListItemText  p {

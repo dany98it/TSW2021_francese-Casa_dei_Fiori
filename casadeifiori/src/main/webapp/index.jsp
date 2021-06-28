@@ -50,38 +50,40 @@
 			<div class="infodiv">
 				<img class="infodivImg" alt="" src="img/HP_MOD3_Tangibles_02.jpg">
 				<div>
-					<strong class="center">UNO STILE UNICO</strong>
+					<h4 class="HeaderInfoBox">UNO STILE UNICO</h4>
 				</div>
 				<div>
-					<strong> Da oltre 100 anni ci impegniamo a realizzare
+					<p class="paragraphInfoBox"> Da oltre 100 anni ci impegniamo a realizzare
 						creazioni floreali all'avanguardia, riconosciuti in tutto il mondo
-						per stile e unicit&agrave; </strong>
+						per stile e unicit&agrave; </p>
 				</div>
 			</div>
 			<div class="infodiv">
 				<img class="infodivImg" alt="" src="img/HP_MOD3_Tangibles_01.gif">
 				<div>
-					<strong class="center">QUALIT&Agrave; GARANTITA</strong>
+					<h4 class="HeaderInfoBox">QUALIT&Agrave; GARANTITA</h4>
 				</div>
 				<div>
-					<strong> Consegniamo sempre fiori freschi di premissima
+					<p class="paragraphInfoBox"> Consegniamo sempre fiori freschi di premissima
 						qualit&agrave; che vengono lavorati dal fiorista pi&ugrave; vicino
-						al luogo di destinazione poco prima della consegna </strong>
+						al luogo di destinazione poco prima della consegna </p>
 				</div>
 			</div>
 			<div class="infodiv">
 				<img class="infodivImg" alt="" src="img/HP_MOD3_Tangibles_03.jpg">
 				<div>
-					<strong class="center">CONSEGNA IN GIORNATA</strong>
+					<h4 class="HeaderInfoBox">CONSEGNA IN GIORNATA</h4>
 				</div>
 				<div>
-					<strong> Per tutti i nostri prodotti floreali &egrave;
+					<p class="paragraphInfoBox"> Per tutti i nostri prodotti floreali &egrave;
 						disponibile la consegna in giornata. Il tuo regalo floreale
-						arriver&agrave; a poche ore dall'ordine effettuato </strong>
+						arriver&agrave; a poche ore dall'ordine effettuato </p>
 				</div>
 			</div>
 		</div>
-
+		<div class="ListItemText">
+			<h1 class="HeaderInfoBox">Prodotti Pi&uacute; acquistati</h1>
+		</div>
 		<div id="paginated_gallery" class="gallery">
 			<div class="gallery_scroller">
 				<%Collection<Tag> tagsIndex= new TagDAO().doRetrieveByDescrizione("home");

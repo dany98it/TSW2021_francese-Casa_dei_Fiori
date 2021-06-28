@@ -41,6 +41,9 @@
 				<p>Prdototti di qualità dal 1970</p>
 			</div>
 		</div>
+		<div class="HeaderInfoBox">
+			<h1 class="HeaderInfoBox">I nostri Prodotti</h1>
+		</div>
 		<!--<div id="itemListFilter">
 
 			<button id="submitItemFitler" value="filtra">filtra</button>
