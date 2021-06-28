@@ -492,12 +492,7 @@ function creaC() {
 	})
 	//TODO chiudere dopo submit 
 }
-function submitCercaItem(event) {
-	if (event.keyCode === 13) {
-		window.location.href = "MostraItem?tipo=nome&cerca=" + $("#cerca").val();
-	}
-}
-
+/*aggiunge un data picker*/
 function datapickerInit(id) {
 	$('#' + id).fdatepicker({
 		format: 'yyyy-mm-dd',
@@ -507,6 +502,7 @@ function datapickerInit(id) {
 	});
 }
 var nAddCaratterisica = 0;
+/*aggiunfe una riga caratterisica e genera una select con tutte le caratterisiche*/
 function addCaratterisica() {
 	$.ajax({
 		"type": "GET",
@@ -529,6 +525,7 @@ function addCaratterisica() {
 		}
 	});
 }
+/*aggiunfe una riga caratterisica e genera una select con tutte le caratterisiche*/
 function loadCaratterisica(nome, value) {
 	$.ajax({
 		"type": "GET",
@@ -555,6 +552,7 @@ function loadCaratterisica(nome, value) {
 		}
 	});
 }
+/*rimuove la riga della caratterisica*/
 function removeCaratterisica(id, id2) {
 	$("#" + id).remove();
 	$("#" + id2).remove();
@@ -565,6 +563,7 @@ function cShow(id) {
 function cNotShow(id) {
 	$(id).css("display", "none");
 }
+/*invia un richiesta alla servelet per rimuovere l'immagine */
 function rimuoviImg(imgId) {
 	$.ajax({
 		"type": "GET",
@@ -577,45 +576,14 @@ function rimuoviImg(imgId) {
 		}
 	});
 }
-/*function modCart(id,quantity){
-	$(".alert").alert('close');
-	$.ajax({
-		"type":"GET",
-		"url":"addCart",
-		"data":"itemID="+id+"&addItem="+quantity+"&return=true",
-		"success":function(data){
-			var html="<div class=\"alert alert-success alert-dismissible\" role=\"alert\">"
-			+"<strong>Success!</strong> l'articolo &egrave; stato aggiunto al carrello."
-			+"<button type=\"button\" class=\"close\" data-dismiss=\"alert\" aria-label=\"Close\">"
-			+"<span aria-hidden=\"true\">&times;</span></button></div>"
-			$("body").prepend(html);
-			var table="<tr><th>ID</th><th>Nome</th><th>Descrizione</th>"
-			+"<th>Quantità</th><th>Prezzo</th></tr>"
-			if(data==null){
-				table=table+"<tr><td colspan=\"6\">Il Carrello è vuoto</td></tr>"
-			}else{
-				
-			}
-		},
-		"error":function(){
-			var html="<div class=\"alert alert-danger alert-dismissible\" role=\"alert\">"
-			+"<strong>Success!</strong> l'articolo &egrave; stato aggiunto al carrello."
-			+"<button type=\"button\" class=\"close\" data-dismiss=\"alert\" aria-label=\"Close\">"
-			+"<span aria-hidden=\"true\">&times;</span></button></div>"
-			$("body").prepend(html);
-			var table="<tr><th>ID</th><th>Nome</th><th>Descrizione</th>"
-			+"<th>Quantità</th><th>Prezzo</th></tr>"
-			+"<tr><td colspan=\"6\">Il Carrello è vuoto</td></tr>"
-		}
-	})
-}*/
-
+/*cambia la schermata da login a signin*/
 function switchLogInContent(show, hide) {
 	$("#" + hide).css("display", "none");
 	$("#" + hide + "Btn").css("background-color", "#67f0bb");
 	$("#" + show).css("display", "block");
 	$("#" + show + "Btn").css("background-color", "#023838");
 }
+/*dopo 4 secondi chiude tutti i pop-up*/
 function closeAlert() {
 	setTimeout(function() { $(".alert").alert('close'); }, 4000);
 }
@@ -629,7 +597,7 @@ function showPswInfo() {
 function hidePswInfo() {
 	document.getElementById("pswRequisiti").style.display = "none";
 }
-
+/*controlla se la password rispetta i*/
 function pswReqCheck() {
 	var psw = document.getElementById("passwordInput");
 	var letter = document.getElementById("letter");
@@ -687,6 +655,7 @@ function pswReqCheck() {
     length.classList.add("invalid");
   }
 }
+/*inserisce il colore scelto nella casella caratterisica al suo fianco*/
 function colorC(input1,input2,input3,output,idOutput){
 	
 	var val=$("#"+input2).val()+$("#"+input3).val()+":colore,";
@@ -694,6 +663,7 @@ function colorC(input1,input2,input3,output,idOutput){
 	prewievC(input1,input2,output,idOutput);
 }
 
+/*nasconde o mostra i dropdown*/
 var dropdown = document.getElementsByClassName("dropdown-btn");
 var i;
 
@@ -721,37 +691,37 @@ document.getElementById("mainMenuBar").style.top = "-500px";
   }
   prevScrollpos = currentScrollPos;
 }
-
+/*controlla se la carta è american express*/
 function AmexCardnumber(inputtxt) {
 	var cardno = /^(?:3[47][0-9]{13})$/;
 	return cardno.test(inputtxt);
 }
-
+/*controlla se la carta è visa*/
 function VisaCardnumber(inputtxt) {
 	var cardno = /^(?:4[0-9]{12}(?:[0-9]{3})?)$/;
 	return cardno.test(inputtxt);
 }
-
+/*controlla se la carta è Master card*/
 function MasterCardnumber(inputtxt) {
 	var cardno = /^(?:5[1-5][0-9]{14})$/;
 	return cardno.test(inputtxt);
 }
-
+/*controlla se la carta è discover*/
 function DiscoverCardnumber(inputtxt) {
 	var cardno = /^(?:6(?:011|5[0-9][0-9])[0-9]{12})$/;
 	return cardno.test(inputtxt);
 }
-
+/*controlla se la carta è diner club*/
 function DinerClubCardnumber(inputtxt) {
 	var cardno = /^(?:3(?:0[0-5]|[68][0-9])[0-9]{11})$/;
 	return cardno.test(inputtxt);
 }
-
+/*controlla se la carta è jbc*/
 function JCBCardnumber(inputtxt) {
 	var cardno = /^(?:(?:2131|1800|35\d{3})\d{11})$/;
 	return cardno.test(inputtxt);
 }
-
+/*controlla di che tipo è la carta*/
 function IsValidCreditCardNumber(cardNumber) {
 	var cardType = "fas fa-credit-card";
 	if (VisaCardnumber(cardNumber)) {
@@ -769,11 +739,11 @@ function IsValidCreditCardNumber(cardNumber) {
 	}
 	return cardType;
 }
-
+/*cambia l'icona a seconda della carta'*/
 function cambiaIcona(){
 	$("#creditCardIcon").attr("class", IsValidCreditCardNumber($("#creditCard").val().replaceAll(' ','')))
 }
-
+/*aggiunge il picker della data in formatto mese/anno'*/
 function cardDatapickerInit(id) {
 	$('#' + id).fdatepicker({
 		format: 'mm/yy',
@@ -783,7 +753,7 @@ function cardDatapickerInit(id) {
 	});
 }
 
-
+/*genera il seletore delle provincie*/
 function selectProvincia() {
 	$.ajax({
 		"type": "GET",
@@ -803,7 +773,7 @@ function selectProvincia() {
 }
 
 
-
+/*genera il seletore dei comuni in base alle provincie scelte*/
 function selectComuni() {
 	$.ajax({
 		"type": "GET",
