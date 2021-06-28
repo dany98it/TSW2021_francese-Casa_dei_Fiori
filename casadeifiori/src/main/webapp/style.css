@@ -74,6 +74,7 @@ a {
 	left: 50%;
 	top: 50%;
 	transform: translate(-50%, -50%);
+	font-size: 200%;
 }
 
 .slideShowDot {
@@ -372,7 +373,7 @@ a {
 	overflow-y: hidden;
 	display: flex;
 	align-items: center;
-	height: 500px;
+	height: 500px;f
 	/* Enable Safari touch scrolling physics which is needed for scroll snap */
 	-webkit-overflow-scrolling: touch;
 }
@@ -2251,6 +2252,9 @@ span.twitter-typeahead .tt-suggestion:last-child {
 	#mainInex {
 		padding-top: 160px;
 	}
+	.slideText {
+	font-size: 100%;
+}
 }
 
 @media screen and (max-width: 480px) {
