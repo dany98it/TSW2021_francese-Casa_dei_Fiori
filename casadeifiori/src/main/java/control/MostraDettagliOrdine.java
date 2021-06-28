@@ -44,7 +44,7 @@ public class MostraDettagliOrdine extends HttpServlet {
 		synchronized (Sessione) {
 			user = (User) Sessione.getAttribute("loggedUser");
 			if(user==null) {
-				RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/logInPage.jsp");
+				RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/index.jsp");
 				dispatcher.forward(request, response);
 			}
 		}

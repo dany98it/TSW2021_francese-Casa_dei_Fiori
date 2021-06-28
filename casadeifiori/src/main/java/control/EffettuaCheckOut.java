@@ -66,7 +66,7 @@ public class EffettuaCheckOut extends HttpServlet {
 		synchronized (sessione) {
 			user = (User) sessione.getAttribute("loggedUser");
 			if(user == null) {
-				RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/logInPage.jsp");
+				RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/index.jsp");
 				dispatcher.forward(request, response);
 				return;
 			}

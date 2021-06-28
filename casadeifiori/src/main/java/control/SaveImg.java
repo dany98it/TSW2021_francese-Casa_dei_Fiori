@@ -79,5 +79,6 @@ public class SaveImg extends HttpServlet {
 				e.printStackTrace();
 			}
 		}
+		response.sendRedirect("/addItemPage.jsp");
 	}
 }

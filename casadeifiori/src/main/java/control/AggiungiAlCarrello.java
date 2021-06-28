@@ -95,8 +95,6 @@ public class AggiungiAlCarrello extends HttpServlet {
 			}
 				
 	        }
-	      }else {
-	    	response.getWriter().append("fail");
 	      }
 			
 	    }
