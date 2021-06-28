@@ -13,23 +13,30 @@
 <body>
 	<%@ include file="main/script.jsp"%>
 	<%@ include file="main/menuMobile.jsp"%>
-		<header>
-			<%@ include file="main/header.jsp"%>
-		</header>
-		<nav>
-			<%@ include file="main/navigationBar.jsp"%>
-		</nav>
+	<header>
+		<%@ include file="main/header.jsp"%>
+	</header>
+	<nav>
+		<%@ include file="main/navigationBar.jsp"%>
+	</nav>
 	<div class="main" id="mainInex">
 		<div class="slideShowConteiner">
 			<div class="slide fade1">
 				<img src="img/sfondo2.jpg" style="width: 100%">
-				<p class="slideText">Essere vinti dal profumo dei fiori &egrave; una forma deliziosa di sconfitta. <a href="MostraItem?tag=12">#FioriVeri</a></p>
+				<p class="slideText">
+					Essere vinti dal profumo dei fiori &egrave; una forma deliziosa di
+					sconfitta. <a href="MostraItem?tag=12">#FioriVeri</a>
+				</p>
 			</div>
 			<div class="slide fade1">
-				<img src="img/logosenzascritta.png" style="width: 100%">
+				<img src="img/indexphoto.jpg" style="width: 100%">
 			</div>
 			<div class="slide fade1">
-				<img src="img/logonew.png" style="width: 100%">
+				<img src="img/indexphoto2.jpg" style="width: 100%">
+				<p class="slideText">
+					L'autunno sta arrivando , affrettati per non perderti le migliori offerte! 
+					 <a href="MostraItem?tag=42">#Autunno</a>
+				</p>
 			</div>
 			<a class="prev" onclick="plusSlides(-1)">&#10094;</a> <a class="next"
 				onclick="plusSlides(1)">&#10095;</a>
@@ -58,8 +65,8 @@
 				</div>
 				<div>
 					<strong> Consegniamo sempre fiori freschi di premissima
-						qualit&agrave; che vengono lavorati dal fiorista pi&ugrave; vicino al luogo di
-						destinazione poco prima della consegna </strong>
+						qualit&agrave; che vengono lavorati dal fiorista pi&ugrave; vicino
+						al luogo di destinazione poco prima della consegna </strong>
 				</div>
 			</div>
 			<div class="infodiv">
@@ -74,32 +81,32 @@
 				</div>
 			</div>
 		</div>
-		
-		<div id="paginated_gallery" class="gallery">
-		<div class="gallery_scroller">
-			<%Collection<Tag> tagsIndex= new TagDAO().doRetrieveByDescrizione("home");
-				for(Tag tagIndex:tagsIndex){%>
-							<%Collection<Item> itemsIndex=new ItemDAO().doRetrieveByTag(tagIndex.getId());
-								for(Item bean:itemsIndex){%>
-									<div class="itemCard colored_card">
 
-				<div class="box-up">
-					<a href="MostraDettagliItem?itemID=<%=bean.getId()%>">
-					<%Mostra mostraIndex =new MostraDAO().doRetrieveByItem(bean.getId());%>
-								<img class="itemCardImg" alt=" <%= bean.getNome() %> " src="mostraImg?imgID=<%=mostraIndex.getImmagine()%>" height="200px"></a>
-					<div class="itemCardImgInfo">
-						<div class="itemCardImgInfoInner">
-							<a class="itemCardImgInfoInnerLink"
-								href="MostraDettagliItem?itemID=<%=bean.getId()%>"><span
-								class="itemCardProductName"><%= bean.getNome()%></span></a>
+		<div id="paginated_gallery" class="gallery">
+			<div class="gallery_scroller">
+				<%Collection<Tag> tagsIndex= new TagDAO().doRetrieveByDescrizione("home");
+				for(Tag tagIndex:tagsIndex){%>
+				<%Collection<Item> itemsIndex=new ItemDAO().doRetrieveByTag(tagIndex.getId());
+								for(Item bean:itemsIndex){%>
+				<div class="itemCard colored_card">
+
+					<div class="box-up">
+						<a href="MostraDettagliItem?itemID=<%=bean.getId()%>"> <%Mostra mostraIndex =new MostraDAO().doRetrieveByItem(bean.getId());%>
+							<img class="itemCardImg" alt=" <%= bean.getNome() %> "
+							src="mostraImg?imgID=<%=mostraIndex.getImmagine()%>"
+							height="200px"></a>
+						<div class="itemCardImgInfo">
+							<div class="itemCardImgInfoInner">
+								<a class="itemCardImgInfoInnerLink"
+									href="MostraDettagliItem?itemID=<%=bean.getId()%>"><span
+									class="itemCardProductName"><%= bean.getNome()%></span></a>
+							</div>
 						</div>
 					</div>
 				</div>
+				<%}}%>
 			</div>
-			<%}}%>
-		</div>
-		<span class="btn_prev" ></span>
- 	 	<span class="btn_next" ></span>
+			<span class="btn_prev"></span> <span class="btn_next"></span>
 		</div>
 		<div id="instagram-feed1" class="instagram_feed"></div>
 
