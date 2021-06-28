@@ -160,39 +160,45 @@ function validateSignIn(form) {
 	var nome = $("#nomeInput").val();
 	if (!validateNomeCognome(nome)) {
 		valid = false;
-		$("#nomeInput").before("Il nome non deve contenere numeri o simboli speciali <br>");
+		$("#nomeInput").before("<p class=\"signinError\">x</p>");
+		$("#nomeInput").css("color","red");
 	}
 
 
 	var cognome = $("#cognomeInput").val();
 	if (!validateNomeCognome(cognome)) {
 		valid = false;
-		$("#cognomeInput").before("Il cognome non deve contenere numeri o simboli speciali <br>");
+		$("#cognomeInput").before("<p class=\"signinError\">x</p>");
+		$("#nomeInput").css("color","red");
 	}
 
 	var email = $("#emailInput").val();
 	if (!validateEmail(email)) {
 		valid = false;
-		$("#emailInput").before("Inserire una mail valida <br>");
+		$("#emailInput").before("<p class=\"signinError\">x</p>");
+		$("#nomeInput").css("color","red");
 	}
 
 
 	var numero = $("#telefonoInput").val();
 	if (!validateNumeroTelefono(numero)) {
 		valid = false;
-		$("#telefonoInput").before("Inserire un numero di telefono valido <br>");
+		$("#telefonoInput").before("<p class=\"signinError\">x</p>");
+		$("#nomeInput").css("color","red");
 	}
 
 	var password = $("#passwordInput").val();
 	if (!validatePassword(password)) {
 		valid = false;
-		$("#passwordInput").before("La password non rispetta i parametri necessari <br>");
+		$("#passwordInput").before("<p class=\"signinError\">x</p>");
+		$("#nomeInput").css("color","red");
 	}
 
 	var confermaPassword = $("#confermaPasswordInput").val();
 	if (!validateConfermaPassword(password, confermaPassword)) {
 		valid = false;
-		$("#confermaPasswordInput").before(" Le Password non combaciano <br>");
+		$("#confermaPasswordInput").before("<p class=\"signinError\">x</p>");
+		$("#nomeInput").css("color","red");
 	}
 
 	if (valid) {
