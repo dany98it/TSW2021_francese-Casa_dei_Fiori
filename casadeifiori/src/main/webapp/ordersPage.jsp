@@ -54,7 +54,7 @@
 						<td><%= ordine.getId() %></td>
 						<td><%= ordine.getTipoOrdine().toString() %></td>
 						<td><%= ordine.getTipoPagamento().toString() %></td>
-						<td><%= ordine.getPrezzoTotale() %></td>
+						<td><%=String.format(Locale.ENGLISH,"%.2f", ordine.getPrezzoTotale()) %></td>
 						<td><%= ordine.getDataOrdine().toString() %></td>
 						<td><a
 							href="MostraDettagliOrdine?orderID=<%=ordine.getId()%>"><button
