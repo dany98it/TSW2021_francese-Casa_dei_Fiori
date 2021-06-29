@@ -131,6 +131,35 @@
 			</div>
 			<%}} %>
 		</div>
+		<div class="ListItemText">
+			<h1 class="HeaderInfoBox">Prodotti Pi&uacute; acquistati</h1>
+		</div>
+		<div id="paginated_gallery" class="gallery">
+			<div class="gallery_scroller">
+				<%Collection<Tag> tagsIndex= new TagDAO().doRetrieveByDescrizione("home");
+				for(Tag tagIndex:tagsIndex){%>
+				<%Collection<Item> itemsIndex=new ItemDAO().doRetrieveByTag(tagIndex.getId());
+								for(Item bean:itemsIndex){%>
+				<div class="itemCard colored_card">
+
+					<div class="box-up">
+						<a href="MostraDettagliItem?itemID=<%=bean.getId()%>"> <%Mostra mostraIndex =new MostraDAO().doRetrieveByItem(bean.getId());%>
+							<img class="itemCardImg" alt=" <%= bean.getNome() %> "
+							src="mostraImg?imgID=<%=mostraIndex.getImmagine()%>"
+							height="200px"></a>
+						<div class="itemCardImgInfo">
+							<div class="itemCardImgInfoInner">
+								<a class="itemCardImgInfoInnerLink"
+									href="MostraDettagliItem?itemID=<%=bean.getId()%>"><span
+									class="itemCardProductName"><%= bean.getNome()%></span></a>
+							</div>
+						</div>
+					</div>
+				</div>
+				<%}}%>
+			</div>
+			<span class="btn_prev"></span> <span class="btn_next"></span>
+		</div>
 	</div>
 	<footer>
 		<%@ include file="main/footer.jsp"%>
