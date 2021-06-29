@@ -1,6 +1,10 @@
 * {
 	font-family: Verdana, Geneva, sans-serif;
 }
+.slideText a:hover{
+	text-decoration: none;
+	color: #023838;
+}
 .signinError{
 	position: absolute;
     right: -1em;

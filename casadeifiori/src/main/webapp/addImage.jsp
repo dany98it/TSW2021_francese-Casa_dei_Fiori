@@ -46,7 +46,7 @@ if (i == null) {
 						id="img" name="img" accept="image/*" multiple="multiple"
 						required="required" maxlength="4294967296"> <br>
 					<div id="selectedFiles"></div>
-					<input class="infoDetailsItemButton" type="submit" value="Add"><input class="infoDetailsItemButton" style="background-color: red;" type="reset"
+					<input class="infoDetailsItemButton" type="submit" value="Procedi"><input class="infoDetailsItemButton" style="background-color: red;" type="reset"
 						value="Reset">
 				</form>
 			</div>
@@ -125,7 +125,7 @@ if (i == null) {
 								}
 								%>
 							</select> <br>
-							<button>Aggiungi al carrello</button>
+							<button class="infoDetailsItemButton">Aggiungi al carrello</button>
 						</div>
 					</div>
 				</div>

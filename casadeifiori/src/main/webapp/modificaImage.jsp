@@ -32,6 +32,7 @@
 						isAdmin=false;
 					}
 					if(isAdmin){ %>
+		<h1 class="HeaderInfoBox">Modifica immagine</h1>
 		<div class="insertItem">
 			<div>
 				<form action="saveImg" method="post" enctype="multipart/form-data">
@@ -39,7 +40,7 @@
 						id="img" name="img" accept="image/*" multiple="multiple"
 						required="required" maxlength="4294967296"> <br>
 					<div id="selectedFiles"></div>
-					<input type="submit" value="Add"><input type="reset"
+					<input class="infoDetailsItemButton" type="submit" value="Procedi"><input class="infoDetailsItemButton" style="background-color: red;" type="reset"
 						value="Reset">
 				</form>
 			</div>
@@ -115,7 +116,7 @@
 								</option>
 								<%} %>
 							</select> <br>
-							<button>Aggiungi al carrello</button>
+							<button class="infoDetailsItemButton">Aggiungi al carrello</button>
 						</div>
 					</div>
 				</div>
