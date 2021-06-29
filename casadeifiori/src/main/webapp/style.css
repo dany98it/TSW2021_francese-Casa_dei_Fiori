@@ -380,6 +380,9 @@ a {
 #cartIcon {
 	font-size: 190%;
 }
+.slidetext a:hover{
+	color: #023838
+}
 
 #openEyePassword {
 	display: none;

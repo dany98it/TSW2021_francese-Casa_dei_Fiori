@@ -95,7 +95,7 @@
 					<div class="itemCardCart">
 						<span class="itemCardPrice">Esaurito</span> <span
 							class="itemCardAddCart"> <span class="itemCardAddCartText">Non
-								dispoibile</span>
+								disponibile</span>
 						</span>
 					</div>
 				</div>
