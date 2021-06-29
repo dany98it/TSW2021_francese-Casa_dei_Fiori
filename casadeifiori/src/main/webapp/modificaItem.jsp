@@ -38,8 +38,9 @@ if (i == null) {
 		}
 		if (isAdmin) {
 		%>
+		<h1 class="HeaderInfoBox">Modifica item</h1>
 		<div class="insertItem">
-			<div>
+			<div class="formsAddItem contenerSuperiore">
 				<form method="post" action="modificaItems">
 					<input value="<%=i.getId()%>" name="id" hidden="false"> <label
 						for="name">Nome:</label><br> <input value="<%=i.getNome()%>"
@@ -49,7 +50,9 @@ if (i == null) {
 						for="description">Descrizione:</label><br>
 					<textarea id="editortesto" name="description"
 						placeholder="inserire descrizione"><%=i.getDescrizione()%></textarea>
-					<br> <label for="tag">tag:</label><br>
+					<br> <label for="tag">tag:</label><input class="infoDetailsItemButton" type="button"
+						value="Crea tag" class="float-right" data-toggle="modal"
+						data-target="#tagModal"><br>
 					<%
 							String t2="";
 							for (String t3 : tag3) {
@@ -59,8 +62,8 @@ if (i == null) {
 					<input id="tag" name="tag" type="text" data-role="tagsinput"
 						placeholder="tag,..." onchange="prewievTag('tag','tagItem')"
 						value="<%= t2%>"> <label for="caratterisiche">caratterisiche:</label>
-					<input type="button" value="aggiungi" class="float-right"
-						onclick="addCaratterisica()"> <input type="button"
+					<input class="infoDetailsItemButton" type="button" value="aggiungi" class="float-right"
+						onclick="addCaratterisica()"> <input class="infoDetailsItemButton" type="button"
 						value="Crea" class="float-right" data-toggle="modal"
 						data-target="#caratterisicheModal"><br>
 					<section id="caratterisicheSection"></section>
@@ -84,7 +87,7 @@ if (i == null) {
 						value="<%=i.getQuantita()%>" id="quantity" name="quantity"
 						type="number" min="1" value="1" required
 						onchange="addQuantita('quantity','quantityItem')"><br>
-					<input type="submit" value="Add"><input type="reset"
+					<input class="infoDetailsItemButton" type="submit" value="Procedi"><input class="infoDetailsItemButton" style="background-color: red;" type="reset"
 						value="Reset">
 				</form>
 			</div>
@@ -158,7 +161,7 @@ if (i == null) {
 								}
 								%>
 							</select> <br>
-							<button>Aggiungi al carrello</button>
+							<button class="infoDetailsItemButton">Aggiungi al carrello</button>
 						</div>
 					</div>
 				</div>

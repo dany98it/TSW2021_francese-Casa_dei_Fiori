@@ -1,6 +1,10 @@
 * {
 	font-family: Verdana, Geneva, sans-serif;
 }
+.slideText a:hover{
+	text-decoration: none;
+	color: #023838;
+}
 .signinError{
 	position: absolute;
     right: -1em;
@@ -172,6 +176,7 @@ a {
 .infoDetailsItemButton{
 	background-color: #67F0BB;
 	border-radius: 10px;
+	border: none;
 }
 
 .tag {
@@ -642,7 +647,8 @@ form .wrap-LogInBtn {
 	justify-content: center;
 	font-weight: bolder;
 	color: #023838;
-	}
+	text-align: center;
+}
 .paragraphInfoBox {
 	display:flex;
 	justify-content: center;
@@ -2404,6 +2410,9 @@ span.twitter-typeahead .tt-suggestion:last-child {
 	.imgListItemText  p {
 		display: none;
 	}
+	.divC{
+		display: block;
+	}
 }
 
 @media screen and (max-width: 480px) {
@@ -2416,9 +2425,6 @@ span.twitter-typeahead .tt-suggestion:last-child {
 	.itemListing {
 		grid-template-columns: auto;
 		align-items: stretch;
-	}
-	.itemCard {
-		width: 80%;
 	}
 	.info {
 		display: block;

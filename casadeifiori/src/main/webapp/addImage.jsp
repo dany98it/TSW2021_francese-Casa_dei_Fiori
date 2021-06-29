@@ -38,14 +38,15 @@ if (i == null) {
 		}
 		if (isAdmin) {
 		%>
+		<h1 class="HeaderInfoBox">Aggiungi immagine</h1>
 		<div class="insertItem">
-			<div>
+			<div class="contenerSuperiore">
 				<form action="saveImg" method="post" enctype="multipart/form-data">
 					<label for="img">immagini:</label><br> <input type="file"
 						id="img" name="img" accept="image/*" multiple="multiple"
 						required="required" maxlength="4294967296"> <br>
 					<div id="selectedFiles"></div>
-					<input type="submit" value="Add"><input type="reset"
+					<input class="infoDetailsItemButton" type="submit" value="Procedi"><input class="infoDetailsItemButton" style="background-color: red;" type="reset"
 						value="Reset">
 				</form>
 			</div>
@@ -124,7 +125,7 @@ if (i == null) {
 								}
 								%>
 							</select> <br>
-							<button>Aggiungi al carrello</button>
+							<button class="infoDetailsItemButton">Aggiungi al carrello</button>
 						</div>
 					</div>
 				</div>
