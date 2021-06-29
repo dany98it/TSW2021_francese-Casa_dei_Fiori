@@ -25,7 +25,7 @@
 		</div><br>
 		<div class="acquistedItem">
 			<div>
-				<img alt="" src="img/successo.png"><br>
+				<img alt="" src="img/successo.png" width="80%"><br>
 			</div>
 		</div>
 		

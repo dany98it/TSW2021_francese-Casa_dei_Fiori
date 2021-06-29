@@ -418,7 +418,7 @@ function addCart(id, quantity) {
 		},
 		"error": function() {
 			html = "<div class=\"alert alert-danger alert-dismissible topSopra\" role=\"alert\">"
-				+ "<strong>Success!</strong> l'articolo &egrave; stato aggiunto al carrello."
+				+ "<strong>Error!</strong> l'articolo non &egrave; stato aggiunto al carrello."
 				+ "<button type=\"button\" class=\"close\" data-dismiss=\"alert\" aria-label=\"Close\">"
 				+ "<span aria-hidden=\"true\">&times;</span></button></div>"
 			$("body").prepend(html);
@@ -453,11 +453,13 @@ function creaTag() {
 				+ "<button type=\"button\" class=\"close\" data-dismiss=\"alert\" aria-label=\"Close\">"
 				+ "<span aria-hidden=\"true\">&times;</span></button></div>"
 			$("body").prepend(html);
+			$("#nametag").val("");
+			$("#Suggerimentotag").val("");
 			closeAlert();
 		},
 		"error": function() {
 			html = "<div class=\"alert alert-danger alert-dismissible topSopra\" role=\"alert\">"
-				+ "<strong>Success!</strong> il tag non &egrave; stato aggiunto."
+				+ "<strong>Error!</strong> il tag non &egrave; stato aggiunto."
 				+ "<button type=\"button\" class=\"close\" data-dismiss=\"alert\" aria-label=\"Close\">"
 				+ "<span aria-hidden=\"true\">&times;</span></button></div>"
 			$("body").prepend(html);
@@ -479,18 +481,20 @@ function creaC() {
 				+ "<button type=\"button\" class=\"close\" data-dismiss=\"alert\" aria-label=\"Close\">"
 				+ "<span aria-hidden=\"true\">&times;</span></button></div>"
 			$("body").prepend(html);
+			$("#namec").val("");
+			$("#Suggerimentoc").val("");
 			closeAlert();
 		},
 		"error": function() {
 			html = "<div class=\"alert alert-danger alert-dismissible topSopra\" role=\"alert\">"
-				+ "<strong>Success!</strong> il caratterisiche non &egrave; stato aggiunto."
+				+ "<strong>Error!</strong> il caratterisiche non &egrave; stato aggiunto."
 				+ "<button type=\"button\" class=\"close\" data-dismiss=\"alert\" aria-label=\"Close\">"
 				+ "<span aria-hidden=\"true\">&times;</span></button></div>"
 			$("body").prepend(html);
 			closeAlert();
 		}
 	})
-	//TODO chiudere dopo submit 
+	
 }
 /*aggiunge un data picker*/
 function datapickerInit(id) {
@@ -517,7 +521,7 @@ function addCaratterisica() {
 			html += "</select>"
 				+ "<input id=\"picker" + nAddCaratterisica + "\" class=\"caratterisicaValore\" name=\"caratterisicaColore\" type=\"color\"  onchange=\"colorC('selectC" + nAddCaratterisica + "','valoreC" + nAddCaratterisica + "','picker" + nAddCaratterisica + "','caratterisicheItem','divMC" + nAddCaratterisica + "')\">"
 				+ "<input id=\"valoreC" + nAddCaratterisica + "\" class=\"caratterisicaValore\" name=\"caratterisicaValore\" type=\"text\" placeholder=\"valore\" onchange=\"prewievC('selectC" + nAddCaratterisica + "','valoreC" + nAddCaratterisica + "','caratterisicheItem','divMC" + nAddCaratterisica + "')\">"
-				+ "<input type=\"button\" value=\"rimuovi\" onclick=\"removeCaratterisica('divC" + nAddCaratterisica + "','divMC" + nAddCaratterisica + "')\">"
+				+ "<input class=\"infoDetailsItemButton\" type=\"button\" value=\"rimuovi\" onclick=\"removeCaratterisica('divC" + nAddCaratterisica + "','divMC" + nAddCaratterisica + "')\">"
 				+ "</div>"
 			$("#caratterisicheSection").append(html);
 			prewievC('selectC' + nAddCaratterisica, 'valoreC' + nAddCaratterisica, 'caratterisicheItem', 'divMC' + nAddCaratterisica)
@@ -544,7 +548,7 @@ function loadCaratterisica(nome, value) {
 				+ "<input id=\"picker" + nAddCaratterisica + "\" class=\"caratterisicaValore\" name=\"caratterisicaColore\" type=\"color\"  onchange=\"colorC('selectC" + nAddCaratterisica + "','valoreC" + nAddCaratterisica + "','picker" + nAddCaratterisica + "','caratterisicheItem','divMC" + nAddCaratterisica + "')\">"
 				+ "<input id=\"valoreC" + nAddCaratterisica + "\" class=\"caratterisicaValore\" name=\"caratterisicaValore\" value=\"" + value + "\""
 				+ "type=\"text\" placeholder=\"valore\" onchange=\"prewievC('selectC" + nAddCaratterisica + "','valoreC" + nAddCaratterisica + "','caratterisicheItem','divMC" + nAddCaratterisica + "')\">"
-				+ "<input type=\"button\" value=\"rimuovi\" onclick=\"removeCaratterisica('divC" + nAddCaratterisica + "','divMC" + nAddCaratterisica + "')\">"
+				+ "<input class=\"infoDetailsItemButton\" type=\"button\" value=\"rimuovi\" onclick=\"removeCaratterisica('divC" + nAddCaratterisica + "','divMC" + nAddCaratterisica + "')\">"
 				+ "</div>"
 			$("#caratterisicheSection").append(html);
 			prewievC('selectC' + nAddCaratterisica, 'valoreC' + nAddCaratterisica, 'caratterisicheItem', 'divMC' + nAddCaratterisica)

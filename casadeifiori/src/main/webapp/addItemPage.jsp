@@ -27,8 +27,9 @@
 					if(isAdmin){ %>
 		<%@ include file="creaTag.jsp"%>
 		<%@ include file="creaC.jsp"%>
+		<h1 class="HeaderInfoBox">Aggiungi item</h1>
 		<div class="insertItem">
-			<div class="formsAddItem">
+			<div class="formsAddItem contenerSuperiore">
 				<form method="post" action="AggiungiItem">
 					<label for="name">Nome:</label><br> <input id="name"
 						name="name" type="text" maxlength="50" required
@@ -37,14 +38,14 @@
 						for="description">Descrizione:</label><br>
 					<textarea id="editortesto" name="description"
 						placeholder="inserire descrizione"></textarea>
-					<br> <label for="tag">tag:</label><input type="button"
+					<br> <label for="tag">tag:</label><input class="infoDetailsItemButton" type="button"
 						value="Crea tag" class="float-right" data-toggle="modal"
 						data-target="#tagModal"><br> <input id="tag"
 						name="tag" type="text" data-role="tagsinput" placeholder="tag,..."
 						onchange="prewievTag('tag','tagItem')"> <label
-						for="caratterisiche">caratterisiche:</label> <input type="button"
+						for="caratterisiche">caratterisiche:</label> <input class="infoDetailsItemButton" type="button"
 						value="aggiungi" class="float-right" onclick="addCaratterisica()">
-					<input type="button" value="Crea" class="float-right"
+					<input class="infoDetailsItemButton" type="button" value="Crea" class="float-right"
 						data-toggle="modal" data-target="#caratterisicheModal"><br>
 					<section id="caratterisicheSection"></section>
 					<label for="price">Prezzo:</label><br> <input id="price"
@@ -64,7 +65,7 @@
 					</select><br> <label for="quantity">Quantità:</label><br> <input
 						id="quantity" name="quantity" type="number" min="1" value="1"
 						required onchange="addQuantita('quantity','quantityItem')"><br>
-					<input type="submit" value="Add"><input type="reset"
+					<input class="infoDetailsItemButton" type="submit" value="Procedi"><input class="infoDetailsItemButton" style="background-color: red;" type="reset"
 						value="Reset">
 				</form>
 			</div>
@@ -92,7 +93,7 @@
 								class="quantity" name="quantity" id="quantityItem">
 								<option value="1">1</option>
 							</select> <br>
-							<button>Aggiungi al carrello</button>
+							<button class="infoDetailsItemButton">Aggiungi al carrello</button>
 						</div>
 					</div>
 				</div>
@@ -106,6 +107,6 @@
 		</footer>
 	</div>
 
-	<script type="text/javascript"> initFileSelect(); tagAutoComplite();</script>
+	<script type="text/javascript"> loadCaratterisica("colore primario",""); initFileSelect(); tagAutoComplite();</script>
 </body>
 </html>
